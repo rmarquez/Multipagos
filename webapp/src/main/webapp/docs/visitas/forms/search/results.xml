@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Control de visitas</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(fecha, usrId)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de visitas">
+            <hrefPaginacion cadena="visitas.list?fecha=${fecha}&amp;usrId=${usrId}" 
+            pagina="${pagina}" 
+            registrosPorPagina="${cocoon.session.registrosPorPagina}" 
+            cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>fecha</th>
+                        <th>Supervisor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+
+                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <td align="right"><formatoFecha fecha="${status.current.fecha}" patron="dd/MMM/yyyy"/></td>
+                           <td>${status.current.usrIdRef.usrFullName}</td>
+                             <td>
+                               <link href="/multipagos/visitas/edit?visitaId=${status.current.visitaId}">Editar</link>
+                               <link href="borrar.list?visitaId=${status.current.visitaId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                               
+                             </td>
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+            </table>
+            <hrefPaginacion cadena="visitas.list?fecha=${fecha}&amp;usrId=${usrId}" 
+            pagina="${pagina}" 
+            registrosPorPagina="${cocoon.session.registrosPorPagina}" 
+            cantidadRegistros="${cantidadRegistros}"/>
+         </s1>
+    </body>
+</document>

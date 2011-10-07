@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+        <fd:output id="tasaFecha">
+            <fd:label>Fecha: </fd:label>
+            <fd:help>Muestra la fecha de la tasa de cambio.</fd:help>
+            <fd:hint>Fecha de la tasa de cambio.</fd:hint>
+            <fd:datatype base="date">
+                <fd:convertor type="formatting" variant="date">
+                    <fd:patterns>
+                        <fd:pattern>dd/MMM/yyyy</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+        </fd:output>
+
+        <fd:field id="tasaCambioMes" required="true">
+            <fd:label>Tasa: </fd:label>
+            <fd:help>Escriba la cantidad de córdobas por un dólar.</fd:help>
+            <fd:hint>Tasa de cambio</fd:hint>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.0000</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:validation>
+                <fd:assert test="tasaCambioMes&gt;0.0000">
+                    <fd:failmessage>
+                        <i18n:text>com.metropolitana.key.mayorquecero</i18n:text>
+                    </fd:failmessage>
+                </fd:assert>
+            </fd:validation>
+        </fd:field>
+        <fd:submit id="guardar">
+            <fd:label>Guardar Cambios</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

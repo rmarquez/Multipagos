@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="barrioNombre">
+            <fd:label>Barrio: </fd:label>
+            <fd:help>Escriba el nombre del barrio que sea buscar.</fd:help>
+            <fd:hint>Nombre del barrio</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="localidadId">
+            <fd:label>Localidad: </fd:label>
+            <fd:help>Elija la localidad del barrio</fd:help>
+            <fd:hint>Departamento</fd:hint>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/localidad.combo" dynamic="true"/>
+        </fd:field>
+        <fd:field id="filtrar">
+	      <fd:label>Mostrar:</fd:label>
+	      <fd:datatype base="integer"/>
+	      <fd:selection-list>
+	        <fd:item value="1">
+	        <fd:label>Activos</fd:label>
+	        </fd:item>
+	        <fd:item value="2">
+	        <fd:label>Inactivos</fd:label>
+	        </fd:item>
+	        <fd:item value="3">
+	          <fd:label>Todos</fd:label>
+	        </fd:item>	        
+	      </fd:selection-list>
+	    </fd:field>
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

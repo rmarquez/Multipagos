@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<document menu="true" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <header>
+        <title>Inicio</title>
+    </header>
+    <body>
+        <s1 title="Bienvenido">
+            <p>Bienvenido al <xi:include href="resources/datosapp.xml" xpointer="xpointer(/aplicacion/nombre)"/>.</p>
+            <p>Por favor elija una opción en el menú de arriba.</p>            
+        </s1>
+    </body>
+</document>

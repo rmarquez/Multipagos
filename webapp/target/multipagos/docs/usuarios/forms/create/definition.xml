@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
+         xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+        <fd:field id="usrLogin" required="true">
+            <fd:label>Usuario:</fd:label>
+            <fd:help>Escriba el nombre de acceso del usuario al sistema</fd:help>
+            <fd:hint>Nombre de acceso del usuario.</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="20"/>
+            </fd:validation>
+        </fd:field>
+
+        <fd:field id="usrFullName">
+            <fd:label>Nombre completo del usuario:</fd:label>
+            <fd:help>Escriba el nombre completo del usuario</fd:help>
+            <fd:hint>Nombre completo del usuario.</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+
+        <fd:field id="usrCargo" required="true">
+            <fd:label>Cargo:</fd:label>
+            <fd:help>Escriba el cargo del usuario.</fd:help>
+            <fd:hint>Cargo del usuario.</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+
+        <fd:field id="usrPassword">
+            <fd:label>Contraseña:</fd:label>
+            <fd:help>Escriba la contraseña del usuario.</fd:help>
+            <fd:hint>Contraseña</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="32"/>
+            </fd:validation>
+        </fd:field>
+
+        <!-- Este campo no se almacena en la base de datos solo
+             es con fines de verificar en el formulario
+        -->
+        <fd:field id="usrPasswordRepetir">
+            <fd:label>Repetir contraseña:</fd:label>
+            <fd:help>Escriba la contraseña del usuario.</fd:help>
+            <fd:hint>Repetir contraseña</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="32"/>
+                <fd:assert test="usrPassword = usrPasswordRepetir">
+                    <fd:failmessage>
+                        <i18n:text>edu.inatec.key.dospasswordnoigual</i18n:text>
+                    </fd:failmessage>
+                </fd:assert>
+            </fd:validation>
+        </fd:field>
+
+        <fd:booleanfield id="usrEnable">
+            <fd:label>Habilitado:</fd:label>
+            <fd:help>Indique si el usuario esta habilitado o no</fd:help>
+            <fd:hint>Habilitar/Deshabilitar usuario.</fd:hint>
+        </fd:booleanfield>
+
+        <fd:booleanfield id="usrNotificarOfertas">
+            <fd:label>Notificar Ofertas:</fd:label>
+            <fd:help>Indique si el usuario recibirá notificaciones de las ofertas de cursos creadas</fd:help>
+            <fd:hint>False/True</fd:hint>
+        </fd:booleanfield>
+
+		<fd:field id="usrEmail">
+            <fd:label>Correo electrónico:</fd:label>
+            <fd:help>Escriba la dirección de correo electrónico del usuario</fd:help>
+            <fd:hint>Dirección de correo electrónico.</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="80"/>
+                <fd:email/>
+            </fd:validation>
+        </fd:field>
+
+  <!--*************************************************************************************************-->
+        <fd:repeater id="roles" initial-size="1">
+         <fd:widgets>
+          <fd:field id="rolId" required="true">
+                    <fd:label>Rol</fd:label>
+                    <fd:help>Elija el rol que quiere asignar al usuario.
+                                Mediante los roles definimos el acceso del usuario
+                                a las opciones del sistema.</fd:help>
+                    <fd:hint>Rol de usuario.</fd:hint>
+                    <fd:datatype base="integer"/>
+                    <fd:validation>
+                        <fd:range min="1">
+                            <fd:failmessage>
+                                <i18n:text>edu.inatec.key.elejirdelista</i18n:text>
+                            </fd:failmessage>
+                        </fd:range>
+                    </fd:validation>
+                    <fd:selection-list src="cocoon:/auth_role.combo" dynamic="true"/>
+                    <!--<fd:double-listbox src="cocoon:/auth_role.combo" dynamic="true"/>-->
+                </fd:field>
+                <!-- Este campo no se almacena en la base de datos
+                     es solo para fines del manejo en el formulario
+                     por ejemplo elejir los impuestos que se van
+                     a eliminar
+                -->
+                <fd:booleanfield id="marcar">
+                    <fd:label>Seleccionar</fd:label>
+                    <fd:hint>Selecciona el registro.</fd:hint>
+                    <fd:help>Los registros seleccionados serán eliminados del formulario cuando se haga
+                            click en el botón <b>Eliminar</b>.</fd:help>
+                </fd:booleanfield>
+            </fd:widgets>
+
+        </fd:repeater>
+<!--*****************************************************************************************************-->
+        <fd:repeater-action id="agregarrol" command="add-row" repeater="roles">
+            <fd:label>Agregar</fd:label>
+            <fd:hint>Pulse el botón para agregar un registro.</fd:hint>
+        </fd:repeater-action>
+
+        <fd:repeater-action id="eliminarrol" command="delete-rows" repeater="roles" select="marcar">
+            <fd:label>Eliminar</fd:label>
+            <fd:hint>Pulse el botón para eliminar los registros seleccionados.</fd:hint>
+        </fd:repeater-action>
+
+        <fd:submit id="crear">
+          <fd:label>Crear</fd:label>
+          <fd:help>Crear</fd:help>
+          <fd:hint>Crear</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

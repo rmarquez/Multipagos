@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <!--<title>Roles de usuario</title>-->
+        <title>Roles</title>
+    </header>
+    <body>
+        <s1 title="Buscar rol de Usuario">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Criterios de búsqueda de roles</fi:label>
+                    <fi:items>
+                        <ft:widget id="criteria"/>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="buscar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

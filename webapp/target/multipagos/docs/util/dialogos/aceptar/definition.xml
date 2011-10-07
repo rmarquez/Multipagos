@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+        <fd:submit id="aceptar" validate="false">
+            <fd:label>         <i18n:text>Aceptar</i18n:text>         </fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

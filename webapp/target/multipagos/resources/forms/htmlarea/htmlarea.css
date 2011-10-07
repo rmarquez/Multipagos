@@ -1,0 +1,4 @@
+/* Este fichero intencionalmente no contiene instrucciones css.
+  * Su objetivo es evitar que se cargue el archivo htmlarea.css
+  * que está dentro de cocoon para evitar errores css.
+  */

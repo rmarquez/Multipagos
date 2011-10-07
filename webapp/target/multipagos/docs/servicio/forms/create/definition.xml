@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="servicioNombre" required="true">
+            <fd:label>Servicio: </fd:label>
+            <fd:help>Escriba el servicio correspondiente.</fd:help>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:booleanfield id="inactivo"></fd:booleanfield>        
+        <fd:submit id="crear">
+            <fd:label>Crear</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

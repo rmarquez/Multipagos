@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="primerNombre">
+            <fd:label>Primer Nombre: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="primerApellido">
+            <fd:label>Primer Apellido: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="cedula">
+            <fd:label>Cedula: </fd:label>
+            <fd:help>Formato XXX-XXXXXX-XXXXX</fd:help>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="20"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="filtrar">
+	      <fd:label>Mostrar:</fd:label>
+	      <fd:datatype base="integer"/>
+	      <fd:selection-list>
+	        <fd:item value="1">
+	        <fd:label>Activos</fd:label>
+	        </fd:item>
+	        <fd:item value="2">
+	        <fd:label>Inactivos</fd:label>
+	        </fd:item>
+	        <fd:item value="3">
+	          <fd:label>Todos</fd:label>
+	        </fd:item>	        
+	      </fd:selection-list>
+	    </fd:field>
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

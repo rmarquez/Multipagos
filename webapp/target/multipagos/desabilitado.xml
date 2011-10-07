@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<document menu="true" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <header>
+        <title>Recurso Desabilitado</title>
+    </header>
+    <body>
+        <s1 title="Recurso Desabilitado">
+            <p>Este recurso se encuentra desabilitado temporalmente.</p>
+        </s1>
+    </body>
+</document>

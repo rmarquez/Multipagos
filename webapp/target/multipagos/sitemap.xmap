@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+<map:components>
+    <!-- GENERATORS -->
+    <map:generators default="file">
+        <map:generator label="content" logger="sitemap.generator.file" name="file" pool-max="${file-generator.pool-max}" src="org.apache.cocoon.generation.FileGenerator"/>
+        <map:generator label="content" logger="sitemap.generator.jx" name="jx" pool-max="${jx-generator.pool-max}" src="org.apache.cocoon.generation.JXTemplateGenerator"/>
+        <map:generator label="content" logger="sitemap.generator.status" name="status" pool-max="${status-generator.pool-max}" src="org.apache.cocoon.generation.StatusGenerator"/>
+        <map:generator name="suggestion-list" src="org.apache.cocoon.forms.generation.SuggestionListGenerator"/>
+        <!-- The notifying generator can only be used in a <handle-errors> section -->
+        <map:generator name="notifying" src="org.apache.cocoon.sitemap.NotifyingGenerator"/>
+    </map:generators>
+
+    <!-- TRANSFORMERS -->
+    <map:transformers default="xslt">
+        <!-- NOTE: This is the default XSLT processor. -->
+        <map:transformer logger="sitemap.transformer.xslt" name="xslt" pool-max="${xslt-transformer.pool-max}" src="org.apache.cocoon.transformation.TraxTransformer">
+            <use-request-parameters>false</use-request-parameters>
+            <use-session-parameters>false</use-session-parameters>
+            <use-cookie-parameters>false</use-cookie-parameters>
+            <xslt-processor-role>xsltc</xslt-processor-role>
+            <check-includes>true</check-includes>
+        </map:transformer>
+        <map:transformer logger="sitemap.transformer.xalan" name="xalan" pool-max="${xalan-transformer.pool-max}" src="org.apache.cocoon.transformation.TraxTransformer">
+          <use-request-parameters>false</use-request-parameters>
+          <use-session-parameters>false</use-session-parameters>
+          <use-cookie-parameters>false</use-cookie-parameters>
+          <xslt-processor-role>xalan</xslt-processor-role>
+          <check-includes>true</check-includes>
+        </map:transformer>
+        <map:transformer name="i18n" logger="sitemap.transformer.i18n" pool-max="32" src="org.apache.cocoon.transformation.I18nTransformer">
+            <catalogues default="forms">
+                <catalogue id="forms" name="FormsMessages" location="context://translations"/>
+                <catalogue id="mensajes" name="mensajes" location="context://translations"/>
+            </catalogues>
+            <cache-at-startup>false</cache-at-startup>
+        </map:transformer>
+        <map:transformer name="encodeURL" logger="sitemap.transformer.encodeURL" pool-max="32" src="org.apache.cocoon.transformation.EncodeURLTransformer">
+<!--             <include-name>.*/@href|.*/@action|frame/@src</include-name>-->
+        </map:transformer>
+        <map:transformer logger="forms" name="forms" src="org.apache.cocoon.forms.transformation.FormsTemplateTransformer" pool-max="32"/>
+        <map:transformer name="browser-update" logger="forms" src="org.apache.cocoon.ajax.BrowserUpdateTransformer" pool-max="32"/>
+        <map:transformer logger="sitemap.transformer.xinclude" name="xinclude" pool-max="32" src="org.apache.cocoon.transformation.XIncludeTransformer"/>
+        <!-- <map:transformer logger="sitemap.transformer.log" name="log" pool-grow="1" pool-max="2" pool-min="1" src="org.apache.cocoon.transformation.LogTransformer"/> -->
+		<map:transformer name="sendmail" src="org.apache.cocoon.mail.transformation.SendMailTransformer">
+			<!--<smtphost>mail.inatec.edu.ni</smtphost>
+			<from>sfc@inatec.edu.ni</from>-->
+		</map:transformer>
+    </map:transformers>
+    <!-- SERIALIZERS -->
+    <map:serializers default="html">
+        <map:serializer logger="sitemap.serializer.html" mime-type="text/html" name="html" pool-max="32" src="org.apache.cocoon.serialization.HTMLSerializer">
+            <doctype-public>-//W3C//DTD HTML 4.01 Transitional//EN</doctype-public>
+            <doctype-system>http://www.w3.org/TR/html4/loose.dtd</doctype-system>
+            <encoding>ISO-8859-1</encoding>
+            <buffer-size>1024</buffer-size>
+            <omit-xml-declaration>true</omit-xml-declaration>
+        </map:serializer>
+
+         <map:serializer mime-type="application/msword" name="fo2rtf" src="org.apache.cocoon.serialization.FOPSerializer"/>
+         <map:serializer mime-type="application/pdf" name="fo2pdf" pool-max="20" src="org.apache.cocoon.serialization.FOPSerializer"/>
+         <map:serializer mime-type="application/postscript" name="fo2ps" src="org.apache.cocoon.serialization.FOPSerializer"/>
+         <map:serializer logger="sitemap.serializer.svgxml" mime-type="image/svg+xml" name="svgxml" src="org.apache.cocoon.serialization.XMLSerializer">
+            <doctype-public>-//W3C//DTD SVG 1.0//EN</doctype-public>
+            <doctype-system>http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd</doctype-system>
+        </map:serializer>
+        <map:serializer logger="sitemap.serializer.xml" mime-type="text/xml" name="xml" src="org.apache.cocoon.serialization.XMLSerializer"/>
+        <map:serializer logger="sitemap.serializer.text" mime-type="text/plain" name="text" src="org.apache.cocoon.serialization.TextSerializer"/>
+        <map:serializer logger="sitemap.serializer.xls" mime-type="application/vnd.ms-excel" name="xls" src="org.apache.cocoon.serialization.HSSFSerializer" pool-grow="4" pool-max="20" pool-min="4" />
+        <map:serializer logger="sitemap.serializer.sxw"  mime-type="application/vnd.sun.xml.writer" name="sxw" src="org.apache.cocoon.serialization.ZipArchiveSerializer"/>
+        <map:serializer logger="sitemap.serializer.json" mime-type="text/javascript" name="json" src="org.apache.cocoon.serialization.TextSerializer">
+          <encoding>UTF-8</encoding><!-- JSON responses are expected to be in UTF-8 -->
+        </map:serializer>
+
+        <!-- For views (testing only)-->
+        <map:serializer logger="sitemap.serializer.links" name="links" src="org.apache.cocoon.serialization.LinkSerializer"/>
+    </map:serializers>
+
+    <!-- READERS -->
+    <map:readers default="resource">
+        <map:reader logger="sitemap.reader.resource" name="resource" pool-max="40" src="org.apache.cocoon.reading.ResourceReader"/>
+    </map:readers>
+
+    <!-- MATCHERS -->
+    <map:matchers default="wildcard">
+        <map:matcher logger="sitemap.matcher.wildcard" name="wildcard" src="org.apache.cocoon.matching.WildcardURIMatcher"/>
+    </map:matchers>
+
+    <!-- SELECTORS -->
+    <map:selectors default="browser">
+        <map:selector logger="sitemap.selector.browser" name="browser" src="org.apache.cocoon.selection.BrowserSelector">
+            <!--+
+            | NOTE: The appearance indicates the search order. This is very important since
+            |       some words may be found in more than one browser description. (MSIE is
+            |       presented as "Mozilla/4.0 (Compatible; MSIE 4.01; ...")
+            +-->
+            <browser name="explorer" useragent="MSIE"/>
+            <browser name="pocketexplorer" useragent="MSPIE"/>
+            <browser name="handweb" useragent="HandHTTP"/>
+            <browser name="avantgo" useragent="AvantGo"/>
+            <browser name="imode" useragent="DoCoMo"/>
+            <browser name="opera" useragent="Opera"/>
+            <browser name="lynx" useragent="Lynx"/>
+            <browser name="java" useragent="Java"/>
+            <browser name="wap" useragent="Nokia"/>
+            <browser name="wap" useragent="UP"/>
+            <browser name="wap" useragent="Wapalizer"/>
+            <browser name="mozilla5" useragent="Mozilla/5"/>
+            <browser name="mozilla5" useragent="Netscape6/"/>
+            <browser name="netscape" useragent="Mozilla"/>
+        </map:selector>
+        <map:selector logger="sitemap.selector.request-parameter" name="request-parameter" src="org.apache.cocoon.selection.RequestParameterSelector"/>
+        <map:selector logger="sitemap.selector.resource-exists" name="resource-exists" src="org.apache.cocoon.selection.ResourceExistsSelector"/>
+        <map:selector name="ajax-request" logger="sitemap.selector.ajax-request" src="org.apache.cocoon.ajax.AjaxRequestSelector"/>
+<!--        <map:selector logger="sitemap.selector.request-method" name="request-method" src="org.apache.cocoon.selection.RequestMethodSelector"/>-->
+            <!--+
+              | Define now which request parameter to use; or do it later,
+              | when using this selector, via "parameter-name" parameter.
+          <parameter-name>myparam</parameter-name>
+              +-->
+          <!--</map:selector>-->
+        <!--+
+        | Exception selector : used in <map:handle-errors> to build different pipelines
+        | depending on the error that occured.
+        | The configuration allows to associate a symbolic name to exception classes
+        | which is used in the <map:when> tests.
+        | An exception can also be "unrolled", meaning that cascaded exception will be checked.
+        +-->
+        <map:selector logger="sitemap.selector.exception" name="exception" src="org.apache.cocoon.selection.ExceptionSelector">
+            <exception class="org.apache.cocoon.ResourceNotFoundException" name="not-found"/>
+            <exception class="org.apache.cocoon.components.flow.InvalidContinuationException" name="invalid-continuation"/>
+            <!-- The statement below tells the selector to unroll as much exceptions as possible -->
+            <exception class="java.lang.Throwable" unroll="true"/>
+        </map:selector>
+    </map:selectors>
+
+    <!-- PIPES -->
+    <map:pipes default="noncaching">
+        <map:pipe name="caching" src="org.apache.cocoon.components.pipeline.impl.CachingProcessingPipeline"/>
+        <map:pipe name="caching-point" src="org.apache.cocoon.components.pipeline.impl.CachingPointProcessingPipeline">
+           <parameter name="autoCachingPoint" value="On"/>
+        </map:pipe>
+        <map:pipe name="noncaching" src="org.apache.cocoon.components.pipeline.impl.NonCachingProcessingPipeline"/>
+    </map:pipes>
+</map:components>
+
+<!-- RESOURCES -->
+<map:resources>
+    <map:resource name="normal">
+        <map:transform label="content" type="i18n">
+            <map:parameter name="default-catalogue-id" value="mensajes"/>
+        </map:transform>
+        <map:transform src="stylesheets/multipagos.xslt"/>
+        <map:transform type="xinclude"/>
+        <map:transform type="encodeURL"/>
+        <map:transform type="xalan" src="context://stylesheets/forms/forms-samples-styling.xsl"/>
+    </map:resource>
+</map:resources>
+
+<!-- FLOW  -->
+<map:flow language="javascript">
+    <map:script src="resource://org/apache/cocoon/forms/flow/javascript/Form.js"/>
+    <map:script src="resources/flow/auth.js"/>
+    <map:script src="resources/autenticacion/flow.js"/>
+    <map:script src="resources/flow/autentificar.js"/>
+</map:flow>
+
+<!-- PIPELINES -->
+<map:pipelines>
+    <map:component-configurations>
+        <authentication-manager>
+            <handlers>
+                <handler name="authhandler">
+                    <redirect-to uri="cocoon://entrada"/> <!-- Se llama si el usuario no ha sido autenticado -->
+                    <authentication uri="cocoon:raw://autentificar"/> <!-- Verifica datos del usuario -->
+                </handler>
+            </handlers>
+        </authentication-manager>
+    </map:component-configurations>
+
+    <!-- Internal pipeline -->
+    <map:pipeline internal-only="true">
+    <!-- <map:parameter name="expires" value="access plus 1 hours"/> -->
+        <!-- Este es el recurso de autentificación -->
+        <map:match pattern="autentificar">
+            <map:call function="autentificar"/>
+        </map:match>
+        <!-- Filtro de la lista de autentificación -->
+        <map:match pattern="usuarios">
+            <map:generate src="listausuarios.xml" type="jx"/>
+            <map:transform src="stylesheets/multipagosusers.xslt">
+                <map:parameter name="use-request-parameters" value="true"/>
+            </map:transform>
+            <map:serialize type="xml"/>
+        </map:match>
+
+        <map:match pattern="bienvenidos-vista">
+            <map:generate src="bienvenido.xml"/>
+            <map:call resource="normal"/>
+            <map:serialize/>
+        </map:match>
+
+        <map:match pattern="noautorizado-vista">
+            <map:generate src="noautorizado.xml"/>
+            <map:call resource="normal"/>
+            <map:serialize/>
+        </map:match>
+
+        <map:match pattern="desabilitado-vista">
+            <map:generate src="desabilitado.xml"/>
+            <map:call resource="normal"/>
+            <map:serialize/>
+        </map:match>
+
+        <map:match pattern="not-found-vista">
+            <map:generate src="not-found.xml"/>
+            <map:call resource="normal"/>
+            <map:serialize/>
+        </map:match>
+
+        <map:match pattern="entrada-form">
+            <map:call function="handleForm">
+                <map:parameter name="function" value="entradaform"/>
+                <map:parameter name="definitionURI" value="resources/autenticacion/definition.xml"/>
+                <map:parameter name="protected-redirect" value="{request-param:resource}"/>
+            </map:call>
+        </map:match>
+
+        <map:match pattern="display-menu">
+        	<map:call function="display_menu"/>
+        </map:match>
+
+        <map:match pattern="menu-vista">
+                <map:generate type="jx" src="context://resources/menu.xml"/>
+                <map:serialize type="html"/>
+            </map:match>
+
+        <map:match pattern="entrada-vista">
+            <map:generate src="resources/autenticacion/template.xml"/>
+            <map:transform type="forms"/>
+            <map:transform type="i18n"/>
+            <map:transform src="context://stylesheets/multipagos.xslt"/>
+            <map:transform type="xinclude"/>
+            <map:transform type="i18n"/>
+            <map:transform type="xalan" src="context://stylesheets/forms/forms-samples-styling.xsl"/>
+            <map:transform type="encodeURL"/>
+            <map:serialize/>
+        </map:match>
+        <!-- HANDLE ERRORS -->
+        <map:handle-errors>
+            <map:select type="exception">
+                <map:when test="not-found">
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                        <map:parameter name="pageTitle" value="Resource not found"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:when test="invalid-continuation">
+                    <map:generate src="not-found.xml"/>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:otherwise>
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="500"/>
+                </map:otherwise>
+            </map:select>
+        </map:handle-errors>
+    </map:pipeline>
+
+    <!-- main pipeline -->
+    <map:pipeline>
+        <!-- <map:parameter name="expires" value="access plus 1 hours"/> -->
+        <!-- Redirigir a la página de inicio del sistema -->
+
+        <map:match pattern="">
+            <map:redirect-to uri="bienvenidos" session="true"/>
+        </map:match>
+
+        <!-- Página de inicio del sistema -->
+        <map:match pattern="bienvenidos">
+            <map:call function="protect">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="protected-internal" value="bienvenidos-vista"/>
+                <map:parameter name="failure-redirect" value="entrada?resource=bienvenidos"/>
+            </map:call>
+        </map:match>
+
+        <map:match pattern="noautorizado">
+            <map:call function="protect">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="protected-internal" value="noautorizado-vista"/>
+                <map:parameter name="failure-redirect" value="entrada?resource=noautorizado"/>
+            </map:call>
+        </map:match>
+
+        <map:match pattern="desabilitado">
+            <map:call function="protect">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="protected-internal" value="desabilitado-vista"/>
+                <map:parameter name="failure-redirect" value="entrada?resource=desabilitado"/>
+            </map:call>
+        </map:match>
+
+        <map:match pattern="not-found">
+            <map:call function="protect">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="protected-internal" value="not-found-vista"/>
+                <map:parameter name="failure-redirect" value="entrada?resource=not-found"/>
+            </map:call>
+        </map:match>
+
+        <!-- Página de login sencillo -->
+        <map:match pattern="entrada">
+            <map:call function="isLoggedIn">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="protected-redirect" value="{request-param:resource}"/>
+                <map:parameter name="failure-internal" value="entrada-form"/>
+            </map:call>
+        </map:match>
+
+        <!-- Destino del formulario que ejecuta el servicio de autentificación -->
+        <map:match pattern="do-login">
+            <!-- intento de inicio de sesion -->
+            <map:call function="login">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="parameter_name" value="{request-param:username}"/>
+                <map:parameter name="parameter_password" value="{request-param:passwd}"/>
+                <map:parameter name="protected-redirect" value="{request-param:resource}"/>
+                <map:parameter name="failure-redirect" value="entrada?resource={request-param:resource}"/>
+            </map:call>
+        </map:match>
+
+        <!-- Página acerca del Sistema -->
+        <map:match pattern="acerca.html">
+            <map:generate type="status"/>
+            <map:transform src="stylesheets/system/status2document.xslt"/>
+            <map:call resource="normal"/>
+            <map:serialize/>
+        </map:match>
+
+        <map:match pattern="salir">
+            <map:call function="logout">
+                <map:parameter name="handler" value="authhandler"/>
+                <map:parameter name="failure-redirect" value="entrada"/>
+            </map:call>
+        </map:match>
+
+        <!-- Manejo de las continuaciones -->
+        <map:match pattern="*.continue">
+            <map:call continuation="{1}"/>
+        </map:match>
+
+        <!-- HANDLE ERRORS -->
+        <map:handle-errors>
+            <map:select type="exception">
+                <map:when test="not-found">
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                        <map:parameter name="pageTitle" value="Resource not found"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:when test="invalid-continuation">
+                    <map:generate src="not-found.xml"/>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:otherwise>
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="500"/>
+                </map:otherwise>
+            </map:select>
+        </map:handle-errors>
+    </map:pipeline>
+
+    <map:pipeline>
+        <!--<map:parameter name="expires" value="access plus 12 hours"/>-->
+
+        <map:match pattern="resources/*/**">
+          <map:select type="resource-exists">
+            <map:when test="{0}">
+              <map:read src="{0}"/>
+            </map:when>
+            <map:otherwise>
+              <map:read src="resource://org/apache/cocoon/{1}/resources/{2}"/>
+            </map:otherwise>
+          </map:select>
+        </map:match>
+        <!-- Generic pipeline to load resources from cocoon jars -->
+        <map:match pattern="*/resources/*/**">
+          <map:select type="resource-exists">
+            <map:when test="resources/{2}/{3}">
+              <map:read src="resources/{2}/{3}"/>
+            </map:when>
+            <map:otherwise>
+              <map:read src="resource://org/apache/cocoon/{2}/resources/{3}"/>
+            </map:otherwise>
+          </map:select>
+        </map:match>
+        <!-- Here we match all the images: GIF, JPG or PNG -->
+        <map:match pattern="images/**.*">
+            <map:read src="context://resources/images/{1}.{2}"/>
+        </map:match>
+        <!-- read our *.css -->
+        <map:match pattern="styles/**">
+            <map:read src="context://resources/styles/{1}"/>
+        </map:match>
+        <!-- read our *.js -->
+        <map:match pattern="scripts/**">
+            <map:read src="context://resources/scripts/{1}"/>
+        </map:match>
+
+        <!-- Icono de la aplicación -->
+        <map:match pattern="favicon.ico">
+            <map:read src="context://resources/images/favicon.ico"/>
+        </map:match>
+    </map:pipeline>
+
+    <map:pipeline>
+        <!-- Redirect to the user directory if the ending slash is missing -->
+        <map:match pattern="~*">
+            <map:redirect-to uri="{0}/"/>
+        </map:match>
+
+        <!-- Mount everything else by calling the sitemap.xmap file located in the requested folder. -->
+        <map:match pattern="*/**">
+            <map:mount check-reload="yes" src="docs/{1}/" uri-prefix="{1}"/>
+        </map:match>
+
+        <!-- HANDLE ERRORS -->
+        <map:handle-errors>
+            <map:select type="exception">
+                <map:when test="not-found">
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                        <map:parameter name="pageTitle" value="Resource not found"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:when test="invalid-continuation">
+                    <map:generate src="not-found.xml"/>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="404"/>
+                </map:when>
+                <map:otherwise>
+                    <map:generate type="notifying"/>
+                    <map:transform src="stylesheets/system/error2document.xslt">
+                        <map:parameter name="contextPath" value="{request:contextPath}"/>
+                    </map:transform>
+                    <map:call resource="normal"/>
+                    <map:serialize status-code="500"/>
+                </map:otherwise>
+            </map:select>
+        </map:handle-errors>
+    </map:pipeline>
+</map:pipelines>
+</map:sitemap>

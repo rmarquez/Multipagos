@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+		<fd:field id="fechaini">
+			<fd:label>Fecha :</fd:label>
+            <fd:hint>Escriba la fecha de búsqueda</fd:hint>
+            <fd:help>Escriba la fecha de búsqueda</fd:help>
+			<fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>01/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>
+		</fd:field>
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

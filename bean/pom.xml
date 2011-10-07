@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.metropolitana.multipagos</groupId>
+  <artifactId>bean</artifactId>
+  <description>Java Beans de multipagos.</description>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>multipagos Beans</name>
+  <parent>
+    <groupId>com.metropolitana.multipagos</groupId>
+    <artifactId>multipagos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <build>
+    <finalName>multipagos-${artifactId}-${version}</finalName>
+    <plugins>
+
+     <!-- Druid: DB Docs for site -->
+     <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-antrun-plugin</artifactId>
+       <executions>
+        <!-- Generar beans con druid -->
+        <execution>
+          <phase>generate-sources</phase>
+          <goals>
+             <goal>run</goal>
+          </goals>
+          <configuration>
+           <tasks>
+           	<taskdef name="druid" classpath="${user.home}/bin/Druid/libs/ant-task.jar" classname="druid.AntTask" />
+            <mkdir dir="/tmp/multipagos/sql"/>
+            <mkdir dir="/tmp/multipagos/bean/java"/>
+            <echo>Druid: Generating Java beans Please wait...</echo>
+            <druid command = "-gen:code,sql -db:0 -proj:${basedir}/src/druid/multipagos.druid"/>
+            <echo>Druid: Done.</echo>
+<!--             <copy todir="${project.build.directory}/site/dbdocs">
+              <fileset dir="/tmp/gator/docs"/>
+            </copy>-->
+           </tasks>
+          </configuration>
+         </execution>
+         <execution>
+           <id>site</id>
+           <phase>site</phase>
+           <goals>
+             <goal>run</goal>
+           </goals>
+           <configuration>
+             <tasks>
+               <taskdef name="druid" classpath="${user.home}/bin/Druid/libs/ant-task.jar" classname="druid.AntTask"/>
+               <mkdir dir="/tmp/multipagos/docs"/>
+               <echo>Druid: Generating DB XHTML docs, please wait...</echo>
+               <druid command="-gen:docs -db:0 -proj:${basedir}/src/druid/multipagos.druid"/>
+               <echo>Druid: Done.</echo>
+               <copy todir="${project.build.directory}/site/dbdocs">
+                 <fileset dir="/tmp/multipagos/docs"/>
+               </copy>
+             </tasks>
+           </configuration>
+         </execution>
+         <!-- Druid: Clean -->
+         <execution>
+           <id>clean</id>
+           <phase>clean</phase>
+           <goals>
+             <goal>run</goal>
+           </goals>
+           <configuration>
+             <tasks>
+               <echo>Druid: Clean.</echo>
+               <echo>Basedir=${basedir}</echo>
+               <delete dir="/tmp/multipagos" />
+             </tasks>
+           </configuration>
+         </execution>
+       </executions>
+       <dependencies>
+         <dependency>
+          <groupId>com.sun</groupId>
+          <artifactId>tools</artifactId>
+          <scope>system</scope>
+          <version>1.5</version>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
+         </dependency>
+        </dependencies>
+     </plugin>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <mode>development</mode>
+              <url>${pom.url}</url>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <links>
+            <link>http://java.sun.com/javase/6/docs/api/</link>
+          </links>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jxr-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <targetjdk>1.6</targetjdk>
+          <rulesets>
+            <ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/controversial.xml</ruleset>
+          </rulesets>
+          <format>xml</format>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>surefire-report-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>changes-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <id>allReports</id>
+            <configuration>
+              <inherited>false</inherited>
+              <link_template>%URL%/show_bug.cgi?id=%ISSUE%</link_template>
+              <type>range</type>
+              <range>30</range>
+            </configuration>
+            <reports>
+              <report>changes-report</report>
+              <report>changelog</report>
+              <report>dev-activity</report>
+              <report>file-activity</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <configuration>
+          <multipleLineComments>true</multipleLineComments>
+          <tags>
+            <tag>TODO</tag>
+            <tag>@TODO</tag>
+            <tag>@todo</tag>
+            <tag>FIXME</tag>
+            <tag>@deprecated</tag>
+          </tags>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

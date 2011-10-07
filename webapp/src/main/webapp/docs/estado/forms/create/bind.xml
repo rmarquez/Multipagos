@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="estadoNombre" path="estadoNombre"/>
+    <fb:value id="inactivo" path="inactivo"/>
+</fb:context>

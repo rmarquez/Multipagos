@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<document menu="true">
+    <header>
+        <title>Error</title>
+    </header>
+    <body>
+        <s1 title="Bienvenidos al Sistema de Formación Continua">
+            <p>Lo sentimos, no se puede encontrar el recurso solicitado.</p>
+        </s1>
+    </body>
+</document>

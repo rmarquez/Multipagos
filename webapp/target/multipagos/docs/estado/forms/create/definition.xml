@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="estadoNombre" required="true">
+            <fd:label>Estado Corte: </fd:label>
+            <fd:help>Escriba el estado en que se encuentra el corte del servicio.</fd:help>
+            <fd:hint>Nombre del estado</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:booleanfield id="inactivo"></fd:booleanfield>
+        <fd:submit id="crear">
+            <fd:label>Crear</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

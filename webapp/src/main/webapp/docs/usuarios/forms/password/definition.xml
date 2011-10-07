@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:validation>
+        <fd:javascript>
+            return passwordValidarFormulario(widget);
+        </fd:javascript>
+    </fd:validation>
+
+    <fd:widgets>
+        <fd:field id="usrId" required="true">
+            <fd:label>Usuario:</fd:label>
+            <fd:help>Login</fd:help>
+            <fd:hint>Login</fd:hint>
+            <fd:datatype base="integer"/>
+        </fd:field>
+
+        <fd:field id="usrPasswordActual">
+            <fd:label>Contraseña actual:</fd:label>
+            <fd:help>Escriba la contraseña del usuario.</fd:help>
+            <fd:hint>Contraseña</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="32"/>
+            </fd:validation>
+        </fd:field>
+
+        <fd:field id="usrPasswordNew" required="true">
+            <fd:label>Nueva Contraseña:</fd:label>
+            <fd:help>Escriba la nueva contraseña del usuario.</fd:help>
+            <fd:hint>Contraseña</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="32"/>
+            </fd:validation>
+        </fd:field>
+
+        <!-- Este campo no se almacena en la base de datos solo
+             es con fines de verificar en el formulario
+        -->
+        <fd:field id="usrPasswordRepetir" required="true">
+            <fd:label>Repetir contraseña:</fd:label>
+            <fd:help>Escriba la contraseña del usuario.</fd:help>
+            <fd:hint>Repetir contraseña</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="6" max="20"/>
+            </fd:validation>
+        </fd:field>
+        <fd:submit id="guardar">
+          <fd:label>Guardar Cambios</fd:label>
+          <fd:help>Guardar Cambios</fd:help>
+          <fd:hint>Guardar Cambios</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

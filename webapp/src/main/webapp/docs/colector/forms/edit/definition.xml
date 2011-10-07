@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="colectorNumero" required="true">
+            <fd:label>Identificador: </fd:label>
+            <fd:help>Escriba el numero que identificara al colector.</fd:help>
+            <fd:datatype base="integer"/>            
+        </fd:field>
+        <fd:field id="primerNombre" required="true">
+            <fd:label>Primer Nombre: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="segundoNombre">
+            <fd:label>Segundo Nombre: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="primerApellido" required="true">
+            <fd:label>Primer Apellido: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="segundoApellido">
+            <fd:label>Segundo Apellido: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="24"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="cedula" required="true">
+            <fd:label>Cedula: </fd:label>
+            <fd:help>Formato XXX-XXXXXX-XXXXX</fd:help>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="20"/>
+            </fd:validation>
+        </fd:field>
+        <fd:booleanfield id="inactivo">
+        	<fd:label>Inactivo</fd:label>
+			<fd:help>Se utilizará para <b>desactivar</b> el colector.</fd:help>
+        </fd:booleanfield>
+        <fd:submit id="guardar">
+            <fd:label>Guardar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

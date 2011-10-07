@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+            xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+            xmlns:jx="http://apache.org/cocoon/templates/jx/1.0"
+          menu="true">
+    <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+
+    <header>
+        <title>Usuarios</title>
+    </header>
+    <body>
+        <s1 title="Cambiar contraseña">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Cambiar contraseña de usuarios</fi:label>
+                    <fi:items>
+                        <ft:widget id="usrId"/>
+                        <ft:widget id="usrPasswordActual">
+                            <fi:styling type="password"/>
+                        </ft:widget>
+                        <ft:widget id="usrPasswordNew">
+                            <fi:styling type="password"/>
+                        </ft:widget>
+                        <ft:widget id="usrPasswordRepetir">
+                            <fi:styling type="password"/>
+                        </ft:widget>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="guardar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

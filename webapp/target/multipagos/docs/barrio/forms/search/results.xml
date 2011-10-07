@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Localidad</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(barrioNombre, localidadId, filtrar)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de localidades">
+            <hrefPaginacion cadena="barrio.list?barrioNombre=${barrioNombre}&amp;localidadId=${localidadId}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Barrio</th>
+                        <th>Localidad</th>
+                        <th>Inactivo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+
+                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <td>${status.current.barrioNombre}</td>
+                           <td>${status.current.localidadIdRef.localidadNombre}</td>
+                           <td>${status.current.inactivo}</td>
+                             <td>
+                               <link href="/multipagos/barrio/edit?barrioId=${status.current.barrioId}">Editar</link>                               
+                             </td>
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+            </table>
+            <hrefPaginacion cadena="barrio.list?barrioNombre=${barrioNombre}&amp;localidadId=${localidadId}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+         </s1>
+    </body>
+</document>

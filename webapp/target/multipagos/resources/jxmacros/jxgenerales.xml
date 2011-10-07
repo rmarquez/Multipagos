@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jx:template xmlns:jx="http://apache.org/cocoon/templates/jx/1.0"
+                xmlns:fi="http://apache.org/cocoon/forms/1.0#instance">
+    <!--
+         Esta macro es específica para la contabilidad, se usa para imprimir
+         espacios en blanco al inicio de los nombres de las cuentas contables
+         para que se presente la lista de cuentas contables con cierta
+         estructura de cuenta padre y cuenta hija.
+
+         El parámetro mapa tiene que se un HashMap o alguna Implementación de
+         él.
+
+         La cantidad de espacios antes del nombre de la cuenta es igual a la
+         cantidad de caracteres que tenga el número de la cuenta padre.
+     -->
+    <jx:macro name="sangriaCuenta">
+        <jx:parameter name="mapa"/>
+        <jx:parameter name="cc_numero"/>
+        <jx:parameter name="tipocc_id"/>
+        <jx:parameter name="cc_id_padre"/>
+        <jx:parameter name="cc_id"/>
+
+        <!-- Extramos el número de la cuenta padre-->
+        <jx:set var="cc_num" value="${mapa.get(cc_id_padre)}"/>
+
+        <!-- Escribimos espacios en blanco deacuerdo a la
+             cantidad de caracteres del número de la cuenta -->
+        <jx:if test="${cc_num != null}">
+            <jx:forEach select="${cc_num.toCharArray()}">
+                &#160;
+            </jx:forEach>
+        </jx:if>
+
+        <!-- Sí la cuenta es de resumen se agrega el número de la
+             cuenta al mapa por que esta será usada por las cuentas
+             hijas -->
+        <jx:if test="${tipocc_id==1}">
+            <jx:set var="mapa" value="${mapa.put(cc_id, cc_numero)}"/>
+        </jx:if>
+
+    </jx:macro>
+
+    <!-- Presenta el valor de "data" sí "mostrar" es true -->
+    <jx:macro name="mostrarValor">
+        <jx:parameter name="data"/>
+        <jx:parameter name="mostrar"/>
+
+        <jx:if test="${mostrar}">
+            <b><jx:out value="${data}"/></b>
+        </jx:if>
+    </jx:macro>
+
+    <!-- Pone un caracter en negrita -->
+    <jx:macro name="aNegrita">
+        <jx:parameter name="data"/>
+        <jx:parameter name="negrita"/>
+
+        <jx:choose>
+            <jx:when test="${negrita}">
+                <b><jx:out value="${data}"/></b>
+            </jx:when>
+            <jx:otherwise>
+                <jx:out value="${data}"/>
+            </jx:otherwise>
+        </jx:choose>
+    </jx:macro>
+
+    <!-- Si valor es true entonces se saca una X, en caso contrario un espacio en blanco
+         Esto se pretende usar para simular un checkbox -->
+    <jx:macro name="marcar">
+        <jx:parameter name="valor"/>
+        <jx:choose>
+            <jx:when test="${valor}">
+                <jx:out value="X"/>
+            </jx:when>
+            <jx:otherwise><jx:out value="&#160;"/></jx:otherwise>
+        </jx:choose>
+    </jx:macro>
+
+    <!-- Macro que calcula el valor de un booleano en español -->
+    <jx:macro name="SioNo">
+        <jx:parameter name="valor"/>
+        <jx:choose>
+            <jx:when test="${valor == true}">Si</jx:when>
+            <jx:otherwise>No</jx:otherwise>
+        </jx:choose>
+    </jx:macro>
+
+    <!--
+        Macro para formatear un número
+     -->
+    <jx:macro name="formatoNumero">
+        <jx:parameter name="numero"/>       <!-- Valor número a formatear -->
+        <jx:parameter name="ceroIfNull"/>   <!-- Indica si el cero se toma como null -->
+        <jx:parameter name="patron"/>       <!-- Cadena de Formateo -->
+
+        <jx:choose>
+            <!-- Verificamos si se indicaron la cadena de formateo -->
+            <jx:when test="${patron != null}">
+                <jx:choose>
+                    <jx:when test="${ceroIfNull == 'false'}">
+                        <jx:if test="${numero != 0.00}">
+                            <jx:formatNumber value="${numero+0.00}" pattern="${patron}"/>
+                        </jx:if>
+                    </jx:when>
+                    <jx:otherwise>
+                        <jx:formatNumber value="${numero+0.00}" pattern="${patron}"/>
+                    </jx:otherwise>
+                </jx:choose>
+            </jx:when>
+            <!-- Si no se indica la cantidad de decimales, se asumen 2 cifras decimales -->
+            <jx:otherwise>
+                <!-- Hacemos el llamado recursivo con los valores predeterminados -->
+                <jx:set var="pat" value="#,##0.00"/>
+                <formatoNumero numero="${numero}" ceroIfNull="${ceroIfNull}" patron="${pat}"/>
+            </jx:otherwise>
+        </jx:choose>
+    </jx:macro>
+
+    <!--
+        Macro que formatea la salidad de una fecha,
+        si la fecha es nula se presenta N/A, en caso
+        contrario se usa 'patron' para formatear
+        la salidad de la fecha
+    -->
+    <jx:macro name="formatoFecha">
+        <jx:parameter name="fecha"/>        <!-- Fecha a formatear -->
+        <jx:parameter name="patron"/>       <!-- Patrón para formateo -->
+            <jx:choose>
+                <jx:when test="${fecha.toString() != ''}">
+                    <jx:formatDate value="${fecha}" pattern="${patron}"/>
+                </jx:when>
+                <jx:otherwise>N/A</jx:otherwise>
+            </jx:choose>
+    </jx:macro>
+
+    <!--
+        Presenta un caracter en blanco o el caracter que sea pasado
+        como parámetro, el caracter es impreso la cantidad de veces
+        indicada en el parámetro o 1 una vez si la cantidad no es
+        indicada
+    -->
+    <jx:macro name="blanco">
+        <jx:parameter name="caracter"/>     <!-- Carater de salida -->
+        <jx:parameter name="cantidad"/>     <!-- Cantidad de veces que un caracter será repetido en la salida -->
+
+        <!-- Valores predeterminados si no se pasan los parametros a la macro -->
+        <jx:set var="car" value="&#160;"/>
+        <jx:set var="can" value="1"/>
+
+        <jx:choose>
+            <!-- Verificamos si los parámetros fueron pasados -->
+            <jx:when test="${caracter != null and cantidad != null and cantidad &gt; 0}">
+                <!-- Imprimimos el caracter y llamamos recursivamente a la macro
+                     decrementando la cantidad de caracteres a imprimir hasta llegar a cer
+                 -->
+                ${caracter}<blanco caracter="${caracter}" cantidad="${cantidad-1}"/>
+            </jx:when>
+            <!-- Analizamos cual información fue pasada -->
+            <jx:when test="${caracter == null or cantidad == null}">
+                <jx:choose>
+                    <jx:when test="${caracter == null}">
+                        <jx:choose>
+                            <jx:when test="${cantidad == null}">
+                                <!-- Enviamos los valores predeterminados -->
+                                <blanco caracter="${car}" cantidad="${can}"/>
+                            </jx:when>
+                            <jx:otherwise>
+                                <!-- Enviamos el caracter predeterminado y
+                                     la cantidad de veces a imprimir -->
+                                <blanco caracter="${car}" cantidad="${cantidad}"/>
+                            </jx:otherwise>
+                        </jx:choose>
+                    </jx:when>
+                    <jx:when test="${cantidad == null}">
+                        <!-- Imprimimos una vez el caracter enviado -->
+                        <blanco caracter="${caracter}" cantidad="${can}"/>
+                    </jx:when>
+                </jx:choose>
+            </jx:when>
+        </jx:choose>
+    </jx:macro>
+
+    <!--
+      Utilizado en los informe para no imprimir por columna
+      una cadena repetida.
+    -->
+    <jx:macro name="imprimirCadena">
+        <jx:parameter name="valorActual"/>
+        <jx:parameter name="valorImprimir"/>
+        <jx:if test="${valorActual != valorImprimir}">
+            ${valorImprimir}
+        </jx:if>
+    </jx:macro>
+
+    <!--
+      Presenta los resultados de una busqueda o de un informe de forma
+      paginada, además de los links para navegar por los resultados.
+      Por lo que se necesita conocer la cantidad de registros que
+      retornara la consulta, la cantidad de registros a mostrar por
+      página, y la página que actualmente se muestra.
+    -->
+    <jx:macro name="hrefPaginacion">
+        <jx:parameter name="cadena"/>
+        <jx:parameter name="pagina"/>
+        <jx:parameter name="registrosPorPagina"/>
+        <jx:parameter name="cantidadRegistros"/>
+
+            <jx:set var="first" value="${registrosPorPagina * (pagina - 1)}"/>
+            <jx:set var="registroFinal" value="${first+registrosPorPagina}"/>
+            <jx:if test="${pagina==1}">
+              <jx:if test="${cantidadRegistros &gt; registroFinal}">
+                  <p><link href="${cadena}&amp;pagina=${pagina+1}&amp;registros=${registrosPorPagina}">Siguiente</link></p>
+              </jx:if>
+            </jx:if>
+             <jx:if test="${pagina != 1 &amp;&amp; registroFinal>=cantidadRegistros}">
+                <p><link href="${cadena}&amp;pagina=${pagina-1}&amp;registros=${registrosPorPagina}">Anterior</link></p>
+            </jx:if>
+            <jx:if test="${pagina != 1 &amp;&amp; registroFinal &lt; cantidadRegistros}">
+                <p><link href="${cadena}&amp;pagina=${pagina-1}&amp;registros=${registrosPorPagina}">Anterior</link>
+                <link href="${cadena}&amp;pagina=${pagina+1}&amp;registros=${registrosPorPagina}">Siguiente</link></p>
+            </jx:if>
+
+     </jx:macro>
+
+</jx:template>

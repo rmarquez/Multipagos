@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" menu="true">
+    <header>
+        <title>Roles</title>
+    </header>
+    <body>
+        <s1 title="Lista de Roles">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Rol</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:set var="counter" value="${1}"/>
+                    <jx:forEach var="item" items="${bean}">
+                        <tr>
+                            <td><jx:formatNumber value="${counter}"/></td>
+                            <td>${item.rolName}</td>
+                            <td><i18n:text>${item.rol_enable}</i18n:text></td>
+                            <td>
+                                <form-table handler="#{$cocoon/continuation/id}.continue">
+                                    <parameter name="rolId" value="${item.rolId}"/>
+                                    <submit name="Editar"/>
+                                    <submit name="Borrar"/>
+                                </form-table>
+                            </td>
+                        </tr>
+                        <jx:set var="counter" value="${counter + 1}"/>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="barrioNombre" required="true">
+            <fd:label>Barrio: </fd:label>
+            <fd:help>Escriba el nombre del barrio.</fd:help>
+            <fd:hint>Nombre del barrio</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="localidadId" required="true">
+            <fd:label>Localidad: </fd:label>
+            <fd:help>Elija la localidad del barrio</fd:help>
+            <fd:hint>Departamento</fd:hint>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/localidad.combo" dynamic="true"/>
+        </fd:field>
+        <fd:booleanfield id="inactivo">
+			<fd:label>Inactivo</fd:label>
+			<fd:help>Se utilizará para <b>desactivar</b> el barrio.</fd:help>			
+		</fd:booleanfield>
+        <fd:submit id="guardar">
+            <fd:label>Guardar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

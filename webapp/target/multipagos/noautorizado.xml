@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<document menu="true" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <header>
+        <title>Usuario no autorizado</title>
+    </header>
+    <body>
+        <s1 title="Usuario no autorizado">
+            <p>Ud. no tiene permisos para ejecutar esta operación.</p>
+        </s1>
+    </body>
+</document>

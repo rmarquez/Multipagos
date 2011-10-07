@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
+	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+	<fd:widgets>
+        <fd:field id="usrId" state="output">
+			<fd:label>Supervisor</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/supervisor.combo"
+				cache="none" />
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarUsuario(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+
+        <fd:field id="fecha" state="output">
+            <fd:label>Fecha</fd:label>
+            <fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>			
+        </fd:field>
+
+        <fd:field id="cantidadVisitas" state="output">
+			<fd:label>Visitas</fd:label>			
+			<fd:datatype base="integer"/>			
+		</fd:field>
+
+		
+		<fd:repeater id="detalle" initial-size="1">
+            <fd:widgets>
+                <fd:field id="numContrato">
+					<fd:label>Contrato</fd:label>
+		            <fd:datatype base="string"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+                </fd:field>
+                
+                <fd:field id="carteraId">
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/carterad.combo"
+						cache="none" />						
+				</fd:field>
+				
+				<fd:field id="suscriptor" state="output">
+					<fd:label>Suscriptor</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:booleanfield id="encontroCliente">
+					<fd:label>Cliente Encontrado</fd:label>
+					<fd:on-value-changed>
+						<fd:javascript>
+							alEncontrarCliente(event);
+						</fd:javascript>
+					</fd:on-value-changed>			
+				</fd:booleanfield>
+
+                <fd:field id="localidadId" state="output">
+					<fd:label>Localidad</fd:label>
+					<fd:datatype base="integer" />
+					<fd:selection-list src="cocoon:/localidad.combo"
+						cache="none" />
+				</fd:field>
+				
+				<fd:field id="fechaVisita" state="output">
+		            <fd:label>Fecha Visita</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+				
+				<fd:field id="simbolo" required="true">
+					<fd:label>Simbolo</fd:label>
+		            <fd:datatype base="integer"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarSimbolo(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+                </fd:field>
+				
+				
+				<fd:field id="simboloId" required="true">
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/simbolo.combo"
+						cache="none" />					
+				</fd:field>
+				
+				<fd:field id="simboloNombre" state="output">
+					<fd:label>Observacion: </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="servicioId" state="output">
+					<fd:label>Servicio:</fd:label>
+		            <fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/servicio.combo"
+						cache="none" />				    
+				</fd:field>
+				
+				<fd:field id="colectorNumero" required="true">
+					<fd:label>C#:</fd:label>
+		            <fd:datatype base="integer"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarColector(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+                </fd:field>
+				
+				<fd:field id="colectorId" required="true">
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/colector.combo"
+						cache="none" />	
+				</fd:field>
+				
+				<fd:field id="colectorNombre" state="output">
+					<fd:label>Colector: </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+
+               <fd:field id="avisoCobro" required="true">
+					<fd:label>Aviso Cobro: </fd:label>					
+					<fd:datatype base="integer" />
+				</fd:field>
+				
+				<fd:field id="fprogCobro" state="invisible">
+		            <fd:label>Prog Cobro</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+		        
+		        <fd:field id="horaRegistro" required="true">
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="contador">
+					<fd:datatype base="integer"/>
+					<fd:on-value-changed>
+					<fd:javascript>
+						alCambiar(event);
+					</fd:javascript>
+				</fd:on-value-changed>										
+				</fd:field>
+
+	        	<fd:booleanfield id="marcar">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar" command="add-row"
+				repeater="detalle">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar" command="delete-rows"
+				repeater="detalle" select="marcar">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>
+			</fd:repeater-action>
+
+        <fd:submit id="crear">
+			<fd:label>Crear</fd:label>
+			<fd:help>Crear</fd:help>
+			<fd:hint>Crear</fd:hint>
+		</fd:submit>
+
+   </fd:widgets>
+</fd:form>

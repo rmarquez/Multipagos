@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+    <header>
+        <title>Cantidades</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(cantidadNombre)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de cantidades">
+            <hrefPaginacion cadena="cantidades.list?cantidadNombre=${cantidadNombre}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Cantidades</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+                            <td><jx:formatNumber value="${status.count}"/></td>
+                            <td>${status.current.cantidadNombre}</td>
+                            <td>
+                               <link href="/multipagos/cantidades/edit?cantidadId=${status.current.cantidadId}">Editar</link>
+                             </td>
+                        </tr>
+                    </jx:forEach>
+                </tbody>
+            </table>
+            <hrefPaginacion cadena="cantidades.list?cantidadNombre=${cantidadNombre}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+        </s1>
+    </body>
+</document>

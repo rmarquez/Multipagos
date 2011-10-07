@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Simbolo</title>
+    </header>
+    <body>
+        <s1 title="Simbolo">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del simbolo</fi:label>
+                    <fi:items>
+                        <ft:widget id="simboloNumero"/>
+                        <ft:widget id="simboloNombre"/>
+                        <ft:widget id="inactivo"><fi:styling type="hidden"/></ft:widget>                        
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

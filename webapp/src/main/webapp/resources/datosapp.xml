@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- Se usa en stylesheets/system/status2document.xslt y stylesheets/multipagos.xslt -->
+<aplicacion>
+    <nombre>Sistema de Control de pagos</nombre>
+	<titulo>Multipagos</titulo>
+    <elaborado>Multipagos</elaborado>
+    <html>
+        <meta name="author" content="Ing. Rafael Márquez."/>
+        <!--<meta name="GUI" content=""/>-->
+        <meta name="copyright" content="2011 Multipagos"/>
+        <meta name="date" content="10-Jun-10"/>
+    </html>
+    <documentacion>Rafael Márquez</documentacion>
+</aplicacion>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="usrId" path="usrId"/>
+    <fb:value id="fecha" path="fecha"/>
+    <fb:value id="cantidadVisitas" path="cantidadVisitas"/>
+
+	<fb:repeater id="detalle" parent-path="." row-path="detalleVisitasList">
+        <fb:identity>
+            <fb:value id="carteraId" path="carteraId"/>
+            <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="simboloId" path="simboloId"/>
+            <fb:value id="servicioId" path="servicioId"/>
+            <fb:value id="colectorId" path="colectorId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="carteraId" path="carteraId"/>
+            <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="simboloId" path="simboloId"/>
+            <fb:value id="servicioId" path="servicioId"/>
+            <fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="numContrato" path="numeroContrato"/>
+            <fb:value id="fechaVisita" path="fechaVisita"/>
+            <fb:value id="avisoCobro" path="avisoCobro"/>
+            <fb:value id="horaRegistro" path="horaRegistro"/>
+            <fb:value id="fprogCobro" path="fprogCobro"/>
+            <fb:value id="encontroCliente" path="encontroCliente"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.DetalleVisitas" addmethod="addDetalleVisitas"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+</fb:context>

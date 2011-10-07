@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+		 xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+		<fd:field id="fechaIni">
+			<fd:label>Fecha Inicial:</fd:label>
+            <fd:hint>Escriba la fecha de inicio de búsqueda de logs</fd:hint>
+            <fd:help>Escriba la fecha de inicio de búsqueda de logs</fd:help>
+			<fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>
+		</fd:field>
+
+		<fd:field id="fechaFin">
+			<fd:label>Fecha Final:</fd:label>
+            <fd:hint>Escriba la fecha final  de búsqueda de logs</fd:hint>
+            <fd:help>Escriba la fecha final  de búsqueda de logs</fd:help>
+			<fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>
+		</fd:field>
+
+        <fd:field id="tipodLogId">
+			<fd:label>Tipo documento:</fd:label>
+            <fd:hint>Tipo del documento</fd:hint>
+            <fd:help>Tipo del documento</fd:help>
+			<fd:datatype base="integer"/>
+			<fd:suggestion-list type="javascript">
+		      return suggestionListDocumentLogs(filter);
+		    </fd:suggestion-list>
+		</fd:field>
+
+		<fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+            <fd:help>Buscar compras</fd:help>
+            <fd:hint>Buscar compras</fd:hint>
+        </fd:submit>
+
+    </fd:widgets>
+</fd:form>

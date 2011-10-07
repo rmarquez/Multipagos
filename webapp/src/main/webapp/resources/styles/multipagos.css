@@ -1,0 +1,530 @@
+/** Hoja de Estilo de Sistema de Multipagos
+ ** Autor: Rafael Márquez
+ **/
+head {
+    display: none
+}
+
+form {
+    margin-bottom: 0;
+    height: auto;
+    width: auto;
+}
+
+fieldset {
+    margin-bottom: 1em;
+    padding: 10px;
+}
+
+legend {
+    font-size: 100%;
+    padding-bottom: 5px;
+    color: #52a1e6;
+    font-weight: bold;
+}
+
+/* Additional styles for alternating row colors */
+.forms-row-0 td {
+    padding: 5px;
+    background-color: #e0e0e0;
+}
+
+.forms-row-1 td {
+    padding: 5px;
+}
+
+div#menu {
+	background-image: url('../images/barra_gris.jpg');
+    top: 68px;
+    left:0px;
+    position:absolute;
+    width: 99.9%;
+    margin-bottom: 0px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+#formulario {
+    position: relative;
+    top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body { /* font-family: verdana, helvetica, sanf serif;*/
+    font-size: 90%;
+    font-family: sans-serif, arial, helvetica;
+    background: white;
+    color: black;
+    margin: 0px;
+    text-align: left;
+    height: auto;
+}
+
+p {
+    text-align: left;
+}
+
+a:link { /*	font-weight: bold; */
+    color: #336699;
+}
+
+a:visited {
+    color: #336699;
+}
+
+a:hover {
+    color: #800000;
+    background-color: #ffff80;
+}
+
+a:active {
+    color: #006666;
+}
+
+table {
+    border: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+img {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#logo {
+    background-color: #0086b2;
+    border-bottom: 3px solid black;
+    position: absolute;
+    left: 5px;
+    width: 19.5%;
+}
+
+#logo h1 a {
+    color: white;
+    margin: 0 3% 0 0;
+    display: block;
+    font-size: 120%;
+    text-align: center;
+    float: left;
+    width: 165px;
+    height: 25px;
+}
+
+#titulo {
+    font-size: 18px;
+    background-color: #0086b2;
+    border-bottom: 3px solid black;
+    position: absolute;
+    vertical-align: middle;
+    left: 30%;
+    width: 80%;
+}
+
+#titulo .slogan {
+    color: black;
+    margin: 0 3% 0 0;
+    display: block;
+    font-size: 140%;
+    text-align: right;
+    vertical-align: middle;
+    float: right;
+    width: 99%;
+    height: 25px;
+}
+
+#bajomenu {
+    color: #e6e6e6;
+    background-color: #e6e6e6;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    margin-top: 25px;
+}
+
+div#contenido {
+    float: none;
+    margin: 10px 5% 50px 5%;
+    padding: 0 0 5% 0;
+    color: #000;
+    background-color: white;
+}
+
+a:link,a:active {
+    color: #0086b2;
+}
+
+a:visited {
+    color: red;
+}
+
+
+/* menu del sistema */
+td.menu {
+    /*background-color: white;*/
+    background-color: #83c2ee;
+    font-size: 80%;
+    text-align: left;
+    color: black;
+}
+
+div.menu{
+    margin-left: 5%;
+    background-image: url('../images/barra_gris.jpg');
+    font-size: 80%;
+    text-align: left;
+    color: black;
+}
+
+div.dojoMenuBar2{
+	background-image: url('../images/barra_gris.jpg');
+}
+
+table.dojoPopupMenu2{
+    background:#ffffff repeat-x scroll left bottom !important;
+    border-color: #000000;
+    color: #000000;
+}
+
+span.dojoMenuItem2.dojoMenuItem2Hover {
+    background-image: url('../images/barra_gris.jpg');
+}
+
+tr.dojoMenuItem2{
+    color: #000000;
+}
+tr.dojoMenuItem2.dojoMenuItem2Hover{
+    color: red;
+    background-color: white;
+}
+
+
+
+/*Contenido de la aplicacion*/
+table.contenido {
+    /* Centrar tabla:*/
+    margin-right: auto;
+    margin-left: auto;
+    /*padding: 3px;-*/
+}
+
+/* Barra de titulo tipo s1 (subtitulo 1) */
+div.subtitulo {
+    text-align: left;
+    z-index: auto;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 5px;
+    font-weight: normal;
+    position: relative;
+    top: 0px;
+    width: auto;
+}
+
+div#s2 {
+    margin-left: 5%;
+    padding: 0px;
+}
+
+td.bartitles2 {
+    background-color: #0086b2;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    vertical-align: top;
+    width: 100%;
+    padding: 0px;
+}
+
+/* Tablas en pantalla */ /* background-color:#039acc;
+ color: white;*/
+td.titulotabla {
+    color: black;
+    border-color: #b1b1b1;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ececec;
+    border-width: 1px;
+    font-size: 90%;
+}
+
+td.tablasubtotal {
+    color: black;
+    border-color: #b1b1b1;
+    text-align: right;
+    vertical-align: middle;
+    background-color: #ececec;
+    border-width: 1px;
+    font-size: 90%;
+}
+
+/*	border-color:white; */
+td.titulotablaconborde {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #039acc;
+    font-size: 90%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #b1b1b1;
+}
+
+/* 	background-color:#a0ddf0; */
+td.detalletabla {
+    color: black;
+    background-color: #f5f3ec;
+    vertical-align: top;
+    font-size: 80%;
+    height: auto;
+}
+
+span.requerido {
+    color: #ff0000;
+}
+
+#img .calendario {
+    width: 28px;
+    height: 27px;
+}
+
+/* Notas de formularios */
+table.nota {
+    width: 100%;
+    border-spacing: 3px;
+}
+
+td.notaimg {
+    width: 28px;
+    vertical-align: top;
+}
+
+img.nota {
+    width: 28px;
+    height: 29px;
+    padding: 0px;
+    margin: 0px;
+}
+
+td.nota {
+    color: black;
+    font-size: 80%;
+    font-family: arial, helvetica, sans-serif;
+    vertical-align: top;
+    font-style: italic;
+}
+
+/* Informes */
+table.informe {
+    width: 100%;
+}
+
+/* Mensajes de error */
+p.mensaje {
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+    font-size: 100%;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #336699;
+}
+
+p.descripcion {
+    padding: 10px 30px 20px 30px;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #336699;
+    font-size: 80%;
+}
+
+p.stacktrace {
+    font-size: 80%;
+}
+
+p.extra {
+    padding-top: 10px;
+    font-size: 80%;
+}
+
+span.descripcion {
+    color: #336699;
+    font-weight: bold;
+}
+
+span.switch {
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+pre.error {
+    font-size: 105%;
+    padding: 20px 0px 20px 0px;
+    border-width: 1px 0px 1px 0px;
+    border-style: solid;
+    border-color: #336699;
+}
+
+pre.parrafo {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 100%;
+}
+
+li.descripcion {
+    font-size: 80%;
+}
+
+.fecha {
+    font-family: "Times", Geneva, Verdana;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+/* Encabezado de página */
+div.encabezado {
+    position:absolute;
+    left:0px;
+    top:0px;
+    height: 68px; /*83px;*/
+    width:100%;
+    background-image: url('../images/banner_parte2.jpg');
+    /*background-image: url('../images/fs.jpg');*/
+    background-repeat: repeat;
+}
+
+img.logo {
+    float: left;
+    width: auto; /*75px;*/
+    height: 69px;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+div.aplicacion {
+    position: relative;
+    font-weight: bold;
+    color: #006293;
+    padding-right:10px;
+}
+
+p.nombre_aplicacion {
+    position: relative;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: right;
+
+}
+
+img.empresa {
+    float: left;
+    width: auto;
+    height: 68px;
+    margin-top: 0px;
+    margin-left: 77px;
+}
+
+div.titulo {
+    position: relative;
+    top: 30px;
+}
+
+img.flecha {
+    width: 40px;
+    height: 21px;
+    vertical-align: text-bottom;
+}
+
+p.ubicacion {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: right;
+    margin-left: 410px;
+    margin-right: 3px;
+    color: #ff3c08;
+}
+
+div.titulo span {
+    padding-left: 5px;
+    padding-right: 20px;
+    font-weight: bold;
+    color: #5A8EE6; /*white;*/
+}
+
+.texto_subtitulo {
+    font-family: Arial,Helvetica,sans-serif;
+    color: #ff6d18;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 500;
+    font-variant: normal;
+}
+
+/* Pie de página */
+div#pie {
+    position: fixed;
+	left: 0px;
+	bottom: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 20px;
+	background-color: #246496;
+	text-align: center;
+	/*overflow: hidden;*/
+}
+
+.copyright {
+	color:#FFFFFF;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:12px;
+	text-align: right;
+    font-weight: bold;
+    margin-bottom:0;
+	margin-right:5px;
+	margin-top:2px;
+}
+
+.forms-help {
+  margin-left: -70px;
+  margin-top: -130px;
+}
+
+p.form-separator-title {
+  text-align: center;
+  background-color: #eeeeee;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+span#por_retencion, span#fac_noretencion, span#fact_montoretenido {
+  margin-right: 50px;
+}
+
+span#fact_monto_cs, span#fact_monto_us, span#formap_id, span#tipom_id, span#fact_diferencia {
+  margin-right: 30px;
+  line-height: normal;
+}
+
+.imei {
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.suggestcomprobante {
+    width : 400px
+}

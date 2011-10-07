@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="auth_user" required="true">
+            <fd:label>Usuario:</fd:label>
+            <fd:hint>Ingrese el nombre del usuario que ingresará al sistema</fd:hint>
+            <fd:help>Ingrese el nombre del usuario que ingresará al sistema</fd:help>
+            <fd:datatype base="string">
+                <fd:validation><fd:length min="5" max="10"/></fd:validation>
+            </fd:datatype>
+        </fd:field>
+        <fd:field id="auth_passwd" required="true">
+            <fd:label>Contraseña:</fd:label>
+            <fd:hint>Ingrese la contraseña para ingresar al sistema</fd:hint>
+            <fd:help>Ingrese la contraseña para ingresar al sistema</fd:help>
+            <fd:datatype base="string">
+                <fd:validation><fd:length min="5" max="20"/></fd:validation>
+            </fd:datatype>
+        </fd:field>
+        <fd:submit id="entrar" command="entrar">
+            <fd:label>Entrar</fd:label>
+            <fd:help>Ingreso al sistema</fd:help>
+            <fd:hint>Entrar al Sistema</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

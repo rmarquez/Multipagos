@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+    <header>
+        <title>Tasa de cambio C$ a US$</title>
+    </header>
+    <body>
+        <s1 title="Lista de tasas de cambio">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Fecha</th>
+                        <th>Tasa C$ a $</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:forEach varStatus="status" items="${bean}">
+                        <jx:formatDate value="${status.current.tasaFecha}" pattern="dd/MM/yyyy" var="Fecha"/>
+                        <tr>
+                            <td><jx:formatNumber value="${status.count}"/></td>
+                            <td>
+                                <jx:formatDate value="${status.current.tasaFecha}" pattern="dd/MMM/yyyy"/>
+                            </td>
+                            <td align="right">${status.current.tasaCambioMes}</td>
+                            <td>
+                                <form-table handler="#{$cocoon/continuation/id}.continue">
+                                    <parameter name="tasaFecha" value="${Fecha}"/>
+                                    <submit name="Editar"/>
+                                    <submit name="Borrar"/>
+                                </form-table>
+                            </td>
+                        </tr>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

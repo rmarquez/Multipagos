@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Departamentos</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(departamentoNombre, filtrar)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de departamentos">
+            <hrefPaginacion cadena="departamentos.list?departamentoNombre=${departamentoNombre}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Departamento</th>
+                        <th>Inactivo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+
+                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <td>${status.current.departamentoNombre}</td>
+                           <td>${status.current.inactivo}</td>
+                             <td>
+                               <link href="/multipagos/departamento/edit?departamentoId=${status.current.departamentoId}">Editar</link>                               
+                             </td>
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+            </table>
+            <hrefPaginacion cadena="departamentos.list?departamentoNombre=${departamentoNombre}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+         </s1>
+    </body>
+</document>

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<catalogue xml:lang="es">
+    <!-- Mensajes de woody -->
+    <message key="general.field-required">El campo <strong>{0}</strong> no puede ser vacío.</message>
+
+    <message key="datatype.conversion-failed">No es un {0} válido.</message>
+    <message key="datatype.long">número entero</message>
+    <message key="datatype.decimal">número decimal</message>
+    <message key="datatype.double">número decimal</message>
+    <message key="datatype.float">número decimal</message>
+    <message key="datatype.integer">número entero</message>
+    <message key="datatype.date">fecha</message>
+
+    <message key="validation.string.exact-length">El campo debe contener exactamente {0} caracteres.</message>
+    <message key="validation.string.range-length">El campo debe contener entre {0} y {1} caracteres.</message>
+    <message key="validation.string.min-length">El campo debe contener al menos {0} caracteres.</message>
+    <message key="validation.string.max-length">El campo debe contener a lo sumo {0} caracteres.</message>
+    <message key="validation.string.regexp">No coincide la siguiente expresión regular: {0}</message>
+
+    <message key="validation.string.invalidemail">El campo no contiene una dirección electrónica válida</message>
+
+    <message key="validation.array.exact-valuecount">Debe elejir exactamente {0} elementos.</message>
+    <message key="validation.array.range-valuecount">Debe elejir como mínimo {0} elementos y como máximo {1} elementos.</message>
+    <message key="validation.array.min-valuecount">Como mínimo debe elejir {0} elementos.</message>
+    <message key="validation.array.max-valuecount">Como máximo debe elejir {0} elementos.</message>
+
+    <message key="multivaluefield.conversionfailed">Uno de los valores elejidos es de un tipo incorrecto.</message>
+
+    <message key="validation.numeric.range">El número debe estar en el rango de {0} a {1}.</message>
+    <message key="validation.numeric.min">El número debe ser mayor o igual que {0}.</message>
+    <message key="validation.numeric.max">El número debe ser menor o igual que {0}.</message>
+
+    <message key="validation.mod10">Mod 10 revisión falló.</message>
+
+    <message key="aggregatedfield.split-failed">El contenido del campo no coincide con la expresión regular: {0}</message>
+    <message key="upload.invalid-type">Invalid content type.</message>
+
+    <message key="true">S&#237;</message>
+    <message key="false">No</message>
+
+    <message key="com.metropolitana.key.passwderror">La contraseña del usuario no es válida. Intente otra vez.</message>
+    <message key="com.metropolitana.key.dospasswordnoigual">Las contraseñas no coínciden, por favor escriba la contraseña.</message>
+    <message key="com.metropolitana.key.operacionnopermitida">El usuario no tiene permisos para realizar la acción.</message>
+
+    <message key="com.metropolitana.key.mayorquecero">Debe escribir un valor mayor que cero en el campo <strong>{0}</strong></message>
+    <message key="com.metropolitana.key.mayorigualquecero">Debe escribir un valor mayor o igual que cero en el campo <strong>{0}</strong></message>
+
+    <message key="com.metropolitana.key.fechafinnull">Debe escribir la fecha final del intervalo.</message>
+    <message key="com.metropolitana.key.fechaininull">Debe escribir la fecha inicial del intervalo.</message>
+    <message key="com.metropolitana.key.fechasnull">Debe escribir la fecha inicial y la fecha final del intervalo.</message>
+    <message key="com.metropolitana.key.fechamenor">La fecha inicial del debe ser menor o igual que la fecha final del intervalo.</message>
+
+    <message key="com.metropolitana.key.elejirdelista">Debe elegir un elemento de la lista <strong>{0}</strong></message>
+
+    <message key="com.metropolitana.key.ccid_igual_ccidpadre">La cuenta padre debe ser diferente a la cuenta actual.</message>
+    <message key="com.metropolitana.key.cuentadetallesinpadre">Las cuentas de detalle deben tener una cuenta padre.</message>
+    <message key="com.metropolitana.key.solocuentaresumen">Las cuentas de resumen no pueden tener activas las opciones de:
+                                                   <br/>1. <strong>Es una cuenta para registrar</strong>
+                                                   <br/>2. <strong>Incluir en los siguientes menús</strong>.
+   </message>
+   <message key="com.metropolitana.key.grupocuentasuno">Las cuentas pueden tener activas las opciones del grupo<br/>
+                                                <strong>Es una cuenta para registrar</strong> o del grupo
+                                                <strong>Incluir en los siguientes menús</strong><br/>
+                                                pero no de ambos grupos.
+   </message>
+   <message key="com.metropolitana.key.cuentadetallecontransaccionesamayor">La cuenta no puede ser una cuenta de mayor porque ya tiene transacciones.</message>
+   <message key="com.metropolitana.key.cuentamayorconhijosadetalle">La cuenta no puede ser una cuenta de detalle porque ya tiene subcuentas.</message>
+   <message key="com.metropolitana.key.cuentaborrarpregunta">¿Esta seguro que desea borrar la cuenta <strong>{0}</strong>?</message>
+   <message key="com.metropolitana.key.cuentadetallecontransaccionesborrar">La cuenta de detalle <strong>{0}</strong> no puede ser borrada porque tiene transacciones.</message>
+   <message key="com.metropolitana.key.cuentamayorconhijosborrar">La cuenta de mayor <strong>{0}</strong> no puede ser borrada porque tiene subcuentas.</message>
+
+   <message key="com.metropolitana.key.cuentaborrada">La cuenta <strong>{0}</strong> no fue encontra, es posible que haya sido borrada por otro usuario.</message>
+
+   <message key="com.metropolitana.key.faltadebehaber">Debe ingresar el monto en el <strong>debe</strong> o en el <strong>haber</strong></message>
+   <message key="com.metropolitana.key.solodebesolohaber">El monto solo puede ser ingresado en el <strong>debe</strong> o en el <strong>haber</strong> pero no en ambos</message>
+   <message key="com.metropolitana.key.transaccionnobalanceada">La transacción no esta balanceada.</message>
+   <message key="com.metropolitana.key.cuentayaelejida">La cuenta ya fue seleccionada.</message>
+
+   <message key="com.metropolitana.key.cotizacionvacia">Debe indicar los productos o los materiales o ambos.</message>
+   <message key="com.metropolitana.key.materialduplicado">Un material ha sido elejido más de una vez.</message>
+   <message key="com.metropolitana.key.productoduplicado">Un producto ha sido elejido más de una vez.</message>
+   <message key="com.metropolitana.key.condicioncreditosi">Debe indicar la condición de crédito.</message>
+   <message key="com.metropolitana.key.condicioncreditono">La condición de crédito es necesaria para las facturas de crédito.</message>
+
+   <message key="com.metropolitana.sga.propiedadnoaplica">El campo <strong>{0}</strong> no es utilizado por la familia de productos elejida.</message>
+
+   <message key="com.metropolitana.key.listamaterialvacia">Debe indicar los materiales.</message>
+
+   <message key="com.metropolitana.key.faltatasacambio">Falta la tasa de cambio del día <strong>{0}</strong></message>
+
+   <message key="com.metropolitana.key.faltacuentapagar">Debe elegir una cuenta por pagar</message>
+
+   <message key="com.metropolitana.key.recibomontonull">Debe ingresar el monto en córdobas o en dólares o ambos</message>
+   <message key="com.metropolitana.key.recibomontomenorcero">El monto en córdobas o el monto dólares tiene que ser mayor que cero</message>
+   <message key="com.metropolitana.key.reciboefectivo">Cuando los pagos son efectivo o tarjeta de crédito no se necesita indicar una cuenta o un cheque o un banco</message>
+   <message key="com.metropolitana.key.recibocheque">Cuando los pagos son con cheque se necesita indicar el número del cheque y el banco</message>
+   <message key="com.metropolitana.key.recibotransferencia">Cuando los pagos son con transferencias se necesita indicar el número de la cuenta y el banco</message>
+   <message key="com.metropolitana.key.reciboadelanto">Cuando los recibos son por adelanto de dinero no se necesita indicar un número de factura</message>
+   <message key="com.metropolitana.key.recibofactura">Debe indicar el número de factura que se esta pagando con este recibo</message>
+   <message key="com.metropolitana.key.reciboanticipo">Debe indicar la cuenta donde se registrará el anticipo y la cuenta para registrar el pago</message>
+   <message key="com.metropolitana.key.recibopago">Debe indicar la cuenta donde se registrará el pago</message>
+   <message key="com.metropolitana.key.recibopagomontoapagarmayor">El monto del recibo no debe ser mayor que el monto pendiente</message>
+   <message key="com.metropolitana.key.recibopagomontopendiente">Falta el monto pendiente, el monto pendiente se calcula cuando elige una factura.</message>
+
+</catalogue>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" menu="true">
+    <header>
+        <title>#{titulo}</title>
+    </header>
+    <body>
+        <s1 title="#{titulos1}">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <p><pre class="parrafo">#{descripcion}</pre></p>
+                <table>
+                    <tr>
+                        <tw align="center"><ft:widget id="true"/></tw>
+                        <tw align="center"><ft:widget id="false"/></tw>
+                    </tr>
+                </table>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

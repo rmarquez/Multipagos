@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Cambio de C$ a US$</title>
+    </header>
+    <body>
+        <s1 title="Editar tasa de cambio fija C$ a US$">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Editar datos de las tasas de cambios</fi:label>
+                    <fi:items>
+                        <ft:widget id="tasaFecha">
+                            <fi:styling type="date" format="dd/MM/yyyy" size="12" align="right"/>
+                        </ft:widget>
+                        <ft:widget id="tasaCambioMes">
+                            <fi:styling size="10" align="right"/>
+                        </ft:widget>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="guardar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

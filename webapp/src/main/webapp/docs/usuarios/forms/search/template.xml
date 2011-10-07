@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document menu="true"
+    xmlns:jx="http://apache.org/cocoon/templates/jx/1.0"
+    xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+    xmlns:fi="http://apache.org/cocoon/forms/1.0#instance">
+    <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    <header>
+        <title>Usuarios</title>
+    </header>
+    <body>
+        <s1 title="Buscar usuario">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Criterios de búsqueda de usuarios</fi:label>
+                    <fi:items>
+                        <ft:widget id="criteria"/>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="buscar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

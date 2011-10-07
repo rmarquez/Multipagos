@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Visitas</title>
+    </header>
+    <body>
+        <s1 title="Buscar registro de visitas">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST" ajax="true">
+            <ft:continuation-id/>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Criterios de búsqueda de visitas</fi:label>
+                    <fi:items>
+                        <ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+                        <ft:widget id="usrId"/>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="buscar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

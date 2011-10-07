@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Colector</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(primerNombre, primerApellido, cedula, filtrar)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de localidades">
+            <hrefPaginacion cadena="colector.list?primerNombre=${primerNombre}&amp;primerApellido=${primerApellido}&amp;cedula=${celula}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Inactivo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+
+                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <td>${status.current.primerNombre}</td>
+                           <td>${status.current.primerApellido}</td>
+                           <td>${status.current.cedula}</td>
+                           <td>${status.current.inactivo}</td>
+                             <td>
+                               <link href="/multipagos/colector/edit?colectorId=${status.current.colectorId}">Editar</link>                               
+                             </td>
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+            </table>
+            <hrefPaginacion cadena="colector.list?primerNombre=${primerNombre}&amp;primerApellido=${primerApellido}&amp;cedula=${celula}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+         </s1>
+    </body>
+</document>

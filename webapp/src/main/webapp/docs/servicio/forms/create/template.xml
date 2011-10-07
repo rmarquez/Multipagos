@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Servicio</title>
+    </header>
+    <body>
+        <s1 title="Servicio">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del servico</fi:label>
+                    <fi:items>
+                        <ft:widget id="servicioNombre"/>
+                        <ft:widget id="inactivo"><fi:styling type="hidden"/></ft:widget>                        
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

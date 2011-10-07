@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Localidad</title>
+    </header>
+    <body>
+        <s1 title="Localidad">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos de la localidad</fi:label>
+                    <fi:items>
+                    	<ft:widget id="localidadNombre"/>
+                        <ft:widget id="departamentoId"/>
+                        <ft:widget id="inactivo"><fi:styling type="hidden"/></ft:widget>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

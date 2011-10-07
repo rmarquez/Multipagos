@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="fecha">
+            <fd:label>Fecha</fd:label>
+            <fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>			
+        </fd:field>
+        
+        <fd:field id="usrId">
+			<fd:label>Supervisor</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/supervisor.combo"
+				cache="none" />			
+		</fd:field>
+		
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- CVS $Id: messages_es.xml,v 1.0 2002/08/30 17:05:16 agallardo Exp $ -->
+
+<!-- Mensajes de error implícitos para el sistema -->
+
+<catalogue xml:lang="es">
+	<!-- Mensajes de error generales -->
+    <message key="An Error Occurred">Ocurrió un error</message>
+    <message key="Language Exception">Excepción de lenguaje</message>
+    <message key="cause">Causa</message>
+    <message key="full exception chain stacktrace">Vaciado de pila de cadena completa de la excepción</message>
+    <message key="stacktrace">Vaciado de Pila</message>
+    <message key="Resource not found.">Archivo no encontrado</message>
+	<!-- Mensajes generales de Información del Sistema -->
+    <message key="vm">Máquina Virtual</message>
+    <message key="classpath">Caminos de Clases</message>
+    <message key="memory">Uso de Memoria</message>
+    <message key="total">Total</message>
+    <message key="free">Libre</message>
+    <message key="jre">Java</message>
+    <message key="version">Versión</message>
+    <message key="java-vendor">Fabricante</message>
+    <message key="operating-system">Sistema Operativo</message>
+    <message key="name">Nombre</message>
+    <message key="architecture">Arquitectura</message>
+    <message key="Store-Janitor">Conserje de Almacenamiento</message>
+    <message key="true">S&#237;</message>
+    <message key="false">No</message>
+</catalogue>

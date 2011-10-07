@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Roles de usuario</title>
+    </header>
+    <body>
+        <s1 title="Editar rol">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Editar datos del rol</fi:label>
+                    <fi:items>
+                        <ft:widget id="rolName"><fi:styling size="26"/></ft:widget>
+                        <ft:widget id="rolEnable"/>
+                        <br/>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><ft:repeater-widget-label id="recursos" widget-id="resId"/></th>
+                                    <th><ft:repeater-widget-label id="recursos" widget-id="marcar"/></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ft:repeater-widget id="recursos">
+                                    <tr>
+                                        <td><ft:widget id="resId"/></td>
+                                        <td><ft:widget id="marcar"/></td>
+                                    </tr>
+                                </ft:repeater-widget>
+                                <tr>
+                                    <td colspan="2" align="right">
+                                        <ft:widget id="agregarrecurso"/>
+                                        <ft:widget id="eliminarrecurso"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="guardar"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

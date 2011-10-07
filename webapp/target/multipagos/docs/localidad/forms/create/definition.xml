@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="localidadNombre" required="true">
+            <fd:label>Localidad: </fd:label>
+            <fd:help>Escriba el nombre de la localidad.</fd:help>
+            <fd:hint>Nombre de la localidad</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:field id="departamentoId" required="true">
+            <fd:label>Departamento: </fd:label>
+            <fd:help>Elija el departamento de la localidad</fd:help>
+            <fd:hint>Departamento</fd:hint>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/departamentos.combo" dynamic="true"/>
+        </fd:field>
+        <fd:booleanfield id="inactivo"></fd:booleanfield>
+        <fd:submit id="crear">
+            <fd:label>Crear</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

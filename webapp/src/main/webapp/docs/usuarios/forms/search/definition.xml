@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="criteria">
+            <fd:label>Usuario:</fd:label>
+            <fd:hint>Criterio de búsqueda</fd:hint>
+            <fd:help>Escriba el nombre de acceso del usuario que desea buscar.</fd:help>
+            <fd:datatype base="string">
+                <fd:validation>
+                    <fd:length max="50"/>
+                </fd:validation>
+            </fd:datatype>
+        </fd:field>
+        <fd:submit id="buscar">
+          <fd:label>Buscar</fd:label>
+          <fd:help>Buscar</fd:help>
+          <fd:hint>buscar</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

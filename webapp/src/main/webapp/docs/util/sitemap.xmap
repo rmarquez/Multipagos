@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+    <!-- Utilizada en flow -->
+    <map:flow language="javascript">
+        <map:script src="resource://org/apache/cocoon/forms/flow/javascript/Form.js"/>
+        <map:script src="context://resources/flow/auth.js"/>
+        <map:script src="context://resources/flow/autentificar.js"/>
+    </map:flow>
+
+    <map:pipelines>
+        <map:pipeline internal-only="true">
+            <map:match pattern="*-dlg-display">
+                <map:generate src="dialogos/{1}/template.xml" type="jx"/>
+                <map:transform type="forms"/>
+                <map:transform type="i18n"/>
+                <map:transform src="context://stylesheets/multipagos.xslt"/>
+                <map:transform type="i18n"/>
+                <map:transform type="xinclude"/>
+                <map:transform type="xalan" src="context://stylesheets/forms/forms-samples-styling.xsl"/>
+                <map:transform type="encodeURL"/>
+                <map:serialize/>
+            </map:match>
+        </map:pipeline>
+
+        <map:pipeline>
+            <map:match pattern="*">
+                <map:call function="protect">
+                    <map:parameter name="handler" value="authhandler"/>
+                    <map:parameter name="protected-internal" value="{1}"/>
+                    <map:parameter name="failure-redirect" value="/entrada?resource={1}"/>
+                </map:call>
+            </map:match>
+        </map:pipeline>
+    </map:pipelines>
+</map:sitemap>

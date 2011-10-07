@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="departamentoNombre" required="true">
+            <fd:label>Departamento: </fd:label>
+            <fd:help>Escriba el nombre del departamento.</fd:help>
+            <fd:hint>Nombre del departamento</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:booleanfield id="inactivo">
+			<fd:label>Inactivo</fd:label>
+			<fd:help>Se utilizará para <b>desactivar</b> el departamento.</fd:help>			
+		</fd:booleanfield>
+        <fd:submit id="guardar">
+            <fd:label>Guardar Cambios</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>
