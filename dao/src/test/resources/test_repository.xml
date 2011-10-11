@@ -304,12 +304,11 @@
 		<field-descriptor name="numeroContrato" nullable="false" default-fetch="true" column="NUMERO_CONTRATO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
 		<field-descriptor name="montoPago" nullable="false" default-fetch="true" column="MONTO_PAGO" jdbc-type="NUMERIC"/>
-		<field-descriptor name="montoPagoUs" default-fetch="true" column="MONTO_PAGO_US" jdbc-type="NUMERIC"/>
 		<field-descriptor name="fechaPago" nullable="false" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="recibo" nullable="false" default-fetch="true" column="RECIBO" jdbc-type="INTEGER"/>
 		<field-descriptor name="horaRegistro" nullable="false" default-fetch="true" column="HORA_REGISTRO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="dolares" nullable="false" default-fetch="true" column="DOLARES" jdbc-type="BIT"/>
 		<reference-descriptor name="pagoIdRef" class-ref="com.metropolitana.multipagos.Pagos" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="pagoId"/>
 		</reference-descriptor>
@@ -362,7 +361,8 @@
 	<class-descriptor class="com.metropolitana.multipagos.ArqueoCantidad" table="ARQUEO_CANTIDAD">
 		<field-descriptor name="arqueoId" primarykey="true" nullable="false" default-fetch="true" column="ARQUEO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="cantidadId" primarykey="true" nullable="false" default-fetch="true" column="CANTIDAD_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="monto" nullable="false" default-fetch="true" column="MONTO" jdbc-type="NUMERIC"/>
+		<field-descriptor name="cantidad" nullable="false" default-fetch="true" column="CANTIDAD" jdbc-type="INTEGER"/>
+		<field-descriptor name="total" nullable="false" default-fetch="true" column="TOTAL" jdbc-type="NUMERIC"/>
 		<field-descriptor name="dolares" nullable="false" default-fetch="true" column="DOLARES" jdbc-type="BIT"/>
 		<reference-descriptor name="arqueoIdRef" class-ref="com.metropolitana.multipagos.ArqueoPagos" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="arqueoId"/>
