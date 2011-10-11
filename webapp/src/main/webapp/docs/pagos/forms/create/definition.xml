@@ -40,45 +40,16 @@
                     </fd:patterns>
                 </fd:convertor>
             </fd:datatype>
-            <fd:value type="javascript" triggers="detalle/./dolares, detalle/./montoPago">
+            <fd:value type="javascript" triggers="detalle/./montoPago">
             var subTotal = java.math.BigDecimal.ZERO;
             var detalle = form.getChild("detalle");
                  for (var i = 0; i &lt; detalle.size; i++) {
                     var row = detalle.getRow(i);
-                      var dolares = row.getChild("dolares").getValue();
                       var montoPago = row.getChild("montoPago").getValue();
-                      if (dolares.booleanValue()== false) {
-                      		if(montoPago != null) {                          
-                          		subTotal = subTotal.add(montoPago).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
-                          	}                        
-                    }
-                }
-                  return subTotal;
-            </fd:value>
-        </fd:calculatedfield>
-        
-        <fd:calculatedfield id="montoTotalUs" state="output">
-            <fd:label>Monto (U$):</fd:label>
-            <fd:datatype base="decimal">
-                <fd:convertor type="formatting" variant="number">
-                    <fd:patterns>
-                        <fd:pattern>#,##0.00</fd:pattern>
-                    </fd:patterns>
-                </fd:convertor>
-            </fd:datatype>
-            <fd:value type="javascript" triggers="detalle/./dolares, detalle/./montoPagoUs">
-            var subTotal = java.math.BigDecimal.ZERO;
-            var detalle = form.getChild("detalle");
-                 for (var i = 0; i &lt; detalle.size; i++) {
-                    var row = detalle.getRow(i);
-                      var dolares = row.getChild("dolares").getValue();
-                      var montoPagoUs = row.getChild("montoPagoUs").getValue();
-                      if (dolares.booleanValue()== true) { 
-                      		if(montoPagoUs != null) {                         
-                          		subTotal = subTotal.add(montoPagoUs).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
-                        	}                        
-                    }
-                }
+                   		if(montoPago != null) {                          
+                       		subTotal = subTotal.add(montoPago).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                       	}
+                  }
                   return subTotal;
             </fd:value>
         </fd:calculatedfield>
@@ -96,32 +67,27 @@
 		
 		<fd:repeater id="detalle" initial-size="1">
             <fd:widgets>
-                <fd:field id="numContrato">
+                <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>
-		            <fd:on-value-changed>
-						<fd:javascript>
-							alSeleccionarContrato(event);
-						</fd:javascript>
-					</fd:on-value-changed>
                 </fd:field>
                 
                 <fd:field id="facturaInterna">
 					<fd:label>Fac Interna</fd:label>
-		            <fd:datatype base="string"/>		            
-                </fd:field>
-                
-                <fd:field id="numeroFiscal">
-					<fd:label>No. Fiscal</fd:label>
 		            <fd:datatype base="string"/>
 		            <fd:on-value-changed>
 						<fd:javascript>
-							alSeleccionarNumero(event);
+							alSeleccionarFactura(event);
 						</fd:javascript>
-					</fd:on-value-changed>
+					</fd:on-value-changed>		            
                 </fd:field>
                 
-                <fd:field id="cupon">
+                <fd:field id="numeroFiscal" state="output">
+					<fd:label>No. Fiscal</fd:label>
+		            <fd:datatype base="string"/>		            
+                </fd:field>
+                
+                <fd:field id="cupon" state="output">
 					<fd:label>Cupon</fd:label>
 		            <fd:datatype base="string"/>		            
                 </fd:field>
@@ -152,16 +118,8 @@
 				<fd:field id="mes" state="output">
 					<fd:label>Mes</fd:label>					
 					<fd:datatype base="string" />
-				</fd:field>
+				</fd:field>			
 				
-				<fd:booleanfield id="dolares">
-					<fd:label>Dolares</fd:label>
-					<fd:on-value-changed>
-						<fd:javascript>
-							pagoEnDolares(event);
-						</fd:javascript>
-					</fd:on-value-changed>					
-				</fd:booleanfield>
 				
 				<fd:field id="montoPago">
 		            <fd:label>Monto (C$):</fd:label>
@@ -180,24 +138,7 @@
 		      		</fd:validation>
 		        </fd:field>
 		        
-		        <fd:field id="montoPagoUs" state="invisible">
-		            <fd:label>Monto (U$):</fd:label>
-		            <fd:help>Monto pagado en dolares.</fd:help>
-		            <fd:datatype base="decimal">
-		                <fd:convertor type="formatting" variant="number">
-		                    <fd:patterns>
-		                        <fd:pattern>#,##0.00</fd:pattern>
-		                    </fd:patterns>
-		                </fd:convertor>
-		            </fd:datatype>
-		            <fd:validation>
-			            <fd:assert test="montoPagoUs &gt;= 0">
-			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
-			            </fd:assert>
-		      		</fd:validation>
-		        </fd:field>
-				
-				<fd:field id="fechaPago" state="output">
+				<fd:field id="fechaPago" required="true">
 		            <fd:label>Fecha Pago</fd:label>
 		            <fd:datatype base="date">
 						<fd:convertor type="formatting" variant="date">

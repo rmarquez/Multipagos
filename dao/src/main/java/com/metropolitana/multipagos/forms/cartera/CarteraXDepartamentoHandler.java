@@ -232,12 +232,12 @@ public class CarteraXDepartamentoHandler {
 			}
 		}
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato)
+	public static CarteraXDepartamento carteraXFactura(final String factura)
 			throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			return carteraXContrato(contrato, broker);
+			return carteraXFactura(factura, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -247,10 +247,10 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato,
+	public static CarteraXDepartamento carteraXFactura(final String factura,
 			final PersistenceBroker broker) {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
-		criterio.setContrato(contrato);
+		criterio.setFacturaInterna(factura);
 		Query query = new QueryByCriteria(criterio);
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}

@@ -24,20 +24,19 @@
                       <div>
     				  <table>
                           <thead>
-                              <tr>	
+                              <tr>
+                                <th><ft:repeater-widget-label widget-id="localidadId"/></th>	
                               	<th><ft:repeater-widget-label widget-id="numContrato"/></th>
                               	<th><ft:repeater-widget-label widget-id="facturaInterna"/></th>
                               	<th><ft:repeater-widget-label widget-id="numeroFiscal"/></th>
-                              	<th><ft:repeater-widget-label widget-id="suscriptor"/></th>
-                              	<th><ft:repeater-widget-label widget-id="localidadId"/></th>
+                              	<th><ft:repeater-widget-label widget-id="cupon"/></th>
+                              	<th><ft:repeater-widget-label widget-id="montoPago"/></th>
                               	<th><ft:repeater-widget-label widget-id="year"/></th>
                               	<th><ft:repeater-widget-label widget-id="mes"/></th>
-                              	<th><ft:repeater-widget-label widget-id="dolares"/></th>
-                              	<th><ft:repeater-widget-label widget-id="montoPago"/></th>
-                              	<th><ft:repeater-widget-label widget-id="montoPagoUs"/></th>
+                              	<th><ft:repeater-widget-label widget-id="suscriptor"/></th>
                               	<th><ft:repeater-widget-label widget-id="fechaPago"/></th>
-                              	<th><ft:repeater-widget-label widget-id="recibo"/></th>
                               	<th><ft:repeater-widget-label widget-id="servicioId"/></th>
+                              	<th><ft:repeater-widget-label widget-id="recibo"/></th>                              	
                               	<th><ft:repeater-widget-label widget-id="colectorNumero"/></th>
                               	<th><ft:repeater-widget-label widget-id="colectorNombre"/></th>
                               	<th><ft:repeater-widget-label widget-id="marcar"/></th>
@@ -46,19 +45,18 @@
                           <tbody>  
 								<ft:repeater-rows>
 									<tr>
+										<td><ft:widget id="localidadId"/></td>
 										<td><ft:widget id="numContrato"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="facturaInterna"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="numeroFiscal"><fi:styling align="right" size="6"/></ft:widget></td>
-										<td><ft:widget id="suscriptor"/></td>
-										<td><ft:widget id="localidadId"/></td>
+										<td><ft:widget id="cupon"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="year"/></td>
 										<td><ft:widget id="mes"/></td>
-										<td><ft:widget id="dolares"/></td>
-										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
-										<td><ft:widget id="montoPagoUs"><fi:styling align="right" size="6"/></ft:widget></td>																	
+										<td><ft:widget id="suscriptor"/></td>
 										<td><ft:widget id="fechaPago"/></td>
-										<td><ft:widget id="recibo"><fi:styling align="right" size="6"/></ft:widget></td>										
 										<td><ft:widget id="servicioId"/></td>
+										<td><ft:widget id="recibo"><fi:styling align="right" size="6"/></ft:widget></td>	
 										<td><ft:widget id="colectorNumero"><fi:styling align="right" size="3"/></ft:widget></td>
 										<td><ft:widget id="colectorNombre"/></td>
 										<td><ft:widget id="marcar"/></td>
@@ -79,9 +77,7 @@
                 		    </div>
                         </ft:repeater>        										
                         <ft:widget id="montoTotal"/>
-                        <ft:widget id="cantidadPagos"/>
-                        <ft:widget id="montoTotalUs"/>
-                        <ft:widget id="cantidadPagosUs"/>                    
+                        <ft:widget id="cantidadPagos"/>                 
                         <br/>                        					
                     </fi:items>
                 </fi:group>

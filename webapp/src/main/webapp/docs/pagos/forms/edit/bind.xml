@@ -23,12 +23,11 @@
             <fb:value id="numContrato" path="numeroContrato"/>
             <fb:value id="fechaPago" path="fechaPago"/>
             <fb:value id="facturaInterna" path="facturaInterna"/>
+            <fb:value id="cupon" path="cupon"/>
             <fb:value id="numeroFiscal" path="numeroFiscal"/>
             <fb:value id="montoPago" path="montoPago"/>
-            <fb:value id="montoPagoUs" path="montoPagoUs"/>
             <fb:value id="recibo" path="recibo"/>
             <fb:value id="horaRegistro" path="horaRegistro"/>
-            <fb:value id="dolares" path="dolares"/>
         </fb:on-bind>
 
         <fb:on-delete-row>
