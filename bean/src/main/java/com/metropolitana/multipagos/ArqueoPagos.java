@@ -1,5 +1,5 @@
 //==============================================================================
-//===   arqueo_pagos.java                        Build:2499
+//===   arqueo_pagos.java                        Build:2516
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -191,6 +191,20 @@ public class ArqueoPagos implements java.io.Serializable
    {
       arqueoCantidad.setArqueoIdRef(this);
       arqueoCantidadList.add( arqueoCantidad );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection arqueoCantidadUsList = new ArrayList();
+
+   public Collection getArqueoCantidadUsList() { return arqueoCantidadUsList;}
+
+   public void setArqueoCantidadUsList(Collection c) { this.arqueoCantidadUsList = c;}
+
+   public void addArqueoCantidadUs( ArqueoCantidadUs arqueoCantidadUs )
+   {
+      arqueoCantidadUs.setArqueoIdRef(this);
+      arqueoCantidadUsList.add( arqueoCantidadUs );
    }
 
    //---------------------------------------------------------------------------

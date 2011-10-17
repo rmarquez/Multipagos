@@ -103,7 +103,7 @@ public class TasafijaHandler {
     public static TasaFija retrieve(Date fecha, PersistenceBroker broker) {
         Criteria criterio = new Criteria();
         //Buscar el mes correspondiente al parametro fecha
-        criterio.addBetween("tasaFecha", fecha, Util.ultimoDelMes(fecha));
+        criterio.addEqualTo("tasaFecha", Util.primeroDelMes(fecha));
         ReportQueryByCriteria query = new ReportQueryByCriteria(TasaFija.class, criterio);
         return (TasaFija) broker.getObjectByQuery(query);
     }
@@ -118,8 +118,7 @@ public class TasafijaHandler {
      */
     public static TasaFija retrieve(Date tasaFecha) throws Exception {
         PersistenceBroker broker = null;
-
-        try {
+       try {
             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
             return retrieve(tasaFecha, broker);
         } catch (Exception e) {

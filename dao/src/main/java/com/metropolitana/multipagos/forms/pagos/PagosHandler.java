@@ -98,7 +98,6 @@ public class PagosHandler {
             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
             broker.beginTransaction();
             Date fecha = Calendar.getInstance().getTime();
-        System.out.println("pagoId = " + pagoId);
             Pagos bean = retrieve(pagoId, broker);
             broker.delete(bean);
             //broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId, Integer.valueOf(3), broker));

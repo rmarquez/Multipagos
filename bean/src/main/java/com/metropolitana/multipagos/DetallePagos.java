@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2494
+//===   detalle_pagos.java                        Build:2505
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -26,12 +26,11 @@ public class DetallePagos implements java.io.Serializable
    private String     numeroContrato;
    private String     facturaInterna;
    private String     numeroFiscal;
+   private String     cupon;
    private BigDecimal montoPago;
-   private BigDecimal montoPagoUs;
    private Date       fechaPago;
    private Integer    recibo;
    private String     horaRegistro;
-   private Boolean    dolares;
 
    //---------------------------------------------------------------------------
 
@@ -107,20 +106,20 @@ public class DetallePagos implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   public String getCupon() { return cupon; }
+
+   public void setCupon(String cupon)
+   {
+      this.cupon = cupon;
+   }
+
+   //---------------------------------------------------------------------------
+
    public BigDecimal getMontoPago() { return montoPago; }
 
    public void setMontoPago(BigDecimal montoPago)
    {
       this.montoPago = montoPago;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public BigDecimal getMontoPagoUs() { return montoPagoUs; }
-
-   public void setMontoPagoUs(BigDecimal montoPagoUs)
-   {
-      this.montoPagoUs = montoPagoUs;
    }
 
    //---------------------------------------------------------------------------
@@ -148,15 +147,6 @@ public class DetallePagos implements java.io.Serializable
    public void setHoraRegistro(String horaRegistro)
    {
       this.horaRegistro = horaRegistro;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public Boolean getDolares() { return dolares; }
-
-   public void setDolares(Boolean dolares)
-   {
-      this.dolares = dolares;
    }
 
    //---------------------------------------------------------------------------

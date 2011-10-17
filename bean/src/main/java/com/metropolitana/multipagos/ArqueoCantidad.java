@@ -1,5 +1,5 @@
 //==============================================================================
-//===   arqueo_cantidad.java                        Build:2504
+//===   arqueo_cantidad.java                        Build:2508
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -22,7 +22,6 @@ public class ArqueoCantidad implements java.io.Serializable
    private Integer    cantidadId;
    private Integer    cantidad;
    private BigDecimal total;
-   private Boolean    dolares;
 
    //---------------------------------------------------------------------------
 
@@ -58,15 +57,6 @@ public class ArqueoCantidad implements java.io.Serializable
    public void setTotal(BigDecimal total)
    {
       this.total = total;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public Boolean getDolares() { return dolares; }
-
-   public void setDolares(Boolean dolares)
-   {
-      this.dolares = dolares;
    }
 
    //---------------------------------------------------------------------------

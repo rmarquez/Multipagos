@@ -243,6 +243,26 @@ public class Auth_userHandler {
             }
         }
     }
+    
+    public static AuthUser getUsuario(String usrLogin, String usrPassword) throws Exception {
+    	PersistenceBroker broker = null;
+    	try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            AuthUser criterio = new AuthUser();
+            criterio.setUsrLogin(usrLogin);
+            criterio.setUsrPassword(usrPassword);
+            Query query = new QueryByCriteria(criterio);
+            return (AuthUser) broker.getObjectByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    	
+        
+    }
 
     /**
      * Elimina un usuario

@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 
 
+import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AuthUser;
 import com.metropolitana.multipagos.Banco;
 import com.metropolitana.multipagos.Barrio;
@@ -595,6 +596,62 @@ public class LogsHandler {
 		String strDescripcion = "";
 		strDescripcion = " Cantidades Monedas  : " + cantidad.getCantidadNombre();
 		return getEstado(strDescripcion, estadoId, fecha, user);
+	}
+	
+	/**
+	 * Crea un registro de Logs para del documento cualificación
+	 *
+	 * @param arqueo
+	 *            bean del documento departamento
+	 * @param fecha
+	 *            fecha en que se registra el log
+	 * @param usrId
+	 *            identificador del usuario
+	 * @param broker
+	 * @return
+	 * @throws Exception
+	 */
+	public static Logs setLogsDelSistema(ArqueoPagos arqueo,
+			Date fecha, Integer usrId, Integer estadoId,AuthUser usrAutoriza,
+			PersistenceBroker broker) throws Exception {
+		Logs logs = new Logs();
+		AuthUser user = Auth_userHandler.retrieve(usrId, broker);
+		// Asignamos los valores a la transacción
+		logs.setLogsReferencia(arqueo.getArqueoId().toString());
+		logs.setLogsFecha(fecha);
+		logs.setTipodLogIdRef(TipoDocumentoLogHandler.retrieve(
+				TipoDocumentoLogHandler.ARQUEO_PAGOS, broker));
+		logs.setLogsDescripcion(getDescripcion(arqueo, user, estadoId, fecha, usrAutoriza));
+		return logs;
+	}
+
+	/**
+	 * Log o Mensaje que se registrará .
+	 *
+	 * @param arqueo
+	 *            bean del objeto departamento
+	 * @param user
+	 *            bean del objeto usuario
+	 * @param estadoId
+	 * @return
+	 */
+	private static String getDescripcion(ArqueoPagos arqueo,
+			AuthUser user, Integer estadoId, Date fecha, AuthUser usrAutoriza) {
+		String strDescripcion = "";
+		strDescripcion = " Arqueo de  : "
+				+ arqueo.getUsrIdRef().getUsrLogin();
+		if (estadoId.equals(Integer.valueOf(1))) {
+			strDescripcion += " creado por " + user.getUsrLogin() + " a las "
+					+ fecha.getHours() + ":" + fecha.getMinutes();
+		} else if (estadoId.equals(Integer.valueOf(2))) {
+			strDescripcion += " editado por " + user.getUsrLogin() + " a las "
+					+ fecha.getHours() + ":" + fecha.getMinutes();
+		} else if (estadoId.equals(Integer.valueOf(3))) {
+			strDescripcion += "creado por "+ user.getUsrLogin()
+					+ " y " +" autorizado por " + usrAutoriza.getUsrLogin()
+					+ " a las " + fecha.getHours() + ":" + fecha.getMinutes();
+		}
+		return strDescripcion;		
 	}
 	
 	/**
