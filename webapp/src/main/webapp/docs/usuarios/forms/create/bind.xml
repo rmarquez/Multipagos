@@ -6,7 +6,6 @@
     <fb:value id="usrEnable" path="usrEnable"/>
     <fb:value id="usrEmail" path="usrEmail"/>
     <fb:value id="usrCargo" path="usrCargo"/>
-    <fb:value id="usrNotificarOfertas" path="usrNotificarOfertas"/>
     <fb:repeater id="roles" parent-path="." row-path="authUserRoleList">
         <fb:identity>
             <fb:value path="rolId" id="rolId"/>
@@ -18,7 +17,7 @@
             <fb:delete-node/>
         </fb:on-delete-row>
         <fb:on-insert-row>
-            <fb:insert-bean classname="edu.inatec.sfc.AuthUserRole" addmethod="addAuthUserRole"/>
+            <fb:insert-bean classname="com.metropolitana.multipagos.AuthUserRole" addmethod="addAuthUserRole"/>
         </fb:on-insert-row>
     </fb:repeater>
 </fb:context>

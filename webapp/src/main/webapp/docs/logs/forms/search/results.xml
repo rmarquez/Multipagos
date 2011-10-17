@@ -57,6 +57,21 @@
                                         ${status.current.logsDescripcion}</jx:when>
                                     <!-- Colector -->
                                     <jx:when test="${status.current.tipodLogId == 9}">
+                                        ${status.current.logsDescripcion}</jx:when>
+                                    <!-- Cartera x departamento -->
+                                    <jx:when test="${status.current.tipodLogId == 10}">
+                                        ${status.current.logsDescripcion}</jx:when>
+                                   <!-- Control visitas -->
+                                    <jx:when test="${status.current.tipodLogId == 11}">
+                                        ${status.current.logsDescripcion}</jx:when>
+                                   <!-- Control pagos -->
+                                    <jx:when test="${status.current.tipodLogId == 12}">
+                                        ${status.current.logsDescripcion}</jx:when>
+                                    <!-- Cantidad Monedas -->
+                                    <jx:when test="${status.current.tipodLogId == 13}">
+                                        ${status.current.logsDescripcion}</jx:when>
+                                    <!-- Arqueo pagos -->
+                                    <jx:when test="${status.current.tipodLogId == 14}">
                                         ${status.current.logsDescripcion}</jx:when>                                    
                                     <jx:otherwise>
 

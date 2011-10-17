@@ -5,7 +5,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 
 function editform(form) {
-    //if (autorizar("registro_visitas")) {
+    if (autorizar("cata")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.pagoId));
     	form.load(bean);
@@ -16,7 +16,7 @@ function editform(form) {
         	
         dialogosino("Pagos", "Registro de pagos actualizada con éxito",
                         "¿Desea procesar un nuevo registro de pagos?","search", "/bienvenidos");
-    //}
+    }
 }
 
 function llenarCamposlimpios(form) {

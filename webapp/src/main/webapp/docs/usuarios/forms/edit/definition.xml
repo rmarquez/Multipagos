@@ -63,13 +63,7 @@
             <fd:hint>Habilitar/Deshabilitar usuario.</fd:hint>
         </fd:booleanfield>
 
-        <fd:booleanfield id="usrNotificarOfertas">
-            <fd:label>Notificar Ofertas:</fd:label>
-            <fd:help>Indique si el usuario recibirá notificaciones de las ofertas de cursos creadas</fd:help>
-            <fd:hint>False/True</fd:hint>
-        </fd:booleanfield>
-
-		<fd:field id="usrEmail">
+        <fd:field id="usrEmail">
             <fd:label>Correo electrónico:</fd:label>
             <fd:help>Escriba la dirección de correo electrónico del usuario</fd:help>
             <fd:hint>Dirección de correo electrónico.</fd:hint>
@@ -91,7 +85,7 @@
                     <fd:datatype base="integer"/>
                     <fd:validation>
                         <fd:range min="1">
-                            <fd:failmessage><i18n:text>edu.inatec.key.elejirdelista</i18n:text></fd:failmessage>
+                            <fd:failmessage><i18n:text>com.metropolitana.key.elejirdelista</i18n:text></fd:failmessage>
                         </fd:range>
                     </fd:validation>
                     <fd:selection-list src="cocoon:/auth_role.combo" dynamic="true"/>

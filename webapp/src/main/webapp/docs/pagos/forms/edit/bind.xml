@@ -3,9 +3,7 @@
     <fb:value id="usrId" path="usrId"/>
     <fb:value id="fecha" path="fecha"/>
     <fb:value id="montoTotal" path="montoTotal"/>
-    <fb:value id="montoTotalUs" path="montoTotalUs"/>
     <fb:value id="cantidadPagos" path="cantidadPagos"/>
-    <fb:value id="cantidadPagosUs" path="cantidadPagosUs"/>
 
 	<fb:repeater id="detalle" parent-path="." row-path="detallePagosList">
         <fb:identity>

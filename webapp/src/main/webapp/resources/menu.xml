@@ -12,10 +12,26 @@
         <!-- Menu de Administracion -->
         <div dojoType="PopupMenu2" widgetId="administracionMenu">
               <div dojoType="MenuItem2" caption="Seguridad" submenuId="adminSeguridad"/>
+              
 
         </div>
+        <!-- Submenu de Administracion de Seguridad -->
+        <div dojoType="PopupMenu2" widgetId="adminSeguridad">
             <jx:if test="${bean.getResources().contains('auth')}">
-                <!-- Submenu de Administracion de Usuarios -->
+                <div dojoType="MenuItem2" caption="Usuarios" submenuId="usuarios"/>
+                <div dojoType="MenuItem2" caption="Roles" submenuId="roles"/>
+            </jx:if>
+            <div dojoType="MenuItem2" caption="Cambiar contraseña"
+                        onClick="parent.window.location='/multipagos/usuarios/password'"/>
+            <jx:if test="${usrId==1}">
+            <div dojoType="MenuItem2" caption="Registro de Logs"
+                        onClick="parent.window.location='/multipagos/logs/search'"/>
+            </jx:if>
+        </div>
+        
+         
+           <!--  <jx:if test="${bean.getResources().contains('auth')}">
+                Submenu de Administracion de Usuarios -->
                 <div dojoType="PopupMenu2" widgetId="usuarios">
                     <div dojoType="MenuItem2" caption="Crear"
                          onClick="parent.window.location='/multipagos/usuarios/create'"/>
@@ -29,7 +45,7 @@
                     <div dojoType="MenuItem2" caption="Buscar"
                             onClick="parent.window.location='/multipagos/roles/search'" />
                 </div>
-            </jx:if>
+            <!-- </jx:if>  -->
         
          <!-- Menu Colector -->
         <div dojoType="PopupMenu2" widgetId="colectorMenu">

@@ -7,7 +7,6 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
-importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 
 function alSeleccionarUsuario(event) {
     var usrId = event.source.value;

@@ -27,7 +27,7 @@
                     <fd:validation>
                         <fd:range min="1">
                             <fd:failmessage>
-                                <i18n:text>net.agssa.key.elejirdelista</i18n:text>
+                                <i18n:text>com.metropolitana.key.elejirdelista</i18n:text>
                             </fd:failmessage>
                         </fd:range>
                     </fd:validation>
