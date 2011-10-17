@@ -12,12 +12,34 @@
   <s1 title="Crear Arqueo">
   <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
   <ft:continuation-id/>
-  <!-- <ft:widget id="mensajes_error"/> -->
+  <ft:widget id="autorizado"><fi:styling type="hidden"/></ft:widget>
+  <ft:widget id="mensajes de error"/>
+  <fi:items>
+         <table>	           
+            <tr>
+             <tw>
+                 <ft:widget-label id="auth_user"/>
+                 <ft:widget id="auth_user"></ft:widget>
+             </tw>
+             <tw>
+                 <ft:widget-label id="auth_passwd"/>
+                 <ft:widget id="auth_passwd"><fi:styling type="password"/></ft:widget>
+             </tw>                                 
+            </tr>           
+         </table>
+  </fi:items>
   
   <!-- Encabezado -->
   <fi:group>
-    <fi:styling layout="columns"/>
+    <fi:styling layout="row"/>
     <fi:items>
+    
+   <fi:group>      
+    
+     </fi:group>  
+    
+    <fi:group>
+    
         <fi:group>
           <fi:label>General</fi:label>
           <fi:styling type="fieldset" layout="row"/>
@@ -39,9 +61,85 @@
         </fi:group>
         
         <fi:group>
-          <fi:styling type="tabs"/>
+          <fi:label>Totales</fi:label>
+          <fi:styling type="fieldset" layout="row"/>
+          <fi:items>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                
+              	<ft:widget id="totalRecibo"/>
+              	<ft:widget id="totalCs"/>
+              	<ft:widget id="totalCkCs"/>
+              	<ft:widget id="totalDpCs"/>
+              </fi:items>
+            </fi:group>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                  <ft:widget id="totalGeneral"/>
+                  <ft:widget id="totalUs"/>
+                  <ft:widget id="totalCkUs"/>
+                  <ft:widget id="totalDpUs"/>
+              </fi:items>
+            </fi:group>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                  <ft:widget id="diferencia"/>
+                   <ft:widget id="conversionUs"/>
+                   <ft:widget id="conversionCkUs"/>
+                   <ft:widget id="conversionDpUs"/>
+              </fi:items>
+            </fi:group>            
+          </fi:items>
+        </fi:group>
+        
+        <fi:group>
+          <fi:styling type="tabs" layout="columns"/>
           <fi:label>Seleccione una pestaña:</fi:label>
           <fi:items>
+          
+          <fi:group>
+     <fi:label>Datos pagos</fi:label>
+     <fi:styling layout="columns"/>
+     <fi:items>
+      <fi:group>
+         <fi:styling layout="columns"/>
+         <fi:label>Efectivo</fi:label>
+         <fi:items>
+	     <ft:repeater id="detalle">
+	       <div>
+	         <table>
+	           <thead>
+	             <tr>
+	               <th><ft:repeater-widget-label widget-id="recibo"/></th>
+	               <th><ft:repeater-widget-label widget-id="facturaInterna"/></th>
+	               <th><ft:repeater-widget-label widget-id="suscriptor"/></th>
+	               <th><ft:repeater-widget-label widget-id="numContrato"/></th>
+	               <th><ft:repeater-widget-label widget-id="fecha"/></th>
+	               <th><ft:repeater-widget-label widget-id="monto"/></th>
+	             </tr>
+	           </thead>
+	           <tbody>
+	             <ft:repeater-rows>
+	               <tr>
+	                 <td><ft:widget id="recibo"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="facturaInterna"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="suscriptor"/></td>
+	                 <td><ft:widget id="numContrato"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="fecha"/></td>
+	                 <td><ft:widget id="monto"><fi:styling size="5"/></ft:widget></td>
+	               </tr>
+	             </ft:repeater-rows> 	                         
+	           </tbody>
+	         </table>
+	       </div>
+	     </ft:repeater>
+	     </fi:items>
+          </fi:group>
+        </fi:items>
+      </fi:group>
            
             <!-- Primer Pestaña -->
             <fi:group>
@@ -115,6 +213,7 @@
                                 <td><ft:widget id="cantidadUs"><fi:styling size="5"/></ft:widget></td>
                                 <td><ft:widget id="totalUs"/></td>
                                 <td><ft:widget id="marcar-us"/></td>
+                                <td><ft:widget id="cantidadValorUs"><fi:styling type="hidden"/></ft:widget></td>
                               </tr>
                             </ft:repeater-rows>
                             <tr>
@@ -237,65 +336,15 @@
             </fi:group>
                     
           </fi:items>
-        </fi:group>            
-     </fi:items>
+        </fi:group> 
+   </fi:group>        
+                   
+     </fi:items>     
      
-   </fi:group>
-    <!--  <fi:group>
-          <fi:styling type="fieldset" layout="row"/>
-          <fi:items>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                <ft:widget id="totalCs"/>
-                <ft:widget id="totalUs"/>
-                <ft:widget id="conversionUs"/>
-              </fi:items>
-            </fi:group>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                 <ft:widget id="totalCkCs"/>
-                <ft:widget id="totalCkUs"/>
-                <ft:widget id="conversionCkUs"/>
-              </fi:items>
-            </fi:group>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                 <ft:widget id="totalDpCs"/>
-                <ft:widget id="totalDpUs"/>
-                <ft:widget id="conversionDpUs"/>
-              </fi:items>
-            </fi:group>            
-          </fi:items>
-        </fi:group>
-        
-        <fi:group>
-          <fi:styling type="fieldset" layout="row"/>
-          <fi:items>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                <ft:widget id="totalRecibo"/>
-              </fi:items>
-            </fi:group>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                <ft:widget id="totalGeneral"/>                
-              </fi:items>
-            </fi:group>
-            <fi:group>
-              <fi:styling layout="columns"/>
-              <fi:items>
-                <ft:widget id="diferencia"/>
-              </fi:items>
-            </fi:group> 
-          </fi:items>
-        </fi:group>   -->
+   </fi:group>    					
    
-   <ft:widget id="crear"/>   
+   <ft:widget id="crear"/> 
+   <ft:widget id="aceptar"/>  
   </ft:form-template>
  </s1>
  </body>

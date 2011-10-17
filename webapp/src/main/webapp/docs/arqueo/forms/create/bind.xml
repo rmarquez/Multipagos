@@ -29,7 +29,6 @@
         	<fb:value id="cantidadId" path="cantidadId"/>
             <fb:value id="cantidad" path="cantidad"/>
             <fb:value id="total" path="total"/>
-            <fb:value id="dolares" path="dolares"/>
         </fb:on-bind>
 
         <fb:on-delete-row>
@@ -41,7 +40,7 @@
         </fb:on-insert-row>
     </fb:repeater>
     
-    <fb:repeater id="detalleCantidadUs" parent-path="." row-path="arqueoCantidadList">
+    <fb:repeater id="detalleCantidadUs" parent-path="." row-path="arqueoCantidadUsList">
         <fb:identity>
             <fb:value id="cantidadIdUs" path="cantidadId"/>
         </fb:identity>
@@ -50,7 +49,6 @@
         	<fb:value id="cantidadIdUs" path="cantidadId"/>
             <fb:value id="cantidadUs" path="cantidad"/>
             <fb:value id="totalUs" path="total"/>
-            <fb:value id="dolares" path="dolares"/>
         </fb:on-bind>
 
         <fb:on-delete-row>
@@ -58,7 +56,7 @@
         </fb:on-delete-row>
 
         <fb:on-insert-row>
-            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoCantidad" addmethod="addArqueoCantidad"/>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoCantidadUs" addmethod="addArqueoCantidadUs"/>
         </fb:on-insert-row>
     </fb:repeater>
     
