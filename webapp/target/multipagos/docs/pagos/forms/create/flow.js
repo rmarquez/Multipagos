@@ -6,7 +6,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartam
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 function createform(form) {
-    //if (autorizar("registro_visitas")) {
+    if (autorizar("cata")) {
     	var usrId = auth_getUserID();
     	var handlerUser = new Auth_userHandler();
     	var usuario = handlerUser.retrieve(usrId);
@@ -23,5 +23,5 @@ function createform(form) {
         	
         dialogosino("Pagos", "Registro de pagos procesado con éxito",
                         "¿Desea procesar un nuevo registro de pagos?","create", "/bienvenidos");
-    //}
+    }
 }
