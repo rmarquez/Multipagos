@@ -5,10 +5,8 @@
 	<classpathentry excluding="**" kind="src" output="dao/target/classes" path="dao/src/main/resources"/>
 	<classpathentry kind="src" output="dao/target/test-classes" path="dao/src/test/java"/>
 	<classpathentry excluding="**" kind="src" output="dao/target/test-classes" path="dao/src/test/resources"/>
-	<classpathentry kind="src" output="webapp/target/classes" path="webapp/src/main/java"/>
 	<classpathentry excluding="**" kind="src" output="webapp/target/classes" path="webapp/src/main/resources"/>
-	<classpathentry excluding="**" kind="src" output="webapp/target/classes" path="webapp/src/main/webapp/WEB-INF/properties"/>
-	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

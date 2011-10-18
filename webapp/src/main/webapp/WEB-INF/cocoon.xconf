@@ -667,7 +667,7 @@
       +
 
 	 <component role="org.apache.cocoon.components.cron.CronJob/emailofertas"
-	             class="edu.inatec.sfc.cron.CronEmailOfertasCurso"
+	             class="com.metropolitana.multipagos.cron.CronEmailOfertasCurso"
 	             logger="cron.emailofertas">
 	             <pipeline>informes/notificarofertaSendmail.list</pipeline>
 	  </component>
