@@ -239,29 +239,6 @@
 			<inverse-foreignkey field-ref="carteraId"/>
 		</collection-descriptor>
 	</class-descriptor>
-	<class-descriptor class="com.metropolitana.multipagos.TmpCartera" table="TMP_CARTERA">
-		<field-descriptor name="tmpId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="tmp_cartera_tmp_id_seq" column="TMP_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="contrato" nullable="false" default-fetch="true" column="CONTRATO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="suscriptor" nullable="false" default-fetch="true" column="SUSCRIPTOR" jdbc-type="VARCHAR"/>
-		<field-descriptor name="nit" nullable="false" default-fetch="true" column="NIT" jdbc-type="VARCHAR"/>
-		<field-descriptor name="direccion" nullable="false" default-fetch="true" column="DIRECCION" jdbc-type="VARCHAR"/>
-		<field-descriptor name="barrio" nullable="false" default-fetch="true" column="BARRIO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
-		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
-		<field-descriptor name="anio" nullable="false" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="mes" nullable="false" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
-		<field-descriptor name="saldo" nullable="false" default-fetch="true" column="SALDO" jdbc-type="NUMERIC"/>
-		<field-descriptor name="estado" nullable="false" default-fetch="true" column="ESTADO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="departamento" nullable="false" default-fetch="true" column="DEPARTAMENTO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="localidad" nullable="false" default-fetch="true" column="LOCALIDAD" jdbc-type="VARCHAR"/>
-		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
-		<field-descriptor name="telefono" default-fetch="true" column="TELEFONO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="descuento" default-fetch="true" column="DESCUENTO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="servicio" nullable="false" default-fetch="true" column="SERVICIO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="empleador" default-fetch="true" column="EMPLEADOR" jdbc-type="VARCHAR"/>
-		<field-descriptor name="direccionEmpleador" default-fetch="true" column="DIRECCION_EMPLEADOR" jdbc-type="VARCHAR"/>
-		<field-descriptor name="fAsiganado" default-fetch="true" column="F_ASIGANADO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
-	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Visitas" table="VISITAS">
 		<field-descriptor name="visitaId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="visitas_visita_id_seq" column="VISITA_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="usrId" nullable="false" default-fetch="true" column="USR_ID" jdbc-type="INTEGER"/>
@@ -456,5 +433,51 @@
 		<reference-descriptor name="tipodLogIdRef" class-ref="com.metropolitana.multipagos.TipoDocumentoLogs" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="tipodLogId"/>
 		</reference-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.TmpCartera" table="TMP_CARTERA">
+		<field-descriptor name="tmpId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="tmp_cartera_tmp_id_seq" column="TMP_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="contrato" nullable="false" default-fetch="true" column="CONTRATO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="suscriptor" nullable="false" default-fetch="true" column="SUSCRIPTOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="nit" nullable="false" default-fetch="true" column="NIT" jdbc-type="VARCHAR"/>
+		<field-descriptor name="direccion" nullable="false" default-fetch="true" column="DIRECCION" jdbc-type="VARCHAR"/>
+		<field-descriptor name="barrio" nullable="false" default-fetch="true" column="BARRIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="anio" nullable="false" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="mes" nullable="false" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
+		<field-descriptor name="saldo" nullable="false" default-fetch="true" column="SALDO" jdbc-type="NUMERIC"/>
+		<field-descriptor name="estado" nullable="false" default-fetch="true" column="ESTADO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="departamento" nullable="false" default-fetch="true" column="DEPARTAMENTO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="localidad" nullable="false" default-fetch="true" column="LOCALIDAD" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
+		<field-descriptor name="telefono" default-fetch="true" column="TELEFONO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="descuento" default-fetch="true" column="DESCUENTO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="servicio" nullable="false" default-fetch="true" column="SERVICIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="empleador" default-fetch="true" column="EMPLEADOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="direccionEmpleador" default-fetch="true" column="DIRECCION_EMPLEADOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="fAsignado" default-fetch="true" column="F_ASIGNADO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.TmpVistaDuplicados" table="TMP_VISTA_DUPLICADOS">
+		<field-descriptor name="tmpId" primarykey="true" nullable="false" default-fetch="true" column="TMP_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="contrato" nullable="false" default-fetch="true" column="CONTRATO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="suscriptor" nullable="false" default-fetch="true" column="SUSCRIPTOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="nit" nullable="false" default-fetch="true" column="NIT" jdbc-type="VARCHAR"/>
+		<field-descriptor name="direccion" nullable="false" default-fetch="true" column="DIRECCION" jdbc-type="VARCHAR"/>
+		<field-descriptor name="barrio" nullable="false" default-fetch="true" column="BARRIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="anio" nullable="false" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="mes" nullable="false" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
+		<field-descriptor name="saldo" nullable="false" default-fetch="true" column="SALDO" jdbc-type="NUMERIC"/>
+		<field-descriptor name="estado" nullable="false" default-fetch="true" column="ESTADO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="departamento" nullable="false" default-fetch="true" column="DEPARTAMENTO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="localidad" nullable="false" default-fetch="true" column="LOCALIDAD" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
+		<field-descriptor name="telefono" default-fetch="true" column="TELEFONO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="descuento" default-fetch="true" column="DESCUENTO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="servicio" nullable="false" default-fetch="true" column="SERVICIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="empleador" default-fetch="true" column="EMPLEADOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="direccionEmpleador" default-fetch="true" column="DIRECCION_EMPLEADOR" jdbc-type="VARCHAR"/>
+		<field-descriptor name="fAsignado" default-fetch="true" column="F_ASIGNADO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 	</class-descriptor>
 </descriptor-repository>

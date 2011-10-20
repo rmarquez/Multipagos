@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Registros duplicados</title>
+    </header>
+    <body>
+        <s1 title="Lista de registros duplicados">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Contrato</th>
+                        <th>Suscriptor</th>
+                        <th>Factura Interna</th>
+                        <th>Año</th>
+                        <th>Mes</th>
+                        <th>Saldo</th>
+                        <th>Estado</th>
+                        <th>Servicio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+                           <td>${status.current.contrato}</td>
+                           <td>${status.current.suscriptor}</td>
+                           <td>${status.current.facturaInterna}</td>
+                           <td>${status.current.anio}</td>
+                           <td>${status.current.mes}</td>
+                           <td align="right"><formatoNumero numero="${status.current.saldo}"/></td>
+                           <td>${status.current.estado}</td>
+                           <td>${status.current.servicio}</td>
+                           <td>
+                              <form-table handler="#{$cocoon/continuation/id}.continue">
+                                  <parameter name="tmpId" value="${status.current.tmpId}"/>
+                                  <parameter name="facturaInterna" value="${status.current.facturaInterna}"/>
+                                  <submit name="Borrar"/>
+                              </form-table>
+                          </td>
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+            </table>           
+         </s1>
+    </body>
+</document>

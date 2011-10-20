@@ -1,5 +1,5 @@
 //==============================================================================
-//===   tmp_cartera.java                        Build:2532
+//===   tmp_vista_duplicados.java                        Build:2532
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -10,7 +10,7 @@ import com.metropolitana.multipagos.*;
 
 //==============================================================================
 
-public class TmpCartera implements java.io.Serializable
+public class TmpVistaDuplicados implements java.io.Serializable
 {
 
    //---------------------------------------------------------------------------

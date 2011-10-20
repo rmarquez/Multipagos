@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+		 xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+		<fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+            <fd:help>Buscar compras</fd:help>
+            <fd:hint>Buscar compras</fd:hint>
+        </fd:submit>
+
+    </fd:widgets>
+</fd:form>
