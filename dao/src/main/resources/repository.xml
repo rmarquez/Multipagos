@@ -170,9 +170,6 @@
 		<collection-descriptor name="arqueoCantidadList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidad" auto-update="false" auto-delete="false" proxy="false">
 			<inverse-foreignkey field-ref="cantidadId"/>
 		</collection-descriptor>
-		<collection-descriptor name="arqueoCantidadUsList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidadUs" auto-update="false" auto-delete="false" proxy="false">
-			<inverse-foreignkey field-ref="cantidadId"/>
-		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Colector" table="COLECTOR">
 		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="colector_colector_id_seq" column="COLECTOR_ID" jdbc-type="INTEGER"/>
@@ -237,6 +234,9 @@
 		</collection-descriptor>
 		<collection-descriptor name="detallePagosList" element-class-ref="com.metropolitana.multipagos.DetallePagos" auto-update="false" auto-delete="false" proxy="false">
 			<inverse-foreignkey field-ref="carteraId"/>
+		</collection-descriptor>
+		<collection-descriptor name="arqueoCantidadUsList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidadUs" auto-update="false" auto-delete="false" proxy="false">
+			<inverse-foreignkey field-ref="cantidadId"/>
 		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Visitas" table="VISITAS">

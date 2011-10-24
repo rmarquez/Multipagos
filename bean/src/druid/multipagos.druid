@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2504</attrib>
-		<attrib name="serial">1056131</attrib>
+		<attrib name="build">2511</attrib>
+		<attrib name="serial">1069717</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -194,21 +194,21 @@ COMMIT;</attrib>
 				</castor>
 				<ojb>
 					<referenceDescriptor>Y</referenceDescriptor>
-					<output>/tmp/multipagos/ojb/java</output>
 					<sequence-manager>NextVal</sequence-manager>
+					<output>/tmp/multipagos/ojb/java</output>
 					<useDateConvertor>Y</useDateConvertor>
 					<defaultconnection>Y</defaultconnection>
 					<collectionDescriptor>Y</collectionDescriptor>
-					<Package>com.metropolitana.multipagos</Package>
 					<username>postgres</username>
+					<Package>com.metropolitana.multipagos</Package>
 				</ojb>
 			</GenericGenModule>
 			<DocsGenModule>
 				<pdf>
 					<pageSize>1</pageSize>
 					<output>/tmp/multipagos/docs/modelo.pdf</output>
-					<language>es</language>
 					<thumbnails>128</thumbnails>
+					<language>es</language>
 				</pdf>
 				<html>
 					<output>/tmp/multipagos/docs</output>
@@ -225,6 +225,20 @@ COMMIT;</attrib>
 					<output/>
 				</xml>
 			</DatadictGenModule>
+			<SqlGenModule>
+				<hsqldbSql>
+					<output/>
+				</hsqldbSql>
+				<stdSql>
+					<output/>
+				</stdSql>
+				<oraSql>
+					<output/>
+				</oraSql>
+				<pgSql>
+					<output>/tmp/multipagos/sql/crear_db.sql</output>
+				</pgSql>
+			</SqlGenModule>
 			<CodeGenModule>
 				<java>
 					<namePrefix/>
@@ -240,24 +254,10 @@ COMMIT;</attrib>
 					<getter>Y</getter>
 					<package>com.metropolitana.multipagos</package>
 					<genConsts>N</genConsts>
-					<useJdo>Y</useJdo>
 					<dirtyCheck>N</dirtyCheck>
+					<useJdo>Y</useJdo>
 				</java>
 			</CodeGenModule>
-			<SqlGenModule>
-				<stdSql>
-					<output/>
-				</stdSql>
-				<hsqldbSql>
-					<output/>
-				</hsqldbSql>
-				<oraSql>
-					<output/>
-				</oraSql>
-				<pgSql>
-					<output>/tmp/multipagos/sql/crear_db.sql</output>
-				</pgSql>
-			</SqlGenModule>
 		</modsConfig>
 		<modsUsage>
 			<module name="DocsGenModule.html"/>
@@ -1727,6 +1727,27 @@ COMMIT;</attrib>
 								</list>
 							</domain>
 						</alias>
+						<alias>
+							<attribs>
+								<attrib name="name">Cadena50</attrib>
+								<attrib name="ddEquiv">String</attrib>
+								<attrib name="id">1067571</attrib>
+								<attrib name="size">50</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="maxValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
 					</aliases>
 				</type>
 			</varFolder>
@@ -2877,8 +2898,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_user_usr_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2912,8 +2933,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2947,8 +2968,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2982,8 +3003,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3017,8 +3038,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3052,8 +3073,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3087,8 +3108,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3343,8 +3364,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_role_rol_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3378,8 +3399,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3413,8 +3434,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3679,8 +3700,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_resource_res_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3714,8 +3735,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3749,8 +3770,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3784,8 +3805,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4021,8 +4042,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4056,8 +4077,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4366,8 +4387,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4401,8 +4422,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4579,8 +4600,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('estado_corte_estado_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4609,8 +4630,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4639,8 +4660,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4682,7 +4703,13 @@ insert into auth_permission values(16,13);</attrib>
 						<attrib name="tempPK"/>
 						<attrib name="tempFK"/>
 						<attrib name="tempOther"/>
-						<attrib name="sqlCommands"/>
+						<attrib name="sqlCommands">INSERT INTO departamento VALUES(1,'MANAGUA');
+INSERT INTO departamento VALUES(2,'MATEARE');
+INSERT INTO departamento VALUES(3,'TICUANTEPE');
+INSERT INTO departamento VALUES(4,'SEBACO');
+INSERT INTO departamento VALUES(5,'MATAGALPA');
+INSERT INTO departamento VALUES(6,'NUEVA SEGOVIA');
+INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>
@@ -4752,8 +4779,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('departamento_departamento_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4782,8 +4809,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4812,8 +4839,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4855,7 +4882,318 @@ insert into auth_permission values(16,13);</attrib>
 						<attrib name="tempPK"/>
 						<attrib name="tempFK"/>
 						<attrib name="tempOther"/>
-						<attrib name="sqlCommands"/>
+						<attrib name="sqlCommands">INSERT INTO localidad VALUES (1,1, 'ALTAMIRA DESTE');
+INSERT INTO localidad VALUES (2,1, 'ALTAMIRA II ETAPA');
+INSERT INTO localidad VALUES (3,1, 'AMERICAS 2');
+INSERT INTO localidad VALUES (4,1, 'ANEXO A LA VILLA');
+INSERT INTO localidad VALUES (5,1, 'ANEXO VILLA LIBERTAD');
+INSERT INTO localidad VALUES (6,1, 'ASENTAMIENTO ALDO CHAVARRIA');
+INSERT INTO localidad VALUES (7,1, 'BALCONES DE SANTODOMINGO');
+INSERT INTO localidad VALUES (8,1, 'BARCELONA');
+INSERT INTO localidad VALUES (9,1, 'BATAHOLA NORTE');
+INSERT INTO localidad VALUES (10,1, 'BATAHOLA SUR');
+INSERT INTO localidad VALUES (11,1, 'BELLO AMANECER');
+INSERT INTO localidad VALUES (12,1, 'BELLO HORIZONTE');
+INSERT INTO localidad VALUES (13,1, 'BELLO HORIZONTE (I-II-III ETAPA)');
+INSERT INTO localidad VALUES (14,1, 'BELLO HORIZONTE (IV ETAPA)');
+INSERT INTO localidad VALUES (15,1, 'BELLO HORIZONTE (V Y VI ETAPA)');
+INSERT INTO localidad VALUES (16,1, 'BO. 11 DE MAYO');
+INSERT INTO localidad VALUES (17,1, 'BO. 19 DE JULIO');
+INSERT INTO localidad VALUES (18,1, 'BO. 1RO. DE MAYO');
+INSERT INTO localidad VALUES (19,1, 'BO. 21 DE FEBRERO');
+INSERT INTO localidad VALUES (20,1, 'BO. 22 DE ENERO');
+INSERT INTO localidad VALUES (21,1, 'BO. 8 DE MARZO');
+INSERT INTO localidad VALUES (22,1, 'BO. ACAHUALINCA');
+INSERT INTO localidad VALUES (23,1, 'BO. AGUILAR');
+INSERT INTO localidad VALUES (24,1, 'BO. ALTAGRACIA');
+INSERT INTO localidad VALUES (25,1, 'BO. ANDRES CASTRO');
+INSERT INTO localidad VALUES (26,1, 'BO. BAUTISTA');
+INSERT INTO localidad VALUES (27,1, 'BO. BENEDICTO VALVERDE');
+INSERT INTO localidad VALUES (28,1, 'BO. BERTHA DIAZ');
+INSERT INTO localidad VALUES (29,1, 'BO. CAMILO CHAMORRO');
+INSERT INTO localidad VALUES (30,1, 'BO. CAMPO BRUCE');
+INSERT INTO localidad VALUES (31,1, 'BO. CARLOS AGUIRRE');
+INSERT INTO localidad VALUES (32,1, 'BO. CARLOS NUNEZ (CARRETERA SUR)');
+INSERT INTO localidad VALUES (33,1, 'BO. CASIMIRO SOTELO');
+INSERT INTO localidad VALUES (34,1, 'BO. CIUDADELA DE NICARAGUA');
+INSERT INTO localidad VALUES (35,1, 'BO. COSTA RICA');
+INSERT INTO localidad VALUES (36,1, 'BO. CRISTO DEL ROSARIO');
+INSERT INTO localidad VALUES (37,1, 'BO. DOMITILA LUGO');
+INSERT INTO localidad VALUES (38,1, 'BO. DUCUALI');
+INSERT INTO localidad VALUES (39,1, 'BO. EDGARD MUNGUIA');
+INSERT INTO localidad VALUES (40,1, 'BO. EDMUNDO MATAMOROS');
+INSERT INTO localidad VALUES (41,1, 'BO. EL BOER');
+INSERT INTO localidad VALUES (42,1, 'BO. EL EDEN');
+INSERT INTO localidad VALUES (43,1, 'BO. EL PANTANAL');
+INSERT INTO localidad VALUES (44,1, 'BO. EL PARAISITO');
+INSERT INTO localidad VALUES (45,1, 'BO. EL PILAR');
+INSERT INTO localidad VALUES (46,1, 'BO. EL RECREO');
+INSERT INTO localidad VALUES (47,1, 'BO. ENRIQUE BERMUDEZ (BO. 380)');
+INSERT INTO localidad VALUES (48,1, 'BO. FARABUNDO MARTI');
+INSERT INTO localidad VALUES (49,1, 'BO. FRANCISCO MEZA ROJAS');
+INSERT INTO localidad VALUES (50,1, 'BO. FRANCISCO ROJAS');
+INSERT INTO localidad VALUES (51,1, 'BO. GEORGINO ANDRADE');
+INSERT INTO localidad VALUES (52,1, 'BO. GERICO');
+INSERT INTO localidad VALUES (53,1, 'BO. HABANA 1 Y 2');
+INSERT INTO localidad VALUES (54,1, 'BO. HEROES Y MARTIRES DE AYAPAL');
+INSERT INTO localidad VALUES (55,1, 'BO. HIALEAH');
+INSERT INTO localidad VALUES (56,1, 'BO. HILARIO SANCHEZ (OESTE)');
+INSERT INTO localidad VALUES (57,1, 'BO. HOGAR PROPIO');
+INSERT INTO localidad VALUES (58,1, 'BO. HUGO CHAVEZ');
+INSERT INTO localidad VALUES (59,1, 'BO. ISAIAS GOMEZ');
+INSERT INTO localidad VALUES (60,1, 'BO. JAVIER CUADRA');
+INSERT INTO localidad VALUES (61,1, 'BO. JONATHAN GONZALEZ');
+INSERT INTO localidad VALUES (62,1, 'BO. JORGE DIMITROV');
+INSERT INTO localidad VALUES (63,1, 'BO. JORGE NAVARRO');
+INSERT INTO localidad VALUES (64,1, 'BO. JOSE DOLORES ESTRADA');
+INSERT INTO localidad VALUES (65,1, 'BO. JOSE SANTOS LOPEZ');
+INSERT INTO localidad VALUES (66,1, 'BO. JUAN CASTRO');
+INSERT INTO localidad VALUES (67,1, 'BO. JULIO BUITRAGO');
+INSERT INTO localidad VALUES (68,1, 'BO. LA BOCANA');
+INSERT INTO localidad VALUES (69,1, 'BO. LA FUENTE (ARIEL DARCE)');
+INSERT INTO localidad VALUES (70,1, 'BO. LA LUZ (14 DE JUNIO)');
+INSERT INTO localidad VALUES (71,1, 'BO. LA PRIMAVERA (CARLOS SANCHEZ)');
+INSERT INTO localidad VALUES (72,1, 'BO. LA VILLA');
+INSERT INTO localidad VALUES (73,1, 'BO. LARGAESPADA');
+INSERT INTO localidad VALUES (74,1, 'BO. LARREYNAGA');
+INSERT INTO localidad VALUES (75,1, 'BO. LAS PIEDRECITAS');
+INSERT INTO localidad VALUES (76,1, 'BO. LAUREANO MAIRENA');
+INSERT INTO localidad VALUES (77,1, 'BO. LAURELES SUR');
+INSERT INTO localidad VALUES (78,1, 'BO. LENINGRADO');
+INSERT INTO localidad VALUES (79,1, 'BO. LIBERIA');
+INSERT INTO localidad VALUES (80,1, 'BO. LOMA LINDA');
+INSERT INTO localidad VALUES (81,1, 'BO. LOS PESCADORES');
+INSERT INTO localidad VALUES (82,1, 'BO. MANOLO MORALES');
+INSERT INTO localidad VALUES (83,1, 'BO. MARIA AUXILIADORA');
+INSERT INTO localidad VALUES (84,1, 'BO. MARIA DE LOS ANGELES');
+INSERT INTO localidad VALUES (85,1, 'BO. MARTHA QUEZADA (LA VELOZ)');
+INSERT INTO localidad VALUES (86,1, 'BO. MEMORIAL SANDINO');
+INSERT INTO localidad VALUES (87,1, 'BO. MEXICO');
+INSERT INTO localidad VALUES (88,1, 'BO. MIRNA UGARTE');
+INSERT INTO localidad VALUES (89,1, 'BO. MOMBACHO');
+INSERT INTO localidad VALUES (90,1, 'BO. MONSENOR LEZCANO');
+INSERT INTO localidad VALUES (91,1, 'BO. MOTASTEPE');
+INSERT INTO localidad VALUES (92,1, 'BO. NINOS MARTIRES DE AYAPAL');
+INSERT INTO localidad VALUES (93,1, 'BO. NOEL MORALES');
+INSERT INTO localidad VALUES (94,1, 'BO. NUEVA LIBIA');
+INSERT INTO localidad VALUES (95,1, 'BO. OMAR TORRIJOS (SANTA EMILIA)');
+INSERT INTO localidad VALUES (96,1, 'BO. ORONTE CENTENO');
+INSERT INTO localidad VALUES (97,1, 'BO. OSWALDO MANSANARES');
+INSERT INTO localidad VALUES (98,1, 'BO. PEDRO ARAUZ PALACIOS');
+INSERT INTO localidad VALUES (99,1, 'BO. PEDRO JOAQUIN CHAMORRO');
+INSERT INTO localidad VALUES (101,1, 'BO. RIGUERO');
+INSERT INTO localidad VALUES (102,1, 'BO. RIGUERO NORTE');
+INSERT INTO localidad VALUES (103,1, 'BO. ROBERTO VARGAS BATRES');
+INSERT INTO localidad VALUES (104,1, 'BO. RUBEN DARIO');
+INSERT INTO localidad VALUES (105,1, 'BO. SALOMON MORENO');
+INSERT INTO localidad VALUES (106,1, 'BO. SAN CRISTOBAL');
+INSERT INTO localidad VALUES (107,1, 'BO. SAN FRANCISCO');
+INSERT INTO localidad VALUES (108,1, 'BO. SAN JORGE (AGUSTO CESAR SANDINO)');
+INSERT INTO localidad VALUES (109,1, 'BO. SAN JOSE ORIENTAL');
+INSERT INTO localidad VALUES (110,1, 'BO. SAN JUDAS');
+INSERT INTO localidad VALUES (112,1, 'BO. SAN LUIS NORTE Y SUR');
+INSERT INTO localidad VALUES (113,1, 'BO. SAN RAFAEL (AUGUSTO CESAR SANDINO)');
+INSERT INTO localidad VALUES (114,1, 'BO. SAN SEBASTIAN');
+INSERT INTO localidad VALUES (115,1, 'BO. SANTA ANA NORTE');
+INSERT INTO localidad VALUES (116,1, 'BO. SANTA MARGARITA');
+INSERT INTO localidad VALUES (117,1, 'BO. SANTA ROSA');
+INSERT INTO localidad VALUES (118,1, 'BO. SANTO DOMINGO');
+INSERT INTO localidad VALUES (119,1, 'BO. SELIM SHIBLE');
+INSERT INTO localidad VALUES (120,1, 'BO. TANGARA');
+INSERT INTO localidad VALUES (121,1, 'BO. TIERRA PROMETIDA');
+INSERT INTO localidad VALUES (122,1, 'BO. VENEZUELA');
+INSERT INTO localidad VALUES (123,1, 'BO. WALTER FERRETI');
+INSERT INTO localidad VALUES (124,1, 'BO. WASPAN NORTE');
+INSERT INTO localidad VALUES (125,1, 'BO. WILLIAN DIAZ');
+INSERT INTO localidad VALUES (126,1, 'BO. YURIN ORDONEZ');
+INSERT INTO localidad VALUES (127,1, 'BOSQUES DE ALTAMIRA');
+INSERT INTO localidad VALUES (128,1, 'BOSQUES DE CAPISTRANO');
+INSERT INTO localidad VALUES (129,1, 'BOSQUES DE MIRAFLORES');
+INSERT INTO localidad VALUES (130,1, 'BOSQUES DE SANTA MARIA');
+INSERT INTO localidad VALUES (131,1, 'CAMINO DE ORIENTE');
+INSERT INTO localidad VALUES (132,1, 'CARRETERA EL CRUCERO');
+INSERT INTO localidad VALUES (133,1, 'CARRETERA MANAGUA TICUANTEPE');
+INSERT INTO localidad VALUES (134,1, 'CARRETERA NORTE');
+INSERT INTO localidad VALUES (135,1, 'CIUDAD JARDIN');
+INSERT INTO localidad VALUES (136,1, 'CIUDAD REAL');
+INSERT INTO localidad VALUES (137,1, 'CIUDAD SANDINO (ZONA NO. 1)');
+INSERT INTO localidad VALUES (138,1, 'CIUDAD SANDINO (ZONA NO. 10)');
+INSERT INTO localidad VALUES (139,1, 'CIUDAD SANDINO (ZONA NO. 11)');
+INSERT INTO localidad VALUES (140,1, 'CIUDAD SANDINO (ZONA NO. 2)');
+INSERT INTO localidad VALUES (141,1, 'CIUDAD SANDINO (ZONA NO. 3)');
+INSERT INTO localidad VALUES (142,1, 'CIUDAD SANDINO (ZONA NO. 4)');
+INSERT INTO localidad VALUES (143,1, 'CIUDAD SANDINO (ZONA NO. 5)');
+INSERT INTO localidad VALUES (144,1, 'CIUDAD SANDINO (ZONA NO. 6)');
+INSERT INTO localidad VALUES (145,1, 'CIUDAD SANDINO (ZONA NO. 7)');
+INSERT INTO localidad VALUES (146,1, 'CIUDAD SANDINO (ZONA NO. 8)');
+INSERT INTO localidad VALUES (147,1, 'CIUDAD SANDINO (ZONA NO. 9)');
+INSERT INTO localidad VALUES (148,1, 'CIUDAD XOLOTLAN');
+INSERT INTO localidad VALUES (149,1, 'COLINAS DE SANTA CRUZ');
+INSERT INTO localidad VALUES (150,1, 'COLONIA 10 DE JUNIO');
+INSERT INTO localidad VALUES (151,1, 'COLONIA 14 DE SEPTIEMBRE');
+INSERT INTO localidad VALUES (152,1, 'COLONIA 1RO. DE MAYO');
+INSERT INTO localidad VALUES (153,1, 'COLONIA 9 DE JUNIO');
+INSERT INTO localidad VALUES (154,1, 'COLONIA CENTROAMERICA');
+INSERT INTO localidad VALUES (155,1, 'COLONIA CRISTHIAN PEREZ');
+INSERT INTO localidad VALUES (156,1, 'COLONIA EL PERIODISTA');
+INSERT INTO localidad VALUES (157,1, 'COLONIA INDEPENDENCIA');
+INSERT INTO localidad VALUES (158,1, 'COLONIA MAESTRO GABRIEL');
+INSERT INTO localidad VALUES (159,1, 'COLONIA MANAGUA');
+INSERT INTO localidad VALUES (160,1, 'COLONIA MAXIMO JEREZ');
+INSERT INTO localidad VALUES (161,1, 'COLONIA MIGUEL BONILLA');
+INSERT INTO localidad VALUES (162,1, 'COLONIA MILITAR');
+INSERT INTO localidad VALUES (163,1, 'COLONIA MORAZAN');
+INSERT INTO localidad VALUES (164,1, 'COLONIA NICARAO');
+INSERT INTO localidad VALUES (165,1, 'COLONIA PROYECTO PILOTO');
+INSERT INTO localidad VALUES (166,1, 'COLONIA REISSELL');
+INSERT INTO localidad VALUES (167,1, 'COLONIA SANTA EDUVIGE');
+INSERT INTO localidad VALUES (168,1, 'COLONIAL LOS ROBLES (II,IV,VI ETAPA)');
+INSERT INTO localidad VALUES (169,1, 'COLONIAL LOS ROBLES (III Y VIII ETAPA)');
+INSERT INTO localidad VALUES (170,1, 'COLONIAL LOS ROBLES (V Y VII ETAPA)');
+INSERT INTO localidad VALUES (171,1, 'COLONIATENDERI');
+INSERT INTO localidad VALUES (172,1, 'COMARCA LOS LADINOS');
+INSERT INTO localidad VALUES (173,1, 'CONDOMINIO ACROPOLIS');
+INSERT INTO localidad VALUES (174,1, 'CONDOMINIO LA VERANERA');
+INSERT INTO localidad VALUES (175,1, 'CONDOMINIO SANTA CATALINA');
+INSERT INTO localidad VALUES (176,1, 'CONDOMINIO SANTA MONICA');
+INSERT INTO localidad VALUES (177,1, 'CONDOMINIO STEPHANIA');
+INSERT INTO localidad VALUES (178,1, 'DEL KM 9 AL KM 15 CARRETERA SUR');
+INSERT INTO localidad VALUES (179,1, 'DEL KM 9 AL KM 15 CARRETERA VIEJA A LEON');
+INSERT INTO localidad VALUES (180,1, 'EL CHAPARRAL');
+INSERT INTO localidad VALUES (181,1, 'EL CRUCERO');
+INSERT INTO localidad VALUES (182,1, 'ESQUIPULAS');
+INSERT INTO localidad VALUES (183,1, 'JARDINES DE SANTA CLARA');
+INSERT INTO localidad VALUES (184,1, 'JARDINES DE SANTODOMINGO');
+INSERT INTO localidad VALUES (185,1, 'JARDINES DE VERACRUZ');
+INSERT INTO localidad VALUES (186,1, 'KM 10 AL KM 17 CARRETERA NUEVA A LEON');
+INSERT INTO localidad VALUES (187,1, 'LAS COLINAS');
+INSERT INTO localidad VALUES (188,1, 'LAS JAGUITAS');
+INSERT INTO localidad VALUES (189,1, 'LINDA VISTA NORTE');
+INSERT INTO localidad VALUES (190,1, 'LINDA VISTA SUR');
+INSERT INTO localidad VALUES (191,1, 'LOMA VERDE');
+INSERT INTO localidad VALUES (192,1, 'LOMAS DE ESQUIPULAS');
+INSERT INTO localidad VALUES (193,1, 'LOMAS DE GUADALUPE');
+INSERT INTO localidad VALUES (194,1, 'LOMAS DE MONSERRAT');
+INSERT INTO localidad VALUES (195,1, 'LOMAS DE SAN ANGEL');
+INSERT INTO localidad VALUES (196,1, 'LOMAS DE VERACRUZ');
+INSERT INTO localidad VALUES (197,1, 'LOS ROBLES');
+INSERT INTO localidad VALUES (198,1, 'LOTIFICACION LOS COCOS');
+INSERT INTO localidad VALUES (199,1, 'MATEARE');
+INSERT INTO localidad VALUES (200,1, 'MERCADO ROBERTO HUEMBES');
+INSERT INTO localidad VALUES (201,1, 'PASEO LAS COLINAS');
+INSERT INTO localidad VALUES (202,1, 'PLANES DE ALTAMIRA');
+INSERT INTO localidad VALUES (203,1, 'PLANES DE VERACRUZ');
+INSERT INTO localidad VALUES (204,1, 'PRADERAS DE LAS COLINAS');
+INSERT INTO localidad VALUES (205,1, 'PRADERAS DEL DORAL');
+INSERT INTO localidad VALUES (206,1, 'REPARTO ALAMEDA');
+INSERT INTO localidad VALUES (207,1, 'REPARTO ANA VIRGINIA');
+INSERT INTO localidad VALUES (208,1, 'REPARTO BELMONTE');
+INSERT INTO localidad VALUES (209,1, 'REPARTO CUADRA');
+INSERT INTO localidad VALUES (210,1, 'REPARTO EL CARMEN');
+INSERT INTO localidad VALUES (211,1, 'REPARTO EL MIRADOR SANTO DOMINGO');
+INSERT INTO localidad VALUES (212,1, 'REPARTO ESPANA');
+INSERT INTO localidad VALUES (213,1, 'REPARTO LAS LOMAS');
+INSERT INTO localidad VALUES (214,1, 'REPARTO LAS PALMAS');
+INSERT INTO localidad VALUES (215,1, 'REPARTO LOMA VERDE');
+INSERT INTO localidad VALUES (216,1, 'REPARTO LOS ARCOS');
+INSERT INTO localidad VALUES (217,1, 'REPARTO MIRAFLORES');
+INSERT INTO localidad VALUES (218,1, 'REPARTO SAN ANTONIO (LAS PALOMERAS)');
+INSERT INTO localidad VALUES (219,1, 'REPARTO SAN JUAN');
+INSERT INTO localidad VALUES (220,1, 'REPARTO SAN MARTIN');
+INSERT INTO localidad VALUES (221,1, 'REPARTO SAN PATRICIO');
+INSERT INTO localidad VALUES (222,1, 'REPARTO SANTA ISABEL');
+INSERT INTO localidad VALUES (223,1, 'REPARTO SANTA JULIA');
+INSERT INTO localidad VALUES (224,1, 'REPARTO SCHICK');
+INSERT INTO localidad VALUES (225,1, 'REPARTO SERRANIA');
+INSERT INTO localidad VALUES (226,1, 'REPARTO SERRANO');
+INSERT INTO localidad VALUES (227,1, 'REPARTO TISCAPA');
+INSERT INTO localidad VALUES (228,1, 'RESIDENCIA LOMAS DEL SUR');
+INSERT INTO localidad VALUES (229,1, 'RESIDENCIAL ALTOS DE MOTASTEPE');
+INSERT INTO localidad VALUES (230,1, 'RESIDENCIAL ARAHAL');
+INSERT INTO localidad VALUES (231,1, 'RESIDENCIAL BOLONIA');
+INSERT INTO localidad VALUES (232,1, 'RESIDENCIAL BOSQUES DE NEJAPA');
+INSERT INTO localidad VALUES (233,1, 'RESIDENCIAL CAMPO BELLO');
+INSERT INTO localidad VALUES (234,1, 'RESIDENCIAL CASA BLANCA');
+INSERT INTO localidad VALUES (235,1, 'RESIDENCIAL CASA REAL');
+INSERT INTO localidad VALUES (236,1, 'RESIDENCIAL COLINAS DE VERONA');
+INSERT INTO localidad VALUES (237,1, 'RESIDENCIAL EL DORADO');
+INSERT INTO localidad VALUES (238,1, 'RESIDENCIAL EL PLANETARIUM');
+INSERT INTO localidad VALUES (239,1, 'RESIDENCIAL ERMITAS DE ESQUIPULAS');
+INSERT INTO localidad VALUES (240,1, 'RESIDENCIAL JACARANDA');
+INSERT INTO localidad VALUES (241,1, 'RESIDENCIAL LA CASCADA');
+INSERT INTO localidad VALUES (242,1, 'RESIDENCIAL LA RIOJA');
+INSERT INTO localidad VALUES (243,1, 'RESIDENCIAL LAS BRISAS');
+INSERT INTO localidad VALUES (244,1, 'RESIDENCIAL LAS MERCEDES');
+INSERT INTO localidad VALUES (245,1, 'RESIDENCIAL LOMAS DE NOTREDAME');
+INSERT INTO localidad VALUES (246,1, 'RESIDENCIAL LOMAS DEL VALLE');
+INSERT INTO localidad VALUES (247,1, 'RESIDENCIAL LOS MADRONOS');
+INSERT INTO localidad VALUES (248,1, 'RESIDENCIAL LOS SUEOS (VILLA FRANCA)');
+INSERT INTO localidad VALUES (249,1, 'RESIDENCIAL MARBELLA');
+INSERT INTO localidad VALUES (250,1, 'RESIDENCIAL MICHELANGELO');
+INSERT INTO localidad VALUES (251,1, 'RESIDENCIAL MIRALAGO');
+INSERT INTO localidad VALUES (252,1, 'RESIDENCIAL MONTE CRISTI');
+INSERT INTO localidad VALUES (253,1, 'RESIDENCIAL NUEVO MILENIUM');
+INSERT INTO localidad VALUES (254,1, 'RESIDENCIAL PALMA NOVA');
+INSERT INTO localidad VALUES (255,1, 'RESIDENCIAL PALMETTO');
+INSERT INTO localidad VALUES (256,1, 'RESIDENCIAL PASEO DEL VALLE');
+INSERT INTO localidad VALUES (257,1, 'RESIDENCIAL PRADOS DE EUCALIPTUS');
+INSERT INTO localidad VALUES (258,1, 'RESIDENCIAL RUBENIA');
+INSERT INTO localidad VALUES (259,1, 'RESIDENCIAL SAN ANDRES');
+INSERT INTO localidad VALUES (260,1, 'RESIDENCIAL SANTA MARIA DE LOS LAGOS');
+INSERT INTO localidad VALUES (261,1, 'RESIDENCIAL VALENCIA');
+INSERT INTO localidad VALUES (262,1, 'REVOLUCION');
+INSERT INTO localidad VALUES (263,1, 'RUBEN ULLOA');
+INSERT INTO localidad VALUES (264,1, 'SABANA GRANDE');
+INSERT INTO localidad VALUES (265,1, 'SAN MARTIN CIUDADELA');
+INSERT INTO localidad VALUES (266,1, 'SANTO DOMINGO LAS SIERRITAS');
+INSERT INTO localidad VALUES (267,1, 'SATELITE DE ASOSOSCA');
+INSERT INTO localidad VALUES (268,1, 'TICUANTEPE');
+INSERT INTO localidad VALUES (269,1, 'UNICA');
+INSERT INTO localidad VALUES (270,1, 'UNIDAD DE PROPOSITO');
+INSERT INTO localidad VALUES (271,1, 'URBANIZACION ALTOS DE NEJAPA');
+INSERT INTO localidad VALUES (272,1, 'URBANIZACION DE PUNTALDIA');
+INSERT INTO localidad VALUES (273,1, 'URBANIZACION LAS CUMBRES');
+INSERT INTO localidad VALUES (274,1, 'URBANIZACION LOS ALMENDROS');
+INSERT INTO localidad VALUES (275,1, 'URBANIZACION MADRID II ETAPA');
+INSERT INTO localidad VALUES (276,1, 'URBANIZACION MONTEROSA');
+INSERT INTO localidad VALUES (277,1, 'URBANIZACION PORTAL DEL CARMEN');
+INSERT INTO localidad VALUES (278,1, 'URBANIZACION PUERTA DEL SOL');
+INSERT INTO localidad VALUES (279,1, 'URBANIZACION SIERRAS DORADAS');
+INSERT INTO localidad VALUES (280,1, 'URBANIZACION TERRACOTA');
+INSERT INTO localidad VALUES (281,1, 'URBANIZACION TICOMO SUR');
+INSERT INTO localidad VALUES (282,1, 'URBANIZACION VILLA DEL PRADO');
+INSERT INTO localidad VALUES (283,1, 'URBANIZACION VISTA HERMOSA');
+INSERT INTO localidad VALUES (284,1, 'VALLE DORADO');
+INSERT INTO localidad VALUES (285,1, 'VILLA ALEMANIA');
+INSERT INTO localidad VALUES (286,1, 'VILLA AUSTRIA (LA SABANA)');
+INSERT INTO localidad VALUES (287,1, 'VILLA BULGARIA');
+INSERT INTO localidad VALUES (288,1, 'VILLA CANADA');
+INSERT INTO localidad VALUES (289,1, 'VILLA COLOMBIA');
+INSERT INTO localidad VALUES (290,1, 'VILLA CUBA LIBRE');
+INSERT INTO localidad VALUES (291,1, 'VILLA DE SAN ANGEL');
+INSERT INTO localidad VALUES (292,1, 'VILLA DON BOSCO');
+INSERT INTO localidad VALUES (293,1, 'VILLA FLOR NORTE');
+INSERT INTO localidad VALUES (294,1, 'VILLA FLOR SUR');
+INSERT INTO localidad VALUES (295,1, 'VILLA FONTANA');
+INSERT INTO localidad VALUES (296,1, 'VILLA FRATERNIDAD');
+INSERT INTO localidad VALUES (297,1, 'VILLA ITALIANA');
+INSERT INTO localidad VALUES (298,1, 'VILLA LA SABANA');
+INSERT INTO localidad VALUES (299,1, 'VILLA LIBERTAD');
+INSERT INTO localidad VALUES (300,1, 'VILLA MIGUEL GUTIERREZ');
+INSERT INTO localidad VALUES (301,1, 'VILLA PACTO ANDINO');
+INSERT INTO localidad VALUES (302,1, 'VILLA PROGRESO');
+INSERT INTO localidad VALUES (303,1, 'VILLA RAFAELA HERRERA');
+INSERT INTO localidad VALUES (304,1, 'VILLA RECONCILIACION');
+INSERT INTO localidad VALUES (305,1, 'VILLA REVOLUCION (AMERICAS 3)');
+INSERT INTO localidad VALUES (306,1, 'VILLA RUBEN DARIO');
+INSERT INTO localidad VALUES (307,1, 'VILLA SAN JACINTO');
+INSERT INTO localidad VALUES (308,1, 'VILLA SANTA FE');
+INSERT INTO localidad VALUES (309,1, 'VILLA SOBERANA');
+INSERT INTO localidad VALUES (310,1, 'VILLA SOL DE LIBERTAD (AMERICAS 1)');
+INSERT INTO localidad VALUES (312,1, 'VILLA VENEZUELA (AMERICAS 4)');
+INSERT INTO localidad VALUES (313,1, 'VISTAS DE ESQUIPULAS');
+INSERT INTO localidad VALUES (314,1, 'VIVIENDA DIGNA PARA LOS MAESTROS');
+INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>
@@ -4925,8 +5263,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('localidad_localidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4955,8 +5293,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4985,8 +5323,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5015,8 +5353,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5128,8 +5466,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('barrio_barrio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5158,8 +5496,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5188,8 +5526,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5218,8 +5556,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5331,8 +5669,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('simbolo_simbolo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5361,8 +5699,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5391,8 +5729,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5421,8 +5759,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5652,8 +5990,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5687,8 +6025,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5735,7 +6073,9 @@ insert into auth_permission values(16,13);</attrib>
 						<attrib name="tempPK"/>
 						<attrib name="tempFK"/>
 						<attrib name="tempOther"/>
-						<attrib name="sqlCommands"/>
+						<attrib name="sqlCommands">INSERT INTO servicio VALUES(1,'HFC');
+INSERT INTO servicio VALUES(2,'CABLENET');
+INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>
@@ -5805,8 +6145,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('servicio_servicio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5835,8 +6175,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5865,8 +6205,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5978,8 +6318,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('banco_banco_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6008,8 +6348,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6038,8 +6378,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6151,8 +6491,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('prueba_prueba_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6181,8 +6521,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6211,8 +6551,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6324,8 +6664,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cantidad_monedas_cantidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6354,8 +6694,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6384,8 +6724,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6414,8 +6754,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6695,8 +7035,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('colector_colector_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6725,8 +7065,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6755,8 +7095,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6785,8 +7125,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6815,8 +7155,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6845,8 +7185,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6875,8 +7215,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6905,8 +7245,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7042,8 +7382,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cartera_x_departamento_cartera_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7072,8 +7412,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7102,8 +7442,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7132,8 +7472,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7162,8 +7502,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7192,8 +7532,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7222,8 +7562,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7252,8 +7592,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7282,8 +7622,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7312,8 +7652,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7342,8 +7682,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7372,8 +7712,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7402,8 +7742,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7432,8 +7772,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7462,8 +7802,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7492,8 +7832,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7522,8 +7862,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7552,8 +7892,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7582,8 +7922,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7612,8 +7952,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7642,8 +7982,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7672,8 +8012,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7702,8 +8042,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7815,8 +8155,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('visitas_visita_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7845,8 +8185,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7875,8 +8215,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7905,8 +8245,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8018,8 +8358,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8048,8 +8388,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8078,8 +8418,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8108,8 +8448,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8138,8 +8478,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8168,8 +8508,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8198,8 +8538,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8228,8 +8568,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8258,8 +8598,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8288,8 +8628,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8318,8 +8658,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8348,8 +8688,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8461,8 +8801,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('pagos_pago_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8491,8 +8831,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8521,8 +8861,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8551,8 +8891,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8581,8 +8921,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8611,8 +8951,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8641,8 +8981,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8754,8 +9094,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8784,8 +9124,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8814,8 +9154,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8844,8 +9184,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8874,8 +9214,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8904,8 +9244,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8934,8 +9274,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8964,8 +9304,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8994,8 +9334,38 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cupon</attrib>
+							<attrib name="id">1069715</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9022,40 +9392,10 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">false</attrib>
-								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
-								<attrib name="15">false</attrib>
-								<attrib name="339"/>
-								<attrib name="338">false</attrib>
-								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
-							</attribs>
-						</fieldAttribs>
-						<attribs>
-							<attrib name="comment"/>
-							<attrib name="matchType">s</attrib>
-							<attrib name="refField">0</attrib>
-							<attrib name="name">monto_pago_us</attrib>
-							<attrib name="id">1006892</attrib>
-							<attrib name="onDelete">n</attrib>
-							<attrib name="onUpdate">n</attrib>
-							<attrib name="refTable">0</attrib>
-							<attrib name="type">141727</attrib>
-						</attribs>
-						<modsConfig/>
-					</field>
-					<field>
-						<fieldAttribs>
-							<attribs>
-								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
-								<attrib name="31786">false</attrib>
-								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9084,8 +9424,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9114,8 +9454,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9132,36 +9472,6 @@ insert into auth_permission values(16,13);</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
 							<attrib name="type">113121</attrib>
-						</attribs>
-						<modsConfig/>
-					</field>
-					<field>
-						<fieldAttribs>
-							<attribs>
-								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
-								<attrib name="31786">false</attrib>
-								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
-								<attrib name="15">false</attrib>
-								<attrib name="339">'f'</attrib>
-								<attrib name="338">false</attrib>
-								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
-							</attribs>
-						</fieldAttribs>
-						<attribs>
-							<attrib name="comment"/>
-							<attrib name="matchType">s</attrib>
-							<attrib name="refField">0</attrib>
-							<attrib name="name">dolares</attrib>
-							<attrib name="id">1007735</attrib>
-							<attrib name="onDelete">n</attrib>
-							<attrib name="onUpdate">n</attrib>
-							<attrib name="refTable">0</attrib>
-							<attrib name="type">382</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -9257,8 +9567,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('arqueo_pagos_arqueo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9287,8 +9597,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9317,8 +9627,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9347,8 +9657,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9377,8 +9687,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9407,8 +9717,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9437,8 +9747,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9467,8 +9777,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9497,8 +9807,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9527,8 +9837,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9557,8 +9867,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9587,8 +9897,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9617,8 +9927,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9647,8 +9957,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9677,8 +9987,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9707,8 +10017,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9820,8 +10130,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9850,8 +10160,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9880,8 +10190,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9910,8 +10220,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9940,8 +10250,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9958,6 +10268,213 @@ insert into auth_permission values(16,13);</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
 							<attrib name="type">382</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">arqueo_cantidad_us</attrib>
+						<attrib name="id">1068194</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">arqueo_id</attrib>
+							<attrib name="refField">1008029</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1068195</attrib>
+							<attrib name="onDelete">c</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">1008022</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cantidad_id</attrib>
+							<attrib name="refField">986108</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1068196</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">986101</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cantidad</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1068197</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">247930</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">total</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1068198</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">141727</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -10053,8 +10570,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10083,8 +10600,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10113,8 +10630,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10143,8 +10660,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10173,8 +10690,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10203,8 +10720,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10233,8 +10750,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10263,8 +10780,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10376,8 +10893,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10406,8 +10923,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10436,8 +10953,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10466,8 +10983,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10496,8 +11013,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10526,8 +11043,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10556,8 +11073,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10586,8 +11103,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10720,7 +11237,8 @@ INSERT INTO tipo_documento_logs VALUES(9,'Colector');
 INSERT INTO tipo_documento_logs VALUES(10,'Cartera x Departamento');
 INSERT INTO tipo_documento_logs VALUES(11,'Control Visitas');
 INSERT INTO tipo_documento_logs VALUES(12,'Control Pagos');
-INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
+INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');
+INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>
@@ -10908,8 +11426,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10943,8 +11461,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11179,8 +11697,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('logs_logs_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11214,8 +11732,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11249,8 +11767,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11284,8 +11802,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11319,8 +11837,8 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11361,6 +11879,1480 @@ INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');</attrib>
 					<docs>
 						<p>
 							<t>Secuencia que maneja el consecutivo de la tabla transacciones.</t>
+						</p>
+					</docs>
+				</sequence>
+			</folder>
+			<folder>
+				<attribs>
+					<attrib name="name">Temporales</attrib>
+				</attribs>
+				<modsConfig/>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">tmp_cartera</attrib>
+						<attrib name="id">1067438</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339">nextval('tmp_cartera_tmp_id_seq')</attrib>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">tmp_id</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067439</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">2747</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">contrato</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067440</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">suscriptor</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067441</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">nit</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067442</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067443</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">barrio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067444</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">factura_interna</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067445</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">numero_fiscal</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067446</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">anio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067447</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990702</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">mes</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067448</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990703</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">saldo</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067449</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">141727</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">estado</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067450</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">departamento</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067451</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">localidad</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067452</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cupon</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067453</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">telefono</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067454</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">901199</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">descuento</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067455</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">932</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">servicio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067456</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">932</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067457</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion_empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067458</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">f_asignado</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067459</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">386</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">tmp_vista_duplicados</attrib>
+						<attrib name="id">1067460</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">tmp_id</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067461</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">2747</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">contrato</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067462</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">suscriptor</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067463</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">nit</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067464</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067465</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">barrio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067466</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">factura_interna</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067467</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">numero_fiscal</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067468</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">anio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067469</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990702</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">mes</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067470</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990703</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">saldo</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067471</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">141727</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">estado</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067472</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">departamento</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067473</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">localidad</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067474</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1067571</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cupon</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067475</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">telefono</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067476</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">901199</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">descuento</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067477</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">932</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">servicio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067478</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">932</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067479</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion_empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067480</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">f_asignado</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1067481</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">386</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<view>
+					<attribs>
+						<attrib name="name">v_regs_duplicados</attrib>
+						<attrib name="sqlCode">create view v_regs_duplicados as 
+select * from tmp_cartera 
+where factura_interna in (
+		select factura_interna 
+		from tmp_cartera
+		group by factura_interna
+		having count(*) &gt;1
+		order by factura_interna
+	)
+order by factura_interna, saldo</attrib>
+					</attribs>
+					<modsConfig/>
+				</view>
+				<sequence>
+					<attribs>
+						<attrib name="name">tmp_cartera_tmp_id_seq</attrib>
+						<attrib name="increment">1</attrib>
+						<attrib name="cache">1</attrib>
+						<attrib name="start">1</attrib>
+						<attrib name="cycle">false</attrib>
+						<attrib name="minValue">1</attrib>
+						<attrib name="maxValue">2147483647</attrib>
+						<attrib name="order">false</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Secuencia para manejar el consecutivo de los registros de los usuarios del sistema.</t>
 						</p>
 					</docs>
 				</sequence>

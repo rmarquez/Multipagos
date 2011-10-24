@@ -30,7 +30,7 @@
                            <td>${status.current.facturaInterna}</td>
                            <td>${status.current.anio}</td>
                            <td>${status.current.mes}</td>
-                           <td align="right"><formatoNumero numero="${status.current.saldo}"/></td>
+                           <td align="right"><formatoNumero numero="${status.current.vSaldo}"/></td>
                            <td>${status.current.estado}</td>
                            <td>${status.current.servicio}</td>
                            <td>
