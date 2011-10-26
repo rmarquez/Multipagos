@@ -1,5 +1,5 @@
 //==============================================================================
-//===   cartera_x_departamento.java                        Build:2489
+//===   cartera_x_departamento.java                        Build:2516
 //==============================================================================
 
 package com.metropolitana.multipagos;

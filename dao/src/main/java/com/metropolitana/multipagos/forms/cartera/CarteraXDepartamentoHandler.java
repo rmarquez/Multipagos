@@ -255,6 +255,30 @@ public class CarteraXDepartamentoHandler {
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}
 	
+	
+	public static CarteraXDepartamento carteraXContrato(final String contrato)
+			throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			return carteraXContrato(contrato, broker);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	public static CarteraXDepartamento carteraXContrato(final String contrato,
+			final PersistenceBroker broker) {
+		CarteraXDepartamento criterio = new CarteraXDepartamento();
+		criterio.setContrato(contrato);
+		Query query = new QueryByCriteria(criterio);
+		return (CarteraXDepartamento) broker.getObjectByQuery(query);
+	}
+	
 	public static CarteraXDepartamento getMesSaldoMora(final String contrato,
 			final String facturaInterna, final String numeroFiscal, PersistenceBroker pb) {
         Criteria criterio = new Criteria();

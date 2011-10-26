@@ -170,6 +170,9 @@
 		<collection-descriptor name="arqueoCantidadList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidad" auto-update="false" auto-delete="false" proxy="false">
 			<inverse-foreignkey field-ref="cantidadId"/>
 		</collection-descriptor>
+		<collection-descriptor name="arqueoCantidadUsList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidadUs" auto-update="false" auto-delete="false" proxy="false">
+			<inverse-foreignkey field-ref="cantidadId"/>
+		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Colector" table="COLECTOR">
 		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="colector_colector_id_seq" column="COLECTOR_ID" jdbc-type="INTEGER"/>
@@ -206,7 +209,7 @@
 		<field-descriptor name="departamentoId" nullable="false" default-fetch="true" column="DEPARTAMENTO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="localidadId" nullable="false" default-fetch="true" column="LOCALIDAD_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
-		<field-descriptor name="telefono" nullable="false" default-fetch="true" column="TELEFONO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="telefono" default-fetch="true" column="TELEFONO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="descuento" default-fetch="true" column="DESCUENTO" jdbc-type="NUMERIC"/>
 		<field-descriptor name="servicioId" nullable="false" default-fetch="true" column="SERVICIO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="empleador" default-fetch="true" column="EMPLEADOR" jdbc-type="VARCHAR"/>
@@ -234,9 +237,6 @@
 		</collection-descriptor>
 		<collection-descriptor name="detallePagosList" element-class-ref="com.metropolitana.multipagos.DetallePagos" auto-update="false" auto-delete="false" proxy="false">
 			<inverse-foreignkey field-ref="carteraId"/>
-		</collection-descriptor>
-		<collection-descriptor name="arqueoCantidadUsList" element-class-ref="com.metropolitana.multipagos.ArqueoCantidadUs" auto-update="false" auto-delete="false" proxy="false">
-			<inverse-foreignkey field-ref="cantidadId"/>
 		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Visitas" table="VISITAS">
@@ -369,7 +369,6 @@
 		<field-descriptor name="cantidadId" primarykey="true" nullable="false" default-fetch="true" column="CANTIDAD_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="cantidad" nullable="false" default-fetch="true" column="CANTIDAD" jdbc-type="INTEGER"/>
 		<field-descriptor name="total" nullable="false" default-fetch="true" column="TOTAL" jdbc-type="NUMERIC"/>
-		<field-descriptor name="dolares" nullable="false" default-fetch="true" column="DOLARES" jdbc-type="BIT"/>
 		<reference-descriptor name="arqueoIdRef" class-ref="com.metropolitana.multipagos.ArqueoPagos" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="arqueoId"/>
 		</reference-descriptor>
@@ -385,7 +384,7 @@
 		<reference-descriptor name="arqueoIdRef" class-ref="com.metropolitana.multipagos.ArqueoPagos" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="arqueoId"/>
 		</reference-descriptor>
-		<reference-descriptor name="cantidadIdRef" class-ref="com.metropolitana.multipagos.CarteraXDepartamento" auto-update="false" auto-delete="false" proxy="false">
+		<reference-descriptor name="cantidadIdRef" class-ref="com.metropolitana.multipagos.CantidadMonedas" auto-update="false" auto-delete="false" proxy="false">
 			<foreignkey field-ref="cantidadId"/>
 		</reference-descriptor>
 	</class-descriptor>

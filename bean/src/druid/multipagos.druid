@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2511</attrib>
-		<attrib name="serial">1069717</attrib>
+		<attrib name="build">2516</attrib>
+		<attrib name="serial">1073027</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1737,8 +1737,8 @@ COMMIT;</attrib>
 							<domain>
 								<attribs>
 									<attrib name="minValue"/>
-									<attrib name="maxValue"/>
 									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
 									<attrib name="type">none</attrib>
 								</attribs>
 								<list>
@@ -5599,7 +5599,39 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 						<attrib name="tempPK"/>
 						<attrib name="tempFK"/>
 						<attrib name="tempOther"/>
-						<attrib name="sqlCommands"/>
+						<attrib name="sqlCommands">INSERT INTO simbolo VALUES (1, 1,  'ALQUILABA');
+INSERT INTO simbolo VALUES (2, 2, 'BLOQUEADO');
+INSERT INTO simbolo VALUES (3, 3, 'CANCELACION DE DEUDA');
+INSERT INTO simbolo VALUES (4, 4, 'CANCELARA HOY MISMO');
+INSERT INTO simbolo VALUES (5, 5, 'CARTA A CLIENTES AL INTERIOR DEL PAIS');
+INSERT INTO simbolo VALUES (6, 6, 'CLIENTE CON RECLAMO DE FACTURACION');
+INSERT INTO simbolo VALUES (7, 7, 'CLIENTE CON RECLAMO DE SERVICIO');
+INSERT INTO simbolo VALUES (8, 8, 'CLIENTE CORTO LLAMADA');
+INSERT INTO simbolo VALUES (9, 9, 'CLIENTE NO UBICADO');
+INSERT INTO simbolo VALUES (10, 10, 'DESCUENTO OFRECIDO NO APLICADO');
+INSERT INTO simbolo VALUES (11, 11, 'ESTA REALIZANDO PAGOS PARCIALES');
+INSERT INTO simbolo VALUES (12, 12, 'FALLECIO');
+INSERT INTO simbolo VALUES (13, 13, 'FUERA DEL PAIS');
+INSERT INTO simbolo VALUES (14, 14, 'MENSAJE CON PARIENTE');
+INSERT INTO simbolo VALUES (15, 15, 'MENSAJE CON TITULAR O USUARIO');
+INSERT INTO simbolo VALUES (16, 16, 'MENSAJE CON VECINO');
+INSERT INTO simbolo VALUES (17, 17, 'MENSAJE DE VOZ O TEXTO');
+INSERT INTO simbolo VALUES (18, 18, 'NO LO CONOCEN EN ESA DIRECCION');
+INSERT INTO simbolo VALUES (19, 19, 'NO QUIERE PAGAR');
+INSERT INTO simbolo VALUES (20, 20, 'NO RESPONDEN');
+INSERT INTO simbolo VALUES (21, 21, 'NOTA DE CREDITO');
+INSERT INTO simbolo VALUES (22, 22, 'NUMERO DE REFERENCIA EQUIVOCADA');
+INSERT INTO simbolo VALUES (23, 23, 'OTROS');
+INSERT INTO simbolo VALUES (24, 24, 'PAGA EN EL TRANSCURSO DE LA SEMANA');
+INSERT INTO simbolo VALUES (25, 25, 'PAGO EFECTUADO ANTES DE LA ASIGNACION');
+INSERT INTO simbolo VALUES (26, 26, 'PENDIENTE INSTALACION');
+INSERT INTO simbolo VALUES (27, 27, 'PROBLEMAS CON DEBITO AUTOMATICO');
+INSERT INTO simbolo VALUES (28, 28, 'PROBLEMAS ECONOMICOS');
+INSERT INTO simbolo VALUES (29, 29, 'PROCESO DE LOCALIZACION');
+INSERT INTO simbolo VALUES (30, 30, 'PROMESA DE PAGO');
+INSERT INTO simbolo VALUES (31, 31, 'SERVICIO NO INSTALADO');
+INSERT INTO simbolo VALUES (32, 32, 'SOLICITO CANCELACION DE CONTRATO');
+INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>
@@ -7459,7 +7491,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
-							<attrib name="type">883601</attrib>
+							<attrib name="type">781234</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -7591,7 +7623,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
-								<attrib name="16">true</attrib>
+								<attrib name="16">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
 								<attrib name="339"/>
@@ -7830,7 +7862,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
+								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
@@ -7849,7 +7881,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
-							<attrib name="type">1439</attrib>
+							<attrib name="type">909936</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -7939,7 +7971,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
-							<attrib name="type">883601</attrib>
+							<attrib name="type">781234</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -10241,45 +10273,11 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
-					<field>
-						<fieldAttribs>
-							<attribs>
-								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
-								<attrib name="31786">false</attrib>
-								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
-								<attrib name="15">false</attrib>
-								<attrib name="339">'f'</attrib>
-								<attrib name="338">false</attrib>
-								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
-							</attribs>
-						</fieldAttribs>
-						<attribs>
-							<attrib name="comment"/>
-							<attrib name="matchType">s</attrib>
-							<attrib name="refField">0</attrib>
-							<attrib name="name">dolares</attrib>
-							<attrib name="id">1054623</attrib>
-							<attrib name="onDelete">n</attrib>
-							<attrib name="onUpdate">n</attrib>
-							<attrib name="refTable">0</attrib>
-							<attrib name="type">382</attrib>
-						</attribs>
-						<modsConfig/>
-					</field>
 				</table>
 				<table>
 					<vars>
 						<list>
 							<header>
-								<elem>name</elem>
-								<elem>type</elem>
-								<elem>value</elem>
-								<elem>descr</elem>
 								<elem>name</elem>
 								<elem>type</elem>
 								<elem>value</elem>
@@ -10377,9 +10375,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">arqueo_id</attrib>
-							<attrib name="refField">1008029</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">1008029</attrib>
+							<attrib name="name">arqueo_id</attrib>
 							<attrib name="id">1068195</attrib>
 							<attrib name="onDelete">c</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -10407,13 +10405,13 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cantidad_id</attrib>
-							<attrib name="refField">986108</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">1051757</attrib>
+							<attrib name="name">cantidad_id</attrib>
 							<attrib name="id">1068196</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
-							<attrib name="refTable">986101</attrib>
+							<attrib name="refTable">1051750</attrib>
 							<attrib name="type">0</attrib>
 						</attribs>
 						<modsConfig/>
@@ -10437,9 +10435,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cantidad</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cantidad</attrib>
 							<attrib name="id">1068197</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -10467,9 +10465,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">total</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">total</attrib>
 							<attrib name="id">1068198</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -11896,10 +11894,6 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 								<elem>type</elem>
 								<elem>value</elem>
 								<elem>descr</elem>
-								<elem>name</elem>
-								<elem>type</elem>
-								<elem>value</elem>
-								<elem>descr</elem>
 							</header>
 						</list>
 					</vars>
@@ -11993,9 +11987,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">tmp_id</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">tmp_id</attrib>
 							<attrib name="id">1067439</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12023,9 +12017,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">contrato</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">contrato</attrib>
 							<attrib name="id">1067440</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12053,9 +12047,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">suscriptor</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">suscriptor</attrib>
 							<attrib name="id">1067441</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12083,9 +12077,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">nit</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">nit</attrib>
 							<attrib name="id">1067442</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12113,9 +12107,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion</attrib>
 							<attrib name="id">1067443</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12143,9 +12137,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">barrio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">barrio</attrib>
 							<attrib name="id">1067444</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12173,9 +12167,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">factura_interna</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">factura_interna</attrib>
 							<attrib name="id">1067445</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12203,9 +12197,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">numero_fiscal</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">numero_fiscal</attrib>
 							<attrib name="id">1067446</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12233,9 +12227,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">anio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">anio</attrib>
 							<attrib name="id">1067447</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12263,9 +12257,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">mes</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">mes</attrib>
 							<attrib name="id">1067448</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12293,9 +12287,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">saldo</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">saldo</attrib>
 							<attrib name="id">1067449</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12323,9 +12317,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">estado</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">estado</attrib>
 							<attrib name="id">1067450</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12353,9 +12347,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">departamento</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">departamento</attrib>
 							<attrib name="id">1067451</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12383,9 +12377,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">localidad</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">localidad</attrib>
 							<attrib name="id">1067452</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12413,9 +12407,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cupon</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cupon</attrib>
 							<attrib name="id">1067453</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12443,9 +12437,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">telefono</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">telefono</attrib>
 							<attrib name="id">1067454</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12473,9 +12467,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">descuento</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">descuento</attrib>
 							<attrib name="id">1067455</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12503,9 +12497,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">servicio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">servicio</attrib>
 							<attrib name="id">1067456</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12533,9 +12527,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">empleador</attrib>
 							<attrib name="id">1067457</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12563,9 +12557,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion_empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion_empleador</attrib>
 							<attrib name="id">1067458</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12593,9 +12587,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">f_asignado</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">f_asignado</attrib>
 							<attrib name="id">1067459</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12609,10 +12603,6 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 					<vars>
 						<list>
 							<header>
-								<elem>name</elem>
-								<elem>type</elem>
-								<elem>value</elem>
-								<elem>descr</elem>
 								<elem>name</elem>
 								<elem>type</elem>
 								<elem>value</elem>
@@ -12710,9 +12700,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">tmp_id</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">tmp_id</attrib>
 							<attrib name="id">1067461</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12740,9 +12730,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">contrato</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">contrato</attrib>
 							<attrib name="id">1067462</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12770,9 +12760,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">suscriptor</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">suscriptor</attrib>
 							<attrib name="id">1067463</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12800,9 +12790,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">nit</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">nit</attrib>
 							<attrib name="id">1067464</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12830,9 +12820,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion</attrib>
 							<attrib name="id">1067465</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12860,9 +12850,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">barrio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">barrio</attrib>
 							<attrib name="id">1067466</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12890,9 +12880,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">factura_interna</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">factura_interna</attrib>
 							<attrib name="id">1067467</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12920,9 +12910,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">numero_fiscal</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">numero_fiscal</attrib>
 							<attrib name="id">1067468</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12950,9 +12940,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">anio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">anio</attrib>
 							<attrib name="id">1067469</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -12980,9 +12970,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">mes</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">mes</attrib>
 							<attrib name="id">1067470</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13010,9 +13000,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">saldo</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">saldo</attrib>
 							<attrib name="id">1067471</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13040,9 +13030,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">estado</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">estado</attrib>
 							<attrib name="id">1067472</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13070,9 +13060,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">departamento</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">departamento</attrib>
 							<attrib name="id">1067473</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13100,9 +13090,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">localidad</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">localidad</attrib>
 							<attrib name="id">1067474</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13130,9 +13120,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cupon</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cupon</attrib>
 							<attrib name="id">1067475</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13160,9 +13150,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">telefono</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">telefono</attrib>
 							<attrib name="id">1067476</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13190,9 +13180,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">descuento</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">descuento</attrib>
 							<attrib name="id">1067477</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13220,9 +13210,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">servicio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">servicio</attrib>
 							<attrib name="id">1067478</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13250,9 +13240,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">empleador</attrib>
 							<attrib name="id">1067479</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13280,9 +13270,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion_empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion_empleador</attrib>
 							<attrib name="id">1067480</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13310,9 +13300,9 @@ INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">f_asignado</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">f_asignado</attrib>
 							<attrib name="id">1067481</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -13343,8 +13333,8 @@ order by factura_interna, saldo</attrib>
 						<attrib name="name">tmp_cartera_tmp_id_seq</attrib>
 						<attrib name="increment">1</attrib>
 						<attrib name="cache">1</attrib>
-						<attrib name="start">1</attrib>
 						<attrib name="cycle">false</attrib>
+						<attrib name="start">1</attrib>
 						<attrib name="minValue">1</attrib>
 						<attrib name="maxValue">2147483647</attrib>
 						<attrib name="order">false</attrib>
@@ -13356,6 +13346,35 @@ order by factura_interna, saldo</attrib>
 						</p>
 					</docs>
 				</sequence>
+				<function>
+					<attribs>
+						<attrib name="name">fn_convertir</attrib>
+						<attrib name="sqlCode">CREATE OR REPLACE FUNCTION &quot;public&quot;.&quot;fn_convertir&quot; (
+	@c_valor	nvarchar(50)
+) 
+
+
+returns dec(10,2)
+as
+
+BEGIN
+
+	DECLARE @retorno 	dec(10,2)
+	Declare @v_valor	dec(10,2)
+	SET @retorno= 0.00
+	SET @v_valor= 0.00
+
+	select 	@v_valor = convert(decimal(10,2),@c_valor)
+	from 	cat_metas
+
+	SET @retorno =  isnull(@v_valor, -1)
+
+	RETURN  @retorno
+END
+GO</attrib>
+					</attribs>
+					<modsConfig/>
+				</function>
 			</folder>
 			<notes>
 				<attribs>

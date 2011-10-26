@@ -3,6 +3,7 @@ package com.metropolitana.multipagos.forms.migrarcartera;
 import com.metropolitana.multipagos.TmpCartera;
 
 import com.metropolitana.multipagos.TmpVistaDuplicados;
+import java.sql.*;
 import java.util.Collection;
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
@@ -83,18 +84,13 @@ public class MigrarHandler {
 	}
 	
 	
-	/**
-	public Collection getList() throws Exception {
-		
-		
+	
+	private static void migrarDatos() throws Exception {			
 		Connection connPostgres = null;
-		String selectQuery;
+		//String selectQuery;
 
-		try {
-			
-			List<Object[]> lista = new ArrayList<Object[]>();
-			
-			try {
+		try {		
+            try {
                 Class.forName("org.postgresql.Driver");
             } catch (ClassNotFoundException e) {
                 System.out.println("No se encuentra el Driver: " + e.getMessage());
@@ -103,19 +99,20 @@ public class MigrarHandler {
             String password = "";
             String url = "jdbc:postgresql://localhost:5432/multipagos";
             connPostgres = DriverManager.getConnection(url, username, password);
-            selectQuery = "select * from tmp_cartera where factura_interna in (	select factura_interna from tmp_cartera	group by factura_interna having count(*) > order by factura_interna ) order by factura_interna, saldo";
-            //ResultSet rs = stmt.executeQuery(selectQuery);  
-			
-			
+            CallableStatement prcProcedimientoAlmacenado = connPostgres.prepareCall("{ call NuestroProcedimientoAlmacenado() }");
+            prcProcedimientoAlmacenado.execute();
+            connPostgres.commit();
+            //selectQuery = "select * from tmp_cartera where factura_interna in (	select factura_interna from tmp_cartera	group by factura_interna having count(*) > order by factura_interna ) order by factura_interna, saldo";
+            //ResultSet rs = stmt.executeQuery(selectQuery);             
             
-            return simpleJdbcTemplate().query(selectQuery);
 		} catch (Exception e) {
+                        connPostgres.rollback();
 			throw e;
 		} finally {
 			if(connPostgres != null) connPostgres.close();
 			
 		}
-	}**/
+	}
         
         private Collection getList(final Criteria criterio) throws Exception {
 		PersistenceBroker broker = null;
