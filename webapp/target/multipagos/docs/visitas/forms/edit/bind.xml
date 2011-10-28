@@ -7,17 +7,15 @@
 	<fb:repeater id="detalle" parent-path="." row-path="detalleVisitasList">
         <fb:identity>
             <fb:value id="carteraId" path="carteraId"/>
-            <fb:value id="localidadId" path="localidadId"/>
             <fb:value id="simboloId" path="simboloId"/>
-            <fb:value id="servicioId" path="servicioId"/>
             <fb:value id="colectorId" path="colectorId"/>
         </fb:identity>
 
         <fb:on-bind>
         	<fb:value id="carteraId" path="carteraId"/>
-            <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="localidadNombre" path="localidadNombre"/>
             <fb:value id="simboloId" path="simboloId"/>
-            <fb:value id="servicioId" path="servicioId"/>
+            <fb:value id="servicioNombre" path="servicioNombre"/>
             <fb:value id="colectorId" path="colectorId"/>
             <fb:value id="numContrato" path="numeroContrato"/>
             <fb:value id="fechaVisita" path="fechaVisita"/>

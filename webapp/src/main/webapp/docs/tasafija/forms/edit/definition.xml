@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+		 xmlns:i18n="http://apache.org/cocoon/i18n/2.1">  
     <fd:widgets>
+    
         <fd:output id="tasaFecha">
             <fd:label>Fecha: </fd:label>
             <fd:help>Muestra la fecha de la tasa de cambio.</fd:help>

@@ -33,34 +33,6 @@ function alCambiar(event) {
     }
 }
 
-
-function alSeleccionarContrato(event) {
-	var numContrato = event.source.value;
-	//var numContrato = event.source.parent.getChild("numContrato").getValue();
-	var carteraId = event.source.parent.getChild("carteraId");
-    carteraId.setValue(null);
-    var suscriptor = event.source.parent.getChild("suscriptor");
-    suscriptor.setValue(null);
-    var localidadId = event.source.parent.getChild("localidadId");
-    localidadId.setValue(null);
-    var servicioId = event.source.parent.getChild("servicioId");
-    servicioId.setValue(null);
-    var fechaPago = event.source.parent.getChild("fechaPago");
-    fechaPago.setValue(null);
-    var handlerCartera = new CarteraXDepartamentoHandler();
-	if(numContrato != null){
-		var cartera = handlerCartera.carteraXContrato(numContrato);
-		if(cartera != null){
-			carteraId.setValue(cartera.getCarteraId());
-			suscriptor.setValue(cartera.getSuscriptor());
-			localidadId.setValue(cartera.getLocalidadId());
-			servicioId.setValue(cartera.getServicioId());
-			fechaPago.setValue(new Packages.java.util.Date());
-		}		
-	} 
-	
-}
-
 function alSeleccionarFactura(event) {
     var facturaInterna = event.source.value;
 	var numContrato = event.source.parent.getChild("numContrato");
@@ -73,17 +45,16 @@ function alSeleccionarFactura(event) {
     carteraId.setValue(null);
     var suscriptor = event.source.parent.getChild("suscriptor");
     suscriptor.setValue(null);
-    var localidadId = event.source.parent.getChild("localidadId");
-    localidadId.setValue(null);
-    var servicioId = event.source.parent.getChild("servicioId");
-    servicioId.setValue(null);
+    var localidadNombre = event.source.parent.getChild("localidadNombre");
+    localidadNombre.setValue(null);
+    var servicioNombre = event.source.parent.getChild("servicioNombre");
+    servicioNombre.setValue(null);
     var year = event.source.parent.getChild("year");
     year.setValue(null);
     var mes = event.source.parent.getChild("mes");
     mes.setValue(null);
     var montoPago = event.source.parent.getChild("montoPago");
-    montoPago.setValue(null);  
-    
+    montoPago.setValue(null);      
     var handlerCartera = new CarteraXDepartamentoHandler();
 	
     if(facturaInterna != null){
@@ -91,8 +62,8 @@ function alSeleccionarFactura(event) {
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId());
 			suscriptor.setValue(cartera.getSuscriptor());
-			localidadId.setValue(cartera.getLocalidadId());
-			servicioId.setValue(cartera.getServicioId());
+			localidadNombre.setValue(cartera.localidadIdRef.localidadNombre);
+			servicioNombre.setValue(cartera.servicioIdRef.servicioNombre);
 			year.setValue(cartera.getAno());
     		mes.setValue(cartera.getMes());
     		montoPago.setValue(cartera.getSaldo()); 

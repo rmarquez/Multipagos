@@ -3,8 +3,10 @@ package com.metropolitana.multipagos.forms.barrio;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import org.apache.ojb.broker.PBFactoryException;
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.Criteria;
@@ -12,10 +14,13 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
+import com.metropolitana.multipagos.Banco;
 import com.metropolitana.multipagos.Barrio;
+import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
+import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 public class BarrioHandler {
 
@@ -311,4 +316,39 @@ public class BarrioHandler {
 			throw e;
 		}
 	}
+	
+	public static boolean existeBarrio(String barrioNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (barrioNombre != null && barrioNombre.length() > 0) {
+				criterio.addLike("upper(barrioNombre)",
+						barrioNombre.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Barrio.class, criterio);
+            query.addOrderBy("barrioNombre", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

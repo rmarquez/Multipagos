@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class MigrarTablasCartera {
 	
-	
+	/**
 	public static void migracion(Connection connPostgres, String selectOrigenQuery, String countOrigenQuery,
             String insertQuery) throws Exception {
         PreparedStatement psOrigen = null;
@@ -148,6 +148,6 @@ public class MigrarTablasCartera {
                 e.printStackTrace();
             }
         }
-    }
+    }**/
 
 }

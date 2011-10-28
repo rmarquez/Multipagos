@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2516
+//===   detalle_pagos.java                        Build:2525
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -19,9 +19,7 @@ public class DetallePagos implements java.io.Serializable
    //---------------------------------------------------------------------------
 
    private Integer    pagoId;
-   private Integer    localidadId;
    private Integer    carteraId;
-   private Integer    servicioId;
    private Integer    colectorId;
    private String     numeroContrato;
    private String     facturaInterna;
@@ -31,6 +29,8 @@ public class DetallePagos implements java.io.Serializable
    private Date       fechaPago;
    private Integer    recibo;
    private String     horaRegistro;
+   private String     localidadNombre;
+   private String     servicioNombre;
 
    //---------------------------------------------------------------------------
 
@@ -43,29 +43,11 @@ public class DetallePagos implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Integer getLocalidadId() { return localidadId; }
-
-   public void setLocalidadId(Integer localidadId)
-   {
-      this.localidadId = localidadId;
-   }
-
-   //---------------------------------------------------------------------------
-
    public Integer getCarteraId() { return carteraId; }
 
    public void setCarteraId(Integer carteraId)
    {
       this.carteraId = carteraId;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public Integer getServicioId() { return servicioId; }
-
-   public void setServicioId(Integer servicioId)
-   {
-      this.servicioId = servicioId;
    }
 
    //---------------------------------------------------------------------------
@@ -151,6 +133,24 @@ public class DetallePagos implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   public String getLocalidadNombre() { return localidadNombre; }
+
+   public void setLocalidadNombre(String localidadNombre)
+   {
+      this.localidadNombre = localidadNombre;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getServicioNombre() { return servicioNombre; }
+
+   public void setServicioNombre(String servicioNombre)
+   {
+      this.servicioNombre = servicioNombre;
+   }
+
+   //---------------------------------------------------------------------------
+
    private Pagos pagoIdRef;
 
    public Pagos getPagoIdRef() { return pagoIdRef; }
@@ -163,18 +163,6 @@ public class DetallePagos implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   private Localidad localidadIdRef;
-
-   public Localidad getLocalidadIdRef() { return localidadIdRef; }
-
-   public void setLocalidadIdRef(Localidad localidad)
-   {
-      this.localidadIdRef = localidad;
-   }
-
-
-   //---------------------------------------------------------------------------
-
    private CarteraXDepartamento carteraIdRef;
 
    public CarteraXDepartamento getCarteraIdRef() { return carteraIdRef; }
@@ -182,18 +170,6 @@ public class DetallePagos implements java.io.Serializable
    public void setCarteraIdRef(CarteraXDepartamento carteraXDepartamento)
    {
       this.carteraIdRef = carteraXDepartamento;
-   }
-
-
-   //---------------------------------------------------------------------------
-
-   private Servicio servicioIdRef;
-
-   public Servicio getServicioIdRef() { return servicioIdRef; }
-
-   public void setServicioIdRef(Servicio servicio)
-   {
-      this.servicioIdRef = servicio;
    }
 
 

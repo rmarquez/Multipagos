@@ -36,20 +36,13 @@ public class TasafijaHandler {
 
         try {
             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-            // Resulta que la llave primaria ya viene con valores y es la fecha
-            // por
-            // tal motivo si mandamos a hacer un "store" este modifica un
-            // registro
-            // existente y no manda ninguna excepción
-            if (retrieve(tasa.getTasaFecha(), broker) != null) {
-                throw new Exception("La tasa de cambio ya existe, por favor ingrese una nueva.");
-            } else {
-                broker.beginTransaction();
-                Date fecha = Calendar.getInstance().getTime();
-                broker.store(tasa);
-                //broker.store(LogsHandler.setLogsDelSistema(tasa, fecha, usrId, Integer.valueOf(1), broker));
-                broker.commitTransaction();
-            }
+            
+            broker.beginTransaction();
+            Date fecha = Calendar.getInstance().getTime();
+            broker.store(tasa);
+            //broker.store(LogsHandler.setLogsDelSistema(tasa, fecha, usrId, Integer.valueOf(1), broker));
+            broker.commitTransaction();
+            
         } catch (Exception e) {
             throw e;
         } finally {

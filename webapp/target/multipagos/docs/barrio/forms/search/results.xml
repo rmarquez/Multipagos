@@ -38,5 +38,6 @@
             </table>
             <hrefPaginacion cadena="barrio.list?barrioNombre=${barrioNombre}&amp;localidadId=${localidadId}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
          </s1>
+         <link href="/multipagos/barrio/search">Volver</link>
     </body>
 </document>

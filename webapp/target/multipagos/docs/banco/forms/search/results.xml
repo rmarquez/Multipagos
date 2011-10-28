@@ -29,8 +29,9 @@
                         </tr>
                     </jx:forEach>
                 </tbody>
-            </table>
+            </table>            
             <hrefPaginacion cadena="bancos.list?bancoNombre=${bancoNombre}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
-        </s1>
+        </s1>       
     </body>
+     <link href="/multipagos/banco/search">Volver</link>
 </document>

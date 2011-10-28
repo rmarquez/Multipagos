@@ -5,9 +5,11 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 
 function editform(form) {
-    //if (autorizar("registro_visitas")) {
+    if (autorizar("informes")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.visitaId));
+    	java.lang.System.out.println("*** visitaId " + parseInt(cocoon.request.visitaId));
+ 	   java.lang.System.out.println("*** bean " + bean);
     	form.load(bean);
     	llenarCamposlimpios(form);    	
     	form.showForm("edit-form-display");        
@@ -16,7 +18,7 @@ function editform(form) {
         	
         dialogosino("Visitas", "Registro de visitas actualizada con éxito",
                         "¿Desea procesar un nuevo registro de visitas?","search", "/bienvenidos");
-    //}
+    }
 }
 
 function llenarCamposlimpios(form) {

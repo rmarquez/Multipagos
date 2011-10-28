@@ -150,10 +150,6 @@ public class PagosHandler {
 			DetallePagos det = (DetallePagos) iterDetalle.next();
 			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(
 					det.getCarteraId(), broker));
-			det.setLocalidadIdRef(LocalidadHandler.retrieve(
-					det.getLocalidadId(), broker));
-			det.setServicioIdRef(ServicioHandler.retrieve(
-					det.getServicioId(), broker));
 			det.setColectorIdRef(ColectorHandler.retrieve(
 					det.getColectorId(), broker));
 			det.setPagoIdRef(bean);

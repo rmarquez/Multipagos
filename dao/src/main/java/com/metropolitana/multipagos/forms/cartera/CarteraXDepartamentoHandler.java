@@ -17,6 +17,7 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
 import com.metropolitana.multipagos.forms.estado_corte.EstadoCorteHandler;
@@ -278,6 +279,43 @@ public class CarteraXDepartamentoHandler {
 		Query query = new QueryByCriteria(criterio);
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}
+	
+	public Collection getCarteraXContrato(final String contrato) throws Exception {
+		PersistenceBroker broker = null;
+		
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (contrato != null) {
+				criterio.addEqualTo("contrato", contrato);
+			}
+			QueryByCriteria query = new QueryByCriteria(CarteraXDepartamento.class, criterio);
+			query.addOrderByAscending("contrato");
+			return broker.getCollectionByQuery(query);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	
+	
+	
+	/**
+	public static CarteraXDepartamento carteraXContrato(final String contrato, PersistenceBroker pb) {
+        Criteria criterio = new Criteria();
+        criterio.addEqualTo("contrato", contrato);
+        QueryByCriteria query = new QueryByCriteria(CarteraXDepartamento.class, criterio);
+        Iterator iter = pb.getIteratorByQuery(query);
+        if (iter.hasNext()) {
+            return  (CarteraXDepartamento) pb.getObjectByQuery(query);
+        } else {
+            return null;
+        }
+    }**/
 	
 	public static CarteraXDepartamento getMesSaldoMora(final String contrato,
 			final String facturaInterna, final String numeroFiscal, PersistenceBroker pb) {

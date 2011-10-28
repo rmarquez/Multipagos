@@ -30,5 +30,6 @@
             </table>
             <hrefPaginacion cadena="cantidades.list?cantidadNombre=${cantidadNombre}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
         </s1>
+        <link href="/multipagos/cantidades/search">Volver</link>
     </body>
 </document>

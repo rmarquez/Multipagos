@@ -7,6 +7,7 @@
             	   validarUsuarioForm(widget);         
         </fd:javascript>
     </fd:validation>
+	
 	<fd:widgets>
 		<fd:booleanfield id="autorizado"/>
 		

@@ -31,7 +31,7 @@
 		</fd:field>
 
 		
-		<fd:repeater id="detalle" initial-size="1">
+		<fd:repeater id="detalle">
             <fd:widgets>
                 <fd:field id="numContrato">
 					<fd:label>Contrato</fd:label>
@@ -43,10 +43,20 @@
 					</fd:on-value-changed>
                 </fd:field>
                 
-                <fd:field id="carteraId">
-					<fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/carterad.combo"
-						cache="none" />						
+               <fd:field id="carteraId">
+					<fd:datatype base="integer"/>					
+					<!-- <fd:selection-list src="cocoon:/carterad.combo"
+						cache="none" />	
+					<fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarCartera(event);
+						</fd:javascript>
+					</fd:on-value-changed> -->						
+				</fd:field>
+				
+				<fd:field id="localidadNombre" state="output">
+					<fd:label>Localidad</fd:label>					
+					<fd:datatype base="string" />
 				</fd:field>
 				
 				<fd:field id="suscriptor" state="output">
@@ -63,12 +73,13 @@
 					</fd:on-value-changed>			
 				</fd:booleanfield>
 
-                <fd:field id="localidadId" state="output">
+               <!--  <fd:field id="localidadId" >
 					<fd:label>Localidad</fd:label>
 					<fd:datatype base="integer" />
+					
 					<fd:selection-list src="cocoon:/localidad.combo"
-						cache="none" />
-				</fd:field>
+						cache="request" />
+				</fd:field> -->
 				
 				<fd:field id="fechaVisita" required="true">
 		            <fd:label>Fecha Visita</fd:label>
@@ -94,8 +105,8 @@
 				
 				<fd:field id="simboloId" required="true">
 					<fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/simbolo.combo"
-						cache="none" />					
+					<!-- <fd:selection-list src="cocoon:/simbolo.combo"
+						cache="none" /> -->					
 				</fd:field>
 				
 				<fd:field id="simboloNombre" state="output">
@@ -103,12 +114,18 @@
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="servicioId" state="output">
+				<fd:field id="servicioNombre" state="output">
+					<fd:label>Servicio: </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<!-- <fd:field id="servicioId" state="output">
 					<fd:label>Servicio:</fd:label>
 		            <fd:datatype base="integer"/>
+		            
 					<fd:selection-list src="cocoon:/servicio.combo"
-						cache="none" />				    
-				</fd:field>
+						cache="request" />			    
+				</fd:field> -->	
 				
 				<fd:field id="colectorNumero" required="true">
 					<fd:label>C#:</fd:label>
@@ -122,8 +139,8 @@
 				
 				<fd:field id="colectorId" required="true">
 					<fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/colector.combo"
-						cache="none" />	
+					<!-- <fd:selection-list src="cocoon:/colector.combo"
+						cache="none" />	 -->
 				</fd:field>
 				
 				<fd:field id="colectorNombre" state="output">

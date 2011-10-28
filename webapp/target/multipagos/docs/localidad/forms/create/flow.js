@@ -12,3 +12,16 @@ function createform(form) {
                         "¿Desea procesar una nueva localidad?","create", "/bienvenidos");
     }
 }
+
+function validarForm(form) {
+	var handlerBean = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
+    var localidadNombre = form.getChild("localidadNombre").getValue();
+    var widgetMensaje = form.getChild("mensajes de error");
+    //boolean existe = handlerBean.existeNombre(bancoNombre);
+	if (handlerBean.existeLocalidad(localidadNombre)==true) {
+	    form.getChild("mensajes de error").addMessage("La localidad ya existe, por favor ingrese una nueva localidad.");
+	    return false;
+	} 		
+
+return true;
+}

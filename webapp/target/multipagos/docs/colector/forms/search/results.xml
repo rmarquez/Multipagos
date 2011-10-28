@@ -40,5 +40,6 @@
             </table>
             <hrefPaginacion cadena="colector.list?primerNombre=${primerNombre}&amp;primerApellido=${primerApellido}&amp;cedula=${celula}&amp;filtrar=${filtrar}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
          </s1>
+         <link href="/multipagos/colector/search">Volver</link>
     </body>
 </document>

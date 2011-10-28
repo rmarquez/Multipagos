@@ -3,7 +3,9 @@ importClass(Packages.java.math.BigDecimal);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
+importClass(Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
+importClass(Packages.com.metropolitana.multipagos.forms.servicio.ServicioHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
@@ -38,29 +40,27 @@ function alCambiar(event) {
 
 function alSeleccionarContrato(event) {
 	var numContrato = event.source.value;
-	//var numContrato = event.source.parent.getChild("numContrato").getValue();
 	var carteraId = event.source.parent.getChild("carteraId");
-    carteraId.setValue(null);
-    var suscriptor = event.source.parent.getChild("suscriptor");
+	carteraId.setValue(null);
+	var suscriptor = event.source.parent.getChild("suscriptor");
     suscriptor.setValue(null);
-    var localidadId = event.source.parent.getChild("localidadId");
-    localidadId.setValue(null);
-    var servicioId = event.source.parent.getChild("servicioId");
-    servicioId.setValue(null);
+    var servicio = event.source.parent.getChild("servicioNombre");
+    servicio.setValue(null);
+    var localidad = event.source.parent.getChild("localidadNombre");
+    localidad.setValue(null);
     var fechaVisita = event.source.parent.getChild("fechaVisita");
     fechaVisita.setValue(null);
-    var handlerCartera = new CarteraXDepartamentoHandler();
+    var handlerCartera = new CarteraXDepartamentoHandler();    
 	if(numContrato != null){
 		var cartera = handlerCartera.carteraXContrato(numContrato);
 		if(cartera != null){
-			carteraId.setValue(cartera.getCarteraId());
+			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());
-			localidadId.setValue(cartera.getLocalidadId());
-			servicioId.setValue(cartera.getServicioId());
-			fechaVisita.setValue(new Packages.java.util.Date());
-		}		
-	} 
-	
+			localidad.setValue(cartera.localidadIdRef.localidadNombre);
+			servicio.setValue(cartera.servicioIdRef.servicioNombre);
+			fechaVisita.setValue(new Packages.java.util.Date());			
+		}	
+	} 	
 }
 
 function alSeleccionarSimbolo(event) {

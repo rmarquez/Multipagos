@@ -10,16 +10,13 @@ function createform(form) {
     	var usrId = auth_getUserID();
     	var handlerUser = new Auth_userHandler();
     	var usuario = handlerUser.retrieve(usrId);
-		var bean = new Packages.com.metropolitana.multipagos.Pagos();
+    	var bean = new Packages.com.metropolitana.multipagos.Pagos();
 	    var handlerBean = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
 		form.getChild("usrId").setValue(usuario.getUsrId());
-		form.getChild("fecha").setValue(new Packages.java.util.Date());
-		
+		form.getChild("fecha").setValue(new Packages.java.util.Date());		
 		form.showForm("create-form-display");
-        
-        form.save(bean);
-        	
-        handlerBean.insert(bean, auth_getUserID());
+        form.save(bean);        	
+        handlerBean.insert(bean, auth_getUserID());      
         	
         dialogosino("Pagos", "Registro de pagos procesado con éxito",
                         "¿Desea procesar un nuevo registro de pagos?","create", "/bienvenidos");

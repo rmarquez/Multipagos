@@ -5,7 +5,7 @@
     </header>
     <body>
         <s1 title="Editar tasa de cambio fija C$ a US$">
-            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">            
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Editar datos de las tasas de cambios</fi:label>

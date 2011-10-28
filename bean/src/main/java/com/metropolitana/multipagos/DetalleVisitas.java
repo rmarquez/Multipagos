@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_visitas.java                        Build:2516
+//===   detalle_visitas.java                        Build:2525
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -20,10 +20,10 @@ public class DetalleVisitas implements java.io.Serializable
 
    private Integer    visitaId;
    private Integer    carteraId;
-   private Integer    localidadId;
    private Integer    simboloId;
-   private Integer    servicioId;
    private Integer    colectorId;
+   private String     localidadNombre;
+   private String     servicioNombre;
    private String     numeroContrato;
    private Date       fechaVisita;
    private Integer    avisoCobro;
@@ -51,15 +51,6 @@ public class DetalleVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Integer getLocalidadId() { return localidadId; }
-
-   public void setLocalidadId(Integer localidadId)
-   {
-      this.localidadId = localidadId;
-   }
-
-   //---------------------------------------------------------------------------
-
    public Integer getSimboloId() { return simboloId; }
 
    public void setSimboloId(Integer simboloId)
@@ -69,20 +60,29 @@ public class DetalleVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Integer getServicioId() { return servicioId; }
-
-   public void setServicioId(Integer servicioId)
-   {
-      this.servicioId = servicioId;
-   }
-
-   //---------------------------------------------------------------------------
-
    public Integer getColectorId() { return colectorId; }
 
    public void setColectorId(Integer colectorId)
    {
       this.colectorId = colectorId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getLocalidadNombre() { return localidadNombre; }
+
+   public void setLocalidadNombre(String localidadNombre)
+   {
+      this.localidadNombre = localidadNombre;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getServicioNombre() { return servicioNombre; }
+
+   public void setServicioNombre(String servicioNombre)
+   {
+      this.servicioNombre = servicioNombre;
    }
 
    //---------------------------------------------------------------------------
@@ -165,18 +165,6 @@ public class DetalleVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   private Localidad localidadIdRef;
-
-   public Localidad getLocalidadIdRef() { return localidadIdRef; }
-
-   public void setLocalidadIdRef(Localidad localidad)
-   {
-      this.localidadIdRef = localidad;
-   }
-
-
-   //---------------------------------------------------------------------------
-
    private Simbolo simboloIdRef;
 
    public Simbolo getSimboloIdRef() { return simboloIdRef; }
@@ -184,18 +172,6 @@ public class DetalleVisitas implements java.io.Serializable
    public void setSimboloIdRef(Simbolo simbolo)
    {
       this.simboloIdRef = simbolo;
-   }
-
-
-   //---------------------------------------------------------------------------
-
-   private Servicio servicioIdRef;
-
-   public Servicio getServicioIdRef() { return servicioIdRef; }
-
-   public void setServicioIdRef(Servicio servicio)
-   {
-      this.servicioIdRef = servicio;
    }
 
 

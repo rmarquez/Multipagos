@@ -1,5 +1,5 @@
 //==============================================================================
-//===   localidad.java                        Build:2516
+//===   localidad.java                        Build:2525
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -85,34 +85,6 @@ public class Localidad implements java.io.Serializable
    {
       carteraXDepartamento.setLocalidadIdRef(this);
       carteraXDepartamentoList.add( carteraXDepartamento );
-   }
-
-   //---------------------------------------------------------------------------
-
-   private Collection detalleVisitasList = new ArrayList();
-
-   public Collection getDetalleVisitasList() { return detalleVisitasList;}
-
-   public void setDetalleVisitasList(Collection c) { this.detalleVisitasList = c;}
-
-   public void addDetalleVisitas( DetalleVisitas detalleVisitas )
-   {
-      detalleVisitas.setLocalidadIdRef(this);
-      detalleVisitasList.add( detalleVisitas );
-   }
-
-   //---------------------------------------------------------------------------
-
-   private Collection detallePagosList = new ArrayList();
-
-   public Collection getDetallePagosList() { return detallePagosList;}
-
-   public void setDetallePagosList(Collection c) { this.detallePagosList = c;}
-
-   public void addDetallePagos( DetallePagos detallePagos )
-   {
-      detallePagos.setLocalidadIdRef(this);
-      detallePagosList.add( detallePagos );
    }
 
    //---------------------------------------------------------------------------

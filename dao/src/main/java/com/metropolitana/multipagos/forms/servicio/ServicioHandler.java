@@ -3,9 +3,12 @@ package com.metropolitana.multipagos.forms.servicio;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.Colector;
+import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.Servicio;
 import com.metropolitana.multipagos.Simbolo;
 import com.metropolitana.multipagos.forms.Util;
@@ -312,4 +315,59 @@ public class ServicioHandler {
 			}
 		}
 	}
+	
+	public Collection getServicioXCartera(final Integer carteraId) throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (carteraId != null) {
+				criterio.addEqualTo("carteraXDepartamentoList.carteraId", carteraId);
+			}
+			QueryByCriteria query = new QueryByCriteria(Servicio.class, criterio);
+			query.addOrderByAscending("servicioNombre");
+			return broker.getCollectionByQuery(query);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	public static boolean existeServicio(String servicioNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (servicioNombre != null && servicioNombre.length() > 0) {
+				criterio.addLike("upper(servicioNombre)",
+						servicioNombre.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Servicio.class, criterio);
+            query.addOrderBy("servicioNombre", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

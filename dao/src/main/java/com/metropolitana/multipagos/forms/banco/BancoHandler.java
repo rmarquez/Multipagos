@@ -3,19 +3,24 @@ package com.metropolitana.multipagos.forms.banco;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import com.metropolitana.multipagos.Banco;
+import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
 //import com.metropolitana.multipagos.forms.logs.LogsHandler;
 
+
+import org.apache.ojb.broker.PBFactoryException;
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
+import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 /**
  * @author Rafael Márquez
@@ -249,5 +254,45 @@ public class BancoHandler {
 			}
 		}
 	}
+	
+	
+	public static boolean existeBanco(String bancoNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (bancoNombre != null && bancoNombre.length() > 0) {
+				criterio.addLike("upper(bancoNombre)",
+						bancoNombre.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Banco.class, criterio);
+            query.addOrderBy("bancoNombre", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
+	
+	
+
+		
 
 }

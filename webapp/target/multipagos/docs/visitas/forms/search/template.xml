@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
-          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
     <header>
         <title>Visitas</title>
     </header>
     <body>
         <s1 title="Buscar registro de visitas">
-            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST" ajax="true">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
             <ft:continuation-id/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>

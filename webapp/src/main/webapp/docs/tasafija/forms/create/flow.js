@@ -12,3 +12,15 @@ function createform(form) {
                         "¿Desea procesar una nueva tasa de cambio?","create","/bienvenidos");
     }
 }
+function validarForm(form) {
+        var handlerBean = new Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
+        var tasaFecha = form.getChild("tasaFecha").getValue();
+        var widgetMensaje = form.getChild("mensajes de error");    	 	    
+
+    if (handlerBean.retrieve(tasaFecha) != null) {
+        form.getChild("mensajes de error").addMessage("La tasa de cambio ya existe, por favor ingrese una nueva.");
+        return false;
+    } 		
+
+return true;
+}

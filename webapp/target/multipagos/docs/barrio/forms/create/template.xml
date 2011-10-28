@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
     <header>
         <title>Barrio</title>
     </header>
     <body>
         <s1 title="Crear Barrio">
-            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST" ajax="true">
+                <ft:continuation-id/>
+                 <ft:widget id="mensajes de error"/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Agregar datos del barrio</fi:label>

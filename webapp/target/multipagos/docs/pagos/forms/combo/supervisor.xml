@@ -5,7 +5,7 @@
     </fd:item>
     <jx:forEach var="item" items="${bean}">
         <fd:item value="${item.usrId}">
-            <fd:label>${item.usrFullName}</fd:label>
+            <fd:label>${item.usrLogin}</fd:label>
         </fd:item>
     </jx:forEach>
 </fd:selection-list>

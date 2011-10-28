@@ -6,7 +6,7 @@
 			<fd:label>Supervisor</fd:label>
 			<fd:datatype base="integer" />
 			<fd:selection-list src="cocoon:/supervisor.combo"
-				cache="none" />
+				cache="request" />
 			<fd:on-value-changed>
 				<fd:javascript>
 					alSeleccionarUsuario(event);
@@ -65,7 +65,7 @@
 		</fd:field>
 
 		
-		<fd:repeater id="detalle" initial-size="1">
+		<fd:repeater id="detalle">
             <fd:widgets>
                 <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
@@ -93,9 +93,7 @@
                 </fd:field>
                 
                 <fd:field id="carteraId">
-					<fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/carterad.combo"
-						cache="none" />						
+					<fd:datatype base="integer"/>			
 				</fd:field>
 				
 				<fd:field id="suscriptor" state="output">
@@ -103,11 +101,9 @@
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="localidadId" state="output">
-					<fd:label>Localidad</fd:label>
-					<fd:datatype base="integer" />
-					<fd:selection-list src="cocoon:/localidad.combo"
-						cache="none" />
+				<fd:field id="localidadNombre" state="output">
+					<fd:label>Localidad</fd:label>					
+					<fd:datatype base="string" />
 				</fd:field>
 				
 				<fd:field id="year" state="output">
@@ -154,12 +150,11 @@
 					<fd:datatype base="integer" />
 				</fd:field>
 				
-				<fd:field id="servicioId" state="output">
-					<fd:label>Servicio:</fd:label>
-		            <fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/servicio.combo"
-						cache="none" />				    
-				</fd:field>
+				<fd:field id="servicioNombre" state="output">
+					<fd:label>Servicio </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>			
+				
 				
 				<fd:field id="colectorNumero" required="true">
 					<fd:label>C#:</fd:label>
@@ -172,9 +167,7 @@
                 </fd:field>
 				
 				<fd:field id="colectorId" required="true">
-					<fd:datatype base="integer"/>
-					<fd:selection-list src="cocoon:/colector.combo"
-						cache="none" />	
+					<fd:datatype base="integer"/>						
 				</fd:field>
 				
 				<fd:field id="colectorNombre" state="output">

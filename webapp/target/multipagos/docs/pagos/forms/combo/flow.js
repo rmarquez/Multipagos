@@ -5,21 +5,32 @@ function supervisorCombo() {
         cocoon.sendPage("supervisorCombo-data", {"bean": bean});
     }
 }
+/**
+function localidadCombo() {
+	var bean = null;
+	if (autorizar("cata")) {
+        var handler = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
+       	var bean = handler.getLocalidadList();
+	}
+    return bean;
+}**/
 
 function localidadCombo() {
-    //if (autorizar("cata")) {
+    if (autorizar("cata")) {
         var handler = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
-       	var bean = handler.getList();
+       	var bean = handler.getLocalidadList();
         cocoon.sendPage("localidadCombo-data", {"bean": bean});
-    //}
+    }
 }
 
+
+
 function carteradCombo() {
-    //if (autorizar("cata")) {
+    if (autorizar("cata")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler();
         var bean = handlerBean.getCartera();
         cocoon.sendPage("carteraCombo-data", {"bean": bean});
-    //}
+    }
 }
 
 function colectorCombo() {
@@ -30,9 +41,10 @@ function colectorCombo() {
     }
 }
 function servicioCombo() {
-    if (autorizar("cata")) {
+	var bean = null;
+	if (autorizar("cata")) {
         var handler = new Packages.com.metropolitana.multipagos.forms.servicio.ServicioHandler();
         var bean = handler.getServicioList();
-        cocoon.sendPage("servicioCombo-data", {"bean": bean});
-    }
+	}
+    return bean;
 }

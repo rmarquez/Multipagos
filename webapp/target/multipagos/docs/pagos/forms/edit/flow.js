@@ -5,9 +5,11 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 
 function editform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("informes")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.pagoId));
+    	java.lang.System.out.println("*** pagoId " + parseInt(cocoon.request.pagoId));
+    	   java.lang.System.out.println("*** bean " + bean);
     	form.load(bean);
     	llenarCamposlimpios(form);    	
     	form.showForm("edit-form-display");        

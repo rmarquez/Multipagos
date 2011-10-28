@@ -1,7 +1,7 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.lang.Long);
 function searchform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("informes")) {
         form.showForm("search-form-display");
         var handler = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
         var fecha = form.getChild("fecha").getValue();
@@ -14,8 +14,10 @@ function searchform(form) {
 function visitasList() {
 	var handlerUtil = new Packages.com.metropolitana.multipagos.forms.ScriptUtil();
 	var pagina = Integer.valueOf(cocoon.request.pagina);
-	var fecha = handlerUtil.strToDate(cocoon.request.getParameter("fecha"));
-	
+	var fecha = null;
+	if (cocoon.request.getParameter("fecha") != null){
+		var fecha = handlerUtil.strToDate(cocoon.request.getParameter("fecha"));
+	}
 	if (cocoon.request.getParameter("usrId") == "null" && cocoon.request.getParameter("usrId") == '') {
     	var usrId = Integer.valueOf(cocoon.request.getParameter("usrId"));
 	} else {
