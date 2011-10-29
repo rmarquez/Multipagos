@@ -24,6 +24,8 @@
             <fb:value id="montoPago" path="montoPago"/>
             <fb:value id="recibo" path="recibo"/>
             <fb:value id="horaRegistro" path="horaRegistro"/>
+            <fb:value id="observaciones" path="observaciones"/>
+            <fb:value id="salgoPagar" path="salgoPagar"/>
         </fb:on-bind>
 
         <fb:on-delete-row>

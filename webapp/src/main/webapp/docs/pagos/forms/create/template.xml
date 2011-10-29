@@ -30,6 +30,7 @@
                               	<th><ft:repeater-widget-label widget-id="facturaInterna"/></th>
                               	<th><ft:repeater-widget-label widget-id="numeroFiscal"/></th>
                               	<th><ft:repeater-widget-label widget-id="cupon"/></th>
+                              	<th><ft:repeater-widget-label widget-id="salgoPagar"/></th>
                               	<th><ft:repeater-widget-label widget-id="montoPago"/></th>
                               	<th><ft:repeater-widget-label widget-id="year"/></th>
                               	<th><ft:repeater-widget-label widget-id="mes"/></th>
@@ -39,6 +40,7 @@
                               	<th><ft:repeater-widget-label widget-id="recibo"/></th>                              	
                               	<th><ft:repeater-widget-label widget-id="colectorNumero"/></th>
                               	<th><ft:repeater-widget-label widget-id="colectorNombre"/></th>
+                              	<th><ft:repeater-widget-label widget-id="observaciones"/></th>
                               	<th><ft:repeater-widget-label widget-id="marcar"/></th>
                               </tr>			                                
                           </thead>
@@ -50,6 +52,7 @@
 										<td><ft:widget id="facturaInterna"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="numeroFiscal"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="cupon"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="salgoPagar"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="year"/></td>
 										<td><ft:widget id="mes"/></td>
@@ -59,6 +62,7 @@
 										<td><ft:widget id="recibo"><fi:styling align="right" size="6"/></ft:widget></td>	
 										<td><ft:widget id="colectorNumero"><fi:styling align="right" size="3"/></ft:widget></td>
 										<td><ft:widget id="colectorNombre"/></td>
+										<td><ft:widget id="observaciones"/></td>
 										<td><ft:widget id="marcar"/></td>
 										<td><ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget></td>
 										<td><ft:widget id="carteraId"><fi:styling type="hidden"/></ft:widget></td>
@@ -67,7 +71,7 @@
 									</tr>
 								</ft:repeater-rows>
 								<tr>
-									<td colspan="15" align="right">
+									<td colspan="17" align="right">
 										<ft:widget id="../agregar"/>
 										<ft:widget id="../eliminar"/>
 									</td>

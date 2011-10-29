@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
@@ -12,6 +14,7 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
+import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
@@ -330,4 +333,39 @@ public class PagosHandler {
 			throw e;
 		}
 	}
+	
+	public static boolean existeFactura(String facturaInterna) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (facturaInterna != null && facturaInterna.length() > 0) {
+				criterio.addLike("upper(facturaInterna)",
+						facturaInterna.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(DetallePagos.class, criterio);
+            query.addOrderBy("facturaInterna", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

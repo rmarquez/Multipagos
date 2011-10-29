@@ -6,6 +6,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartam
 importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
+importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 
 function alSeleccionarUsuario(event) {
@@ -54,23 +55,36 @@ function alSeleccionarFactura(event) {
     var mes = event.source.parent.getChild("mes");
     mes.setValue(null);
     var montoPago = event.source.parent.getChild("montoPago");
-    montoPago.setValue(null);      
+    montoPago.setValue(null);    
+    var saldoPagar = event.source.parent.getChild("salgoPagar");
+    saldoPagar.setValue(null); 
+    var fechaPago = event.source.parent.getChild("fechaPago");
+    fechaPago.setValue(null);
+    
     var handlerCartera = new CarteraXDepartamentoHandler();
+    var handlerPagos = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
 	
     if(facturaInterna != null){
-		var cartera = handlerCartera.carteraXFactura(facturaInterna);
-		if(cartera != null){
-			carteraId.setValue(cartera.getCarteraId());
-			suscriptor.setValue(cartera.getSuscriptor());
-			localidadNombre.setValue(cartera.localidadIdRef.localidadNombre);
-			servicioNombre.setValue(cartera.servicioIdRef.servicioNombre);
-			year.setValue(cartera.getAno());
-    		mes.setValue(cartera.getMes());
-    		montoPago.setValue(cartera.getSaldo()); 
-    		numContrato.setValue(cartera.getContrato());
-    		numeroFiscal.setValue(cartera.getNumeroFiscal());
-    		cupon.setValue(cartera.getCupon());
-		}		
+    	if (handlerPagos.existeFactura(facturaInterna)==true) {
+    		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
+    	} else {
+	    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
+			if(cartera != null){
+				carteraId.setValue(cartera.getCarteraId());
+				suscriptor.setValue(cartera.getSuscriptor());
+				localidadNombre.setValue(cartera.localidadIdRef.localidadNombre);
+				servicioNombre.setValue(cartera.servicioIdRef.servicioNombre);
+				year.setValue(cartera.getAno());
+	    		mes.setValue(cartera.getMes());
+	    		saldoPagar.setValue(cartera.getSaldo()); 
+	    		montoPago.setValue(cartera.getSaldo()); 
+	    		numContrato.setValue(cartera.getContrato());
+	    		numeroFiscal.setValue(cartera.getNumeroFiscal());
+	    		cupon.setValue(cartera.getCupon());
+	    		fechaPago.setValue(new Packages.java.util.Date());
+			}
+    	}
+		
 	} 
 }
 

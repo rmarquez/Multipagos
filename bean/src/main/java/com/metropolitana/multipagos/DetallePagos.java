@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2525
+//===   detalle_pagos.java                        Build:2526
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -31,6 +31,8 @@ public class DetallePagos implements java.io.Serializable
    private String     horaRegistro;
    private String     localidadNombre;
    private String     servicioNombre;
+   private String     observaciones;
+   private BigDecimal salgoPagar;
 
    //---------------------------------------------------------------------------
 
@@ -147,6 +149,24 @@ public class DetallePagos implements java.io.Serializable
    public void setServicioNombre(String servicioNombre)
    {
       this.servicioNombre = servicioNombre;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getObservaciones() { return observaciones; }
+
+   public void setObservaciones(String observaciones)
+   {
+      this.observaciones = observaciones;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public BigDecimal getSalgoPagar() { return salgoPagar; }
+
+   public void setSalgoPagar(BigDecimal salgoPagar)
+   {
+      this.salgoPagar = salgoPagar;
    }
 
    //---------------------------------------------------------------------------

@@ -134,6 +134,23 @@
 		      		</fd:validation>
 		        </fd:field>
 		        
+		        <fd:field id="salgoPagar" state="output">
+		            <fd:label>Saldo a pagar(C$):</fd:label>
+		            <fd:help>Saldo pendiente en córdobas.</fd:help>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="saldoPago &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>
+		        
 				<fd:field id="fechaPago" required="true">
 		            <fd:label>Fecha Pago</fd:label>
 		            <fd:datatype base="date">
@@ -165,6 +182,11 @@
 						</fd:javascript>
 					</fd:on-value-changed>
                 </fd:field>
+                
+                <fd:field id="observaciones">
+					<fd:label>Observaciones </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>	
 				
 				<fd:field id="colectorId" required="true">
 					<fd:datatype base="integer"/>						
