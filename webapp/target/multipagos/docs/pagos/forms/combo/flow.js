@@ -41,10 +41,10 @@ function colectorCombo() {
     }
 }
 function servicioCombo() {
-	var bean = null;
-	if (autorizar("cata")) {
+    if (autorizar("cata")) {
+    	var carteraId = !isNaN(parseInt(cocoon.request.carteraId)) ? parseInt(cocoon.request.carteraId): null;
         var handler = new Packages.com.metropolitana.multipagos.forms.servicio.ServicioHandler();
-        var bean = handler.getServicioList();
-	}
-    return bean;
+        var bean = handler.getServicioXCartera(carteraId);
+        cocoon.sendPage("servicioCombo-data", {"bean": bean});
+    }
 }

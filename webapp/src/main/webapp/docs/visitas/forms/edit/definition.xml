@@ -53,33 +53,19 @@
 						</fd:javascript>
 					</fd:on-value-changed> -->						
 				</fd:field>
-				
-				<fd:field id="localidadNombre" state="output">
-					<fd:label>Localidad</fd:label>					
-					<fd:datatype base="string" />
-				</fd:field>
-				
+							
 				<fd:field id="suscriptor" state="output">
 					<fd:label>Suscriptor</fd:label>					
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:booleanfield id="encontroCliente">
-					<fd:label>Cliente Encontrado</fd:label>
-					<fd:on-value-changed>
-						<fd:javascript>
-							alEncontrarCliente(event);
-						</fd:javascript>
-					</fd:on-value-changed>			
-				</fd:booleanfield>
-
-               <!--  <fd:field id="localidadId" >
+				
+               <fd:field id="localidadId" state="output">
 					<fd:label>Localidad</fd:label>
-					<fd:datatype base="integer" />
-					
+					<fd:datatype base="integer" />					
 					<fd:selection-list src="cocoon:/localidad.combo"
 						cache="request" />
-				</fd:field> -->
+				</fd:field>
 				
 				<fd:field id="fechaVisita" required="true">
 		            <fd:label>Fecha Visita</fd:label>
@@ -114,18 +100,12 @@
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="servicioNombre" state="output">
-					<fd:label>Servicio: </fd:label>					
-					<fd:datatype base="string" />
-				</fd:field>
-				
-				<!-- <fd:field id="servicioId" state="output">
+				<fd:field id="servicioId" state="output">
 					<fd:label>Servicio:</fd:label>
-		            <fd:datatype base="integer"/>
-		            
+		            <fd:datatype base="integer"/>		            
 					<fd:selection-list src="cocoon:/servicio.combo"
 						cache="request" />			    
-				</fd:field> -->	
+				</fd:field>	
 				
 				<fd:field id="colectorNumero" required="true">
 					<fd:label>C#:</fd:label>

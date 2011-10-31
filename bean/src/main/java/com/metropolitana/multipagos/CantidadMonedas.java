@@ -1,5 +1,5 @@
 //==============================================================================
-//===   cantidad_monedas.java                        Build:2525
+//===   cantidad_monedas.java                        Build:2531
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -20,7 +20,7 @@ public class CantidadMonedas implements java.io.Serializable
 
    private Integer    cantidadId;
    private String     cantidadNombre;
-   private Integer    cantidadValor;
+   private BigDecimal cantidadValor;
    private Boolean    dolares;
 
    //---------------------------------------------------------------------------
@@ -43,9 +43,9 @@ public class CantidadMonedas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Integer getCantidadValor() { return cantidadValor; }
+   public BigDecimal getCantidadValor() { return cantidadValor; }
 
-   public void setCantidadValor(Integer cantidadValor)
+   public void setCantidadValor(BigDecimal cantidadValor)
    {
       this.cantidadValor = cantidadValor;
    }

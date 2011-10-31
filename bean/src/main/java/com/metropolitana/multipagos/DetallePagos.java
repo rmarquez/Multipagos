@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2526
+//===   detalle_pagos.java                        Build:2528
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -21,6 +21,8 @@ public class DetallePagos implements java.io.Serializable
    private Integer    pagoId;
    private Integer    carteraId;
    private Integer    colectorId;
+   private Integer    servicioId;
+   private Integer    localidadId;
    private String     numeroContrato;
    private String     facturaInterna;
    private String     numeroFiscal;
@@ -29,8 +31,6 @@ public class DetallePagos implements java.io.Serializable
    private Date       fechaPago;
    private Integer    recibo;
    private String     horaRegistro;
-   private String     localidadNombre;
-   private String     servicioNombre;
    private String     observaciones;
    private BigDecimal salgoPagar;
 
@@ -59,6 +59,24 @@ public class DetallePagos implements java.io.Serializable
    public void setColectorId(Integer colectorId)
    {
       this.colectorId = colectorId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getServicioId() { return servicioId; }
+
+   public void setServicioId(Integer servicioId)
+   {
+      this.servicioId = servicioId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getLocalidadId() { return localidadId; }
+
+   public void setLocalidadId(Integer localidadId)
+   {
+      this.localidadId = localidadId;
    }
 
    //---------------------------------------------------------------------------
@@ -135,24 +153,6 @@ public class DetallePagos implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public String getLocalidadNombre() { return localidadNombre; }
-
-   public void setLocalidadNombre(String localidadNombre)
-   {
-      this.localidadNombre = localidadNombre;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public String getServicioNombre() { return servicioNombre; }
-
-   public void setServicioNombre(String servicioNombre)
-   {
-      this.servicioNombre = servicioNombre;
-   }
-
-   //---------------------------------------------------------------------------
-
    public String getObservaciones() { return observaciones; }
 
    public void setObservaciones(String observaciones)
@@ -202,6 +202,30 @@ public class DetallePagos implements java.io.Serializable
    public void setColectorIdRef(Colector colector)
    {
       this.colectorIdRef = colector;
+   }
+
+
+   //---------------------------------------------------------------------------
+
+   private Servicio servicioIdRef;
+
+   public Servicio getServicioIdRef() { return servicioIdRef; }
+
+   public void setServicioIdRef(Servicio servicio)
+   {
+      this.servicioIdRef = servicio;
+   }
+
+
+   //---------------------------------------------------------------------------
+
+   private Localidad localidadIdRef;
+
+   public Localidad getLocalidadIdRef() { return localidadIdRef; }
+
+   public void setLocalidadIdRef(Localidad localidad)
+   {
+      this.localidadIdRef = localidad;
    }
 
 }

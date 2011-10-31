@@ -453,15 +453,12 @@ public class Util {
      * 		Cantidad de billetes.
      * @return
      */
-	public static BigDecimal calcularTotalCantidad(Integer valor,
+	public static BigDecimal calcularTotalCantidad(BigDecimal valor,
 			Integer cantidad) {
-		BigDecimal monto = BigDecimal.ZERO;
-		if (cantidad != null && cantidad.intValue() > 0 && 
-			valor != null && valor.intValue() > 0) {
+		BigDecimal monto = BigDecimal.ZERO;		
+		if (cantidad != null && cantidad.intValue() > 0) {
 
-			monto = (new BigDecimal(valor.intValue())).multiply(
-					 new BigDecimal(cantidad.intValue()))
-					 .setScale(2, BigDecimal.ROUND_HALF_UP);
+			monto = valor.multiply(new BigDecimal(cantidad.intValue()));//.setScale(2, BigDecimal.ROUND_HALF_UP);
 		}
 		return monto;
 	}

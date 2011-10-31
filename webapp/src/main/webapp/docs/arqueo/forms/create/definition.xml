@@ -140,7 +140,7 @@
 				</fd:field>
 				
 				<fd:field id="cantidadValor">
-					<fd:datatype base="integer"/>								
+					<fd:datatype base="decimal"/>								
 				</fd:field>
 				
 				<fd:field id="cantidad" required="true">
@@ -215,7 +215,7 @@
 				</fd:field>
 				
 				<fd:field id="cantidadValorUs">
-					<fd:datatype base="integer"/>								
+					<fd:datatype base="decimal"/>								
 				</fd:field>
 				
 				<fd:field id="cantidadUs" required="true">
@@ -541,7 +541,10 @@
 	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
 	            var pagoFecha = form.getChild("pagoFecha").getValue();
 	            var totalUs = form.getChild("totalUs").getValue();
-	            var tasa = tasaHandler.retrieve(pagoFecha);
+	            if(pagoFecha != null){
+	            	var tasa = tasaHandler.retrieve(pagoFecha);
+	            }
+	            
 	            if (totalUs != null) {
 	            	if (tasa != null) {
 	            		return totalUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);

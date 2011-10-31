@@ -213,7 +213,6 @@ public class LocalidadHandler {
     }
 	
 	public Collection getLocalidadXCartera(final Integer carteraId) throws Exception {
-		System.out.println("*** Cartera Id = " + carteraId);
 		
 		PersistenceBroker broker = null;
 		try {

@@ -101,11 +101,13 @@
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="localidadNombre" state="output">
-					<fd:label>Localidad</fd:label>					
-					<fd:datatype base="string" />
+				<fd:field id="localidadId" state="output">
+					<fd:label>Localidad</fd:label>
+					<fd:datatype base="integer" />
+					<fd:selection-list src="cocoon:/localidad.combo"
+						cache="request" />					
 				</fd:field>
-												
+				
 				<fd:field id="year" state="output">
 					<fd:label>Año</fd:label>					
 					<fd:datatype base="string" />
@@ -167,10 +169,12 @@
 					<fd:datatype base="integer" />
 				</fd:field>
 				
-				<fd:field id="servicioNombre" state="output">
-					<fd:label>Servicio </fd:label>					
-					<fd:datatype base="string" />
-				</fd:field>			
+				<fd:field id="servicioId" state="output">
+					<fd:label>Servicio</fd:label>
+					<fd:datatype base="integer" />
+					<fd:selection-list src="cocoon:/servicio.combo"	cache="request"/>					
+				</fd:field>	
+						
 				
 				
 				<fd:field id="colectorNumero" required="true">

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_visitas.java                        Build:2525
+//===   detalle_visitas.java                        Build:2530
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -22,14 +22,13 @@ public class DetalleVisitas implements java.io.Serializable
    private Integer    carteraId;
    private Integer    simboloId;
    private Integer    colectorId;
-   private String     localidadNombre;
-   private String     servicioNombre;
+   private Integer    localidadId;
+   private Integer    servicioId;
    private String     numeroContrato;
    private Date       fechaVisita;
    private Integer    avisoCobro;
    private String     horaRegistro;
    private Date       fprogCobro;
-   private Boolean    encontroCliente;
 
    //---------------------------------------------------------------------------
 
@@ -69,20 +68,20 @@ public class DetalleVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public String getLocalidadNombre() { return localidadNombre; }
+   public Integer getLocalidadId() { return localidadId; }
 
-   public void setLocalidadNombre(String localidadNombre)
+   public void setLocalidadId(Integer localidadId)
    {
-      this.localidadNombre = localidadNombre;
+      this.localidadId = localidadId;
    }
 
    //---------------------------------------------------------------------------
 
-   public String getServicioNombre() { return servicioNombre; }
+   public Integer getServicioId() { return servicioId; }
 
-   public void setServicioNombre(String servicioNombre)
+   public void setServicioId(Integer servicioId)
    {
-      this.servicioNombre = servicioNombre;
+      this.servicioId = servicioId;
    }
 
    //---------------------------------------------------------------------------
@@ -132,15 +131,6 @@ public class DetalleVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Boolean getEncontroCliente() { return encontroCliente; }
-
-   public void setEncontroCliente(Boolean encontroCliente)
-   {
-      this.encontroCliente = encontroCliente;
-   }
-
-   //---------------------------------------------------------------------------
-
    private Visitas visitaIdRef;
 
    public Visitas getVisitaIdRef() { return visitaIdRef; }
@@ -184,6 +174,30 @@ public class DetalleVisitas implements java.io.Serializable
    public void setColectorIdRef(Colector colector)
    {
       this.colectorIdRef = colector;
+   }
+
+
+   //---------------------------------------------------------------------------
+
+   private Localidad localidadIdRef;
+
+   public Localidad getLocalidadIdRef() { return localidadIdRef; }
+
+   public void setLocalidadIdRef(Localidad localidad)
+   {
+      this.localidadIdRef = localidad;
+   }
+
+
+   //---------------------------------------------------------------------------
+
+   private Servicio servicioIdRef;
+
+   public Servicio getServicioIdRef() { return servicioIdRef; }
+
+   public void setServicioIdRef(Servicio servicio)
+   {
+      this.servicioIdRef = servicio;
    }
 
 }

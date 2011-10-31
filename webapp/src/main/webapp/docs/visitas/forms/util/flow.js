@@ -8,6 +8,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.servicio.ServicioHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
+importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 
@@ -44,23 +45,39 @@ function alSeleccionarContrato(event) {
 	carteraId.setValue(null);
 	var suscriptor = event.source.parent.getChild("suscriptor");
     suscriptor.setValue(null);
-    var servicio = event.source.parent.getChild("servicioNombre");
+    var servicio = event.source.parent.getChild("servicioId");
     servicio.setValue(null);
-    var localidad = event.source.parent.getChild("localidadNombre");
+    var localidad = event.source.parent.getChild("localidadId");
     localidad.setValue(null);
     var fechaVisita = event.source.parent.getChild("fechaVisita");
     fechaVisita.setValue(null);
-    var handlerCartera = new CarteraXDepartamentoHandler();    
+    var handlerCartera = new CarteraXDepartamentoHandler();   
+    var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null){
-		var cartera = handlerCartera.carteraXContrato(numContrato);
-		if(cartera != null){
-			carteraId.setValue(cartera.getCarteraId()); 
-			suscriptor.setValue(cartera.getSuscriptor());
-			localidad.setValue(cartera.localidadIdRef.localidadNombre);
-			servicio.setValue(cartera.servicioIdRef.servicioNombre);
-			fechaVisita.setValue(new Packages.java.util.Date());			
-		}	
+		if (handlerVisita.existeContrato(numContrato)==true) {
+    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado, favor verificar No. de contrato."));
+    	} else {		
+			var cartera = handlerCartera.carteraXContrato(numContrato);
+			if(cartera != null){
+				carteraId.setValue(cartera.getCarteraId()); 
+				suscriptor.setValue(cartera.getSuscriptor());
+				localidad.setValue(cartera.getLocalidadId());
+				servicio.setValue(cartera.getServicioId());
+				fechaVisita.setValue(new Packages.java.util.Date());			
+			}
+    	}
 	} 	
+}
+
+function alEncontrarCliente(event) {
+    var encontroCliente = event.source.value;
+    var fprogCobro = event.source.parent.getChild("fprogCobro");
+    fprogCobro.setValue(null);
+    if (encontroCliente.booleanValue()== false) {
+        fprogCobro.setState(WidgetState.INVISIBLE);        
+    } else {
+    	fprogCobro.setState(WidgetState.ACTIVE);
+    }
 }
 
 function alSeleccionarSimbolo(event) {
@@ -69,13 +86,18 @@ function alSeleccionarSimbolo(event) {
     simboloId.setValue(null);
     var simboloNombre = event.source.parent.getChild("simboloNombre");
     simboloNombre.setValue(null);
+    var fprogCobro = event.source.parent.getChild("fprogCobro");
+    fprogCobro.setValue(null);
     var handlerSimbolo = new SimboloHandler();
-    if (simboloId != null) {
-    	var simbolo = handlerSimbolo.simboloXNumero(simbolo);
-    	if(simbolo != null) {
-        	simboloNombre.setValue(simbolo.getSimboloNombre());
-        	simboloId.setValue(simbolo.getSimboloId()); 
-    	}       
+    if (simbolo != null) {
+    	var simbolo2 = handlerSimbolo.simboloXNumero(simbolo);
+    	simboloNombre.setValue(simbolo2.getSimboloNombre());    	
+    	simboloId.setValue(simbolo2.getSimboloId()); 
+    	if(simbolo2.getSimboloNumero()=="30") {   
+    		fprogCobro.setState(WidgetState.ACTIVE);        	
+    	} else {
+    		fprogCobro.setState(WidgetState.INVISIBLE); 
+    	}
     }
 }
 
@@ -104,13 +126,4 @@ function alSeleccionarColector(event) {
     }
 }
 
-function alEncontrarCliente(event) {
-    var encontroCliente = event.source.value;
-    var fprogCobro = event.source.parent.getChild("fprogCobro");
-    fprogCobro.setValue(null);
-    if (encontroCliente.booleanValue()== false) {
-        fprogCobro.setState(WidgetState.INVISIBLE);        
-    } else {
-    	fprogCobro.setState(WidgetState.ACTIVE);
-    }
-}
+

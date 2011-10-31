@@ -46,10 +46,10 @@ function alSeleccionarFactura(event) {
     carteraId.setValue(null);
     var suscriptor = event.source.parent.getChild("suscriptor");
     suscriptor.setValue(null);
-    var localidadNombre = event.source.parent.getChild("localidadNombre");
-    localidadNombre.setValue(null);
-    var servicioNombre = event.source.parent.getChild("servicioNombre");
-    servicioNombre.setValue(null);
+    var localidadId = event.source.parent.getChild("localidadId");
+    localidadId.setValue(null);
+    var servicioId = event.source.parent.getChild("servicioId");
+    servicioId.setValue(null);
     var year = event.source.parent.getChild("year");
     year.setValue(null);
     var mes = event.source.parent.getChild("mes");
@@ -72,8 +72,8 @@ function alSeleccionarFactura(event) {
 			if(cartera != null){
 				carteraId.setValue(cartera.getCarteraId());
 				suscriptor.setValue(cartera.getSuscriptor());
-				localidadNombre.setValue(cartera.localidadIdRef.localidadNombre);
-				servicioNombre.setValue(cartera.servicioIdRef.servicioNombre);
+				localidadId.setValue(cartera.getLocalidadId());
+				servicioId.setValue(cartera.getServicioId());
 				year.setValue(cartera.getAno());
 	    		mes.setValue(cartera.getMes());
 	    		saldoPagar.setValue(cartera.getSaldo()); 

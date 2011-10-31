@@ -38,7 +38,6 @@ public class ArqueoHandler {
 	 */
 	public void insert(final ArqueoPagos bean, Integer usrId) throws Exception {
 		PersistenceBroker broker = null;
-	System.out.println("Dentro del insert *********");
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			broker.beginTransaction();

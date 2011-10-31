@@ -10,6 +10,7 @@ function editform(form) {
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.pagoId));
     	java.lang.System.out.println("*** pagoId " + parseInt(cocoon.request.pagoId));
     	   java.lang.System.out.println("*** bean " + bean);
+    	   llenarCamposlimpios(form);  
     	form.load(bean);
     	llenarCamposlimpios(form);    	
     	form.showForm("edit-form-display");        

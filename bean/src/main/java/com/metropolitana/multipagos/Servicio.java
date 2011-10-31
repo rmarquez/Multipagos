@@ -1,5 +1,5 @@
 //==============================================================================
-//===   servicio.java                        Build:2525
+//===   servicio.java                        Build:2528
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -61,6 +61,34 @@ public class Servicio implements java.io.Serializable
    {
       carteraXDepartamento.setServicioIdRef(this);
       carteraXDepartamentoList.add( carteraXDepartamento );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleVisitasList = new ArrayList();
+
+   public Collection getDetalleVisitasList() { return detalleVisitasList;}
+
+   public void setDetalleVisitasList(Collection c) { this.detalleVisitasList = c;}
+
+   public void addDetalleVisitas( DetalleVisitas detalleVisitas )
+   {
+      detalleVisitas.setServicioIdRef(this);
+      detalleVisitasList.add( detalleVisitas );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detallePagosList = new ArrayList();
+
+   public Collection getDetallePagosList() { return detallePagosList;}
+
+   public void setDetallePagosList(Collection c) { this.detallePagosList = c;}
+
+   public void addDetallePagos( DetallePagos detallePagos )
+   {
+      detallePagos.setServicioIdRef(this);
+      detallePagosList.add( detallePagos );
    }
 }
 

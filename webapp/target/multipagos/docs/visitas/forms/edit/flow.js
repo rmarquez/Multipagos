@@ -8,8 +8,6 @@ function editform(form) {
     if (autorizar("informes")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.visitaId));
-    	java.lang.System.out.println("*** visitaId " + parseInt(cocoon.request.visitaId));
- 	   java.lang.System.out.println("*** bean " + bean);
     	form.load(bean);
     	llenarCamposlimpios(form);    	
     	form.showForm("edit-form-display");        
