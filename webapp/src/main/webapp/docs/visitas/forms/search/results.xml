@@ -31,8 +31,8 @@
                            <td align="right"><formatoFecha fecha="${status.current.fecha}" patron="dd/MMM/yyyy"/></td>
                            <td>${status.current.usrIdRef.usrFullName}</td>
                              <td>
-                               <link href="/multipagos/visitas/edit?visitaId=${status.current.visitaId}">Editar</link>
-                               <link href="borrar.list?visitaId=${status.current.visitaId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                               
+                             	<link href="/multipagos/visitas/edit?visitaId=${status.current.visitaId}">Editar</link>
+                               	<link href="borrar.list?visitaId=${status.current.visitaId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                                                              
                              </td>
                         </tr>
                   </jx:forEach>

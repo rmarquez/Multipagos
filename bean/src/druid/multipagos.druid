@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2531</attrib>
+		<attrib name="build">2532</attrib>
 		<attrib name="serial">1075141</attrib>
 	</attribs>
 	<database>
@@ -9244,7 +9244,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
+								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
 								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
@@ -9274,8 +9274,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">true</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
 								<attrib name="339"/>
@@ -9304,8 +9304,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">true</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
 								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
@@ -9334,7 +9334,7 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
+								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>

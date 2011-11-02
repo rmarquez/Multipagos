@@ -54,17 +54,16 @@ function alSeleccionarContrato(event) {
     var handlerCartera = new CarteraXDepartamentoHandler();   
     var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null){
+		var cartera = handlerCartera.carteraXContrato(numContrato);
+		if(cartera != null){
+			carteraId.setValue(cartera.getCarteraId()); 
+			suscriptor.setValue(cartera.getSuscriptor());
+			localidad.setValue(cartera.getLocalidadId());
+			servicio.setValue(cartera.getServicioId());
+			fechaVisita.setValue(new Packages.java.util.Date());			
+		}
 		if (handlerVisita.existeContrato(numContrato)==true) {
     		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado, favor verificar No. de contrato."));
-    	} else {		
-			var cartera = handlerCartera.carteraXContrato(numContrato);
-			if(cartera != null){
-				carteraId.setValue(cartera.getCarteraId()); 
-				suscriptor.setValue(cartera.getSuscriptor());
-				localidad.setValue(cartera.getLocalidadId());
-				servicio.setValue(cartera.getServicioId());
-				fechaVisita.setValue(new Packages.java.util.Date());			
-			}
     	}
 	} 	
 }

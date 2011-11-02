@@ -1,261 +1,101 @@
-INFO  (2011-10-31) 16:20.03:776 [access] (Unknown-URI) Unknown-Thread/CocoonServlet: Reloading from: file:/home/rmarquez/workspace/multipagos/webapp/src/main/webapp/WEB-INF/cocoon.xconf
-INFO  (2011-10-31) 16:20.04:057 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "default" created with maximum queue-size=2147483647,max-pool-size=5,min-pool-size=5,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="ABORT",shutdown-wait-time-ms=-1
-INFO  (2011-10-31) 16:20.04:059 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "daemon" created with no queue,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=true,keep-alive-time-ms=60000,block-policy=ABORT,shutdown-wait-time-ms=-1
-INFO  (2011-10-31) 16:20.04:148 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" initialized
-INFO  (2011-10-31) 16:20.04:168 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "anon-29766841" created with maximum queue-size=2147483647,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="RUN",shutdown-wait-time-ms=5000
-INFO  (2011-10-31) 16:20.04:199 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: Adding CronJob 'Cocoon.scheduled-email-ofertas'
-INFO  (2011-10-31) 16:41.55:294 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to '/multipagos/entrada?resource=%2Fmultipagos%2Farqueo%2Fcreate'
-INFO  (2011-10-31) 16:41.55:301 [access] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/create' Processed by Apache Cocoon 2.1.12-dev in 582 milliseconds.
-INFO  (2011-10-31) 16:41.55:375 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Farqueo%2Fcreate) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/entrada-form'
-INFO  (2011-10-31) 16:41.55:503 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Farqueo%2Fcreate) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/entrada-vista'
-INFO  (2011-10-31) 16:41.56:766 [access] (/multipagos/entrada?resource=%2Fmultipagos%2Farqueo%2Fcreate) 12984448@qtp-18554240-0/CocoonServlet: 'entrada' Processed by Apache Cocoon 2.1.12-dev in 1.458 seconds.
-WARN  (2011-10-31) 16:41.56:844 [access] (/multipagos/images/banner_parte2.jpg) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
+INFO  (2011-11-02) 10:03.50:210 [access] (Unknown-URI) Unknown-Thread/CocoonServlet: Reloading from: file:/home/rmarquez/workspace/multipagos/webapp/src/main/webapp/WEB-INF/cocoon.xconf
+INFO  (2011-11-02) 10:03.50:468 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "default" created with maximum queue-size=2147483647,max-pool-size=5,min-pool-size=5,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="ABORT",shutdown-wait-time-ms=-1
+INFO  (2011-11-02) 10:03.50:472 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "daemon" created with no queue,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=true,keep-alive-time-ms=60000,block-policy=ABORT,shutdown-wait-time-ms=-1
+INFO  (2011-11-02) 10:03.50:589 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" initialized
+INFO  (2011-11-02) 10:03.50:610 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "anon-3645516" created with maximum queue-size=2147483647,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="RUN",shutdown-wait-time-ms=5000
+INFO  (2011-11-02) 10:03.50:640 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: Adding CronJob 'Cocoon.scheduled-email-ofertas'
+INFO  (2011-11-02) 10:04.03:604 [access] (/multipagos/visitas/resources/dojo/src/widget/templates/images/submenu_on.gif) 5120670@qtp-5875509-2/CocoonServlet: 'visitas/resources/dojo/src/widget/templates/images/submenu_on.gif' Processed by Apache Cocoon 2.1.12-dev in 82 milliseconds.
+INFO  (2011-11-02) 10:04.03:614 [access] (/multipagos/visitas/resources/dojo/src/widget/templates/images/submenu_off.gif) 18554240@qtp-5875509-0/CocoonServlet: 'visitas/resources/dojo/src/widget/templates/images/submenu_off.gif' Processed by Apache Cocoon 2.1.12-dev in 326 milliseconds.
+INFO  (2011-11-02) 10:04.04:797 [sitemap] (/multipagos/informes/visitasxcolector) 5120670@qtp-5875509-2/ForwardRedirector: Redirecting to '/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fvisitasxcolector'
+INFO  (2011-11-02) 10:04.04:801 [access] (/multipagos/informes/visitasxcolector) 5120670@qtp-5875509-2/CocoonServlet: 'informes/visitasxcolector' Processed by Apache Cocoon 2.1.12-dev in 222 milliseconds.
+INFO  (2011-11-02) 10:04.04:910 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fvisitasxcolector) 5120670@qtp-5875509-2/ForwardRedirector: Redirecting to 'cocoon:/entrada-form'
+INFO  (2011-11-02) 10:04.05:007 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fvisitasxcolector) 5120670@qtp-5875509-2/ForwardRedirector: Redirecting to 'cocoon:/entrada-vista'
+INFO  (2011-11-02) 10:04.06:138 [access] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fvisitasxcolector) 5120670@qtp-5875509-2/CocoonServlet: 'entrada' Processed by Apache Cocoon 2.1.12-dev in 1.334 seconds.
+INFO  (2011-11-02) 10:04.06:160 [access] (/multipagos/resources/forms/css/forms.css) 5120670@qtp-5875509-2/CocoonServlet: 'resources/forms/css/forms.css' Processed by Apache Cocoon 2.1.12-dev in 12 milliseconds.
+INFO  (2011-11-02) 10:04.06:162 [access] (/multipagos/resources/forms/mattkruse-lib/AnchorPosition.js) 21876653@qtp-5875509-5/CocoonServlet: 'resources/forms/mattkruse-lib/AnchorPosition.js' Processed by Apache Cocoon 2.1.12-dev in 11 milliseconds.
+INFO  (2011-11-02) 10:04.06:162 [access] (/multipagos/resources/forms/mattkruse-lib/OptionTransfer.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/mattkruse-lib/OptionTransfer.js' Processed by Apache Cocoon 2.1.12-dev in 5 milliseconds.
+INFO  (2011-11-02) 10:04.06:163 [access] (/multipagos/resources/forms/mattkruse-lib/selectbox.js) 5120670@qtp-5875509-2/CocoonServlet: 'resources/forms/mattkruse-lib/selectbox.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:163 [access] (/multipagos/resources/forms/js/forms-lib.js) 27276605@qtp-5875509-4/CocoonServlet: 'resources/forms/js/forms-lib.js' Processed by Apache Cocoon 2.1.12-dev in 14 milliseconds.
+INFO  (2011-11-02) 10:04.06:164 [access] (/multipagos/resources/dojo/dojo.js) 8470765@qtp-5875509-3/CocoonServlet: 'resources/dojo/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 13 milliseconds.
+INFO  (2011-11-02) 10:04.06:168 [access] (/multipagos/resources/forms/mattkruse-lib/PopupWindow.js) 32260077@qtp-5875509-6/CocoonServlet: 'resources/forms/mattkruse-lib/PopupWindow.js' Processed by Apache Cocoon 2.1.12-dev in 15 milliseconds.
+INFO  (2011-11-02) 10:04.06:169 [access] (/multipagos/resources/forms/htmlarea/htmlarea.js) 21876653@qtp-5875509-5/CocoonServlet: 'resources/forms/htmlarea/htmlarea.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
+INFO  (2011-11-02) 10:04.06:170 [access] (/multipagos/scripts/util.js) 32260077@qtp-5875509-6/CocoonServlet: 'scripts/util.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:171 [access] (/multipagos/styles/multipagos.css) 32795414@qtp-5875509-7/CocoonServlet: 'styles/multipagos.css' Processed by Apache Cocoon 2.1.12-dev in 7 milliseconds.
+INFO  (2011-11-02) 10:04.06:221 [access] (/multipagos/resources/forms/js/common.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+WARN  (2011-11-02) 10:04.06:254 [access] (/multipagos/images/banner_parte2.jpg) 32795414@qtp-5875509-7/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:418:65
-INFO  (2011-10-31) 16:42.37:130 [sitemap] (/multipagos/627716212b50188e264b2e315116675309208442.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/do-login?resource=/multipagos/arqueo/create&username=admin&passwd=e10adc3949ba59abbe56e057f20f883e'
-INFO  (2011-10-31) 16:42.38:188 [sitemap] (/multipagos/627716212b50188e264b2e315116675309208442.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon://usuarios'
-INFO  (2011-10-31) 16:42.38:377 [core.authentication-manager] (/multipagos/627716212b50188e264b2e315116675309208442.continue) 12984448@qtp-18554240-0/PipelineAuthenticator: Authenticator: User authenticated using handler 'authhandler'
-INFO  (2011-10-31) 16:42.38:405 [sitemap] (/multipagos/627716212b50188e264b2e315116675309208442.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to '/multipagos/arqueo/create'
-INFO  (2011-10-31) 16:42.38:407 [access] (/multipagos/627716212b50188e264b2e315116675309208442.continue) 12984448@qtp-18554240-0/CocoonServlet: '627716212b50188e264b2e315116675309208442.continue' Processed by Apache Cocoon 2.1.12-dev in 1.301 seconds.
-INFO  (2011-10-31) 16:42.38:447 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create'
-INFO  (2011-10-31) 16:42.38:630 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:42.38:754 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/supervisorCombo-data'
-INFO  (2011-10-31) 16:42.38:820 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/colectorCombo-data'
-INFO  (2011-10-31) 16:42.39:058 [sitemap] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:42.39:354 [access] (/multipagos/arqueo/create) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/create' Processed by Apache Cocoon 2.1.12-dev in 940 milliseconds.
-WARN  (2011-10-31) 16:42.39:373 [access] (/multipagos/images/banner_parte2.jpg) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
+INFO  (2011-11-02) 10:04.06:294 [access] (/multipagos/resources/forms/manifest.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/manifest.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:306 [access] (/multipagos/resources/dojo/src/widget/templates/images/tab_close.gif) 32795414@qtp-5875509-7/CocoonServlet: 'resources/dojo/src/widget/templates/images/tab_close.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:310 [access] (/multipagos/resources/forms/js/SimpleForm.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/js/SimpleForm.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:326 [access] (/multipagos/resources/forms/js/InfoPopup.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/js/InfoPopup.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:334 [access] (/multipagos/resources/forms/js/templates/InfoPopup.css) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/js/templates/InfoPopup.css' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:344 [access] (/multipagos/resources/forms/js/templates/InfoPopup.html) 32795414@qtp-5875509-7/CocoonServlet: 'resources/forms/js/templates/InfoPopup.html' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:356 [access] (/multipagos/resources/dojo/src/namespaces/dojo.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/dojo/src/namespaces/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:356 [access] (/multipagos/resources/forms/js/templates/images/close.gif) 21876653@qtp-5875509-5/CocoonServlet: 'resources/forms/js/templates/images/close.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:358 [access] (/multipagos/resources/forms/js/templates/images/help.gif) 32260077@qtp-5875509-6/CocoonServlet: 'resources/forms/js/templates/images/help.gif' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
+INFO  (2011-11-02) 10:04.06:373 [access] (/multipagos/resources/dojo/src/widget/PopupContainer.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/dojo/src/widget/PopupContainer.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.06:381 [access] (/multipagos/resources/dojo/src/html/selection.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/dojo/src/html/selection.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.06:390 [access] (/multipagos/resources/dojo/src/html/iframe.js) 32795414@qtp-5875509-7/CocoonServlet: 'resources/dojo/src/html/iframe.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
+INFO  (2011-11-02) 10:04.11:017 [sitemap] (/multipagos/011e7c8440236f2b697d6a22322827742a686d22.continue) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon:/do-login?resource=/multipagos/informes/visitasxcolector&username=admin&passwd=e10adc3949ba59abbe56e057f20f883e'
+INFO  (2011-11-02) 10:04.11:781 [sitemap] (/multipagos/011e7c8440236f2b697d6a22322827742a686d22.continue) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon://usuarios'
+INFO  (2011-11-02) 10:04.11:954 [core.authentication-manager] (/multipagos/011e7c8440236f2b697d6a22322827742a686d22.continue) 32795414@qtp-5875509-7/PipelineAuthenticator: Authenticator: User authenticated using handler 'authhandler'
+INFO  (2011-11-02) 10:04.11:983 [sitemap] (/multipagos/011e7c8440236f2b697d6a22322827742a686d22.continue) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to '/multipagos/informes/visitasxcolector'
+INFO  (2011-11-02) 10:04.11:984 [access] (/multipagos/011e7c8440236f2b697d6a22322827742a686d22.continue) 32795414@qtp-5875509-7/CocoonServlet: '011e7c8440236f2b697d6a22322827742a686d22.continue' Processed by Apache Cocoon 2.1.12-dev in 993 milliseconds.
+INFO  (2011-11-02) 10:04.12:010 [sitemap] (/multipagos/informes/visitasxcolector) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon:/visitasxcolector'
+INFO  (2011-11-02) 10:04.12:073 [sitemap] (/multipagos/informes/visitasxcolector) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon:/visitasxcolector-form-display'
+INFO  (2011-11-02) 10:04.12:130 [sitemap] (/multipagos/informes/visitasxcolector) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon:/colectorCombo-data'
+INFO  (2011-11-02) 10:04.12:188 [sitemap] (/multipagos/informes/visitasxcolector) 32795414@qtp-5875509-7/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
+INFO  (2011-11-02) 10:04.12:311 [access] (/multipagos/informes/visitasxcolector) 32795414@qtp-5875509-7/CocoonServlet: 'informes/visitasxcolector' Processed by Apache Cocoon 2.1.12-dev in 322 milliseconds.
+INFO  (2011-11-02) 10:04.12:325 [access] (/multipagos/informes/resources/forms/mattkruse-lib/PopupWindow.js) 27276605@qtp-5875509-4/CocoonServlet: 'informes/resources/forms/mattkruse-lib/PopupWindow.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
+INFO  (2011-11-02) 10:04.12:326 [access] (/multipagos/informes/resources/forms/css/forms.css) 8470765@qtp-5875509-3/CocoonServlet: 'informes/resources/forms/css/forms.css' Processed by Apache Cocoon 2.1.12-dev in 5 milliseconds.
+INFO  (2011-11-02) 10:04.12:328 [access] (/multipagos/informes/resources/forms/mattkruse-lib/selectbox.js) 27276605@qtp-5875509-4/CocoonServlet: 'informes/resources/forms/mattkruse-lib/selectbox.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:328 [access] (/multipagos/informes/resources/forms/htmlarea/htmlarea.js) 8470765@qtp-5875509-3/CocoonServlet: 'informes/resources/forms/htmlarea/htmlarea.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
+INFO  (2011-11-02) 10:04.12:331 [access] (/multipagos/informes/resources/forms/mattkruse-lib/AnchorPosition.js) 21876653@qtp-5875509-5/CocoonServlet: 'informes/resources/forms/mattkruse-lib/AnchorPosition.js' Processed by Apache Cocoon 2.1.12-dev in 9 milliseconds.
+INFO  (2011-11-02) 10:04.12:333 [access] (/multipagos/informes/resources/forms/js/forms-lib.js) 32260077@qtp-5875509-6/CocoonServlet: 'informes/resources/forms/js/forms-lib.js' Processed by Apache Cocoon 2.1.12-dev in 10 milliseconds.
+INFO  (2011-11-02) 10:04.12:334 [access] (/multipagos/informes/resources/forms/mattkruse-lib/OptionTransfer.js) 5120670@qtp-5875509-2/CocoonServlet: 'informes/resources/forms/mattkruse-lib/OptionTransfer.js' Processed by Apache Cocoon 2.1.12-dev in 11 milliseconds.
+INFO  (2011-11-02) 10:04.12:341 [access] (/multipagos/informes/resources/dojo/dojo.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 13 milliseconds.
+INFO  (2011-11-02) 10:04.12:400 [access] (/multipagos/informes/resources/forms/js/common.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+WARN  (2011-11-02) 10:04.12:491 [access] (/multipagos/images/banner_parte2.jpg) 32795414@qtp-5875509-7/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:418:65
-INFO  (2011-10-31) 16:42.39:455 [access] (/multipagos/arqueo/resources/dojo/src/widget/templates/images/tab_close.gif) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/dojo/src/widget/templates/images/tab_close.gif' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:42.39:740 [access] (/multipagos/arqueo/resources/forms/js/templates/images/dateIcon.gif) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/forms/js/templates/images/dateIcon.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-WARN  (2011-10-31) 16:42.39:785 [access] (/multipagos/arqueo/resources/fi/manifest.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-INFO  (2011-10-31) 16:42.39:794 [access] (/multipagos/arqueo/resources/dojo/src/widget/templates/images/incrementMonth.png) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/dojo/src/widget/templates/images/incrementMonth.png' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:42.39:797 [access] (/multipagos/arqueo/resources/dojo/src/widget/templates/images/decrementMonth.png) 4165723@qtp-18554240-2/CocoonServlet: 'arqueo/resources/dojo/src/widget/templates/images/decrementMonth.png' Processed by Apache Cocoon 2.1.12-dev in 5 milliseconds.
-ERROR (2011-10-31) 16:42.39:800 [sitemap.handled-errors] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/ErrorHandlerHelper: No pipeline matched request: arqueo/resources/fi.js
-	at <map:mount> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:443:77
-INFO  (2011-10-31) 16:42.39:802 [sitemap] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:447:28
-INFO  (2011-10-31) 16:42.39:840 [core.i18n] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/mensajes_en.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:42.39:842 [core.i18n] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/mensajes_en_US.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:42.39:871 [sitemap] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:42.39:924 [access] (/multipagos/arqueo/resources/fi.js) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/fi.js' Processed by Apache Cocoon 2.1.12-dev in 125 milliseconds.
-WARN  (2011-10-31) 16:42.39:935 [access] (/multipagos/arqueo/resources/dojo/__package__.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-INFO  (2011-10-31) 16:42.42:049 [access] (/multipagos/arqueo/resources/dojo/src/widget/templates/images/submenu_off.gif) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/dojo/src/widget/templates/images/submenu_off.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:42.42:578 [access] (/multipagos/arqueo/resources/dojo/src/widget/templates/images/submenu_on.gif) 12984448@qtp-18554240-0/CocoonServlet: 'arqueo/resources/dojo/src/widget/templates/images/submenu_on.gif' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:42.44:127 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create'
-INFO  (2011-10-31) 16:42.44:196 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:42.44:256 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/supervisorCombo-data'
-INFO  (2011-10-31) 16:42.44:332 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:42.44:400 [access] (/multipagos/visitas/create) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/create' Processed by Apache Cocoon 2.1.12-dev in 357 milliseconds.
-WARN  (2011-10-31) 16:42.44:571 [access] (/multipagos/images/banner_parte2.jpg) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:418:65
-WARN  (2011-10-31) 16:42.44:788 [access] (/multipagos/visitas/resources/fi/manifest.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-ERROR (2011-10-31) 16:42.44:796 [sitemap.handled-errors] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/ErrorHandlerHelper: No pipeline matched request: visitas/resources/fi.js
-	at <map:mount> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:443:77
-INFO  (2011-10-31) 16:42.44:799 [sitemap] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:447:28
-INFO  (2011-10-31) 16:42.44:837 [sitemap] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:42.44:872 [access] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/fi.js' Processed by Apache Cocoon 2.1.12-dev in 77 milliseconds.
-WARN  (2011-10-31) 16:42.44:882 [access] (/multipagos/visitas/resources/dojo/__package__.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-INFO  (2011-10-31) 16:42.46:808 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/52644d6a242044467d0b8c77360b236e5c393861.continue'
-INFO  (2011-10-31) 16:42.46:817 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:42.46:897 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/localidadCombo-data'
-INFO  (2011-10-31) 16:42.46:958 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/servicioCombo-data'
-INFO  (2011-10-31) 16:42.47:043 [access] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/52644d6a242044467d0b8c77360b236e5c393861.continue' Processed by Apache Cocoon 2.1.12-dev in 268 milliseconds.
-INFO  (2011-10-31) 16:42.55:960 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/52644d6a242044467d0b8c77360b236e5c393861.continue'
-ERROR (2011-10-31) 16:42.55:967 [sitemap.handled-errors] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ErrorHandlerHelper: Error calling continuation
-	at [EcmaError] - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/forms/util/flow.js:56:0
-	at file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/forms/util/flow.js:56
-	at file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/forms/create/definition.xml:41
-	at resource://org/apache/cocoon/forms/flow/javascript/Form.js:202
-	at resource://org/apache/cocoon/forms/flow/javascript/Form.js:0
-	at file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/forms/create/flow.js:0
-	at resource://org/apache/cocoon/forms/flow/javascript/Form.js:0
-	at <map:call> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/sitemap.xmap:65:47
-	at file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/resources/flow/auth.js:43
-	at file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/resources/flow/auth.js:16
-	at <map:call> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/sitemap.xmap:79:46
-	at <map:mount> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:443:77
-ReferenceError: "handlerPagos" is not defined. (file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/docs/visitas/forms/util/flow.js; line 56)
-	at org.mozilla.javascript.NativeGlobal.constructError(NativeGlobal.java:581)
-	at org.mozilla.javascript.NativeGlobal.constructError(NativeGlobal.java:541)
-	at org.mozilla.javascript.ScriptRuntime.name(ScriptRuntime.java:1117)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:1256)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:190)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:138)
-	at org.mozilla.javascript.continuations.InterpretedFunctionImpl.call(InterpretedFunctionImpl.java:121)
-	at org.apache.cocoon.forms.util.JavaScriptHelper.callFunction(JavaScriptHelper.java:246)
-	at org.apache.cocoon.forms.event.impl.JavaScriptWidgetListener.callScript(JavaScriptWidgetListener.java:65)
-	at org.apache.cocoon.forms.event.impl.JavaScriptWidgetListener$JSValueChangedListener.valueChanged(JavaScriptWidgetListener.java:92)
-	at org.apache.cocoon.forms.formmodel.Field.broadcastEvent(Field.java:689)
-	at org.apache.cocoon.forms.formmodel.Form.fireEvents(Form.java:174)
-	at org.apache.cocoon.forms.formmodel.Form.process(Form.java:358)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:230)
-	at org.mozilla.javascript.ScriptRuntime.call(ScriptRuntime.java:1244)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:1134)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:190)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:138)
-	at org.mozilla.javascript.continuations.InterpretedFunctionImpl.call(InterpretedFunctionImpl.java:121)
-	at org.mozilla.javascript.ScriptRuntime.call(ScriptRuntime.java:1244)
-	at org.mozilla.javascript.ScriptableObject.callMethod(ScriptableObject.java:1591)
-	at org.apache.cocoon.components.flow.javascript.fom.FOM_JavaScriptInterpreter.handleContinuation(FOM_JavaScriptInterpreter.java:842)
-	at org.apache.cocoon.components.treeprocessor.sitemap.CallFunctionNode.invoke(CallFunctionNode.java:124)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:47)
-	at org.apache.cocoon.components.treeprocessor.sitemap.MatchNode.invoke(MatchNode.java:108)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelineNode.invoke(PipelineNode.java:143)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelinesNode.invoke(PipelinesNode.java:93)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.process(ConcreteTreeProcessor.java:235)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.handleCocoonRedirect(ConcreteTreeProcessor.java:297)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.access$000(ConcreteTreeProcessor.java:48)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor$TreeProcessorRedirector.cocoonRedirect(ConcreteTreeProcessor.java:338)
-	at org.apache.cocoon.environment.ForwardRedirector.redirect(ForwardRedirector.java:60)
-	at org.apache.cocoon.components.flow.AbstractInterpreter.forwardTo(AbstractInterpreter.java:210)
-	at org.apache.cocoon.components.flow.javascript.fom.FOM_JavaScriptInterpreter.forwardTo(FOM_JavaScriptInterpreter.java:866)
-	at org.apache.cocoon.components.flow.javascript.fom.FOM_Cocoon.forwardTo(FOM_Cocoon.java:702)
-	at org.apache.cocoon.components.flow.javascript.fom.FOM_Cocoon.jsFunction_sendPage(FOM_Cocoon.java:271)
-	at inv7.invoke()
-	at org.mozilla.javascript.FunctionObject.doInvoke(FunctionObject.java:523)
-	at org.mozilla.javascript.FunctionObject.call(FunctionObject.java:438)
-	at org.mozilla.javascript.ScriptRuntime.call(ScriptRuntime.java:1244)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:1134)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:190)
-	at org.mozilla.javascript.continuations.ContinuationInterpreter.interpret(ContinuationInterpreter.java:138)
-	at org.mozilla.javascript.continuations.InterpretedFunctionImpl.call(InterpretedFunctionImpl.java:121)
-	at org.mozilla.javascript.ScriptRuntime.call(ScriptRuntime.java:1244)
-	at org.apache.cocoon.components.flow.javascript.fom.FOM_JavaScriptInterpreter.callFunction(FOM_JavaScriptInterpreter.java:764)
-	at org.apache.cocoon.components.treeprocessor.sitemap.CallFunctionNode.invoke(CallFunctionNode.java:139)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:47)
-	at org.apache.cocoon.components.treeprocessor.sitemap.MatchNode.invoke(MatchNode.java:108)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelineNode.invoke(PipelineNode.java:143)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelinesNode.invoke(PipelinesNode.java:93)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.process(ConcreteTreeProcessor.java:235)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.process(ConcreteTreeProcessor.java:177)
-	at org.apache.cocoon.components.treeprocessor.TreeProcessor.process(TreeProcessor.java:254)
-	at org.apache.cocoon.components.treeprocessor.sitemap.MountNode.invoke(MountNode.java:118)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:47)
-	at org.apache.cocoon.components.treeprocessor.sitemap.MatchNode.invoke(MatchNode.java:108)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelineNode.invoke(PipelineNode.java:143)
-	at org.apache.cocoon.components.treeprocessor.AbstractParentProcessingNode.invokeNodes(AbstractParentProcessingNode.java:69)
-	at org.apache.cocoon.components.treeprocessor.sitemap.PipelinesNode.invoke(PipelinesNode.java:93)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.process(ConcreteTreeProcessor.java:235)
-	at org.apache.cocoon.components.treeprocessor.ConcreteTreeProcessor.process(ConcreteTreeProcessor.java:177)
-	at org.apache.cocoon.components.treeprocessor.TreeProcessor.process(TreeProcessor.java:254)
-	at org.apache.cocoon.Cocoon.process(Cocoon.java:699)
-	at org.apache.cocoon.servlet.CocoonServlet.service(CocoonServlet.java:1154)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:502)
-	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:380)
-	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
-	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
-	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
-	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:417)
-	at org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
-	at org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
-	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
-	at org.mortbay.jetty.Server.handle(Server.java:324)
-	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:535)
-	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:880)
-	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:747)
-	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
-	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
-	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
-	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:520)
-INFO  (2011-10-31) 16:42.55:970 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:447:28
-INFO  (2011-10-31) 16:42.56:008 [sitemap] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:42.56:072 [access] (/multipagos/visitas/52644d6a242044467d0b8c77360b236e5c393861.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/52644d6a242044467d0b8c77360b236e5c393861.continue' Processed by Apache Cocoon 2.1.12-dev in 133 milliseconds.
-INFO  (2011-10-31) 16:44.40:220 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create'
-INFO  (2011-10-31) 16:44.40:248 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:44.40:287 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/supervisorCombo-data'
-INFO  (2011-10-31) 16:44.40:338 [sitemap] (/multipagos/visitas/create) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:44.40:390 [access] (/multipagos/visitas/create) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/create' Processed by Apache Cocoon 2.1.12-dev in 209 milliseconds.
-INFO  (2011-10-31) 16:44.40:403 [access] (/multipagos/visitas/resources/forms/css/forms.css) 13784376@qtp-18554240-4/CocoonServlet: 'visitas/resources/forms/css/forms.css' Processed by Apache Cocoon 2.1.12-dev in 5 milliseconds.
-INFO  (2011-10-31) 16:44.40:405 [access] (/multipagos/visitas/resources/forms/js/forms-lib.js) 21599642@qtp-18554240-3/CocoonServlet: 'visitas/resources/forms/js/forms-lib.js' Processed by Apache Cocoon 2.1.12-dev in 8 milliseconds.
-INFO  (2011-10-31) 16:44.40:405 [access] (/multipagos/visitas/resources/forms/htmlarea/htmlarea.js) 13784376@qtp-18554240-4/CocoonServlet: 'visitas/resources/forms/htmlarea/htmlarea.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
-INFO  (2011-10-31) 16:44.40:409 [access] (/multipagos/visitas/resources/forms/mattkruse-lib/selectbox.js) 21599642@qtp-18554240-3/CocoonServlet: 'visitas/resources/forms/mattkruse-lib/selectbox.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.40:416 [access] (/multipagos/styles/multipagos.css) 21599642@qtp-18554240-3/CocoonServlet: 'styles/multipagos.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.40:418 [access] (/multipagos/scripts/util.js) 13784376@qtp-18554240-4/CocoonServlet: 'scripts/util.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
-INFO  (2011-10-31) 16:44.40:420 [access] (/multipagos/visitas/resources/forms/mattkruse-lib/AnchorPosition.js) 23707222@qtp-18554240-5/CocoonServlet: 'visitas/resources/forms/mattkruse-lib/AnchorPosition.js' Processed by Apache Cocoon 2.1.12-dev in 21 milliseconds.
-INFO  (2011-10-31) 16:44.40:421 [access] (/multipagos/visitas/resources/forms/mattkruse-lib/PopupWindow.js) 8986844@qtp-18554240-6/CocoonServlet: 'visitas/resources/forms/mattkruse-lib/PopupWindow.js' Processed by Apache Cocoon 2.1.12-dev in 11 milliseconds.
-INFO  (2011-10-31) 16:44.40:421 [access] (/multipagos/visitas/resources/forms/mattkruse-lib/OptionTransfer.js) 8028947@qtp-18554240-7/CocoonServlet: 'visitas/resources/forms/mattkruse-lib/OptionTransfer.js' Processed by Apache Cocoon 2.1.12-dev in 19 milliseconds.
-INFO  (2011-10-31) 16:44.40:422 [access] (/multipagos/visitas/resources/dojo/dojo.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 26 milliseconds.
-INFO  (2011-10-31) 16:44.40:475 [access] (/multipagos/visitas/resources/forms/js/common.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-WARN  (2011-10-31) 16:44.40:502 [access] (/multipagos/images/banner_parte2.jpg) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:418:65
-INFO  (2011-10-31) 16:44.40:539 [access] (/multipagos/visitas/resources/dojo/src/namespaces/dojo.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/namespaces/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.40:550 [access] (/multipagos/visitas/resources/dojo/src/widget/Menu2.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/widget/Menu2.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.40:558 [access] (/multipagos/visitas/resources/dojo/src/widget/PopupContainer.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/widget/PopupContainer.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.40:571 [access] (/multipagos/visitas/resources/dojo/src/html/selection.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/html/selection.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-INFO  (2011-10-31) 16:44.40:580 [access] (/multipagos/visitas/resources/dojo/src/html/iframe.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/html/iframe.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-INFO  (2011-10-31) 16:44.40:589 [access] (/multipagos/visitas/resources/dojo/src/widget/templates/Menu2.css) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/dojo/src/widget/templates/Menu2.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.40:663 [access] (/multipagos/visitas/resources/forms/manifest.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/manifest.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
-INFO  (2011-10-31) 16:44.40:676 [access] (/multipagos/visitas/resources/forms/js/AjaxForm.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/AjaxForm.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-INFO  (2011-10-31) 16:44.40:685 [access] (/multipagos/visitas/resources/forms/js/SimpleForm.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/SimpleForm.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.40:691 [access] (/multipagos/visitas/resources/ajax/js/BUHandler.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/ajax/js/BUHandler.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.40:699 [access] (/multipagos/visitas/resources/ajax/js/common.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/ajax/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.40:712 [access] (/multipagos/visitas/resources/ajax/js/insertion.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/ajax/js/insertion.js' Processed by Apache Cocoon 2.1.12-dev in 5 milliseconds.
-WARN  (2011-10-31) 16:44.40:723 [access] (/multipagos/visitas/resources/fi/manifest.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-ERROR (2011-10-31) 16:44.40:728 [sitemap.handled-errors] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/ErrorHandlerHelper: No pipeline matched request: visitas/resources/fi.js
-	at <map:mount> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:443:77
-INFO  (2011-10-31) 16:44.40:731 [sitemap] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:447:28
-INFO  (2011-10-31) 16:44.40:736 [core.i18n] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/mensajes_en_US.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:44.40:737 [core.i18n] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/mensajes_en.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:44.40:762 [sitemap] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:44.40:792 [access] (/multipagos/visitas/resources/fi.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/fi.js' Processed by Apache Cocoon 2.1.12-dev in 65 milliseconds.
-WARN  (2011-10-31) 16:44.40:798 [access] (/multipagos/visitas/resources/dojo/__package__.js) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:412:79
-INFO  (2011-10-31) 16:44.42:091 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:44.42:098 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:44.42:157 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/localidadCombo-data'
-INFO  (2011-10-31) 16:44.42:205 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/servicioCombo-data'
-INFO  (2011-10-31) 16:44.42:284 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 220 milliseconds.
-INFO  (2011-10-31) 16:44.42:313 [access] (/multipagos/visitas/resources/forms/js/InfoPopup.js) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/InfoPopup.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.42:343 [access] (/multipagos/visitas/resources/forms/js/templates/InfoPopup.css) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/templates/InfoPopup.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:44.42:351 [access] (/multipagos/visitas/resources/forms/js/templates/InfoPopup.html) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/templates/InfoPopup.html' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2011-10-31) 16:44.59:620 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:44.59:713 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:44.59:765 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/localidadCombo-data'
-INFO  (2011-10-31) 16:44.59:805 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/servicioCombo-data'
-INFO  (2011-10-31) 16:44.59:822 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 229 milliseconds.
-INFO  (2011-10-31) 16:45.03:483 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:45.03:493 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:45.03:522 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 66 milliseconds.
-INFO  (2011-10-31) 16:45.07:188 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:45.07:193 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:45.07:229 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 65 milliseconds.
-INFO  (2011-10-31) 16:45.12:796 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:45.12:797 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/create-form-display'
-INFO  (2011-10-31) 16:45.12:818 [core.i18n] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/FormsMessages_en.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:45.12:819 [core.i18n] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/XMLResourceBundle: Bundle <file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/translations/FormsMessages_en_US.xml> not loaded: Source URI not found
-INFO  (2011-10-31) 16:45.12:830 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 58 milliseconds.
-INFO  (2011-10-31) 16:45.13:367 [access] (/multipagos/visitas/resources/forms/js/templates/images/validation-message.gif) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/resources/forms/js/templates/images/validation-message.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2011-10-31) 16:45.17:510 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:45.17:520 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 31 milliseconds.
-INFO  (2011-10-31) 16:45.17:569 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/773c1d87495d0a564974118e7753294f8e3c227c.continue'
-INFO  (2011-10-31) 16:45.17:686 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon://util/sino-dlg-display'
-INFO  (2011-10-31) 16:45.17:729 [sitemap] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2011-10-31) 16:45.17:754 [access] (/multipagos/visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue) 12984448@qtp-18554240-0/CocoonServlet: 'visitas/773c1d87495d0a564974118e7753294f8e3c227c.continue' Processed by Apache Cocoon 2.1.12-dev in 210 milliseconds.
-WARN  (2011-10-31) 16:45.17:848 [access] (/multipagos/images/banner_parte2.jpg) 12984448@qtp-18554240-0/CocoonServlet: Error during resolving of the input stream
-	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:418:65
-WARN  (2011-10-31) 16:45.35:034 [sitemap] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.selection.SelectorSelector]
-INFO  (2011-10-31) 16:45.35:037 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" already disposed.
-INFO  (2011-10-31) 16:45.35:038 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: shutting down scheduler graceful (waiting for running jobs to complete)
-WARN  (2011-10-31) 16:45.35:044 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.CacheManager]
-WARN  (2011-10-31) 16:45.35:044 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.ContextManager]
-WARN  (2011-10-31) 16:45.35:044 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.avalon.excalibur.logger.LoggerManager]
-WARN  (2011-10-31) 16:45.35:045 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.thread.RunnableManager]
-WARN  (2011-10-31) 16:45.35:046 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.modules.input.InputModuleSelector]
-WARN  (2011-10-31) 16:45.35:047 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.excalibur.xml.xpath.XPathProcessor]
-WARN  (2011-10-31) 16:45.35:047 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.flow.ContinuationsManager]
-WARN  (2011-10-31) 16:45.35:047 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.context.SessionContextProviderSelector]
-WARN  (2011-10-31) 16:45.35:047 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.expression.ExpressionManager]
-WARN  (2011-10-31) 16:45.35:047 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.event.WidgetListenerBuilderSelector]
+INFO  (2011-11-02) 10:04.12:548 [access] (/multipagos/informes/resources/dojo/src/namespaces/dojo.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/namespaces/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:558 [access] (/multipagos/informes/resources/dojo/src/widget/templates/images/tab_close.gif) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/templates/images/tab_close.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:563 [access] (/multipagos/informes/resources/dojo/src/widget/Menu2.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/Menu2.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:573 [access] (/multipagos/informes/resources/dojo/src/widget/PopupContainer.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/PopupContainer.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:591 [access] (/multipagos/informes/resources/dojo/src/html/selection.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/html/selection.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:601 [access] (/multipagos/informes/resources/dojo/src/html/iframe.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/html/iframe.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:610 [access] (/multipagos/informes/resources/dojo/src/widget/templates/Menu2.css) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/templates/Menu2.css' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
+INFO  (2011-11-02) 10:04.12:693 [access] (/multipagos/informes/resources/forms/manifest.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/manifest.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:718 [access] (/multipagos/informes/resources/forms/js/SimpleForm.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/SimpleForm.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:728 [access] (/multipagos/informes/resources/forms/js/DropdownDateTimePicker.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/DropdownDateTimePicker.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:737 [access] (/multipagos/informes/resources/dojo/src/date/format.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/date/format.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:751 [access] (/multipagos/informes/resources/dojo/src/date/common.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/date/common.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:758 [access] (/multipagos/informes/resources/dojo/src/date/supplemental.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/date/supplemental.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:766 [access] (/multipagos/informes/resources/dojo/src/i18n/common.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/i18n/common.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
+INFO  (2011-11-02) 10:04.12:780 [access] (/multipagos/informes/resources/dojo/src/i18n/calendar/nls/en/gregorian.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/i18n/calendar/nls/en/gregorian.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:786 [access] (/multipagos/informes/resources/dojo/src/i18n/calendar/nls/gregorianExtras.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/i18n/calendar/nls/gregorianExtras.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:791 [access] (/multipagos/informes/resources/dojo/src/string/__package__.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/string/__package__.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:798 [access] (/multipagos/informes/resources/dojo/src/string/Builder.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/string/Builder.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:816 [access] (/multipagos/informes/resources/dojo/src/widget/DatePicker.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/DatePicker.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:824 [access] (/multipagos/informes/resources/forms/js/templates/images/dateIcon.gif) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/templates/images/dateIcon.gif' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:828 [access] (/multipagos/informes/resources/dojo/src/date/serialize.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/date/serialize.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:835 [access] (/multipagos/informes/resources/dojo/src/widget/templates/DatePicker.css) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/templates/DatePicker.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:843 [access] (/multipagos/informes/resources/dojo/src/widget/templates/DatePicker.html) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/templates/DatePicker.html' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:862 [access] (/multipagos/informes/resources/forms/js/InfoPopup.js) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/InfoPopup.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:872 [access] (/multipagos/informes/resources/dojo/src/widget/templates/images/decrementMonth.png) 5120670@qtp-5875509-2/CocoonServlet: 'informes/resources/dojo/src/widget/templates/images/decrementMonth.png' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
+INFO  (2011-11-02) 10:04.12:874 [access] (/multipagos/informes/resources/dojo/src/widget/templates/images/incrementMonth.png) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/dojo/src/widget/templates/images/incrementMonth.png' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
+INFO  (2011-11-02) 10:04.12:882 [access] (/multipagos/informes/resources/forms/js/templates/InfoPopup.css) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/templates/InfoPopup.css' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
+INFO  (2011-11-02) 10:04.12:889 [access] (/multipagos/informes/resources/forms/js/templates/InfoPopup.html) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/templates/InfoPopup.html' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:935 [access] (/multipagos/informes/resources/forms/js/templates/images/help.gif) 32795414@qtp-5875509-7/CocoonServlet: 'informes/resources/forms/js/templates/images/help.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:04.12:935 [access] (/multipagos/informes/resources/forms/js/templates/images/close.gif) 5120670@qtp-5875509-2/CocoonServlet: 'informes/resources/forms/js/templates/images/close.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
+INFO  (2011-11-02) 10:08.23:142 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" already disposed.
+WARN  (2011-11-02) 10:08.23:145 [sitemap] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.selection.SelectorSelector]
+INFO  (2011-11-02) 10:08.23:148 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: shutting down scheduler graceful (waiting for running jobs to complete)
+WARN  (2011-11-02) 10:08.23:151 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.CacheManager]
+WARN  (2011-11-02) 10:08.23:151 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.ContextManager]
+WARN  (2011-11-02) 10:08.23:151 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.avalon.excalibur.logger.LoggerManager]
+WARN  (2011-11-02) 10:08.23:152 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.thread.RunnableManager]
+WARN  (2011-11-02) 10:08.23:154 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.flow.ContinuationsManager]
+WARN  (2011-11-02) 10:08.23:154 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.context.SessionContextProviderSelector]
+WARN  (2011-11-02) 10:08.23:154 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.event.WidgetListenerBuilderSelector]
+WARN  (2011-11-02) 10:08.23:155 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.modules.input.InputModuleSelector]
+WARN  (2011-11-02) 10:08.23:155 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.excalibur.xml.xpath.XPathProcessor]

@@ -14,7 +14,7 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>No Colector</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Cedula</th>
@@ -26,7 +26,8 @@
                   <jx:forEach items="${bean}" varStatus="status">
                         <tr>
 
-                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <!-- <td><jx:formatNumber value="${status.count + first}"/></td> -->
+                           <td>${status.current.colectorNumero}</td>
                            <td>${status.current.primerNombre}</td>
                            <td>${status.current.primerApellido}</td>
                            <td>${status.current.cedula}</td>

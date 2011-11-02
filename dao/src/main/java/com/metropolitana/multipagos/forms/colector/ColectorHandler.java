@@ -152,6 +152,7 @@ System.out.println("*** usrId =  "+ usrId);
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			criterio.addEqualTo("inactivo", false);
 			QueryByCriteria query = new QueryByCriteria(Colector.class,
 					criterio);
 			query.addOrderBy("primerNombre", true);

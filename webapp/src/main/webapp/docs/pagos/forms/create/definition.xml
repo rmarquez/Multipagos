@@ -65,7 +65,7 @@
 		</fd:field>
 
 		
-		<fd:repeater id="detalle">
+		<fd:repeater id="detalle" initial-size="1">
             <fd:widgets>
                 <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
