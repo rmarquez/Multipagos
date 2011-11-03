@@ -2,94 +2,116 @@
 <document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
     <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
-    <title>Compras por Cliente</title>
+    <title>Visitas por Colector</title>
 
-    <columnas No="0" Unit="100"/>
-    <columnas No="1" Unit="100"/>
+    <columnas No="0" Unit="70"/>
+    <columnas No="1" Unit="300"/>
     <columnas No="2" Unit="100"/>
     <columnas No="3" Unit="100"/>
-    <columnas No="4" Unit="100"/>
-    <columnas No="5" Unit="100"/>
-    <columnas No="6" Unit="100"/>
+    <columnas No="4" Unit="20"/>
+    <columnas No="5" Unit="300"/>
+    <columnas No="6" Unit="200"/>
+    <columnas No="7" Unit="70"/>
+    <columnas No="8" Unit="20"/>
+    <columnas No="9" Unit="200"/>
+    <columnas No="10" Unit="100"/>
+    <columnas No="11" Unit="100"/>
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${6}"/>
+    <jx:set var="colFin" value="${11}"/>
+    
+    
+    <celda Col="${col}" Row="${fila}">VISITAS POR COLECTOR</celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
+	<jx:set var="fila" value="${fila+2}"/>
 
-    <celda Col="${col}" Row="${fila}">Fecha de Inicio: <formatoFecha fecha="${fechaInicio}"/></celda>
-    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin-3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-    <celda Col="${col+4}" Row="${fila}">Fecha Final: <formatoFecha fecha="${fechaFin}"/></celda>
-    <estilo startCol="${col+4}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-
+    <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
+    <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${col+6}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    
+    <celda Col="${col+6}" Row="${fila}">Fecha Final:</celda> 
+     <celda Col="${col+9}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col+6}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
     <jx:set var="fila" value="${fila+2}"/>
+    
+    <jx:if test="${colectorId == null}"> 
+        <jx:set var="fila" value="${fila+2}"/>
+        <celda Col="${col}" Row="${fila}">CONTRATO</celda>
+        <celda Col="${col+1}" Row="${fila}">SUSCRIPTOR</celda>
+        <celda Col="${col+2}" Row="${fila}">LOCALIDAD</celda>
+        <celda Col="${col+3}" Row="${fila}">FECHA VISITA</celda>
+        <celda Col="${col+4}" Row="${fila}">S#</celda>
+        <celda Col="${col+5}" Row="${fila}">SIMBOLO CLARO</celda>
+        <celda Col="${col+6}" Row="${fila}">OBSERVACION</celda>
+        <celda Col="${col+7}" Row="${fila}">SERVICIO</celda>
+        <celda Col="${col+8}" Row="${fila}">C#</celda>
+        <celda Col="${col+9}" Row="${fila}">COLECTOR</celda>
+        <celda Col="${col+10}" Row="${fila}">AVISO COBRO</celda>
+        <celda Col="${col+11}" Row="${fila}">FECHA PAGO</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+        <jx:set var="fila" value="${fila+1}"/>
+        <jx:set var="filaIni" value="${fila}"/> 
+    </jx:if>
+    
+        
 
-    <jx:set var="cliente" value=""/>
-    <jx:set var="sumVenta" value="${java.math.BigDecimal(0)}"/>
-    <jx:set var="sumCosto" value="${java.math.BigDecimal(0)}"/>
-    <jx:set var="sumUtilidad" value="${java.math.BigDecimal(0)}"/>
-    <jx:set var="utilidad" value="${java.math.BigDecimal(0)}"/>
+    <jx:set var="colector" value=""/>
+      
 
     <jx:set var="filaInicial" value="${fila}"/>
 
     <jx:forEach var="item" items="${bean}" varStatus="status">
-    <jx:if test="${cliente != item[1]}">
-        <jx:if test="${!status.first}">
-            <estilo startCol="${col}" startRow="${filaInicial}" endCol="${col+2}" endRow="${fila-1}" Recuadro="1"/>
-            <estilo startCol="${col+3}" startRow="${filaInicial}" endCol="${col+3}" endRow="${fila-1}" Recuadro="1" Format="#,##0" />
-            <estilo startCol="${col+4}" startRow="${filaInicial}" endCol="${colFin}" endRow="${fila-1}" Recuadro="1" Format="#,##0.00" />
-            <celda Col="${col}" Row="${fila}">TOTAL COMPRA POR CLIENTE</celda>
-            <estilo startCol="${col}" startRow="${fila}" endCol="${colFin-3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-            <celda ValueType="flotante" Col="${col+4}" Row="${fila}">${sumVenta}</celda>
-            <celda ValueType="flotante" Col="${col+5}" Row="${fila}">${sumCosto}</celda>
-            <celda ValueType="flotante" Col="${col+6}" Row="${fila}">${sumUtilidad}</celda>
-            <estilo startCol="${col+4}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="4" VAlign="4" Bold="1" Recuadro="1" Format="#,##0.00"/>
-            <jx:set var="fila" value="${fila+1}"/>
-
-            <jx:set var="subTotal" value="${java.math.BigDecimal.ZERO}"/>
-            <jx:set var="costo" value="${java.math.BigDecimal.ZERO}"/>
-            <jx:set var="sumUtilidad" value="${java.math.BigDecimal.ZERO}"/>
-        </jx:if>
-        <celda Col="${col}" Row="${fila}">Cliente: ${item[1]}</celda>
-        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    <jx:if test="${colector != item[10]}">    	
+	               <jx:if test="${colectorId != null}">     
+	        <celda Col="${col}" Row="${fila}">Numero Colector: ${item[9]} Colector: ${item[10]} ${item[11]} </celda>
+	        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="16" Recuadro="1"/>        
+       
+        
+        <jx:set var="fila" value="${fila+2}"/>
+        <celda Col="${col}" Row="${fila}">CONTRATO</celda>
+        <celda Col="${col+1}" Row="${fila}">SUSCRIPTOR</celda>
+        <celda Col="${col+2}" Row="${fila}">LOCALIDAD</celda>
+        <celda Col="${col+3}" Row="${fila}">FECHA VISITA</celda>
+        <celda Col="${col+4}" Row="${fila}">S#</celda>
+        <celda Col="${col+5}" Row="${fila}">SIMBOLO CLARO</celda>
+        <celda Col="${col+6}" Row="${fila}">OBSERVACION</celda>
+        <celda Col="${col+7}" Row="${fila}">SERVICIO</celda>
+        <!-- <celda Col="${col+8}" Row="${fila}">C#</celda>
+        <celda Col="${col+9}" Row="${fila}">COLECTOR</celda> -->
+        <celda Col="${col+10}" Row="${fila}">AVISO COBRO</celda>
+        <celda Col="${col+11}" Row="${fila}">FECHA PAGO</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="14" Recuadro="1"/>
         <jx:set var="fila" value="${fila+1}"/>
-        <celda Col="${col}" Row="${fila}">Fecha</celda>
-        <celda Col="${col+1}" Row="${fila}">Tipo Producto</celda>
-        <celda Col="${col+2}" Row="${fila}">Producto</celda>
-        <celda Col="${col+3}" Row="${fila}">Unidades Vendidas</celda>
-        <celda Col="${col+4}" Row="${fila}">Venta Neta C$</celda>
-        <celda Col="${col+5}" Row="${fila}">Costo de Venta C$</celda>
-        <celda Col="${col+6}" Row="${fila}">Utilidad Bruta C$</celda>
-        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-        <jx:set var="fila" value="${fila+1}"/>
-        <jx:set var="filaInicial" value="${fila}"/>
+        <jx:set var="filaIni" value="${fila}"/> 
+         </jx:if>
+ </jx:if>
+    
+    <jx:set var="colector" value="${item[10]}"/>
+    <celda Col="${col}" Row="${fila}">${item[1]}</celda>
+    <celda Col="${col+1}" Row="${fila}">${item[2]}</celda>
+    <celda Col="${col+2}" Row="${fila}">${item[3]}</celda>
+    <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${item[4]}" patron="dd/MMM/yyyy"/></celda>
+    <celda Col="${col+4}" Row="${fila}">${item[5]}</celda>
+    <celda Col="${col+5}" Row="${fila}">${item[6]}</celda>
+    <celda Col="${col+6}" Row="${fila}">0</celda>
+    <celda Col="${col+7}" Row="${fila}">${item[7]}</celda>
+    <jx:if test="${colectorId == null}"> 
+	    <celda Col="${col+8}" Row="${fila}">${item[9]}</celda>
+	    <celda Col="${col+9}" Row="${fila}">${item[10]} ${item[11]}</celda>
     </jx:if>
-    <jx:set var="cliente" value="${item[1]}"/>
-    <celda Col="${col}" Row="${fila}"><formatoFecha fecha="${item[2]}"/></celda>
-    <celda Col="${col+1}" Row="${fila}">${item[7]}</celda>
-    <celda Col="${col+2}" Row="${fila}">${item[4]}</celda>
-    <celda Col="${col+3}" ValueType="flotante" Row="${fila}">${item[8]}</celda>
-    <celda Col="${col+4}" ValueType="flotante" Row="${fila}">${item[9]}</celda>
-    <celda Col="${col+5}" ValueType="flotante" Row="${fila}">${item[10]}</celda>
+    <celda Col="${col+10}" Row="${fila}">${item[12]}</celda>
+    <celda Col="${col+11}" Row="${fila}"><formatoFecha fecha="${item[13]}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
+    <jx:set var="fila" value="${fila+1}"/>
 
-    <jx:set var="utilidad" value="${item[9].subtract(item[10])}"/>
-    <celda Col="${col+6}" ValueType="flotante" Row="${fila}">${utilidad}</celda>
-    <jx:set var="fila" ValueType="flotante" value="${fila+1}"/>
-
-    <jx:if test="${!item[6]}">
-        <jx:set var="sumVenta" value="${sumVenta.add(item[9])}"/>
-        <jx:set var="sumCosto" value="${sumCosto.add(item[10])}"/>
-        <jx:set var="sumUtilidad" value="${sumUtilidad.add(utilidad)}"/>
-    </jx:if>
-    <jx:if test="${status.last}">
-        <estilo startCol="${col}" startRow="${filaInicial}" endCol="${col+2}" endRow="${fila-1}" Recuadro="1"/>
-        <estilo startCol="${col+3}" startRow="${filaInicial}" endCol="${col+3}" endRow="${fila-1}" Recuadro="1" Format="#,##0" />
-        <estilo startCol="${col+4}" startRow="${filaInicial}" endCol="${colFin}" endRow="${fila-1}" Recuadro="1" Format="#,##0.00" />
-        <celda Col="${col}" Row="${fila}">TOTAL COMPRA POR CLIENTE</celda>
-        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin-3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-        <celda ValueType="flotante" Col="${col+4}" Row="${fila}">${sumVenta}</celda>
-        <celda ValueType="flotante" Col="${col+5}" Row="${fila}">${sumCosto}</celda>
-        <celda ValueType="flotante" Col="${col+6}" Row="${fila}">${sumUtilidad}</celda>
-        <estilo startCol="${col+4}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="4" VAlign="4" Bold="1" Recuadro="1" Format="#,##0.00"/>
+    
+    <jx:if test="${status.last}">      
+        <celda Col="${col}" Row="${fila}">Total Visitas</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${col+6}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+        <celda Col="${col+6}" Row="${fila}" ValueType="flotante" patron="#,##0"><jx:formatNumber value="${item[14]}"/></celda>
+        <estilo  startCol="${col+6}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" Recuadro="1" Bold="1" Unit="16" Format="#,##0"/>
+         <jx:set var="fila" value="${fila+1}"/>        
     </jx:if>
     </jx:forEach>
 </document>

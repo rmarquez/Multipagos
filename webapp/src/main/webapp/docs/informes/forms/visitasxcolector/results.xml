@@ -38,7 +38,7 @@
                         <jx:if test="colectorId != item[10]}">
                          <jx:if test="${!status.first}">
                             <tr>
-	                           	<th colspan="6">Total</th> 
+	                           	<th colspan="6">Total Visitas</th> 
 	                           	<th colspan="6"><jx:formatNumber value="${status.count}"/></th>                             
                        		</tr>
                             </jx:if>
@@ -67,7 +67,7 @@
                         </tr>                        
                         <jx:if test="${status.last}">
                             <tr>
-                             	<th colspan="6">Total</th> 
+                             	<th colspan="6">Total Visitas</th> 
                              	<th colspan="6"><jx:formatNumber value="${status.count}"/></th>                             
                          	</tr>
                         </jx:if>

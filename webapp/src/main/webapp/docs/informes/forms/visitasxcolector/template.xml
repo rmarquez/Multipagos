@@ -17,7 +17,7 @@
                     </fi:items>
                 </fi:group>
                 <ft:widget id="listar"/>
-                <!-- <ft:widget id="excel"/> -->
+                <ft:widget id="excel"/>
             </ft:form-template>
         </s1>
     </body>

@@ -8,6 +8,9 @@ import java.util.List;
 
 
 import com.metropolitana.multipagos.DetalleVisitas;
+
+
+
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.Criteria;
@@ -27,11 +30,16 @@ public class InformeVisitasXColector {
 			Date fechaFin, Integer colectorId) throws Exception {
 		PersistenceBroker broker = null;
 		try {
+			int visitas = 0;
+			int numRepetidos = 0;
 			List<Object[]> lista = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			for (Iterator iter = broker
 					.getReportQueryIteratorByQuery(queryVisitasXColector(fechaIni, fechaFin, colectorId)); iter.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
+				visitas++;
+				
+				detalle[14]= visitas;
 				
                 lista.add(detalle);
 			}
@@ -65,7 +73,7 @@ public class InformeVisitasXColector {
 				"carteraIdRef.suscriptor", "carteraIdRef.localidadIdRef.localidadNombre",
 				"fechaVisita", "simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
 				"servicioIdRef.servicioNombre", "colectorId", "colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
-				"colectorIdRef.primerApellido","avisoCobro", "fprogCobro"});
+				"colectorIdRef.primerApellido","avisoCobro", "fprogCobro", "0.00", "0.00"});
 		
 		query.addGroupBy(new String[] { "visitaId", "numeroContrato",
 				"carteraIdRef.suscriptor", "carteraIdRef.localidadIdRef.localidadNombre",

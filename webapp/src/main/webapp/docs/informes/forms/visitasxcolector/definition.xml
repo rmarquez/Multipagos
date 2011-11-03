@@ -38,10 +38,10 @@
             <fd:help>Listar</fd:help>
             <fd:hint>Listar</fd:hint>
         </fd:submit>
-        <!-- <fd:submit id="excel">
+        <fd:submit id="excel">
             <fd:label>Excel</fd:label>
             <fd:help>Excel</fd:help>
             <fd:hint>Excel</fd:hint>
-        </fd:submit> -->
+        </fd:submit>
     </fd:widgets>
 </fd:form>

@@ -14,7 +14,7 @@
 			</fd:on-value-changed>
 		</fd:field>
 
-        <fd:field id="fecha" state="output">
+        <fd:field id="fecha">
             <fd:label>Fecha</fd:label>
             <fd:datatype base="date">
 				<fd:convertor type="formatting" variant="date">
@@ -67,7 +67,7 @@
 						cache="request" />
 				</fd:field>
 				
-				<fd:field id="fechaVisita" state="output">
+				<fd:field id="fechaVisita">
 		            <fd:label>Fecha Visita</fd:label>
 		            <fd:datatype base="date">
 						<fd:convertor type="formatting" variant="date">

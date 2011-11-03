@@ -11,9 +11,9 @@ function visitasxcolectorform(form) {
         
         var bean = handler.getVisitasXColector(fechaIni, fechaFin, colectorId);
 		var URL = "forms/visitasxcolector/results.jx";
-		/**if (form.submitId == "excel") {
+		if (form.submitId == "excel") {
 			URL = "forms/visitasxcolector/results.xls";
-		}**/
+		}
         cocoon.sendPageAndWait(URL,
             { "bean":bean, "fechaIni":fechaIni, "fechaFin":fechaFin, "colectorId":colectorId});
     }
