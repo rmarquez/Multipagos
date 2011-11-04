@@ -8,6 +8,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
+importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 
 function alSeleccionarUsuario(event) {
     var usrId = event.source.value;
@@ -111,4 +112,48 @@ function alSeleccionarColector(event) {
         	
     	}        
     }
+}
+
+function xContrato(event) {
+	var porContrato = event.source.value;	
+	var facturaInterna = event.source.parent.getChild("facturaInterna");
+	facturaInterna.setValue(null);
+	var numContrato = event.source.parent.getChild("numContrato");
+	numContrato.setValue(null);	
+	
+	if (porContrato.booleanValue()== true) {
+		facturaInterna.setState(WidgetState.OUTPUT);
+		numContrato.setState(WidgetState.ACTIVE);
+	} else {
+		facturaInterna.setState(WidgetState.ACTIVE);
+		numContrato.setState(WidgetState.OUTPUT);
+	}	
+}
+
+function alSeleccionarContrato(event) {
+	var numContrato = event.source.value;
+	var facturaInterna = event.source.parent.getChild("facturaInterna").getValue();
+	var carteraId = event.source.parent.getChild("carteraId");
+	carteraId.setValue(null);
+	var suscriptor = event.source.parent.getChild("suscriptor");
+    suscriptor.setValue(null);
+    var servicio = event.source.parent.getChild("servicioId");
+    servicio.setValue(null);
+    var localidad = event.source.parent.getChild("localidadId");
+    localidad.setValue(null);
+    
+    var handlerCartera = new CarteraXDepartamentoHandler(); 
+     //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
+	if(numContrato != null || facturaInterna ==null){
+		var cartera = handlerCartera.carteraXContrato(numContrato);
+		if(cartera != null){
+			carteraId.setValue(cartera.getCarteraId()); 
+			suscriptor.setValue(cartera.getSuscriptor());
+			localidad.setValue(cartera.getLocalidadId());
+			servicio.setValue(cartera.getServicioId());		
+		}
+		/**if (handlerVisita.existeContrato(numContrato)==true) {
+    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado, favor verificar No. de contrato."));
+    	}**/
+	} 	
 }

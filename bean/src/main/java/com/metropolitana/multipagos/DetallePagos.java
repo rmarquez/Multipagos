@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2528
+//===   detalle_pagos.java                        Build:2533
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -33,6 +33,7 @@ public class DetallePagos implements java.io.Serializable
    private String     horaRegistro;
    private String     observaciones;
    private BigDecimal salgoPagar;
+   private Boolean    porContrato;
 
    //---------------------------------------------------------------------------
 
@@ -167,6 +168,15 @@ public class DetallePagos implements java.io.Serializable
    public void setSalgoPagar(BigDecimal salgoPagar)
    {
       this.salgoPagar = salgoPagar;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getPorContrato() { return porContrato; }
+
+   public void setPorContrato(Boolean porContrato)
+   {
+      this.porContrato = porContrato;
    }
 
    //---------------------------------------------------------------------------

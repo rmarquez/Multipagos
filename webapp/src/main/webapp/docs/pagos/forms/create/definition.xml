@@ -67,9 +67,26 @@
 		
 		<fd:repeater id="detalle" initial-size="1">
             <fd:widgets>
+            	<fd:booleanfield id="porContrato">
+					<fd:label>x contrato</fd:label>
+					<fd:help><b>Casos especiales</b> en los que no se cuente con la factura 
+						interna, podemos registrar el pago por el numero de 
+						contrato.</fd:help>
+					<fd:on-value-changed>
+						<fd:javascript>
+							xContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+				</fd:booleanfield>
+            	
                 <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>
                 </fd:field>
                 
                 <fd:field id="facturaInterna">

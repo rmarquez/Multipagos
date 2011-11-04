@@ -14,6 +14,7 @@
         </fb:identity>
 
         <fb:on-bind>
+        	<fb:value id="porContrato" path="porContrato"/>
         	<fb:value id="carteraId" path="carteraId"/>
             <fb:value id="localidadId" path="localidadId"/>
             <fb:value id="servicioId" path="servicioId"/>
