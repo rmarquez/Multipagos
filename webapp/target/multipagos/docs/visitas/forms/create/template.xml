@@ -11,6 +11,7 @@
         <s1 title="Registro visitas colector">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
              <ft:continuation-id/>
+             <ft:widget id="mensajes de error"/>
                 <fi:items>
                 	<ft:widget id="usrId"/>
                 	<ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>

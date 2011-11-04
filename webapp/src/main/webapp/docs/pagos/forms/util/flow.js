@@ -152,8 +152,10 @@ function alSeleccionarContrato(event) {
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());		
 		}
-		/**if (handlerVisita.existeContrato(numContrato)==true) {
-    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado, favor verificar No. de contrato."));
-    	}**/
-	} 	
+		/*if (handlerCartera.existeContrato(numContrato)==false) {
+    		dialogosino("Pagos", "Contrato no existe en nuestra base de datos",
+                    "¿Desea ingresar el nuevo registro ","create", "/bienvenidos");
+    	} */
+	}	
 }
+

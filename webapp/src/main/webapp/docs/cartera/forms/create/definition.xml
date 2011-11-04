@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
+	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+    	<fd:booleanfield id="pagado"></fd:booleanfield>
+    	<fd:field id="fechaIngreso" state="output">
+            <fd:label>Fecha</fd:label>
+            <fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>			
+        </fd:field>
+    
+    	<fd:field id="contrato" required="true">
+			<fd:label>Contrato</fd:label>
+           	<fd:datatype base="string"/>
+           	<fd:validation>
+                <fd:length max="10"/>
+            </fd:validation>         
+        </fd:field>
+        
+        <fd:field id="suscriptor" required="true">
+			<fd:label>Suscriptor</fd:label>					
+			<fd:datatype base="string" />
+			<fd:validation>
+                <fd:length max="100"/>
+            </fd:validation>
+		</fd:field>
+		
+		<fd:field id="nit" required="true">
+			<fd:label>Nit</fd:label>					
+			<fd:datatype base="string" />
+			<fd:validation>
+                <fd:length max="20"/>
+            </fd:validation>
+		</fd:field>
+		
+		<fd:field id="direccion" required="true">
+			<fd:label>Direccion</fd:label>					
+			<fd:datatype base="string" />
+			<fd:validation>
+                <fd:length max="200"/>
+            </fd:validation>
+		</fd:field>
+		
+		<fd:field id="departamentoId" required="true">
+            <fd:label>Departamento</fd:label>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/departamentos.combo" dynamic="true"/>
+            <fd:on-value-changed>
+                <fd:javascript>alElejirDepartamento(event);</fd:javascript>
+            </fd:on-value-changed>
+        </fd:field>
+		
+		<fd:field id="localidadId" required="true">
+			<fd:label>Localidad</fd:label>
+			<fd:datatype base="integer" />
+			 <fd:selection-list cache="none">
+                <fd:item value="">
+                    <fd:label>-- Localidad --</fd:label>
+                </fd:item>
+            </fd:selection-list>
+            <fd:on-value-changed>
+                <fd:javascript>alElejirLocalidad(event);</fd:javascript>
+            </fd:on-value-changed>					
+		</fd:field>
+		
+		<fd:field id="barrioId" required="true">
+			<fd:label>Barrio</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list cache="none">
+                <fd:item value="">
+                    <fd:label>-- Barrio --</fd:label>
+                </fd:item>
+            </fd:selection-list>					
+		</fd:field>		
+		
+		<fd:field id="facturaInterna" required="true">
+			<fd:label>Fac Interna</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="10"/>
+            </fd:validation>            		            
+        </fd:field>
+        
+        <fd:field id="numeroFiscal" required="true">
+			<fd:label>Numero Fiscal</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="10"/>
+            </fd:validation>            		            
+        </fd:field>
+        
+        <fd:field id="ano" required="true">
+			<fd:label>Año</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="4"/>
+            </fd:validation>           		            
+        </fd:field>
+        
+        <fd:field id="mes" required="true">
+			<fd:label>Mes</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="2"/>
+            </fd:validation>            		            
+        </fd:field>
+        
+        <fd:field id="saldo" required="true">
+            <fd:label>Saldo (C$):</fd:label>
+            <fd:help>Saldo pendiente en córdobas.</fd:help>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:validation>
+	            <fd:assert test="saldo &gt;= 0">
+	              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+	            </fd:assert>
+      		</fd:validation>
+        </fd:field>
+        
+        <fd:field id="estadoId" required="true">
+			<fd:label>Estado</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/estado.combo"
+				cache="request" />					
+		</fd:field>
+        
+        <fd:field id="cupon" required="true">
+			<fd:label>Cupon</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="10"/>
+            </fd:validation>            		            
+        </fd:field>
+        
+        <fd:field id="telefono">
+			<fd:label>Telefono</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="30"/>
+            </fd:validation>           		            
+        </fd:field>
+        
+        <fd:field id="descuento">
+            <fd:label>Descuento %:</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:validation>
+	            <fd:assert test="descuento &gt;= 0">
+	              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+	            </fd:assert>
+      		</fd:validation>
+        </fd:field>
+        
+        <fd:field id="servicioId" required="true">
+			<fd:label>Servicio:</fd:label>
+	           <fd:datatype base="integer"/>		            
+			<fd:selection-list src="cocoon:/servicio.combo"
+				cache="request" />			    
+		</fd:field>
+		
+		<fd:field id="empleador">
+			<fd:label>Empleador</fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="100"/>
+            </fd:validation>            		            
+        </fd:field>
+        
+        <fd:field id="direccionEmpleador">
+			<fd:label>Direccion Empleador</fd:label>
+            <fd:datatype base="string"/> 
+            <fd:validation>
+                <fd:length max="200"/>
+            </fd:validation>          		            
+        </fd:field>
+    	
+    	
+        <fd:submit id="crear">
+            <fd:label>Crear</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

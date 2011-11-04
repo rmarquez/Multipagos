@@ -90,13 +90,17 @@ function alSeleccionarSimbolo(event) {
     var handlerSimbolo = new SimboloHandler();
     if (simbolo != null) {
     	var simbolo2 = handlerSimbolo.simboloXNumero(simbolo);
-    	simboloNombre.setValue(simbolo2.getSimboloNombre());    	
-    	simboloId.setValue(simbolo2.getSimboloId()); 
-    	if(simbolo2.getSimboloNumero()=="30") {   
-    		fprogCobro.setState(WidgetState.ACTIVE);        	
-    	} else {
-    		fprogCobro.setState(WidgetState.INVISIBLE); 
-    	}
+    	if(simbolo2 != null){
+	    	simboloNombre.setValue(simbolo2.getSimboloNombre());    	
+	    	simboloId.setValue(simbolo2.getSimboloId()); 
+	    	if(simbolo2.getSimboloNumero()=="30") {   
+	    		fprogCobro.setState(WidgetState.ACTIVE);        	
+	    	} else {
+	    		fprogCobro.setState(WidgetState.INVISIBLE); 
+	    	}
+    	}else {
+    		event.source.parent.getChild("simbolo").setValidationError(new ValidationError("Simbolo claro no encontrado, verifique si el # es correcto."));
+    	} 
     }
 }
 
@@ -121,7 +125,9 @@ function alSeleccionarColector(event) {
         	horaRegistro.setValue(hora);
         	contador.setValue(Integer.valueOf(1));
         	
-    	}        
+    	} else {
+    		event.source.parent.getChild("colectorNumero").setValidationError(new ValidationError("Colector no encontrado, verifique si el # es correcto."));
+    	}       
     }
 }
 

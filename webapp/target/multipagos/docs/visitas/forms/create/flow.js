@@ -27,3 +27,14 @@ function createform(form) {
                         "¿Desea procesar un nuevo registro de visitas?","create", "/bienvenidos");
     //}
 }
+
+function validarForm(form) {
+	var cantidadVisitas = form.getChild("cantidadVisitas").getValue();
+	var widgetMensaje = form.getChild("mensajes de error");
+	
+	if(cantidadVisitas==null) {
+	form.getChild("mensajes de error").addMessage("¡ No se han registrado visitas !, verifique sus datos, puede contener algun error. ");
+	  return false;
+	}		      
+	return true;
+}

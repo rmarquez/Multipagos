@@ -16,7 +16,7 @@ function passwordform(form) {
     if (form.submitId=="guardar") {
     	var usrPassword = form.getChild("usrPasswordNew").getValue();
     	var md5 = encriptar.encriptarMD5(usrPassword);
-    	form.getChild("usrPassword").setValue(md5);
+    	form.getChild("usrPasswordNew").setValue(md5);
     }
     form.load(bean);
     var kont = form.showForm("password-form-display");

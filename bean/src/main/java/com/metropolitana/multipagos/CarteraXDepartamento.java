@@ -118,7 +118,7 @@ public class CarteraXDepartamento implements java.io.Serializable
 
    public String getAno() { return ano; }
 
-   public void setAnio(String anio)
+   public void setAno(String anio)
    {
       this.ano = anio;
    }

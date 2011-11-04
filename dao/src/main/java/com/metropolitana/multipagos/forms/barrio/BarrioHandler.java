@@ -17,6 +17,7 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import com.metropolitana.multipagos.Banco;
 import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
@@ -351,4 +352,25 @@ public class BarrioHandler {
             }
         }
     }
+	
+	public Collection getBarrioXLocalidad(final Integer localidadId) throws Exception {
+		
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (localidadId != null) {
+				criterio.addEqualTo("localidadId", localidadId);
+			}
+			QueryByCriteria query = new QueryByCriteria(Barrio.class, criterio);
+			query.addOrderByAscending("barrioNombre");
+			return broker.getCollectionByQuery(query);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
 }

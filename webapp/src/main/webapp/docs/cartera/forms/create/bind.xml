@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+	<fb:value id="contrato" path="contrato"/>
+    <fb:value id="suscriptor" path="suscriptor"/>
+    <fb:value id="nit" path="nit"/>
+    <fb:value id="direccion" path="direccion"/>
+    <fb:value id="barrioId" path="barrioId"/>
+    <fb:value id="facturaInterna" path="facturaInterna"/>
+    <fb:value id="numeroFiscal" path="numeroFiscal"/>
+    
+    <fb:value id="ano" path="ano"/>
+    <fb:value id="mes" path="mes"/>
+    <fb:value id="saldo" path="saldo"/>
+    <fb:value id="estadoId" path="estadoId"/>
+    <fb:value id="departamentoId" path="departamentoId"/>
+    <fb:value id="localidadId" path="localidadId"/>
+    <fb:value id="cupon" path="cupon"/>
+    <fb:value id="telefono" path="telefono"/>
+    <fb:value id="descuento" path="descuento"/>
+    
+    <fb:value id="servicioId" path="servicioId"/>
+    <fb:value id="empleador" path="empleador"/>
+    <fb:value id="direccionEmpleador" path="direccionEmpleador"/>
+    <fb:value id="fechaIngreso" path="fechaIngreso"/>
+    <fb:value id="pagado" path="pagado"/>
+    
+    
+</fb:context>

@@ -202,7 +202,7 @@
 		<field-descriptor name="barrioId" nullable="false" default-fetch="true" column="BARRIO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
-		<field-descriptor name="anio" nullable="false" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="ano" nullable="false" default-fetch="true" column="ANO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="mes" nullable="false" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
 		<field-descriptor name="saldo" nullable="false" default-fetch="true" column="SALDO" jdbc-type="NUMERIC"/>
 		<field-descriptor name="estadoId" nullable="false" default-fetch="true" column="ESTADO_ID" jdbc-type="INTEGER"/>

@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.collections.IteratorUtils;
@@ -17,6 +18,7 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
@@ -501,4 +503,40 @@ public class CarteraXDepartamentoHandler {
 			}
 		}
 	}
+	
+	
+	public static boolean existeContrato(String contrato) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (contrato != null && contrato.length() > 0) {
+				criterio.addLike("upper(contrato)",
+						contrato.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(CarteraXDepartamento.class, criterio);
+            query.addOrderBy("contrato", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }
