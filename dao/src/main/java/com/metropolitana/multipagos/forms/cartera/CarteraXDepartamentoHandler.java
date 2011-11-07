@@ -1,5 +1,6 @@
 package com.metropolitana.multipagos.forms.cartera;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -20,11 +21,13 @@ import org.apache.ojb.broker.query.ReportQueryByCriteria;
 import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Localidad;
+import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
 import com.metropolitana.multipagos.forms.estado_corte.EstadoCorteHandler;
 import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
+import com.metropolitana.multipagos.forms.pagos.PagosHandler;
 import com.metropolitana.multipagos.forms.servicio.ServicioHandler;
 
 
@@ -45,7 +48,8 @@ public class CarteraXDepartamentoHandler {
 	 *            bean que contiene los datos
 	 * @throws Exception
 	 */
-	public void insert(final CarteraXDepartamento bean, Integer usrId) throws Exception {
+	public void insert(final CarteraXDepartamento bean, Integer usrId, Integer colectorId, Integer recibo,
+			BigDecimal montoPagado, String horaRegistro) throws Exception {
 		PersistenceBroker broker = null;
 
 		try {
@@ -54,6 +58,12 @@ public class CarteraXDepartamentoHandler {
 			Date fecha = Calendar.getInstance().getTime();
 			actualizarReferencias(bean, broker);
 			broker.store(bean);
+			
+			Pagos pago = PagosHandler.nuevoPago(bean, usrId, colectorId, recibo,
+					montoPagado, horaRegistro);
+			
+			broker.store(pago);
+			
 			broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
 					Integer.valueOf(1), broker));
 			broker.commitTransaction();

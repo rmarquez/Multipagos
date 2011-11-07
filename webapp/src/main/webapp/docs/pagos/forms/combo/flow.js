@@ -5,15 +5,6 @@ function supervisorCombo() {
         cocoon.sendPage("supervisorCombo-data", {"bean": bean});
     }
 }
-/**
-function localidadCombo() {
-	var bean = null;
-	if (autorizar("cata")) {
-        var handler = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
-       	var bean = handler.getLocalidadList();
-	}
-    return bean;
-}**/
 
 function localidadCombo() {
     if (autorizar("cata")) {

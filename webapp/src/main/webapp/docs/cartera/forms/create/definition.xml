@@ -188,7 +188,44 @@
                 <fd:length max="200"/>
             </fd:validation>          		            
         </fd:field>
+        
+        
+        <fd:field id="recibo" required="true">
+			<fd:label>Recibo </fd:label>					
+			<fd:datatype base="integer" />
+		</fd:field>
     	
+    	<fd:field id="colectorId" required="true">
+    		<fd:label>Colector </fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/colector.combo"
+				cache="request" />
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarColector(event);
+				</fd:javascript>
+			</fd:on-value-changed>						
+		</fd:field>
+		
+		<fd:field id="montoPago" required="true">
+            <fd:label>Monto Pagado (C$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:validation>
+	            <fd:assert test="montoPago &gt;= 0">
+	              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+	            </fd:assert>
+      		</fd:validation>
+        </fd:field>
+        
+        <fd:field id="horaRegistro" required="true">
+			<fd:datatype base="string" />
+		</fd:field>
     	
         <fd:submit id="crear">
             <fd:label>Crear</fd:label>

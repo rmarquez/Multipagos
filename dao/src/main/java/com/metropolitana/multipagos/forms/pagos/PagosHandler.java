@@ -1,5 +1,6 @@
 package com.metropolitana.multipagos.forms.pagos;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -15,6 +16,7 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
 import com.metropolitana.multipagos.Barrio;
+import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
@@ -30,6 +32,52 @@ public class PagosHandler {
 	 * <code>PAGO_ID</code> Identificador del Control de pagos
 	 */
 	public static final String PAGO_ID = "pagoId";
+	
+	public static Pagos nuevoPago(final CarteraXDepartamento bean,
+			Integer usrId, Integer colectorId, Integer recibo,
+			BigDecimal montoPagado, String horaRegistro) throws Exception {
+		Pagos pago = new Pagos();
+
+		pago.setUsrId(usrId);
+		Date fecha = Calendar.getInstance().getTime();
+		pago.setFecha(fecha);
+		pago.setMontoTotal(montoPagado);
+		pago.setCantidadPagos(Integer.valueOf(1));
+
+		DetallePagos detalle = crearDetallePago(bean, colectorId, recibo,
+				montoPagado, horaRegistro);
+		pago.addDetallePagos(detalle);		
+		return pago;
+	}
+
+	private static DetallePagos crearDetallePago(CarteraXDepartamento cartera,
+			Integer colectorId, Integer recibo, BigDecimal montoPagado, String horaRegistro) {
+
+		if (cartera != null) {
+
+			DetallePagos detalle = new DetallePagos();
+			detalle.setCarteraIdRef(cartera);
+
+			detalle.setLocalidadId(cartera.getLocalidadId());
+			detalle.setServicioId(cartera.getServicioId());
+			detalle.setNumeroContrato(cartera.getContrato());
+			detalle.setFacturaInterna(cartera.getFacturaInterna());
+			detalle.setNumeroFiscal(cartera.getNumeroFiscal());
+			detalle.setCupon(cartera.getCupon());
+			detalle.setFechaPago(Calendar.getInstance().getTime());
+			detalle.setSalgoPagar(cartera.getSaldo());
+			// datos pago
+			detalle.setColectorId(colectorId);
+			detalle.setMontoPago(montoPagado);
+			detalle.setRecibo(recibo);
+			detalle.setHoraRegistro(horaRegistro);
+			detalle.setPorContrato(false);
+
+			return detalle;
+		} else {
+			throw new NullPointerException("El Objeto cartera no existe.");
+		}
+	}
 	
 	/**
 	 * Inserta un visita.
