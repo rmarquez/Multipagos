@@ -15,7 +15,23 @@ function createform(form) {
 		form.getChild("usrId").setValue(usuario.getUsrId());
 		form.getChild("fecha").setValue(new Packages.java.util.Date());		
 		form.showForm("create-form-display");
-        form.save(bean);        	
+        form.save(bean);
+java.lang.System.out.println("***** antes *****");
+        if (form.submitId == "aceptar") {
+        	var detalle = form.getChild("detalle");
+java.lang.System.out.println("detalle = " + detalle);
+java.lang.System.out.println("Lineas repeater = " + detalle.size);
+        	
+        	if(detalle.size > 1){
+java.lang.System.out.println("Lineas repeater = " + detalle.size());
+        		detalle.removeRow(detalle.size)
+        		//handlerBean.insert(bean, auth_getUserID());
+        		cocoon.sendPage("/cartera/create");
+        	} else if (detalle.size <= 1) {
+        		cocoon.sendPage("/cartera/create");
+        	}
+        	
+        }
         handlerBean.insert(bean, auth_getUserID());      
         	
         dialogosino("Pagos", "Registro de pagos procesado con éxito",

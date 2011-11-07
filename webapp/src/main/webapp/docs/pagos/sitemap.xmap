@@ -13,6 +13,7 @@
         <map:script src="forms/search/flow.js"/>
         <map:script src="forms/edit/flow.js"/>
         <map:script src="forms/util/flow.js"/>
+        <map:script src="forms/cliente/flow.js"/>
     </map:flow>
 
     <map:pipelines>

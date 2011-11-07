@@ -4,8 +4,8 @@
         <fd:label>${labelNullItem}</fd:label>
     </fd:item>
     <jx:forEach var="item" items="${bean}">
-        <fd:item value="${item.colectorId}">
-            <fd:label>${item.primerNombre}  ${item.primerApellido}</fd:label>
+        <fd:item value="${item.departamentoId}">
+            <fd:label>${item.departamentoNombre}</fd:label>
         </fd:item>
     </jx:forEach>
 </fd:selection-list>

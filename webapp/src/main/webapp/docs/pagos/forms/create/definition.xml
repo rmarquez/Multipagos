@@ -2,6 +2,10 @@
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
 	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
 	<fd:widgets>
+		<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages> 
+		
         <fd:field id="usrId" state="output">
 			<fd:label>Supervisor</fd:label>
 			<fd:datatype base="integer" />
@@ -264,6 +268,24 @@
 			<fd:label>Crear</fd:label>
 			<fd:help>Crear</fd:help>
 			<fd:hint>Crear</fd:hint>
+		</fd:submit>
+		
+		<fd:submit id="aceptar" state="invisible">
+			<fd:label>Aceptar</fd:label>
+			<!-- <fd:on-value-changed>
+		        <fd:javascript>
+		            alSeleccionarAceptar(event);
+		        </fd:javascript>
+	        </fd:on-value-changed> -->
+		</fd:submit>
+		
+		<fd:submit id="cancelar" state="invisible">
+			<fd:label>Cancelar</fd:label>
+			<!-- <fd:on-value-changed>
+		        <fd:javascript>
+		            alSeleccionarAceptar(event);
+		        </fd:javascript>
+	        </fd:on-value-changed> -->
 		</fd:submit>
 
    </fd:widgets>

@@ -141,6 +141,8 @@ function alSeleccionarContrato(event) {
     servicio.setValue(null);
     var localidad = event.source.parent.getChild("localidadId");
     localidad.setValue(null);
+    var saldoPagar = event.source.parent.getChild("salgoPagar");
+    saldoPagar.setValue(null);
     
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
@@ -150,12 +152,19 @@ function alSeleccionarContrato(event) {
 			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());
 			localidad.setValue(cartera.getLocalidadId());
-			servicio.setValue(cartera.getServicioId());		
+			servicio.setValue(cartera.getServicioId());	
+			saldoPagar.setValue(cartera.getSaldo()); 
 		}
-		/*if (handlerCartera.existeContrato(numContrato)==false) {
-    		dialogosino("Pagos", "Contrato no existe en nuestra base de datos",
-                    "¿Desea ingresar el nuevo registro ","create", "/bienvenidos");
-    	} */
+		if (handlerCartera.existeContrato(numContrato)==false) {
+			event.source.parent.parent.parent.getChild("mensajes de error").addMessage("Numero de contrato no existe, ¿ desea agregar los datos del cliente ?");
+			event.source.parent.getChild("numContrato").setValidationError(new ValidationError("Numero de contrato no existe, borre esta linea antes de registrar los datos del cliente"));
+			event.source.parent.parent.parent.getChild("aceptar").setState(WidgetState.ACTIVE);
+			event.source.parent.parent.parent.getChild("cancelar").setState(WidgetState.ACTIVE);			
+    	} /**else {
+    		event.source.parent.parent.parent.getChild("aceptar").setState(WidgetState.OUTPUT);
+    		event.source.parent.parent.parent.getChild("cancelar").setState(WidgetState.OUTPUT);
+    	}**/
+		
 	}	
 }
 

@@ -39,3 +39,29 @@ function servicioCombo() {
         cocoon.sendPage("servicioCombo-data", {"bean": bean});
     }
 }
+
+function departamentosCombo() {
+    if (autorizar("cata")) {
+        var handler = new Packages.com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler();
+        var bean = handler.getList();
+        cocoon.sendPage("departamentosCombo-data", {"bean": bean});
+    }
+}
+
+function estadoCombo() {
+    if (autorizar("cata")) {
+        var handler = new Packages.com.metropolitana.multipagos.forms.estado_corte.EstadoCorteHandler();
+        var bean = handler.getList();
+        cocoon.sendPage("estadoCombo-data", {"bean": bean});
+    }
+}
+
+function barrioCombo() {
+	var bean = null;
+    if (autorizar("cata")) {
+    	var localidadId = !isNaN(parseInt(cocoon.request.localidadId)) ? parseInt(cocoon.request.localidadId): null;
+        var handler = new Packages.com.metropolitana.multipagos.forms.barrio.BarrioHandler();
+        bean = handler.getBarrioXLocalidad(localidadId);        
+    }
+    cocoon.sendPage("barrioCombo-data", {"bean": bean});
+}
