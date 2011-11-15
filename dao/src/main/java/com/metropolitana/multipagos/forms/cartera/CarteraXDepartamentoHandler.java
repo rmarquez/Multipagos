@@ -284,7 +284,7 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato,
+	private static CarteraXDepartamento carteraXContrato(final String contrato,
 			final PersistenceBroker broker) {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);

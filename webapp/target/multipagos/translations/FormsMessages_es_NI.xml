@@ -47,6 +47,7 @@
     <message key="com.metropolitana.key.passwderror">La contraseña del usuario no es válida. Intente otra vez.</message>
     <message key="com.metropolitana.key.dospasswordnoigual">Las contraseñas no coínciden, por favor escriba la contraseña.</message>
     <message key="com.metropolitana.key.operacionnopermitida">El usuario no tiene permisos para realizar la acción.</message>
+    <message key="com.metropolitana.key.contratonoigual">numero de contratro no coínciden, por favor escriba el numero de contrato.</message>
 
     <message key="com.metropolitana.key.mayorquecero">Debe escribir un valor mayor que cero en el campo <strong>{0}</strong></message>
     <message key="com.metropolitana.key.mayorigualquecero">Debe escribir un valor mayor o igual que cero en el campo <strong>{0}</strong></message>

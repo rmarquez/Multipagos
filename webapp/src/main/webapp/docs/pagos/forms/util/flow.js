@@ -70,6 +70,7 @@ function alSeleccionarFactura(event) {
     		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
     	} else {
 	    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
+	    	java.lang.System.out.println("Cartera Id = " + cartera.getCarteraId() + " Factura Interna = " + facturaInterna);
 			if(cartera != null){
 				carteraId.setValue(cartera.getCarteraId());
 				suscriptor.setValue(cartera.getSuscriptor());
@@ -89,7 +90,7 @@ function alSeleccionarFactura(event) {
 	} 
 }
 
-function alSeleccionarColector(event) {
+function alSeleccionarNumColector(event) {
 	var colector = event.source.value;
 	var util = new Util();
 	var hora = util.getFechaString(new Packages.java.util.Date());
@@ -120,13 +121,17 @@ function xContrato(event) {
 	facturaInterna.setValue(null);
 	var numContrato = event.source.parent.getChild("numContrato");
 	numContrato.setValue(null);	
+	var mes = event.source.parent.getChild("mes");
+    mes.setValue(null);
 	
 	if (porContrato.booleanValue()== true) {
 		facturaInterna.setState(WidgetState.OUTPUT);
 		numContrato.setState(WidgetState.ACTIVE);
+		mes.setState(WidgetState.ACTIVE);
 	} else {
 		facturaInterna.setState(WidgetState.ACTIVE);
 		numContrato.setState(WidgetState.OUTPUT);
+		mes.setState(WidgetState.OUTPUT);
 	}	
 }
 
@@ -143,6 +148,8 @@ function alSeleccionarContrato(event) {
     localidad.setValue(null);
     var saldoPagar = event.source.parent.getChild("salgoPagar");
     saldoPagar.setValue(null);
+    var year = event.source.parent.getChild("year");
+    year.setValue(null);    
     
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
@@ -153,7 +160,10 @@ function alSeleccionarContrato(event) {
 			suscriptor.setValue(cartera.getSuscriptor());
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());	
-			saldoPagar.setValue(cartera.getSaldo()); 
+			saldoPagar.setValue(cartera.getSaldo());
+			year.setValue(cartera.getAno());
+			//event.source.parent.getChild("facturaInterna").setValue("-");
+			
 		}
 		if (handlerCartera.existeContrato(numContrato)==false) {
 			event.source.parent.parent.parent.getChild("mensajes de error").addMessage("Numero de contrato no existe, ¿ desea agregar los datos del cliente ?");

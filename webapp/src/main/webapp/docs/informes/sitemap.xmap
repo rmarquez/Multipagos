@@ -10,6 +10,7 @@
         <map:script src="context://docs/util/dialogos/aceptar/flow.js"/>
         <map:script src="forms/combo/flow.js"/>
         <map:script src="forms/visitasxcolector/flow.js"/>
+        <map:script src="forms/pagosxdepartamento/flow.js"/>
     </map:flow>
 
     <map:pipelines>

@@ -22,6 +22,19 @@
             </fd:validation>         
         </fd:field>
         
+        <fd:field id="contratoRepetir">
+            <fd:label>Repetir contrato:</fd:label>
+            <fd:help>Escriba la contraseña del usuario.</fd:help>
+            <fd:hint>Repetir contrato</fd:hint>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="10"/>
+                <fd:assert test="contrato = contratoRepetir">
+                    <fd:failmessage><i18n:text>com.metropolitana.key.contratonoigual</i18n:text></fd:failmessage>
+                </fd:assert>
+            </fd:validation>
+        </fd:field>
+        
         <fd:field id="suscriptor" required="true">
 			<fd:label>Suscriptor</fd:label>					
 			<fd:datatype base="string" />

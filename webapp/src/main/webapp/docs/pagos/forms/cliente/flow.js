@@ -1,4 +1,8 @@
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
+importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
+importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
+importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
+importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 function clienteform(form) {
     if (autorizar("cata")) {
     	form.getChild("fechaIngreso").setValue(new Packages.java.util.Date());
@@ -26,10 +30,14 @@ function alElejirDepartamento(event) {
     var departamentoId = event.source.value;
     var localidadId = event.source.parent.getChild("localidadId");
     localidadId.setValue(null);
-    if (departamentoId != null) {
-    	localidadId.setSelectionList("cocoon:/localidad.combo?departamentoId=" + departamentoId);
+    if(departamentoId == 1) {
+    	event.source.parent.getChild("departamentoId").setValidationError(new ValidationError("No es permitido registrar clientes para el departamento de Managua."));
     } else {
-    	localidadId.setSelectionList(new EmptySelectionList("-- Localidad --"));
+	    if (departamentoId != null) {
+	    	localidadId.setSelectionList("cocoon:/localidad.combo?departamentoId=" + departamentoId);
+	    } else {
+	    	localidadId.setSelectionList(new EmptySelectionList("-- Localidad --"));
+	    }
     }
 }
 

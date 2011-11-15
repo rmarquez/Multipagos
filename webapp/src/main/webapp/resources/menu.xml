@@ -58,6 +58,8 @@
           <div dojoType="PopupMenu2" widgetId="infos">
             	<div dojoType="MenuItem2" caption="Visitas x Colector"
                          onClick="parent.window.location='/multipagos/informes/visitasxcolector'"/>
+                <div dojoType="MenuItem2" caption="Pagos x Departamento"
+                         onClick="parent.window.location='/multipagos/informes/pagosxdepartamento'"/>
                 
           </div>
         

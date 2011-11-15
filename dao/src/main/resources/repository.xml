@@ -236,6 +236,7 @@
 		<field-descriptor name="pagado" nullable="false" default-fetch="true" column="PAGADO" jdbc-type="BIT"/>
 		<field-descriptor name="fechaPago" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="fechaIngreso" nullable="false" default-fetch="true" column="FECHA_INGRESO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="cuenta" default-fetch="true" column="CUENTA" jdbc-type="VARCHAR"/>
 		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.Barrio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>

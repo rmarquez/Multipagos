@@ -1,5 +1,5 @@
 //==============================================================================
-//===   cartera_x_departamento.java                        Build:2525
+//===   cartera_x_departamento.java                        Build:2534
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -41,6 +41,7 @@ public class CarteraXDepartamento implements java.io.Serializable
    private Boolean    pagado;
    private Date       fechaPago;
    private Date       fechaIngreso;
+   private String     cuenta;
 
    //---------------------------------------------------------------------------
 
@@ -118,7 +119,7 @@ public class CarteraXDepartamento implements java.io.Serializable
 
    public String getAno() { return ano; }
 
-   public void setAno(String anio)
+   public void setAnio(String anio)
    {
       this.ano = anio;
    }
@@ -247,6 +248,15 @@ public class CarteraXDepartamento implements java.io.Serializable
    public void setFechaIngreso(Date fechaIngreso)
    {
       this.fechaIngreso = fechaIngreso;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getCuenta() { return cuenta; }
+
+   public void setCuenta(String cuenta)
+   {
+      this.cuenta = cuenta;
    }
 
    //---------------------------------------------------------------------------

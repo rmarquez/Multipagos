@@ -67,8 +67,8 @@
 										<td><ft:widget id="cupon"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="salgoPagar"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
-										<td><ft:widget id="year"/></td>
-										<td><ft:widget id="mes"/></td>
+										<td><ft:widget id="year"><fi:styling align="right" size="4"/></ft:widget></td>
+										<td><ft:widget id="mes"><fi:styling align="right" size="2"/></ft:widget></td>
 										<td><ft:widget id="suscriptor"/></td>
 										<td><ft:widget id="fechaPago"/></td>
 										<td><ft:widget id="servicioId"/></td>

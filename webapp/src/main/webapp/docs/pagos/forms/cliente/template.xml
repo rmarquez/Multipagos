@@ -37,6 +37,7 @@
                         <ft:widget id="servicioId"/>
                         <ft:widget id="empleador"/>
                         <ft:widget id="direccionEmpleador"><fi:styling type="textarea" cols="43" rows="2"/></ft:widget>
+                        <ft:widget id="contratoRepetir"/>
                         <table>
                         <thead>
                                 <tr>
@@ -47,7 +48,7 @@
                         <ft:widget id="colectorId"/>
                         <ft:widget id="recibo"/>
                         <ft:widget id="montoPago"/>
-                        <ft:widget id="horaRegistro"></ft:widget>
+                        <ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget>
                         
                     </fi:items>
                 </fi:group>

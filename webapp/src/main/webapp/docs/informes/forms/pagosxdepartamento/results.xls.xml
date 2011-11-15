@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <title>Pagos x Departamento</title>
+
+    <columnas No="0" Unit="100"/>
+    <columnas No="1" Unit="80"/>
+    <columnas No="2" Unit="100"/>
+    <columnas No="3" Unit="100"/>
+    <columnas No="4" Unit="80"/>
+    <columnas No="5" Unit="80"/>
+    <columnas No="6" Unit="70"/>
+    <columnas No="7" Unit="70"/>
+    <columnas No="8" Unit="200"/>
+    <columnas No="9" Unit="100"/>
+    <columnas No="10" Unit="100"/>
+    <columnas No="11" Unit="100"/>
+
+    <jx:set var="fila" value="${1}"/>
+    <jx:set var="col" value="${0}"/>
+    <jx:set var="colFin" value="${11}"/>
+    
+    
+    <celda Col="${col}" Row="${fila}">PAGOS POR DEPARTAMENTO</celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
+	<jx:set var="fila" value="${fila+2}"/>
+
+    <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
+    <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${col+6}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    
+    <celda Col="${col+6}" Row="${fila}">Fecha Final:</celda> 
+     <celda Col="${col+9}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col+6}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
+    <jx:set var="fila" value="${fila+2}"/>
+    
+    <jx:if test="${colectorId == null}"> 
+        <jx:set var="fila" value="${fila+2}"/>
+        <celda Col="${col}" Row="${fila}">LOCALIDAD</celda>
+        <celda Col="${col+1}" Row="${fila}">CONTRATO</celda>
+        <celda Col="${col+2}" Row="${fila}">FACTURA INTERNA</celda>
+        <celda Col="${col+3}" Row="${fila}">NUMERO FISCAL</celda>
+        <celda Col="${col+4}" Row="${fila}">CUPON</celda>
+        <celda Col="${col+5}" Row="${fila}">MONTO C$</celda>
+        <celda Col="${col+6}" Row="${fila}">AÑO</celda>
+        <celda Col="${col+7}" Row="${fila}">MES</celda>
+        <celda Col="${col+8}" Row="${fila}">SUSCRIPTOR</celda>
+        <celda Col="${col+9}" Row="${fila}">FECHA PAGO</celda>
+        <celda Col="${col+10}" Row="${fila}">SERVICIO</celda>
+        <celda Col="${col+11}" Row="${fila}">CUENTA</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+        <jx:set var="fila" value="${fila+1}"/>
+        <jx:set var="filaIni" value="${fila}"/> 
+    </jx:if>
+    
+        
+
+    <jx:set var="localidad" value=""/>
+      
+
+    <jx:set var="filaInicial" value="${fila}"/>
+
+    <jx:forEach var="item" items="${bean}" varStatus="status">
+    <jx:if test="${localidad != item[1]}">    	
+	               <jx:if test="${departamentoId != null}">     
+	               
+       
+        
+        <jx:set var="fila" value="${fila+2}"/>
+        <celda Col="${col}" Row="${fila}">LOCALIDAD</celda>
+        <celda Col="${col+1}" Row="${fila}">CONTRATO</celda>
+        <celda Col="${col+2}" Row="${fila}">FACTURA INTERNA</celda>
+        <celda Col="${col+3}" Row="${fila}">NUMERO FISCAL</celda>
+        <celda Col="${col+4}" Row="${fila}">CUPON</celda>
+        <celda Col="${col+5}" Row="${fila}">MONTO C$</celda>
+        <celda Col="${col+6}" Row="${fila}">AÑO</celda>
+        <celda Col="${col+7}" Row="${fila}">MES</celda>
+        <celda Col="${col+8}" Row="${fila}">SUSCRIPTOR</celda>
+        <celda Col="${col+9}" Row="${fila}">FECHA PAGO</celda>
+        <celda Col="${col+10}" Row="${fila}">SERVICIO</celda>
+        <celda Col="${col+11}" Row="${fila}">CUENTA</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="14" Recuadro="1"/>
+        <jx:set var="fila" value="${fila+1}"/>
+        <jx:set var="filaIni" value="${fila}"/> 
+         </jx:if>
+ </jx:if>
+    
+    <jx:set var="localidad" value="${item[1]}"/>
+    <celda Col="${col}" Row="${fila}">${item[1]}</celda>
+    <celda Col="${col+1}" Row="${fila}">${item[2]}</celda>
+    <celda Col="${col+2}" Row="${fila}">${item[3]}</celda>
+    <celda Col="${col+3}" Row="${fila}">${item[4]}</celda>
+    <jx:if test="${item[5] != null}"> 
+    <celda Col="${col+4}" Row="${fila}">${item[5]}</celda>
+    </jx:if>
+    <jx:if test="${item[5] == null}"> 
+    <celda Col="${col+4}" Row="${fila}">-</celda>
+    </jx:if>
+    <celda Col="${col+5}" Row="${fila}" ValueType="flotante" patron="#,##0"><jx:formatNumber value="${item[6]}"/></celda>    
+    <celda Col="${col+6}" Row="${fila}">${item[7]}</celda>
+    <celda Col="${col+7}" Row="${fila}">${item[8]}</celda>
+    <celda Col="${col+8}" Row="${fila}">${item[9]}</celda>
+	<celda Col="${col+9}" Row="${fila}"><formatoFecha fecha="${item[10]}" patron="dd/MMM/yyyy"/></celda>
+	<celda Col="${col+10}" Row="${fila}">${item[11]}</celda>
+	<jx:if test="${item[12] != null}"> 
+	<celda Col="${col+11}" Row="${fila}">${item[12]}</celda>
+	</jx:if>
+	<jx:if test="${item[12] == null}"> 
+	<celda Col="${col+11}" Row="${fila}">-</celda>
+	</jx:if>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
+    <jx:set var="fila" value="${fila+1}"/>
+
+    
+    <jx:if test="${status.last}">      
+        <celda Col="${col}" Row="${fila}">Total Pagos</celda>
+        <estilo startCol="${col}" startRow="${fila}" endCol="${col+5}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+        <celda Col="${col+5}" Row="${fila}" ValueType="flotante" patron="#,##0"><jx:formatNumber value="${item[13]}"/></celda>
+        <estilo  startCol="${col+5}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" Recuadro="1" Bold="1" Unit="16" Format="#,##0"/>
+         <jx:set var="fila" value="${fila+1}"/>        
+    </jx:if>
+    </jx:forEach>
+</document>

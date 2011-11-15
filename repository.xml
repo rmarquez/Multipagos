@@ -202,7 +202,7 @@
 		<field-descriptor name="barrioId" nullable="false" default-fetch="true" column="BARRIO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
-		<field-descriptor name="ano" nullable="false" default-fetch="true" column="ANO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="anio" nullable="false" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="mes" nullable="false" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
 		<field-descriptor name="saldo" nullable="false" default-fetch="true" column="SALDO" jdbc-type="NUMERIC"/>
 		<field-descriptor name="estadoId" nullable="false" default-fetch="true" column="ESTADO_ID" jdbc-type="INTEGER"/>
@@ -217,6 +217,7 @@
 		<field-descriptor name="pagado" nullable="false" default-fetch="true" column="PAGADO" jdbc-type="BIT"/>
 		<field-descriptor name="fechaPago" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="fechaIngreso" nullable="false" default-fetch="true" column="FECHA_INGRESO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="cuenta" default-fetch="true" column="CUENTA" jdbc-type="VARCHAR"/>
 		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.Barrio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>
@@ -303,16 +304,17 @@
 		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" column="COLECTOR_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="servicioId" primarykey="true" nullable="false" default-fetch="true" column="SERVICIO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="localidadId" primarykey="true" nullable="false" default-fetch="true" column="LOCALIDAD_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="numeroContrato" nullable="false" default-fetch="true" column="NUMERO_CONTRATO" jdbc-type="VARCHAR"/>
-		<field-descriptor name="facturaInterna" nullable="false" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
-		<field-descriptor name="numeroFiscal" nullable="false" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
-		<field-descriptor name="cupon" nullable="false" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numeroContrato" default-fetch="true" column="NUMERO_CONTRATO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="facturaInterna" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numeroFiscal" default-fetch="true" column="NUMERO_FISCAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cupon" default-fetch="true" column="CUPON" jdbc-type="VARCHAR"/>
 		<field-descriptor name="montoPago" nullable="false" default-fetch="true" column="MONTO_PAGO" jdbc-type="NUMERIC"/>
 		<field-descriptor name="fechaPago" nullable="false" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="recibo" nullable="false" default-fetch="true" column="RECIBO" jdbc-type="INTEGER"/>
 		<field-descriptor name="horaRegistro" nullable="false" default-fetch="true" column="HORA_REGISTRO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="observaciones" default-fetch="true" column="OBSERVACIONES" jdbc-type="VARCHAR"/>
 		<field-descriptor name="salgoPagar" default-fetch="true" column="SALGO_PAGAR" jdbc-type="NUMERIC"/>
+		<field-descriptor name="porContrato" nullable="false" default-fetch="true" column="POR_CONTRATO" jdbc-type="BIT"/>
 		<reference-descriptor name="pagoIdRef" class-ref="com.metropolitana.multipagos.Pagos" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="pagoId"/>
 		</reference-descriptor>

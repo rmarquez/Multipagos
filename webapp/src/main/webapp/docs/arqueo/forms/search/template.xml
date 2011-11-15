@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+		  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance" menu="true">
+    <header>
+        <title>Visitas por Colector</title>
+    </header>
+    <body>
+        <s1 title="Visitas por Colector">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Criterios para listar las vistas por colectores</fi:label>
+                    <fi:items>
+                        <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+                        <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+                        <ft:widget id="colectorId"/>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="listar"/>
+                <ft:widget id="excel"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

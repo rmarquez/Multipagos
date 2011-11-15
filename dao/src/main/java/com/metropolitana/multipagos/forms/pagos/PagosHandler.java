@@ -19,6 +19,7 @@ import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Pagos;
+import com.metropolitana.multipagos.Visitas;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
@@ -97,6 +98,7 @@ public class PagosHandler {
 			broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
 					Integer.valueOf(1), broker));
 			broker.commitTransaction();
+			//broker.clearCache();
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -107,7 +109,7 @@ public class PagosHandler {
 				broker.close();
 			}
 		}
-	}
+	}	
 
 	/**
 	 * Actualiza los datos de un visita.
@@ -199,10 +201,10 @@ public class PagosHandler {
 		Iterator iterDetalle = bean.getDetallePagosList().iterator();
 		while (iterDetalle.hasNext()) {
 			DetallePagos det = (DetallePagos) iterDetalle.next();
-			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(
-					det.getCarteraId(), broker));
-			det.setColectorIdRef(ColectorHandler.retrieve(
-					det.getColectorId(), broker));
+			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(det.getCarteraId(), broker));
+			det.setColectorIdRef(ColectorHandler.retrieve(det.getColectorId(), broker));
+			det.setServicioIdRef(ServicioHandler.retrieve(det.getServicioId(), broker));
+			det.setLocalidadIdRef(LocalidadHandler.retrieve(det.getLocalidadId(), broker));
 			det.setPagoIdRef(bean);
 		}
 	}
