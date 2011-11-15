@@ -312,22 +312,7 @@ public class CarteraXDepartamentoHandler {
 			}
 		}
 	}
-	
-	
-	
-	
-	/**
-	public static CarteraXDepartamento carteraXContrato(final String contrato, PersistenceBroker pb) {
-        Criteria criterio = new Criteria();
-        criterio.addEqualTo("contrato", contrato);
-        QueryByCriteria query = new QueryByCriteria(CarteraXDepartamento.class, criterio);
-        Iterator iter = pb.getIteratorByQuery(query);
-        if (iter.hasNext()) {
-            return  (CarteraXDepartamento) pb.getObjectByQuery(query);
-        } else {
-            return null;
-        }
-    }**/
+
 	
 	public static CarteraXDepartamento getMesSaldoMora(final String contrato,
 			final String facturaInterna, final String numeroFiscal, PersistenceBroker pb) {

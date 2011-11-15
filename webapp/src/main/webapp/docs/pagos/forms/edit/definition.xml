@@ -2,6 +2,10 @@
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
 	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
 	<fd:widgets>
+		<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages> 
+		
         <fd:field id="usrId" state="output">
 			<fd:label>Supervisor</fd:label>
 			<fd:datatype base="integer" />
@@ -65,11 +69,28 @@
 		</fd:field>
 
 		
-		<fd:repeater id="detalle">
+		<fd:repeater id="detalle" initial-size="1">
             <fd:widgets>
+            	<fd:booleanfield id="porContrato">
+					<fd:label>x contrato</fd:label>
+					<fd:help><b>Casos especiales</b> en los que no se cuente con la factura 
+						interna, podemos registrar el pago por el numero de 
+						contrato.</fd:help>
+					<fd:on-value-changed>
+						<fd:javascript>
+							xContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+				</fd:booleanfield>
+            	
                 <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>
                 </fd:field>
                 
                 <fd:field id="facturaInterna">
@@ -93,7 +114,7 @@
                 </fd:field>
                 
                 <fd:field id="carteraId">
-					<fd:datatype base="integer"/>			
+					<fd:datatype base="integer"/>
 				</fd:field>
 				
 				<fd:field id="suscriptor" state="output">
@@ -172,9 +193,9 @@
 				<fd:field id="servicioId" state="output">
 					<fd:label>Servicio</fd:label>
 					<fd:datatype base="integer" />
-					<fd:selection-list src="cocoon:/servicio.combo"
-						cache="request" />					
-				</fd:field>			
+					<fd:selection-list src="cocoon:/servicio.combo"	cache="request"/>					
+				</fd:field>	
+						
 				
 				
 				<fd:field id="colectorNumero" required="true">
@@ -182,7 +203,7 @@
 		            <fd:datatype base="integer"/>
 		            <fd:on-value-changed>
 						<fd:javascript>
-							alSeleccionarColector(event);
+							alSeleccionarNumColector(event);
 						</fd:javascript>
 					</fd:on-value-changed>
                 </fd:field>
@@ -226,13 +247,13 @@
 				</fd:widgets>
 			</fd:repeater>
 
-			<fd:repeater-action id="agregar" command="add-row"
+			<!-- <fd:repeater-action id="agregar" command="add-row"
 				repeater="detalle">
 				<fd:label>Agregar</fd:label>
 				<fd:hint>
 					Haga click en el botón para agregar un registro.
 				</fd:hint>
-			</fd:repeater-action>
+			</fd:repeater-action> -->
 
 			<fd:repeater-action id="eliminar" command="delete-rows"
 				repeater="detalle" select="marcar">
@@ -244,7 +265,25 @@
 			</fd:repeater-action>
 
         <fd:submit id="guardar">
-			<fd:label>Guardar</fd:label>			
+			<fd:label>Guardar</fd:label>
+		</fd:submit>
+		
+		<fd:submit id="aceptar" state="invisible">
+			<fd:label>Aceptar</fd:label>
+			<!-- <fd:on-value-changed>
+		        <fd:javascript>
+		            alSeleccionarAceptar(event);
+		        </fd:javascript>
+	        </fd:on-value-changed> -->
+		</fd:submit>
+		
+		<fd:submit id="cancelar" state="invisible">
+			<fd:label>Cancelar</fd:label>
+			<!-- <fd:on-value-changed>
+		        <fd:javascript>
+		            alSeleccionarAceptar(event);
+		        </fd:javascript>
+	        </fd:on-value-changed> -->
 		</fd:submit>
 
    </fd:widgets>

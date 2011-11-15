@@ -192,19 +192,24 @@ public class PagosHandler {
 	 *            Bean de objeto pago
 	 * @param broker
 	 */
-	private void actualizarReferencias(Pagos pago, PersistenceBroker broker) {
+	private void actualizarReferencias(Pagos pago, PersistenceBroker broker) throws Exception {
 		pago.setUsrIdRef(Auth_userHandler.retrieve(pago.getUsrId(), broker));
 		linkChilds(pago, broker);
 	}
 
-	private void linkChilds(final Pagos bean, final PersistenceBroker broker) {
-		Iterator iterDetalle = bean.getDetallePagosList().iterator();
-		while (iterDetalle.hasNext()) {
+	private void linkChilds(final Pagos bean, final PersistenceBroker broker) throws Exception {
+		//Iterator iterDetalle = bean.getDetallePagosList().iterator();
+		for (Iterator iterDetalle = bean.getDetallePagosList().iterator(); iterDetalle.hasNext();) {
 			DetallePagos det = (DetallePagos) iterDetalle.next();
-			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(det.getCarteraId(), broker));
+			CarteraXDepartamento nCartera = CarteraXDepartamentoHandler.carteraXFactura(det.getFacturaInterna());
+			
+			
+			
+			
+			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(nCartera.getCarteraId(), broker));
 			det.setColectorIdRef(ColectorHandler.retrieve(det.getColectorId(), broker));
-			det.setServicioIdRef(ServicioHandler.retrieve(det.getServicioId(), broker));
-			det.setLocalidadIdRef(LocalidadHandler.retrieve(det.getLocalidadId(), broker));
+			det.setServicioIdRef(ServicioHandler.retrieve(nCartera.getServicioId(), broker));
+			det.setLocalidadIdRef(LocalidadHandler.retrieve(nCartera.getLocalidadId(), broker));
 			det.setPagoIdRef(bean);
 		}
 	}

@@ -114,7 +114,12 @@
                 </fd:field>
                 
                 <fd:field id="carteraId">
-					<fd:datatype base="integer"/>			
+					<fd:datatype base="integer"/>
+					<!-- <fd:on-value-changed>
+						<fd:javascript>
+							alCambiarCartera(event);
+						</fd:javascript>
+					</fd:on-value-changed> -->		
 				</fd:field>
 				
 				<fd:field id="suscriptor" state="output">
