@@ -198,8 +198,8 @@ public class PagosHandler {
 	}
 
 	private void linkChilds(final Pagos bean, final PersistenceBroker broker) throws Exception {
-		//Iterator iterDetalle = bean.getDetallePagosList().iterator();
-		for (Iterator iterDetalle = bean.getDetallePagosList().iterator(); iterDetalle.hasNext();) {
+		Iterator iterDetalle = bean.getDetallePagosList().iterator();
+		while (iterDetalle.hasNext()) {
 			DetallePagos det = (DetallePagos) iterDetalle.next();
 			CarteraXDepartamento nCartera = CarteraXDepartamentoHandler.carteraXFactura(det.getFacturaInterna());
 			

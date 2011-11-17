@@ -98,7 +98,7 @@
                         <br/>                        					
                     </fi:items>
                 </fi:group>
-                <ft:widget id="crear"/>
+                <ft:widget id="guardar"/>
             </ft:form-template>
         </s1>
     </body>
