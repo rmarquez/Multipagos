@@ -282,9 +282,9 @@
 						cache="none" />										
 				</fd:field>
 				
-				<fd:field id="nCheque">
+				<fd:field id="nCheque" required="true">
 					<fd:label>No. Cheque</fd:label>			
-					<fd:datatype base="integer"/>			
+					<fd:datatype base="integer" />			
 				</fd:field>
 				
 				<fd:booleanfield id="dolares">

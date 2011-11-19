@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
@@ -17,6 +19,7 @@ import com.metropolitana.multipagos.ArqueoCheque;
 import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AuthUser;
 import com.metropolitana.multipagos.DetallePagos;
+import com.metropolitana.multipagos.DetalleVisitas;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.banco.BancoHandler;
@@ -333,5 +336,41 @@ public class ArqueoHandler {
 			throw e;
 		}
 	}
+	
+	public static boolean colectorArqueado(Date fecha, Integer colectorId) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (fecha != null) {
+                    criterio.addEqualTo("pagoFecha", fecha);
+            }
+            if (colectorId != null) {
+                    criterio.addEqualTo("colectorId", colectorId);
+            }
+            List lst = getColectorArqueadoList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getColectorArqueadoList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(ArqueoPagos.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 
 }

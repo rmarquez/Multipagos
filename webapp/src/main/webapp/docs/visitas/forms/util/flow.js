@@ -21,21 +21,21 @@ function alSeleccionarUsuario(event) {
     }
 }
 
-function alCambiar(event) {
-    var contador = event.source.value;
-    var cantidadVisitas = event.source.parent.getParent().getParent().getChild("cantidadVisitas");
-    cantidadVisitas.setValue(null);
-    
-    var cont = 0;
-	var detalleVisitas = event.source.parent.getParent().getParent().getChild("detalle");
+function calcularVisitas(event) {
+	var cont = 0;
+	event.source.parent.getChild("cantidadVisitas").setValue(Integer.valueOf(cont));
+	var detalleVisitas = event.source.parent.getChild("detalle");
 	for (var i = 0; i<detalleVisitas.size; i++) {
 	    var row = detalleVisitas.getRow(i);
 	    var contador = row.getChild("contador").getValue();
-	    cont += parseInt(contador);
+	    if(contador != null){
+	    	java.lang.System.out.println("contador = " + contador);
+		    cont += parseInt(contador);
+	    }
+	    
     }	
-    if (contador != null) {
-        cantidadVisitas.setValue(Integer.valueOf(cont));
-    }
+	event.source.parent.getChild("cantidadVisitas").setValue(Integer.valueOf(cont));
+   
 }
 
 

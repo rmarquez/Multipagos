@@ -50,22 +50,27 @@ function alSeleccionarColector(event) {
 	var colectorId = event.source.value;
     var pagoFecha = event.source.parent.getChild("pagoFecha").getValue();
     var detalle = event.source.parent.getChild("detalle")
-    var handlerUtil = new Packages.com.metropolitana.multipagos.forms.ScriptUtil();
+    var handlerArqueo = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();
     if (colectorId != null) {
-    	var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosXColector();
-        var bean = handler.getListPagosXColector(pagoFecha, colectorId);
-        
-        for (var i = 0; i < bean.size(); i++) {
-        	var rowGuardar = bean.get(i);
-        	 detalle.addRow();	
-        	 var row = detalle.getRow(i);
-        	 row.getChild("recibo").setValue(rowGuardar[0]);   
-    	     row.getChild("facturaInterna").setValue(rowGuardar[1]);
-    	     row.getChild("numContrato").setValue(rowGuardar[2]);
-    	     row.getChild("fecha").setValue(rowGuardar[3]);
-    	     row.getChild("monto").setValue(rowGuardar[4]);
-       
-        }       
+    	if(handlerArqueo.colectorArqueado(pagoFecha, colectorId)==true) {
+    		event.source.parent.getChild("colectorId").setValidationError(new ValidationError("Este colector ya fue arqueado este dia."));
+    	} else {
+	    	var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosXColector();
+	    	var bean = handler.getListPagosXColector(pagoFecha, colectorId);
+	    	java.lang.System.out.println("Cantidad en list  = " + bean.size());
+	        for (var i = 0; i < bean.size(); i++) {
+	        	var rowGuardar = bean.get(i);
+	        	 detalle.addRow();	
+	        	 var row = detalle.getRow(i);
+	        java.lang.System.out.println("Recibo = " + rowGuardar[0]);
+	        	 row.getChild("recibo").setValue(rowGuardar[0]);   
+	    	     row.getChild("facturaInterna").setValue(rowGuardar[1]);
+	    	     row.getChild("numContrato").setValue(rowGuardar[2]);
+	    	     row.getChild("fecha").setValue(rowGuardar[3]);
+	    	     row.getChild("monto").setValue(rowGuardar[4]);
+	       
+	        }
+    	}
     }
 }
 

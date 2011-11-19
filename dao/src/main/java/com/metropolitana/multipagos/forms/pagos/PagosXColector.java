@@ -24,9 +24,7 @@ public class PagosXColector {
 		try {
 			List<Object[]> pagos = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			for (Iterator iter = broker
-					.getReportQueryIteratorByQuery(queryPagosXColector(fecha,
-							colectorId)); iter.hasNext();) {
+			for (Iterator iter = broker.getReportQueryIteratorByQuery(queryPagosXColector(fecha, colectorId)); iter.hasNext();) {
 
 				Object[] detalle = (Object[]) iter.next();
 
@@ -43,8 +41,7 @@ public class PagosXColector {
 	}
 	
 	
-	private static ReportQueryByCriteria queryPagosXColector(Date fecha,
-			Integer colectorId) {
+	private static ReportQueryByCriteria queryPagosXColector(Date fecha, Integer colectorId) {
 
 		Criteria criterio = new Criteria();
 		if (fecha != null) {
@@ -60,7 +57,7 @@ public class PagosXColector {
 		query.addGroupBy(new String[] { "recibo", "facturaInterna",
 				"numeroContrato", "fechaPago", "montoPago" });
 
-		query.addOrderBy("recibo", true);
+		query.addOrderBy("fechaPago", true);
 		return query;
 	}
 

@@ -413,7 +413,7 @@
 	<class-descriptor class="com.metropolitana.multipagos.ArqueoCheque" table="ARQUEO_CHEQUE">
 		<field-descriptor name="arqueoId" primarykey="true" nullable="false" default-fetch="true" column="ARQUEO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="bancoId" primarykey="true" nullable="false" default-fetch="true" column="BANCO_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="nCheque" nullable="false" default-fetch="true" column="N_CHEQUE" jdbc-type="INTEGER"/>
+		<field-descriptor name="nCheque" primarykey="true" nullable="false" default-fetch="true" column="N_CHEQUE" jdbc-type="INTEGER"/>
 		<field-descriptor name="beneficiario" nullable="false" default-fetch="true" column="BENEFICIARIO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="montoCs" default-fetch="true" column="MONTO_CS" jdbc-type="NUMERIC"/>
 		<field-descriptor name="montoUs" default-fetch="true" column="MONTO_US" jdbc-type="NUMERIC"/>

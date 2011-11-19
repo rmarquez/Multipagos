@@ -63,6 +63,7 @@
     <fb:repeater id="detalleCheque" parent-path="." row-path="arqueoChequeList">
         <fb:identity>
             <fb:value id="bancoId" path="bancoId"/>
+            <fb:value id="nCheque" path="nCheque"/>
         </fb:identity>
 
         <fb:on-bind>
