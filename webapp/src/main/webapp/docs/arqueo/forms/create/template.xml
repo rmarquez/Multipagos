@@ -246,7 +246,7 @@
                           <thead>
                             <tr>
                               <th><ft:repeater-widget-label widget-id="bancoId"/></th>
-                              <th><ft:repeater-widget-label widget-id="nCheque"/></th>
+                              <th><ft:repeater-widget-label widget-id="numeroCheque"/></th>
                               <th><ft:repeater-widget-label widget-id="dolares"/></th>
                               <th><ft:repeater-widget-label widget-id="beneficiario"/></th>
                               <th><ft:repeater-widget-label widget-id="montoCs"/></th>
@@ -259,7 +259,7 @@
                             <ft:repeater-rows>
                               <tr>
                                 <td><ft:widget id="bancoId"/></td>
-                                <td><ft:widget id="nCheque"/></td>
+                                <td><ft:widget id="numeroCheque"/></td>
                                 <td><ft:widget id="dolares"/></td>
                                 <td><ft:widget id="beneficiario"/></td>
                                 <td><ft:widget id="montoCs"><fi:styling size="6"/></ft:widget></td>

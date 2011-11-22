@@ -63,12 +63,12 @@
     <fb:repeater id="detalleCheque" parent-path="." row-path="arqueoChequeList">
         <fb:identity>
             <fb:value id="bancoId" path="bancoId"/>
-            <fb:value id="nCheque" path="nCheque"/>
+            <fb:value id="numeroCheque" path="nnumeroCheque"/>
         </fb:identity>
 
         <fb:on-bind>
         	<fb:value id="bancoId" path="bancoId"/>
-            <fb:value id="nCheque" path="nCheque"/>
+            <fb:value id="numeroCheque" path="numeroCheque"/>
             <fb:value id="beneficiario" path="beneficiario"/>
             <fb:value id="montoCs" path="montoCs"/>
             <fb:value id="montoUs" path="montoUs"/>
@@ -87,8 +87,7 @@
     
     <fb:repeater id="detalleDepositos" parent-path="." row-path="arqueoDepositoList">
         <fb:identity>
-            <fb:value id="cuentaCs" path="cuentaCs"/>
-            <fb:value id="cuentaUs" path="cuentaUs"/>
+            <fb:value id="referencia" path="referencia"/>
         </fb:identity>
 
         <fb:on-bind>

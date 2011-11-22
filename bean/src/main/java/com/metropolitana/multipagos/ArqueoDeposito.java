@@ -1,5 +1,5 @@
 //==============================================================================
-//===   arqueo_deposito.java                        Build:2525
+//===   arqueo_deposito.java                        Build:2543
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -19,9 +19,9 @@ public class ArqueoDeposito implements java.io.Serializable
    //---------------------------------------------------------------------------
 
    private Integer    arqueoId;
+   private String     referencia;
    private Integer    cuentaCs;
    private Integer    cuentaUs;
-   private String     referencia;
    private BigDecimal montoCs;
    private BigDecimal montoUs;
    private BigDecimal conversion;
@@ -34,6 +34,15 @@ public class ArqueoDeposito implements java.io.Serializable
    public void setArqueoId(Integer arqueoId)
    {
       this.arqueoId = arqueoId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getReferencia() { return referencia; }
+
+   public void setReferencia(String referencia)
+   {
+      this.referencia = referencia;
    }
 
    //---------------------------------------------------------------------------
@@ -52,15 +61,6 @@ public class ArqueoDeposito implements java.io.Serializable
    public void setCuentaUs(Integer cuentaUs)
    {
       this.cuentaUs = cuentaUs;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public String getReferencia() { return referencia; }
-
-   public void setReferencia(String referencia)
-   {
-      this.referencia = referencia;
    }
 
    //---------------------------------------------------------------------------

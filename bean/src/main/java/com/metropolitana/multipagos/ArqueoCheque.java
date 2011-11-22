@@ -1,5 +1,5 @@
 //==============================================================================
-//===   arqueo_cheque.java                        Build:2540
+//===   arqueo_cheque.java                        Build:2542
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -20,7 +20,7 @@ public class ArqueoCheque implements java.io.Serializable
 
    private Integer    arqueoId;
    private Integer    bancoId;
-   private Integer    nCheque;
+   private Integer    numeroCheque;
    private String     beneficiario;
    private BigDecimal montoCs;
    private BigDecimal montoUs;
@@ -47,11 +47,11 @@ public class ArqueoCheque implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public Integer getNCheque() { return nCheque; }
+   public Integer getNumeroCheque() { return numeroCheque; }
 
-   public void setNCheque(Integer nCheque)
+   public void setNumeroCheque(Integer numeroCheque)
    {
-      this.nCheque = nCheque;
+      this.numeroCheque = numeroCheque;
    }
 
    //---------------------------------------------------------------------------
