@@ -237,6 +237,8 @@
 		<field-descriptor name="fechaPago" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="fechaIngreso" nullable="false" default-fetch="true" column="FECHA_INGRESO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="cuenta" default-fetch="true" column="CUENTA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="conceptoDiferido" default-fetch="true" column="CONCEPTO_DIFERIDO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="esDiferido" default-fetch="true" column="ES_DIFERIDO" jdbc-type="BIT"/>
 		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.Barrio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>
@@ -413,7 +415,7 @@
 	<class-descriptor class="com.metropolitana.multipagos.ArqueoCheque" table="ARQUEO_CHEQUE">
 		<field-descriptor name="arqueoId" primarykey="true" nullable="false" default-fetch="true" column="ARQUEO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="bancoId" primarykey="true" nullable="false" default-fetch="true" column="BANCO_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="nCheque" primarykey="true" nullable="false" default-fetch="true" column="N_CHEQUE" jdbc-type="INTEGER"/>
+		<field-descriptor name="numeroCheque" primarykey="true" nullable="false" default-fetch="true" column="NUMERO_CHEQUE" jdbc-type="INTEGER"/>
 		<field-descriptor name="beneficiario" nullable="false" default-fetch="true" column="BENEFICIARIO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="montoCs" default-fetch="true" column="MONTO_CS" jdbc-type="NUMERIC"/>
 		<field-descriptor name="montoUs" default-fetch="true" column="MONTO_US" jdbc-type="NUMERIC"/>
@@ -428,9 +430,9 @@
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.ArqueoDeposito" table="ARQUEO_DEPOSITO">
 		<field-descriptor name="arqueoId" primarykey="true" nullable="false" default-fetch="true" column="ARQUEO_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="cuentaCs" primarykey="true" default-fetch="true" column="CUENTA_CS" jdbc-type="INTEGER"/>
-		<field-descriptor name="cuentaUs" primarykey="true" default-fetch="true" column="CUENTA_US" jdbc-type="INTEGER"/>
-		<field-descriptor name="referencia" default-fetch="true" column="REFERENCIA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="referencia" primarykey="true" nullable="false" default-fetch="true" column="REFERENCIA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cuentaCs" default-fetch="true" column="CUENTA_CS" jdbc-type="INTEGER"/>
+		<field-descriptor name="cuentaUs" default-fetch="true" column="CUENTA_US" jdbc-type="INTEGER"/>
 		<field-descriptor name="montoCs" default-fetch="true" column="MONTO_CS" jdbc-type="NUMERIC"/>
 		<field-descriptor name="montoUs" default-fetch="true" column="MONTO_US" jdbc-type="NUMERIC"/>
 		<field-descriptor name="conversion" default-fetch="true" column="CONVERSION" jdbc-type="NUMERIC"/>

@@ -246,6 +246,8 @@ public class Auth_userHandler {
     
     public static AuthUser getUsuario(String usrLogin, String usrPassword) throws Exception {
     	PersistenceBroker broker = null;
+    	System.out.println("usrLogin =" + usrLogin);
+    	System.out.println("usrPassword =" + usrPassword);
     	try {
             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
             AuthUser criterio = new AuthUser();

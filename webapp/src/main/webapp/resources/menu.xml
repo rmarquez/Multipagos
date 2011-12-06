@@ -60,6 +60,8 @@
                          onClick="parent.window.location='/multipagos/informes/visitasxcolector'"/>
                 <div dojoType="MenuItem2" caption="Pagos x Departamento"
                          onClick="parent.window.location='/multipagos/informes/pagosxdepartamento'"/>
+                <div dojoType="MenuItem2" caption="Promesas de Pago"
+                         onClick="parent.window.location='/multipagos/informes/promesasdepago'"/>
                 
           </div>
         

@@ -58,12 +58,11 @@ public class CarteraXDepartamentoHandler {
 			Date fecha = Calendar.getInstance().getTime();
 			actualizarReferencias(bean, broker);
 			broker.store(bean);
-			
-			Pagos pago = PagosHandler.nuevoPago(bean, usrId, colectorId, recibo,
-					montoPagado, horaRegistro);
-			
-			broker.store(pago);
-			
+			if(montoPagado != null) {
+				Pagos pago = PagosHandler.nuevoPago(bean, usrId, colectorId, recibo,
+						montoPagado, horaRegistro);			
+				broker.store(pago);
+			}
 			broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
 					Integer.valueOf(1), broker));
 			broker.commitTransaction();
@@ -269,12 +268,12 @@ public class CarteraXDepartamentoHandler {
 	}
 	
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato)
+	public static CarteraXDepartamento carteraXContrato(final String contrato, final Boolean diferido)
 			throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			return carteraXContrato(contrato, broker);
+			return carteraXContrato(contrato, diferido, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -284,10 +283,12 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-	private static CarteraXDepartamento carteraXContrato(final String contrato,
+	private static CarteraXDepartamento carteraXContrato(final String contrato, final Boolean diferido,
 			final PersistenceBroker broker) {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);
+		criterio.setEsDiferido(diferido);
+		criterio.setPagado(Boolean.FALSE);
 		Query query = new QueryByCriteria(criterio);
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}

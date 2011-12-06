@@ -82,7 +82,7 @@ public class InformeVisitasXColector {
 				"colectorIdRef.primerApellido","avisoCobro", "fprogCobro"});
 		
 
-		query.addOrderBy("numeroContrato", true);
+		query.addOrderBy("avisoCobro", true);
 		query.addOrderBy("fechaVisita", true);
 		query.addOrderBy("colectorId", true);
 		return query;

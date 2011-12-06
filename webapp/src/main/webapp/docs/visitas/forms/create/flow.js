@@ -31,10 +31,13 @@ function createform(form) {
 function validarForm(form) {
 	var cantidadVisitas = form.getChild("cantidadVisitas").getValue();
 	var widgetMensaje = form.getChild("mensajes de error");
+	var detalle = form.getChild("detalle");
 	
 	if(cantidadVisitas==null) {
 	form.getChild("mensajes de error").addMessage("¡ No se han registrado visitas !, verifique sus datos, puede contener algun error. ");
 	  return false;
-	}		      
+	}
+	  
+	  
 	return true;
 }

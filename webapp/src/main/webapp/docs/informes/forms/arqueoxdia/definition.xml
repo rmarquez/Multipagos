@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="fecha">
+            <fd:label>Fecha (dd/mm/yyyy):</fd:label>
+            <fd:help>Escriba la fecha en la cual desea listar los arqueos</fd:help>
+            <fd:datatype base="date">
+                <fd:convertor>
+                    <fd:patterns>
+                        <fd:pattern>dd/MM/yyyy</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+        </fd:field>       
+
+        <fd:field id="colectorId">
+        	<fd:label>Colector:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/colector.combo"	cache="none" />
+		</fd:field>        
+       
+        <fd:submit id="listar">
+            <fd:label>Listar</fd:label>
+            <fd:help>Listar</fd:help>
+            <fd:hint>Listar</fd:hint>
+        </fd:submit>
+        <fd:submit id="excel">
+            <fd:label>Excel</fd:label>
+            <fd:help>Excel</fd:help>
+            <fd:hint>Excel</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

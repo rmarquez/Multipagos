@@ -201,18 +201,26 @@ public class PagosHandler {
 		Iterator iterDetalle = bean.getDetallePagosList().iterator();
 		while (iterDetalle.hasNext()) {
 			DetallePagos det = (DetallePagos) iterDetalle.next();
-			CarteraXDepartamento nCartera = CarteraXDepartamentoHandler.carteraXFactura(det.getFacturaInterna());
-			
-			
-			
-			
-			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(nCartera.getCarteraId(), broker));
+			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(det.getCarteraId(), broker));
 			det.setColectorIdRef(ColectorHandler.retrieve(det.getColectorId(), broker));
-			det.setServicioIdRef(ServicioHandler.retrieve(nCartera.getServicioId(), broker));
-			det.setLocalidadIdRef(LocalidadHandler.retrieve(nCartera.getLocalidadId(), broker));
+			det.setServicioIdRef(ServicioHandler.retrieve(det.getServicioId(), broker));
+			det.setLocalidadIdRef(LocalidadHandler.retrieve(det.getLocalidadId(), broker));
+			cambiarEstadoCartera(det.getCarteraId(), det.getFechaPago(), broker);
 			det.setPagoIdRef(bean);
+			
 		}
 	}
+	
+	private void cambiarEstadoCartera(Integer carteraId, Date fechaPago, PersistenceBroker broker) throws Exception {
+		CarteraXDepartamento cartera = CarteraXDepartamentoHandler.retrieve(carteraId);
+		if(cartera.getPagado()==false){
+			cartera.setPagado(Boolean.TRUE);
+			cartera.setFechaPago(fechaPago);
+			broker.store(cartera);
+		}
+	}
+	
+	
 
 	/**
 	 * Obtiene un pago.

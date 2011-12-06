@@ -70,8 +70,7 @@ function alSeleccionarFactura(event) {
     		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
     	} else {
 	    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
-	    	java.lang.System.out.println("Cartera Id = " + cartera.getCarteraId() + " Factura Interna = " + facturaInterna);
-			if(cartera != null){
+	    	if(cartera != null){
 				carteraId.setValue(cartera.getCarteraId());
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidadId.setValue(cartera.getLocalidadId());
@@ -139,21 +138,15 @@ function alSeleccionarContrato(event) {
 	var numContrato = event.source.value;
 	var facturaInterna = event.source.parent.getChild("facturaInterna").getValue();
 	var carteraId = event.source.parent.getChild("carteraId");
-	carteraId.setValue(null);
 	var suscriptor = event.source.parent.getChild("suscriptor");
-    suscriptor.setValue(null);
     var servicio = event.source.parent.getChild("servicioId");
-    servicio.setValue(null);
     var localidad = event.source.parent.getChild("localidadId");
-    localidad.setValue(null);
     var saldoPagar = event.source.parent.getChild("salgoPagar");
-    saldoPagar.setValue(null);
     var year = event.source.parent.getChild("year");
-    year.setValue(null);    
     
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
-	if(numContrato != null || facturaInterna ==null){
+	if(numContrato != null && facturaInterna == null){
 		var cartera = handlerCartera.carteraXContrato(numContrato);
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId()); 
@@ -162,7 +155,6 @@ function alSeleccionarContrato(event) {
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
 			year.setValue(cartera.getAno());
-			//event.source.parent.getChild("facturaInterna").setValue("-");
 			
 		}
 		if (handlerCartera.existeContrato(numContrato)==false) {
@@ -170,11 +162,41 @@ function alSeleccionarContrato(event) {
 			event.source.parent.getChild("numContrato").setValidationError(new ValidationError("Numero de contrato no existe, borre esta linea antes de registrar los datos del cliente"));
 			event.source.parent.parent.parent.getChild("aceptar").setState(WidgetState.ACTIVE);
 			event.source.parent.parent.parent.getChild("cancelar").setState(WidgetState.ACTIVE);			
-    	} /**else {
-    		event.source.parent.parent.parent.getChild("aceptar").setState(WidgetState.OUTPUT);
-    		event.source.parent.parent.parent.getChild("cancelar").setState(WidgetState.OUTPUT);
-    	}**/
+    	} 
 		
 	}	
 }
+
+function validarFechaPago(event) {
+    var fechaPago = event.source.value;
+    var util = new Util();
+    //var fecha = event.source.parent.getChild("fecha");
+    //fecha.setValue(null);
+    if (fechaPago != null) {
+    	if (util.validarAnioFecha(fechaPago)==true) {
+    		event.source.parent.getChild("fechaPago").setValidationError(new ValidationError("Fecha incorrecta, el año no puede ser menor o mayor al actual."));
+    	}
+    }
+}
+/**
+function validarForm(form) {
+	
+	var detalle = form.getChild("detalle");
+	//int i;
+	for (var i = 0; i<detalle.size; i++) {
+	    var row = detalle.getRow(i);
+	    var carteraId = row.getChild("carteraId").getValue();
+	    var colectorId = row.getChild("colectorId").getValue();
+	    var localidadId = row.getChild("localidadId").getValue();
+	    var servicioId = row.getChild("servicioId").getValue();
+	    
+	    java.lang.System.out.println("++carteraId = " + carteraId);
+	    java.lang.System.out.println("++colectorId = " + colectorId);
+	    java.lang.System.out.println("++localidadId = " + localidadId);
+	    java.lang.System.out.println("++servicioId = " + servicioId);
+	    	    
+    }	  
+	  
+	return true;
+}**/
 

@@ -42,6 +42,10 @@
 		
 		<fd:repeater id="detalle">
             <fd:widgets>
+            	<fd:booleanfield id="diferido">
+					<fd:label>Diferido</fd:label>
+				</fd:booleanfield>
+            
                 <fd:field id="numContrato">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>
@@ -159,12 +163,7 @@
 				</fd:field>
 				
 				<fd:field id="contador">
-					<fd:datatype base="integer"/>
-					<fd:on-value-changed>
-					<fd:javascript>
-						alCambiar(event);
-					</fd:javascript>
-				</fd:on-value-changed>										
+					<fd:datatype base="integer"/>														
 				</fd:field>
 
 	        	<fd:booleanfield id="marcar">
@@ -185,6 +184,11 @@
 				<fd:hint>
 					Haga click en el botón para agregar un registro.
 				</fd:hint>
+				<fd:on-action>
+	                <fd:javascript>
+	                    calcularVisitas(event);
+	                </fd:javascript>
+            	</fd:on-action>
 			</fd:repeater-action>
 
 			<fd:repeater-action id="eliminar" command="delete-rows"
@@ -194,6 +198,11 @@
 					Haga click en el botón para eliminar los registros
 					seleccionados.
 				</fd:hint>
+				<fd:on-action>
+	                <fd:javascript>
+	                    calcularVisitas(event);
+	                </fd:javascript>
+            	</fd:on-action>
 			</fd:repeater-action>
 
         <fd:submit id="guardar">

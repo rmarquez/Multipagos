@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
 	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+	    <!--  <fd:validation>
+        <fd:javascript>        	
+            return validarForm(widget);         
+        </fd:javascript>
+    </fd:validation> -->
 	<fd:widgets>
 		<fd:messages id="mensajes de error">
             <fd:label>Ocurrieron los siguientes errores</fd:label>
@@ -187,7 +192,12 @@
 								<fd:pattern>dd/MM/yyyy</fd:pattern>
 							</fd:patterns>
 						</fd:convertor>
-					</fd:datatype>			
+					</fd:datatype>
+					<fd:on-value-changed>
+						<fd:javascript>
+							validarFechaPago(event);
+						</fd:javascript>
+					</fd:on-value-changed>			
 		        </fd:field>
 		        
 		        <fd:field id="recibo" required="true">

@@ -1,5 +1,9 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.math.BigDecimal);
+importClass(Packages.java.text.DateFormat);
+importClass(Packages.java.text.SimpleDateFormat);
+importClass(Packages.java.util.Calendar);
+importClass(Packages.java.util.Date);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
@@ -51,10 +55,11 @@ function alSeleccionarContrato(event) {
     localidad.setValue(null);
     var fechaVisita = event.source.parent.getChild("fechaVisita");
     fechaVisita.setValue(null);
+    var diferido = event.source.parent.getChild("diferido").getValue();
     var handlerCartera = new CarteraXDepartamentoHandler();   
     var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null){
-		var cartera = handlerCartera.carteraXContrato(numContrato);
+		var cartera = handlerCartera.carteraXContrato(numContrato, diferido);
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());
@@ -63,7 +68,12 @@ function alSeleccionarContrato(event) {
 			fechaVisita.setValue(new Packages.java.util.Date());			
 		}
 		if (handlerVisita.existeContrato(numContrato)==true) {
-    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado, favor verificar No. de contrato."));
+			var visita = handlerVisita.getUltimaVisita(numContrato);
+			if (visita != null) {
+				var ultimaVisita = java.text.SimpleDateFormat("dd/MM/yyyy").format(visita);
+			}
+			
+    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado el dia: "+ ultimaVisita +", favor verificar # de contrato."));
     	}
 	} 	
 }
@@ -130,5 +140,3 @@ function alSeleccionarColector(event) {
     	}       
     }
 }
-
-

@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
-<document menu="false" xmlns:ft="http://apache.org/cocoon/forms/1.0#template" xmlns:fi="http://apache.org/cocoon/forms/1.0#instance">
+<document menu="false" 
+		  xmlns:ft="http://apache.org/cocoon/forms/1.0#template" 
+		  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+		  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+<jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
     <header>
         <title>Inicio de Sesión</title>
     </header>
@@ -10,6 +14,7 @@
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Ingresar datos de inicio de sesión</fi:label>
                     <fi:hint>Ingrese su nombre y contraseña para ingresar al sistema</fi:hint>
+                    <ft:widget id="mensajes de error"/>
                     <fi:items>
                         <ft:widget id="auth_user"/>
                         <ft:widget id="auth_passwd"><fi:styling type="password"/></ft:widget>

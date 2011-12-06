@@ -231,6 +231,26 @@ public class Util {
         }
         return igual;
     }
+    
+    public static boolean validarAnioFecha(final Date fecha) {
+        boolean mayor = false;
+        if (fecha != null) {
+	        Calendar yearActual = Calendar.getInstance();
+	        int yearIni = yearActual.get(Calendar.YEAR);
+	        
+	        Calendar fSistema = Calendar.getInstance();
+	        fSistema.setTime(fecha);
+	        int fechaSistema = fSistema.get(Calendar.YEAR);
+	        
+	        if (fechaSistema > yearIni) {
+	            mayor = true;
+	        }
+	        if (yearIni > fechaSistema) {
+	            mayor = true;
+	        }
+        }
+        return mayor;
+    }
 
     /**
      * Método que recupera la cantidad de días entre dos fechas dadas.

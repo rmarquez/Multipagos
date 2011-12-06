@@ -42,8 +42,6 @@ public class ColectorHandler {
 	 */
 	public void insert(final Colector bean, Integer usrId) throws Exception {
 		PersistenceBroker broker = null;
-System.out.println("*** bean =  "+ bean);
-System.out.println("*** usrId =  "+ usrId);
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			broker.beginTransaction();

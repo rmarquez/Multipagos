@@ -16,9 +16,9 @@
         <fb:on-bind>
         	<fb:value id="porContrato" path="porContrato"/>
         	<fb:value id="carteraId" path="carteraId"/>
+        	<fb:value id="colectorId" path="colectorId"/>
             <fb:value id="localidadId" path="localidadId"/>
-            <fb:value id="servicioId" path="servicioId"/>
-            <fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="servicioId" path="servicioId"/>            
             <fb:value id="numContrato" path="numeroContrato"/>
             <fb:value id="fechaPago" path="fechaPago"/>
             <fb:value id="facturaInterna" path="facturaInterna"/>

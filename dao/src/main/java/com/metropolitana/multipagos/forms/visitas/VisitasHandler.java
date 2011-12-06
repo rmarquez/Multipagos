@@ -1,5 +1,7 @@
 package com.metropolitana.multipagos.forms.visitas;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -14,16 +16,14 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
-import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.DetalleVisitas;
 import com.metropolitana.multipagos.Visitas;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
-import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
-import com.metropolitana.multipagos.forms.servicio.ServicioHandler;
 import com.metropolitana.multipagos.forms.simbolo.SimboloHandler;
+import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 public class VisitasHandler {
 
@@ -407,4 +407,40 @@ public class VisitasHandler {
             }
         }
     }
+	/**
+	 * Retorna la fecha de la ultima visita.
+	 * @param contrato
+	 * 		Numero de contrato
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getUltimaVisita(String contrato) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();         
+
+            Criteria criterio = new Criteria();
+            if (contrato != null) {
+                criterio.addEqualTo("numeroContrato", contrato);
+            }            
+            ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleVisitas.class, criterio);
+            query.setAttributes(new String[] {"max(fechaVisita)" });
+            Iterator iter = broker.getReportQueryIteratorByQuery(query);
+            if (iter.hasNext()) {
+                Object fecha = ((Object[]) iter.next())[0];
+                if (fecha != null) {                	
+                    return (Date)fecha;
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
+	
 }
