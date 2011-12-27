@@ -12,10 +12,11 @@
                 <thead>
                     <tr>
                         <th align="left" colspan="6">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
-                        <th align="left" colspan="6">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
-                        <tr><td colspan="12"/></tr>
+                        <th align="left" colspan="7">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="13"/></tr>
                     </tr>
                     <tr>
+                    	<th>DEPARTAMENTO</th>
                         <th>LOCALIDAD</th>
         				<th>CONTRATO</th>
 				        <th>FACTURA INTERNA</th>
@@ -35,40 +36,41 @@
  
                     <jx:forEach var="item" items="${bean}" varStatus="status">
 	                    
-                        <jx:if test="localidad != item[1]}">
+                        <jx:if test="localidad != item[2]}">
                          <jx:if test="${!status.first}">
                             <tr>
 	                           	<th colspan="6">Total Pagos</th> 
-	                           	<th colspan="5"><formatoNumero numero="${item[12]}" ceroIfNull="true"/></th>                            
+	                           	<th colspan="6"><formatoNumero numero="${item[13]}" ceroIfNull="true"/></th>                            
                        		</tr>
                             </jx:if>
                             <jx:if test="${!status.last}">
                                 <tr><td colspan="11"></td></tr>
                             </jx:if>
                             <tr>
-                                <th colspan="11">Localidad: ${item[1]}</th>                                
+                                <th colspan="12">Localidad: ${item[2]}</th>                                
                             </tr>
                             
                        </jx:if>
-                        <jx:set var="localidad" value="${item[1]}"/>
+                        <jx:set var="localidad" value="${item[2]}"/>
                         <tr>
                         	<td align="left">${item[1]}</td>
-                            <td align="left">${item[2]}</td>
-	                        <td align="left">${item[3]}</td>
-                            <td align="left">${item[4]}</td>                            
-                            <td align="left">${item[5]}</td>
-                            <td align="right"><formatoNumero numero="${item[6]}" ceroIfNull="true"/></td>
-                            <td align="left">${item[7]}</td>
+                        	<td align="left">${item[2]}</td>
+                            <td align="left">${item[3]}</td>
+	                        <td align="left">${item[4]}</td>
+                            <td align="left">${item[5]}</td>                            
+                            <td align="left">${item[6]}</td>
+                            <td align="right"><formatoNumero numero="${item[7]}" ceroIfNull="true"/></td>
                             <td align="left">${item[8]}</td>
                             <td align="left">${item[9]}</td>
-                            <td align="right"><formatoFecha fecha="${item[10]}" patron="dd/MMM/yyyy"/></td> 
-                            <td align="left">${item[11]}</td>  
-                            <td align="left">${item[12]}</td>                          
+                            <td align="left">${item[10]}</td>
+                            <td align="right"><formatoFecha fecha="${item[11]}" patron="dd/MMM/yyyy"/></td> 
+                            <td align="left">${item[12]}</td>  
+                            <td align="left">${item[13]}</td>                          
                         </tr>                        
                         <jx:if test="${status.last}">
                             <tr>
                              	<th colspan="6">Total Pagos</th> 
-                             	<th colspan="5"><formatoNumero numero="${item[13]}" ceroIfNull="true"/></th>                             
+                             	<th colspan="6"><formatoNumero numero="${item[14]}" ceroIfNull="true"/></th>                             
                          	</tr>
                         </jx:if>
                     </jx:forEach>

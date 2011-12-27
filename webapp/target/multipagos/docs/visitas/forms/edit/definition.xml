@@ -42,6 +42,10 @@
 		
 		<fd:repeater id="detalle">
             <fd:widgets>
+            	<fd:booleanfield id="diferido">
+					<fd:label>Diferido</fd:label>
+				</fd:booleanfield>
+            
                 <fd:field id="numContrato">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>

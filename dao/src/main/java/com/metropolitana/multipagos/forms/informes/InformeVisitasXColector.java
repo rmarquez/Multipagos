@@ -27,7 +27,7 @@ public class InformeVisitasXColector {
 	
 	
 	public static List getVisitasXColector(Date fechaIni,
-			Date fechaFin, Integer colectorId) throws Exception {
+			Date fechaFin, Integer departamentoId, Integer colectorId) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			int visitas = 0;
@@ -35,11 +35,11 @@ public class InformeVisitasXColector {
 			List<Object[]> lista = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			for (Iterator iter = broker
-					.getReportQueryIteratorByQuery(queryVisitasXColector(fechaIni, fechaFin, colectorId)); iter.hasNext();) {
+					.getReportQueryIteratorByQuery(queryVisitasXColector(fechaIni, fechaFin, departamentoId, colectorId)); iter.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
 				visitas++;
 				
-				detalle[14]= visitas;
+				detalle[15]= visitas;
 				
                 lista.add(detalle);
 			}
@@ -53,7 +53,7 @@ public class InformeVisitasXColector {
 		}
 	}
 	
-	private static ReportQueryByCriteria queryVisitasXColector(Date fechaIni, Date fechaFin, Integer colectorId) {
+	private static ReportQueryByCriteria queryVisitasXColector(Date fechaIni, Date fechaFin, Integer departamentoId, Integer colectorId) {
 
 		Criteria criterio = new Criteria();
 
@@ -63,23 +63,33 @@ public class InformeVisitasXColector {
 		if (fechaFin != null) {
 			criterio.addLessOrEqualThan("fechaVisita", fechaFin);
 		}
+		if (departamentoId != null) {
+			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
+		}
 		if (colectorId != null) {
 			criterio.addEqualTo("colectorId", colectorId);
 		}
         
-		ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleVisitas.class,
-				criterio);
+		ReportQueryByCriteria query = new ReportQueryByCriteria(
+				DetalleVisitas.class, criterio);
 		query.setAttributes(new String[] { "visitaId", "numeroContrato",
-				"carteraIdRef.suscriptor", "carteraIdRef.localidadIdRef.localidadNombre",
-				"fechaVisita", "simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
-				"servicioIdRef.servicioNombre", "colectorId", "colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
-				"colectorIdRef.primerApellido","avisoCobro", "fprogCobro", "0.00", "0.00"});
-		
+				"carteraIdRef.suscriptor",
+				"carteraIdRef.departamentoIdRef.departamentoNombre",
+				"localidadIdRef.localidadNombre", "fechaVisita",
+				"simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
+				"servicioIdRef.servicioNombre", "colectorId",
+				"colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
+				"colectorIdRef.primerApellido", "avisoCobro", "fprogCobro",
+				"0.00", "0.00" });
+
 		query.addGroupBy(new String[] { "visitaId", "numeroContrato",
-				"carteraIdRef.suscriptor", "carteraIdRef.localidadIdRef.localidadNombre",
-				"fechaVisita", "simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
-				"servicioIdRef.servicioNombre", "colectorId", "colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
-				"colectorIdRef.primerApellido","avisoCobro", "fprogCobro"});
+				"carteraIdRef.suscriptor",
+				"carteraIdRef.departamentoIdRef.departamentoNombre",
+				"localidadIdRef.localidadNombre", "fechaVisita",
+				"simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
+				"servicioIdRef.servicioNombre", "colectorId",
+				"colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
+				"colectorIdRef.primerApellido", "avisoCobro", "fprogCobro" });
 		
 
 		query.addOrderBy("avisoCobro", true);

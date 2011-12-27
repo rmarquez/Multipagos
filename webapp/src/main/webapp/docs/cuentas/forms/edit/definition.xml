@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1">   
+    
+    <fd:widgets>
+             
+        <fd:field id="bancoId" required="true">
+              	<fd:label>Banco</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/banco.combo"
+				cache="none" />										
+		</fd:field>
+        
+        <fd:field id="cuentaEmpresa" required="true">
+            <fd:label>Empresa: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="12"/>
+            </fd:validation>
+        </fd:field>
+        
+        <fd:field id="cuentaMoneda" required="true">
+            <fd:label>Moneda: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="5"/>
+            </fd:validation>
+        </fd:field>
+        
+        <fd:field id="numeroCuenta" required="true">
+            <fd:label>Numero Cuenta: </fd:label>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="20"/>
+            </fd:validation>
+        </fd:field>
+        
+        <fd:submit id="guardar">
+          <fd:label>Guardar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

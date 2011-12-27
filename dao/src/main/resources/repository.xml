@@ -172,9 +172,22 @@
 		<field-descriptor name="bancoId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="banco_banco_id_seq" column="BANCO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="bancoNombre" nullable="false" default-fetch="true" column="BANCO_NOMBRE" jdbc-type="VARCHAR"/>
 		<field-descriptor name="inactivo" nullable="false" default-fetch="true" column="INACTIVO" jdbc-type="BIT"/>
+		<collection-descriptor name="cuentasList" element-class-ref="com.metropolitana.multipagos.Cuentas" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="bancoId"/>
+		</collection-descriptor>
 		<collection-descriptor name="arqueoChequeList" element-class-ref="com.metropolitana.multipagos.ArqueoCheque" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="bancoId"/>
 		</collection-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.Cuentas" table="CUENTAS">
+		<field-descriptor name="cuentaId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="cuentas_cuenta_id_seq" column="CUENTA_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="bancoId" nullable="false" default-fetch="true" column="BANCO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="cuentaEmpresa" nullable="false" default-fetch="true" column="CUENTA_EMPRESA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="cuentaMoneda" nullable="false" default-fetch="true" column="CUENTA_MONEDA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numeroCuenta" nullable="false" default-fetch="true" column="NUMERO_CUENTA" jdbc-type="VARCHAR"/>
+		<reference-descriptor name="bancoIdRef" class-ref="com.metropolitana.multipagos.Banco" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="bancoId"/>
+		</reference-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Prueba" table="PRUEBA">
 		<field-descriptor name="pruebaId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="prueba_prueba_id_seq" column="PRUEBA_ID" jdbc-type="INTEGER"/>

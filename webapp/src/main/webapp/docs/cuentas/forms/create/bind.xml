@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="bancoId" path="bancoId"/>
+    <fb:value id="cuentaEmpresa" path="cuentaEmpresa"/>
+    <fb:value id="cuentaMoneda" path="cuentaMoneda"/>
+    <fb:value id="numeroCuenta" path="numeroCuenta"/>
+</fb:context>

@@ -24,6 +24,12 @@
                 </fd:convertor>
             </fd:datatype>
         </fd:field>
+        
+        <fd:field id="departamentoId">
+        	<fd:label>Departamento:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/departamentos.combo" cache="none" />
+		</fd:field>
 
         <fd:field id="colectorId">
         	<fd:label>Colector:</fd:label>

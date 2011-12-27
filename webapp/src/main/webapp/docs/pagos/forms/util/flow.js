@@ -147,7 +147,7 @@ function alSeleccionarContrato(event) {
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null && facturaInterna == null){
-		var cartera = handlerCartera.carteraXContrato(numContrato);
+		var cartera = handlerCartera.carteraXContrato(numContrato, null);
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   banco.java                        Build:2545
+//===   cuentas.java                        Build:2545
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -10,7 +10,7 @@ import com.metropolitana.multipagos.*;
 
 //==============================================================================
 
-public class Banco implements java.io.Serializable
+public class Cuentas implements java.io.Serializable
 {
 
    //---------------------------------------------------------------------------
@@ -18,9 +18,20 @@ public class Banco implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   private Integer    cuentaId;
    private Integer    bancoId;
-   private String     bancoNombre;
-   private Boolean    inactivo;
+   private String     cuentaEmpresa;
+   private String     cuentaMoneda;
+   private String     numeroCuenta;
+
+   //---------------------------------------------------------------------------
+
+   public Integer getCuentaId() { return cuentaId; }
+
+   public void setCuentaId(Integer cuentaId)
+   {
+      this.cuentaId = cuentaId;
+   }
 
    //---------------------------------------------------------------------------
 
@@ -33,49 +44,42 @@ public class Banco implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public String getBancoNombre() { return bancoNombre; }
+   public String getCuentaEmpresa() { return cuentaEmpresa; }
 
-   public void setBancoNombre(String bancoNombre)
+   public void setCuentaEmpresa(String cuentaEmpresa)
    {
-      this.bancoNombre = bancoNombre;
+      this.cuentaEmpresa = cuentaEmpresa;
    }
 
    //---------------------------------------------------------------------------
 
-   public Boolean getInactivo() { return inactivo; }
+   public String getCuentaMoneda() { return cuentaMoneda; }
 
-   public void setInactivo(Boolean inactivo)
+   public void setCuentaMoneda(String cuentaMoneda)
    {
-      this.inactivo = inactivo;
+      this.cuentaMoneda = cuentaMoneda;
    }
 
    //---------------------------------------------------------------------------
 
-   private Collection cuentasList = new ArrayList();
+   public String getNumeroCuenta() { return numeroCuenta; }
 
-   public Collection getCuentasList() { return cuentasList;}
-
-   public void setCuentasList(Collection c) { this.cuentasList = c;}
-
-   public void addCuentas( Cuentas cuentas )
+   public void setNumeroCuenta(String numeroCuenta)
    {
-      cuentas.setBancoIdRef(this);
-      cuentasList.add( cuentas );
+      this.numeroCuenta = numeroCuenta;
    }
 
    //---------------------------------------------------------------------------
 
-   private Collection arqueoChequeList = new ArrayList();
+   private Banco bancoIdRef;
 
-   public Collection getArqueoChequeList() { return arqueoChequeList;}
+   public Banco getBancoIdRef() { return bancoIdRef; }
 
-   public void setArqueoChequeList(Collection c) { this.arqueoChequeList = c;}
-
-   public void addArqueoCheque( ArqueoCheque arqueoCheque )
+   public void setBancoIdRef(Banco banco)
    {
-      arqueoCheque.setBancoIdRef(this);
-      arqueoChequeList.add( arqueoCheque );
+      this.bancoIdRef = banco;
    }
+
 }
 
 //==============================================================================

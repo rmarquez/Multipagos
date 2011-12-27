@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2544</attrib>
-		<attrib name="serial">1082361</attrib>
+		<attrib name="build">2546</attrib>
+		<attrib name="serial">1084493</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -6447,6 +6447,239 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 					<rules/>
 					<attribs>
 						<attrib name="comment"/>
+						<attrib name="name">cuentas</attrib>
+						<attrib name="id">1082362</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339">nextval('cuentas_cuenta_id_seq')</attrib>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cuenta_id</attrib>
+							<attrib name="id">1082370</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">2747</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">1029241</attrib>
+							<attrib name="name">banco_id</attrib>
+							<attrib name="id">1082792</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">1029234</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cuenta_empresa</attrib>
+							<attrib name="id">1083215</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">799690</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cuenta_moneda</attrib>
+							<attrib name="id">1083216</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">799690</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">numero_cuenta</attrib>
+							<attrib name="id">1083217</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1687</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
 						<attrib name="name">prueba</attrib>
 						<attrib name="id">1035445</attrib>
 						<attrib name="schema"/>
@@ -6955,6 +7188,24 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 				<sequence>
 					<attribs>
 						<attrib name="name">estado_corte_estado_id_seq</attrib>
+						<attrib name="increment">1</attrib>
+						<attrib name="cache">1</attrib>
+						<attrib name="cycle">false</attrib>
+						<attrib name="start">1</attrib>
+						<attrib name="minValue">1</attrib>
+						<attrib name="maxValue">2147483647</attrib>
+						<attrib name="order">false</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Secuencia para manejar el consecutivo de los registros de los usuarios del sistema.</t>
+						</p>
+					</docs>
+				</sequence>
+				<sequence>
+					<attribs>
+						<attrib name="name">cuentas_cuenta_id_seq</attrib>
 						<attrib name="increment">1</attrib>
 						<attrib name="cache">1</attrib>
 						<attrib name="cycle">false</attrib>
@@ -11386,7 +11637,8 @@ INSERT INTO tipo_documento_logs VALUES(10,'Cartera x Departamento');
 INSERT INTO tipo_documento_logs VALUES(11,'Control Visitas');
 INSERT INTO tipo_documento_logs VALUES(12,'Control Pagos');
 INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');
-INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');</attrib>
+INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');
+INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>

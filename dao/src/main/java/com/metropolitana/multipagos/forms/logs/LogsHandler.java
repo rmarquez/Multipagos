@@ -11,6 +11,7 @@ import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.CantidadMonedas;
 import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.Colector;
+import com.metropolitana.multipagos.Cuentas;
 import com.metropolitana.multipagos.Departamento;
 import com.metropolitana.multipagos.EstadoCorte;
 import com.metropolitana.multipagos.Localidad;
@@ -652,6 +653,50 @@ public class LogsHandler {
 					+ " a las " + fecha.getHours() + ":" + fecha.getMinutes();
 		}
 		return strDescripcion;		
+	}
+	
+	/**
+	 * Crea un registro de Logs para del documento cuentas
+	 *
+	 * @param cuenta
+	 *            bean del documento cuentas
+	 * @param fecha
+	 *            fecha en que se registra el log
+	 * @param usrId
+	 *            identificador del usuario
+	 * @param broker
+	 * @return
+	 * @throws Exception
+	 */
+	public static Logs setLogsDelSistema(Cuentas cuenta,
+			Date fecha, Integer usrId, Integer estadoId,
+			PersistenceBroker broker) throws Exception {
+		Logs logs = new Logs();
+		AuthUser user = Auth_userHandler.retrieve(usrId, broker);
+		// Asignamos los valores a la transacción
+		logs.setLogsReferencia(cuenta.getCuentaId().toString());
+		logs.setLogsFecha(fecha);
+		logs.setTipodLogIdRef(TipoDocumentoLogHandler.retrieve(
+				TipoDocumentoLogHandler.CUENTAS, broker));
+		logs.setLogsDescripcion(getDescripcion(cuenta, user, estadoId, fecha));
+		return logs;
+	}
+
+	/**
+	 * Log o Mensaje que se registrará .
+	 *
+	 * @param cuenta
+	 *            bean del objeto cuenta
+	 * @param user
+	 *            bean del objeto usuario
+	 * @param estadoId
+	 * @return
+	 */
+	private static String getDescripcion(Cuentas cuenta, AuthUser user,
+			Integer estadoId, Date fecha) {
+		String strDescripcion = "";
+		strDescripcion = " Cuenta #  : " + cuenta.getNumeroCuenta();
+		return getEstado(strDescripcion, estadoId, fecha, user);
 	}
 	
 	/**

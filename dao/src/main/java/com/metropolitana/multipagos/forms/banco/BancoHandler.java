@@ -289,10 +289,6 @@ public class BancoHandler {
                 broker.close();
             }
         }
-    }
-	
-	
-
-		
+    }		
 
 }

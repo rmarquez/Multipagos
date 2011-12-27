@@ -76,6 +76,7 @@
              <!--Submenu de Administracion de catalogos-->
             <div dojoType="PopupMenu2" widgetId="adminCatalogos">
             	<div dojoType="MenuItem2" caption="Bancos" submenuId="bancos"/>
+            	<div dojoType="MenuItem2" caption="Cuentas" submenuId="cuentas"/>
             	<div dojoType="MenuItem2" caption="Departamentos" submenuId="departamentos"/>
             	<div dojoType="MenuItem2" caption="Localidad" submenuId="localidad"/>
             	<div dojoType="MenuItem2" caption="Barrio" submenuId="barrio"/>
@@ -93,6 +94,13 @@
                          onClick="parent.window.location='/multipagos/banco/create'"/>
                     <div dojoType="MenuItem2" caption="Buscar"
                             onClick="parent.window.location='/multipagos/banco/search'"/>
+                </div>
+                <!-- Submenu de Catalogo de Cuentas -->
+                <div dojoType="PopupMenu2" widgetId="cuentas">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/cuentas/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/cuentas/search'"/>
                 </div>
                 <!-- Submenu de Catalogo de Departamentos -->
                 <div dojoType="PopupMenu2" widgetId="departamentos">

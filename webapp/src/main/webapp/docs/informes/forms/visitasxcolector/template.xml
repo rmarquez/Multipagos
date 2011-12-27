@@ -13,6 +13,7 @@
                     <fi:items>
                         <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                         <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+                        <ft:widget id="departamentoId"/>
                         <ft:widget id="colectorId"/>
                     </fi:items>
                 </fi:group>

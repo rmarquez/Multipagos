@@ -11,7 +11,7 @@
             <fd:hint>Ingrese el nombre del usuario que ingresará al sistema</fd:hint>
             <fd:help>Ingrese el nombre del usuario que ingresará al sistema</fd:help>
             <fd:datatype base="string">
-                <fd:validation><fd:length min="5" max="10"/></fd:validation>
+                <fd:validation><fd:length min="5" max="20"/></fd:validation>
             </fd:datatype>
         </fd:field>
         <fd:field id="auth_passwd" required="true">

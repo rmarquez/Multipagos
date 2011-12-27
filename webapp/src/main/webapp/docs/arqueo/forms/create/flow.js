@@ -12,6 +12,7 @@ function createform(form) {
     	var usuario = handlerUser.retrieve(usrId);
     	form.getChild("usrId").setValue(usuario.getUsrId());
     	form.getChild("autorizado").setValue(Boolean.FALSE);
+    	form.getChild("pagoFecha").setValue(new Packages.java.util.Date());	
     	form.showForm("create-form-display");
 
         var bean = new Packages.com.metropolitana.multipagos.ArqueoPagos();
