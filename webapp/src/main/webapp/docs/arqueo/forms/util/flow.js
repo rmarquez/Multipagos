@@ -62,7 +62,6 @@ function alSeleccionarColector(event) {
 	        	var rowGuardar = bean.get(i);
 	        	 detalle.addRow();	
 	        	 var row = detalle.getRow(i);
-	        java.lang.System.out.println("Recibo = " + rowGuardar[0]);
 	        	 row.getChild("recibo").setValue(rowGuardar[0]);   
 	    	     row.getChild("facturaInterna").setValue(rowGuardar[1]);
 	    	     row.getChild("numContrato").setValue(rowGuardar[2]);
@@ -148,6 +147,20 @@ function alSeleccionarFactura(event) {
 	} 
 }
 
+function alSeleccionarContrato(event) {
+	var numContrato = event.source.value;
+	var facturaInterna = event.source.parent.getChild("facturaInterna").getValue();
+	var suscriptor = event.source.parent.getChild("suscriptor");    
+	//suscriptor.setValue(null);
+    var handlerCartera = new CarteraXDepartamentoHandler(); 
+    if(numContrato != null && facturaInterna == null){
+		var cartera = handlerCartera.carteraXContrato(numContrato, null);
+		if(cartera != null){
+			suscriptor.setValue(cartera.getSuscriptor());	
+			
+		}
+	}	
+}
 
 function alSeleccionarAceptar(event) {
     var aceptar = event.source.value;    

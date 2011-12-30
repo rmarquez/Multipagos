@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
 	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
-	<fd:validation>
-        <fd:javascript>        	
-            return validarForm(widget)&amp;&amp;
-            	   validarUsuarioForm(widget);         
-        </fd:javascript>
-    </fd:validation>
-	
-	<fd:widgets>
-		<fd:booleanfield id="autorizado"/>
 		
-		<fd:messages id="mensajes de error">
-            <fd:label>Ocurrieron los siguientes errores</fd:label>
-        </fd:messages>  
-                
-       	<fd:field id="auth_user" state="invisible">
-	      <fd:label>Usuario:</fd:label>
-	      <fd:datatype base="string">
-	          <fd:validation><fd:length min="5" max="10"/></fd:validation>
-	      </fd:datatype>
-	  </fd:field>
-       <fd:field id="auth_passwd" state="invisible">
-           <fd:label>Contraseña:</fd:label>
-           <fd:datatype base="string">
-               <fd:validation><fd:length min="5" max="20"/></fd:validation>
-           </fd:datatype>
-       </fd:field>	        
-        
+	<fd:widgets>	
+		
         <fd:field id="usrId" state="output">
 			<fd:label>Supervisor: </fd:label>
 			<fd:datatype base="integer" />
@@ -35,7 +11,7 @@
 				cache="none" />			
 		</fd:field>
 
-        <fd:field id="pagoFecha" required="true">
+        <fd:field id="pagoFecha" state="output">
             <fd:label>Fecha: </fd:label>
             <fd:datatype base="date">
 				<fd:convertor type="formatting" variant="date">
@@ -46,7 +22,7 @@
 			</fd:datatype>			
         </fd:field>
         
-        <fd:field id="colectorId" required="true">
+        <fd:field id="colectorId" state="output">
     		<fd:label>Colector: </fd:label>    
 			<fd:datatype base="integer"/>
 			<fd:selection-list src="cocoon:/colector.combo"
@@ -87,11 +63,6 @@
                 <fd:field id="numContrato" state="output">
 					<fd:label>Contrato</fd:label>
 		            <fd:datatype base="string"/>
-		            <fd:on-value-changed>
-						<fd:javascript>
-							alSeleccionarContrato(event);
-						</fd:javascript>
-					</fd:on-value-changed>		            
                 </fd:field>
                 
                 <fd:field id="fecha" state="output">
@@ -132,7 +103,7 @@
 		<fd:repeater id="detalleCantidad">
             <fd:widgets>
                 
-                <fd:field id="cantidadId">
+                <fd:field id="cantidadId" state="output">
                 	<fd:label>Denominacion</fd:label>
 					<fd:datatype base="integer"/>
 					<fd:selection-list src="cocoon:/cantidadcs.combo"
@@ -144,11 +115,11 @@
 					</fd:on-value-changed>					
 				</fd:field>
 				
-				<fd:field id="cantidadValor">
+				<fd:field id="cantidadValor" state="output">
 					<fd:datatype base="decimal"/>								
 				</fd:field>
 				
-				<fd:field id="cantidad" required="true">
+				<fd:field id="cantidad" state="output">
 					<fd:label>Cantidad</fd:label>			
 					<fd:datatype base="integer"/>
 					<fd:on-value-changed>
@@ -207,7 +178,7 @@
 		<fd:repeater id="detalleCantidadUs">
             <fd:widgets>
                 
-                <fd:field id="cantidadIdUs">
+                <fd:field id="cantidadIdUs" state="output">
                 	<fd:label>Denominacion</fd:label>
 					<fd:datatype base="integer"/>
 					<fd:selection-list src="cocoon:/cantidadus.combo"
@@ -219,11 +190,11 @@
 					</fd:on-value-changed>					
 				</fd:field>
 				
-				<fd:field id="cantidadValorUs">
+				<fd:field id="cantidadValorUs" state="output">
 					<fd:datatype base="decimal"/>								
 				</fd:field>
 				
-				<fd:field id="cantidadUs" required="true">
+				<fd:field id="cantidadUs" state="output">
 					<fd:label>Cantidad</fd:label>			
 					<fd:datatype base="integer"/>
 					<fd:on-value-changed>
@@ -280,19 +251,19 @@
 			<fd:repeater id="detalleCheque">
             <fd:widgets>
                 
-                <fd:field id="bancoId">
+                <fd:field id="bancoId" state="output">
                 	<fd:label>Banco</fd:label>
 					<fd:datatype base="integer"/>
 					<fd:selection-list src="cocoon:/banco.combo"
 						cache="none" />										
 				</fd:field>
 				
-				<fd:field id="numeroCheque" required="true">
+				<fd:field id="numeroCheque" state="output">
 					<fd:label>No. Cheque</fd:label>			
 					<fd:datatype base="integer" />			
 				</fd:field>
 				
-				<fd:booleanfield id="dolares">
+				<fd:booleanfield id="dolares" state="output">
 					<fd:label>Dolares</fd:label>
 					<fd:on-value-changed>
 						<fd:javascript>
@@ -301,12 +272,12 @@
 					</fd:on-value-changed>					
 				</fd:booleanfield>
 				
-				<fd:field id="beneficiario" required="true">
+				<fd:field id="beneficiario"  state="output">
 					<fd:label>Beneficiario </fd:label>					
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="montoCs">
+				<fd:field id="montoCs" state="output">
 		            <fd:label>Monto (C$)</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -324,7 +295,7 @@
 		            </fd:validation>
 		        </fd:field>
 		        
-		        <fd:field id="montoUs" state="invisible">
+		        <fd:field id="montoUs" state="output">
 		            <fd:label>Monto (U$)</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -340,7 +311,7 @@
 					</fd:on-value-changed>
 		        </fd:field>
 		        
-		        <fd:field id="conversion">
+		        <fd:field id="conversion" state="output">
 		            <fd:label>Conversion</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -383,7 +354,7 @@
 			
 			<fd:repeater id="detalleDepositos">
             <fd:widgets>
-                <fd:booleanfield id="dolares">
+                <fd:booleanfield id="dolares" state="output">
 					<fd:label>Dolares</fd:label>
 					<fd:on-value-changed>
 						<fd:javascript>
@@ -392,22 +363,22 @@
 					</fd:on-value-changed>					
 				</fd:booleanfield>
 				
-				<fd:field id="cuentaCs">
+				<fd:field id="cuentaCs" state="output">
 					<fd:label>Cuenta (C$)</fd:label>			
 					<fd:datatype base="integer"/>			
 				</fd:field>
 				
-				<fd:field id="cuentaUs" state="invisible">
+				<fd:field id="cuentaUs" state="output">
 					<fd:label>Cuenta (U$)</fd:label>			
 					<fd:datatype base="integer"/>			
 				</fd:field>
 				
-				<fd:field id="referencia">
+				<fd:field id="referencia" state="output">
 					<fd:label>Referencia </fd:label>					
 					<fd:datatype base="string" />
 				</fd:field>
 				
-				<fd:field id="montoCs">
+				<fd:field id="montoCs" state="output">
 		            <fd:label>Monto (C$)</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -425,7 +396,7 @@
 		            </fd:validation>
 		        </fd:field>
 		        
-		        <fd:field id="montoUs" state="invisible">
+		        <fd:field id="montoUs" state="output">
 		            <fd:label>Monto (U$)</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -441,7 +412,7 @@
 					</fd:on-value-changed>
 		        </fd:field>
 		        
-		        <fd:field id="conversion">
+		        <fd:field id="conversion" state="output">
 		            <fd:label>Conversion</fd:label>
 		            <fd:datatype base="decimal">
 		                <fd:convertor type="formatting" variant="number">
@@ -553,9 +524,7 @@
 	            if (totalUs != null) {
 	            	if (tasa != null) {
 	            		return totalUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
-	            	} else {
-	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
-	            	}	                	                
+	            	} 	                	                
 	            } 
 	            return java.math.BigDecimal.ZERO;
            </fd:value>
@@ -781,19 +750,11 @@
             <fd:value eval="Round(NVL(totalGeneral, 0) - NVL(totalRecibo, 0), 2)"/>
         </fd:calculatedfield>	
 
-        <fd:submit id="crear">
-			<fd:label>Crear</fd:label>
+        <fd:submit id="salir">
+			<fd:label>Salir</fd:label>
 					
-		</fd:submit>
+		</fd:submit>	
 		
-		<fd:submit id="aceptar" state="invisible">
-			<fd:label>Aceptar</fd:label>
-			<fd:on-value-changed>
-		        <fd:javascript>
-		            alSeleccionarAceptar(event);
-		        </fd:javascript>
-	        </fd:on-value-changed>
-		</fd:submit>
 
    </fd:widgets>
 </fd:form>

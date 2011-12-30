@@ -230,7 +230,7 @@ public class ArqueoHandler {
 	 */
 	@SuppressWarnings("unchecked")
 	public final Collection<ArqueoPagos> getResultadosXPagina(
-			final Date fecha, final Integer usrId,
+			final Date fecha, final Integer colectorId,
 			final int pagina, final int registrosXPagina)
 			throws Exception {
 		PersistenceBroker broker = null;
@@ -238,7 +238,7 @@ public class ArqueoHandler {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return getResultadosXPagina(
 					ArqueoPagos.class,
-					getCriterio(fecha, usrId), null, pagina,
+					getCriterio(fecha, colectorId), null, pagina,
 					registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
@@ -282,12 +282,12 @@ public class ArqueoHandler {
 	 *             resultados.
 	 */
 	public final int getContador(final Date fecha,
-			final Integer usrId) throws Exception {
+			final Integer colectorId) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			QueryByCriteria query = new QueryByCriteria(ArqueoPagos.class,
-					getCriterio(fecha, usrId));
+					getCriterio(fecha, colectorId));
 			return broker.getCount(query);
 		} catch (Exception e) {
 			throw e;
@@ -311,13 +311,13 @@ public class ArqueoHandler {
 	 * @return Criteria Criterio para la búsqueda.
 	 */
 	public static final Criteria getCriterio(final Date fecha,
-			final Integer usrId) {
+			final Integer colectorId) {
 		Criteria criterio = new Criteria();
 		if (fecha != null) {
 			criterio.addEqualTo("pagoFecha", fecha);
 		}
-		if (usrId != null) {
-			criterio.addEqualTo("usrId", usrId);
+		if (colectorId != null) {
+			criterio.addEqualTo("colectorId", colectorId);
 		}
 		
 		return criterio;

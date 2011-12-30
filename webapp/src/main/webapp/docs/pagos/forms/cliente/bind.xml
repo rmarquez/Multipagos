@@ -8,7 +8,7 @@
     <fb:value id="facturaInterna" path="facturaInterna"/>
     <fb:value id="numeroFiscal" path="numeroFiscal"/>
     
-    <fb:value id="ano" path="ano"/>
+    <fb:value id="anio" path="anio"/>
     <fb:value id="mes" path="mes"/>
     <fb:value id="saldo" path="saldo"/>
     <fb:value id="estadoId" path="estadoId"/>

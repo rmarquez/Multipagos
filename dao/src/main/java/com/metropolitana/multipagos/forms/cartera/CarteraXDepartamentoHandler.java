@@ -19,8 +19,6 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
-import com.metropolitana.multipagos.DetallePagos;
-import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
@@ -85,8 +83,7 @@ public class CarteraXDepartamentoHandler {
 	 *            bean que contiene los datos
 	 * @throws Exception
 	 */
-	public void update(final CarteraXDepartamento bean, Integer usrId, Boolean inactivo)
-			throws Exception {
+	public void update(final CarteraXDepartamento bean, Integer usrId)	throws Exception {
 		PersistenceBroker broker = null;
 
 		try {
@@ -94,14 +91,7 @@ public class CarteraXDepartamentoHandler {
 			broker.beginTransaction();
 			Date fecha = Calendar.getInstance().getTime();
 			actualizarReferencias(bean, broker);
-			broker.store(bean);
-			if (inactivo.booleanValue() == Boolean.FALSE) {
-				broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
-						Integer.valueOf(2), broker));
-			} else {
-				broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
-						Integer.valueOf(3), broker));
-			}
+			broker.store(bean);			
 			broker.commitTransaction();
 			broker.clearCache();
 		} catch (Exception e) {
@@ -114,6 +104,33 @@ public class CarteraXDepartamentoHandler {
 				broker.close();
 			}
 		}
+	}
+	
+	public void revertirPago(final Integer carteraId, final Integer usrId) throws Exception {		
+		
+		CarteraXDepartamento cartera = retrieve(carteraId);
+		if (cartera != null){
+			cartera.setContrato(cartera.getContrato());
+			cartera.setSuscriptor(cartera.getSuscriptor());
+			cartera.setNit(cartera.getNit());
+			cartera.setDireccion(cartera.getDireccion());
+			cartera.setFacturaInterna(cartera.getFacturaInterna());
+			cartera.setNumeroFiscal(cartera.getNumeroFiscal());
+			cartera.setAnio(cartera.getAnio());
+			cartera.setMes(cartera.getMes());
+			cartera.setSaldo(cartera.getSaldo());
+			cartera.setCupon(cartera.getCupon());
+			cartera.setTelefono(cartera.getTelefono());
+			cartera.setPagado(Boolean.FALSE);
+			cartera.setFechaPago(null);
+			cartera.setDepartamentoId(cartera.getDepartamentoId());
+			cartera.setLocalidadId(cartera.getLocalidadId());
+			cartera.setBarrioId(cartera.getBarrioId());
+			cartera.setServicioId(cartera.getServicioId());
+			cartera.setEstadoId(cartera.getEstadoId());
+			cartera.setFechaIngreso(cartera.getFechaIngreso());
+		}
+		update(cartera, usrId);
 	}
 
 	/**

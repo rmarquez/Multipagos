@@ -43,6 +43,7 @@ function borrarList() {
 	} else {
 		var usrId = null
 	}
-	handler.remove(pagoId, auth_getUserID());	
+	handler.revertirPagos(pagoId, auth_getUserID());
+	handler.remove(pagoId, auth_getUserID());
 	cocoon.sendPage("pagos.list?fecha="+fecha+"&usrId="+usrId+"&pagina="+Integer.valueOf(cocoon.request.pagina));
 }

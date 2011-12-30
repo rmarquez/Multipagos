@@ -1,5 +1,6 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.math.BigDecimal);
+importClass(Packages.java.lang.Boolean);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
@@ -14,7 +15,8 @@ function createform(form) {
     	var bean = new Packages.com.metropolitana.multipagos.Pagos();
 	    var handlerBean = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
 		form.getChild("usrId").setValue(usuario.getUsrId());
-		form.getChild("fecha").setValue(new Packages.java.util.Date());		
+		form.getChild("fecha").setValue(new Packages.java.util.Date());	
+		form.getChild("editar").setValue(Boolean.FALSE);
 		form.showForm("create-form-display");
         form.save(bean);
         if (form.submitId == "aceptar") {

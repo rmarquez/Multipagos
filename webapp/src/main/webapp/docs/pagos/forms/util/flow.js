@@ -60,32 +60,50 @@ function alSeleccionarFactura(event) {
     var saldoPagar = event.source.parent.getChild("salgoPagar");
     saldoPagar.setValue(null); 
     var fechaPago = event.source.parent.getChild("fechaPago");
-    fechaPago.setValue(null);
+    //fechaPago.setValue(null);
+    var editar = event.source.parent.getParent().getParent().getChild("editar").getValue();
     
     var handlerCartera = new CarteraXDepartamentoHandler();
     var handlerPagos = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
 	
     if(facturaInterna != null){
-    	if (handlerPagos.existeFactura(facturaInterna)==true) {
-    		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
+    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
+    	if(editar==false){
+	    	if (handlerPagos.existeFactura(facturaInterna)==true) {    		
+	    		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
+	    	} else {		    	
+		    	if(cartera != null){
+					carteraId.setValue(cartera.getCarteraId());
+					suscriptor.setValue(cartera.getSuscriptor());
+					localidadId.setValue(cartera.getLocalidadId());
+					servicioId.setValue(cartera.getServicioId());
+					year.setValue(cartera.getAnio());
+		    		mes.setValue(cartera.getMes());
+		    		saldoPagar.setValue(cartera.getSaldo()); 
+		    		montoPago.setValue(cartera.getSaldo()); 
+		    		numContrato.setValue(cartera.getContrato());
+		    		numeroFiscal.setValue(cartera.getNumeroFiscal());
+		    		cupon.setValue(cartera.getCupon());
+		    		fechaPago.setValue(new Packages.java.util.Date());
+				}
+	    	}
     	} else {
-	    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
-	    	if(cartera != null){
+    		if(cartera != null){
 				carteraId.setValue(cartera.getCarteraId());
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidadId.setValue(cartera.getLocalidadId());
 				servicioId.setValue(cartera.getServicioId());
-				year.setValue(cartera.getAno());
+				year.setValue(cartera.getAnio());
 	    		mes.setValue(cartera.getMes());
 	    		saldoPagar.setValue(cartera.getSaldo()); 
 	    		montoPago.setValue(cartera.getSaldo()); 
 	    		numContrato.setValue(cartera.getContrato());
 	    		numeroFiscal.setValue(cartera.getNumeroFiscal());
 	    		cupon.setValue(cartera.getCupon());
-	    		fechaPago.setValue(new Packages.java.util.Date());
+	    		//fechaPago.setValue(new Packages.java.util.Date());
 			}
     	}
-		
+    	
 	} 
 }
 
@@ -147,6 +165,7 @@ function alSeleccionarContrato(event) {
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null && facturaInterna == null){
+		
 		var cartera = handlerCartera.carteraXContrato(numContrato, null);
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId()); 
@@ -154,7 +173,7 @@ function alSeleccionarContrato(event) {
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
-			year.setValue(cartera.getAno());
+			year.setValue(cartera.getAnio());
 			
 		}
 		if (handlerCartera.existeContrato(numContrato)==false) {
@@ -178,25 +197,17 @@ function validarFechaPago(event) {
     	}
     }
 }
-/**
-function validarForm(form) {
-	
-	var detalle = form.getChild("detalle");
-	//int i;
+
+function revertirPago(event) {
+	var handlerBean = new Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler();
+	var detalle = event.source.parent.getChild("detalle");
 	for (var i = 0; i<detalle.size; i++) {
 	    var row = detalle.getRow(i);
-	    var carteraId = row.getChild("carteraId").getValue();
-	    var colectorId = row.getChild("colectorId").getValue();
-	    var localidadId = row.getChild("localidadId").getValue();
-	    var servicioId = row.getChild("servicioId").getValue();
+	    var marcar = row.getChild("marcar").getValue().booleanValue();
 	    
-	    java.lang.System.out.println("++carteraId = " + carteraId);
-	    java.lang.System.out.println("++colectorId = " + colectorId);
-	    java.lang.System.out.println("++localidadId = " + localidadId);
-	    java.lang.System.out.println("++servicioId = " + servicioId);
-	    	    
-    }	  
-	  
-	return true;
-}**/
-
+	    if(marcar==true){
+	    	var carteraId = row.getChild("carteraId").getValue();
+	    	handlerBean.revertirPago(carteraId, auth_getUserID());
+	    }	    
+    }   
+}

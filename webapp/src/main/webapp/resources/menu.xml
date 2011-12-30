@@ -201,7 +201,9 @@
           <!-- Submenu de Control de pagos -->
          <div dojoType="PopupMenu2" widgetId="arqueos">
              <div dojoType="MenuItem2" caption="Crear"
-                  onClick="parent.window.location='/multipagos/arqueo/create'"/>             
+                  onClick="parent.window.location='/multipagos/arqueo/create'"/> 
+             <div dojoType="MenuItem2" caption="Buscar"
+                  onClick="parent.window.location='/multipagos/arqueo/search'"/>            
          </div>
        
         <!-- Menu Ayuda -->

@@ -15,6 +15,7 @@ function searchform(form) {
 function arqueoList() {
 	var pagina = Integer.valueOf(cocoon.request.pagina);
 	var fecha = null;
+	var handlerUtil = new Packages.com.metropolitana.multipagos.forms.ScriptUtil();
 	if (cocoon.request.getParameter("fecha") != null){
 		fecha = handlerUtil.strToDate(cocoon.request.getParameter("fecha"));
 	}
@@ -30,7 +31,7 @@ function arqueoList() {
 		colectorId = null;
 	}
 	
-	var handler = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
-	var bean = handler.getResultadosXPagina(localidadNombre, departamentoId, filtrar, pagina, cocoon.session.registrosPorPagina);
-	cocoon.sendPage("forms/search/results.jx", {"bean":bean, "localidadNombre":localidadNombre, "pagina":pagina, "handler":handler, "departamentoId":departamentoId, "filtrar":filtrar});
+	var handler = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();
+	var bean = handler.getResultadosXPagina(fecha, colectorId, pagina, cocoon.session.registrosPorPagina);
+	cocoon.sendPage("forms/search/results.jx", {"bean":bean, "fecha":fecha, "pagina":pagina, "handler":handler, "colectorId":colectorId});
 }

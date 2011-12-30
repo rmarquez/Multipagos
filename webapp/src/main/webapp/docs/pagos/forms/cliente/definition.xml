@@ -43,7 +43,7 @@
             </fd:validation>
 		</fd:field>
 		
-		<fd:field id="nit" required="true">
+		<fd:field id="nit">
 			<fd:label>Nit</fd:label>					
 			<fd:datatype base="string" />
 			<fd:validation>
@@ -99,7 +99,7 @@
             </fd:validation>            		            
         </fd:field>
         
-        <fd:field id="numeroFiscal" required="true">
+        <fd:field id="numeroFiscal">
 			<fd:label>Numero Fiscal</fd:label>
             <fd:datatype base="string"/>
             <fd:validation>
@@ -107,7 +107,7 @@
             </fd:validation>            		            
         </fd:field>
         
-        <fd:field id="ano" required="true">
+        <fd:field id="anio">
 			<fd:label>Año</fd:label>
             <fd:datatype base="string"/>
             <fd:validation>
@@ -115,7 +115,7 @@
             </fd:validation>           		            
         </fd:field>
         
-        <fd:field id="mes" required="true">
+        <fd:field id="mes">
 			<fd:label>Mes</fd:label>
             <fd:datatype base="string"/>
             <fd:validation>
@@ -147,7 +147,7 @@
 				cache="request" />					
 		</fd:field>
         
-        <fd:field id="cupon" required="true">
+        <fd:field id="cupon">
 			<fd:label>Cupon</fd:label>
             <fd:datatype base="string"/>
             <fd:validation>

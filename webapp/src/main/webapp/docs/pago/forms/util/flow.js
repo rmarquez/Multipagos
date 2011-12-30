@@ -75,7 +75,7 @@ function alSeleccionarFactura(event) {
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidadId.setValue(cartera.getLocalidadId());
 				servicioId.setValue(cartera.getServicioId());
-				year.setValue(cartera.getAno());
+				year.setValue(cartera.getAnio());
 	    		mes.setValue(cartera.getMes());
 	    		saldoPagar.setValue(cartera.getSaldo()); 
 	    		montoPago.setValue(cartera.getSaldo()); 
@@ -160,7 +160,7 @@ function alSeleccionarContrato(event) {
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
-			year.setValue(cartera.getAno());
+			year.setValue(cartera.getAnio());
 			//event.source.parent.getChild("facturaInterna").setValue("-");
 			
 		}

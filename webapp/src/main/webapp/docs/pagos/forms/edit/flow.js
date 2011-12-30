@@ -1,5 +1,6 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.math.BigDecimal);
+importClass(Packages.java.lang.Boolean);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
@@ -8,9 +9,8 @@ function editform(form) {
     if (autorizar("informes")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.pagoId));
-    	java.lang.System.out.println("*** pagoId " + parseInt(cocoon.request.pagoId));
-    	   java.lang.System.out.println("*** bean " + bean);
-    	   llenarCamposlimpios(form);  
+    	form.getChild("editar").setValue(Boolean.TRUE);
+    	llenarCamposlimpios(form);  
     	form.load(bean);
     	llenarCamposlimpios(form);    	
     	form.showForm("edit-form-display");        

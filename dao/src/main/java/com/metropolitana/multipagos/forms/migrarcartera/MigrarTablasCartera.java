@@ -135,7 +135,7 @@ public class MigrarTablasCartera {
             // Tabla universidades
             selectOrigenQuery = "SELECT contrato, suscriptor, nit, direccion, barrio, factura_interna, numero_fiscal, anio, mes, saldo, estado, departamento, localidad, cupon, telefono, descuento, servicio, empleador, direccion_empleador, f_asiganado FROM tmp_cartera";
             countOrigenQuery = "SELECT COUNT(*) FROM tmp_cartera";
-            insertQuery = "INSERT INTO cartera_x_departamento(cartera_id, contrato, suscriptor, nit, direccion, barrio_id,factura_interna, numero_fiscal, ano, mes, saldo, estado_id, departamento_id,localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, pagado, fecha_pago, fecha_ingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            insertQuery = "INSERT INTO cartera_x_departamento(cartera_id, contrato, suscriptor, nit, direccion, barrio_id,factura_interna, numero_fiscal, anio, mes, saldo, estado_id, departamento_id,localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, pagado, fecha_pago, fecha_ingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             migracion(connPostgres, selectOrigenQuery, countOrigenQuery, insertQuery);
             
             

@@ -4,7 +4,9 @@
 	<fd:widgets>
 		<fd:messages id="mensajes de error">
             <fd:label>Ocurrieron los siguientes errores</fd:label>
-        </fd:messages> 
+        </fd:messages>
+        
+        <fd:booleanfield id="editar"/>
 		
         <fd:field id="usrId" state="output">
 			<fd:label>Supervisor</fd:label>
@@ -247,21 +249,21 @@
 				</fd:widgets>
 			</fd:repeater>
 
-			<!-- <fd:repeater-action id="agregar" command="add-row"
-				repeater="detalle">
+			<fd:repeater-action id="agregar" command="add-row" repeater="detalle">
 				<fd:label>Agregar</fd:label>
 				<fd:hint>
 					Haga click en el botón para agregar un registro.
 				</fd:hint>
-			</fd:repeater-action> -->
+			</fd:repeater-action>
 
-			<fd:repeater-action id="eliminar" command="delete-rows"
-				repeater="detalle" select="marcar">
+			<fd:repeater-action id="eliminar" command="delete-rows"	repeater="detalle" select="marcar">
 				<fd:label>Eliminar</fd:label>
-				<fd:hint>
-					Haga click en el botón para eliminar los registros
-					seleccionados.
-				</fd:hint>
+				<fd:hint>Haga click en el botón para eliminar los registros	seleccionados.</fd:hint>
+				<fd:on-action>
+	                <fd:javascript>
+	                    revertirPago(event);
+	                </fd:javascript>
+            	</fd:on-action>
 			</fd:repeater-action>
 
         <fd:submit id="guardar">

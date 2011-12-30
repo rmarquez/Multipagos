@@ -15,11 +15,9 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
-import com.metropolitana.multipagos.Barrio;
 import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetallePagos;
 import com.metropolitana.multipagos.Pagos;
-import com.metropolitana.multipagos.Visitas;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
@@ -167,6 +165,17 @@ public class PagosHandler {
             }
         }
     }
+	
+	
+	 public void revertirPagos(final Integer pagoId, final Integer usrId)  throws Exception {
+		 Pagos pago = retrieve(pagoId);
+		 CarteraXDepartamentoHandler cartHandler = new CarteraXDepartamentoHandler();
+		 Iterator iterDetalle = pago.getDetallePagosList().iterator();
+		 while (iterDetalle.hasNext()) {
+			DetallePagos det = (DetallePagos) iterDetalle.next();
+			cartHandler.revertirPago(det.getCarteraId(), usrId);				
+		 }        
+    }	
 
 	/**
 	 * Obtiene un visita.
@@ -296,10 +305,8 @@ public class PagosHandler {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			return getResultadosXPagina(
-					Pagos.class,
-					getCriterio(fecha, usrId), null, pagina,
-					registrosXPagina, broker);
+			//return Util.getResultadosXPagina(Pagos.class, getCriterio(fecha, usrId), null, pagina,registrosXPagina, broker);
+			return getResultadosXPagina(fecha, usrId, pagina,registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -310,8 +317,7 @@ public class PagosHandler {
 	}
 	
 	@SuppressWarnings("unchecked")
-    public static final Collection getResultadosXPagina(final Class clase,
-            final Criteria criterio, final String criterioOrden,
+    public static final Collection getResultadosXPagina(final Date fecha, final Integer usrId,
             final int pagina, final int registrosPorPagina,
             final PersistenceBroker broker) throws Exception {
         if (pagina >= 1  && registrosPorPagina >= 1) {
@@ -319,10 +325,15 @@ public class PagosHandler {
             if (pagina != 1) {
                 inicio = (registrosPorPagina * (pagina - 1)) + 1;
             }
-            QueryByCriteria query = new QueryByCriteria(clase, criterio);
-            if (criterioOrden != null) {
-            	query.addOrderBy(criterioOrden, true);
-            }            
+            Criteria criterio = new Criteria();
+    		if (usrId != null) {
+    			criterio.addEqualTo("usrId", usrId);
+    		}
+    		if (fecha != null) {
+    			criterio.addEqualTo("fecha", fecha);
+    		}
+            QueryByCriteria query = new QueryByCriteria(Pagos.class, criterio);
+            query.addOrderBy("usrId", true);            
             query.setStartAtIndex(inicio);
             query.setEndAtIndex(inicio + registrosPorPagina - 1);
             return broker.getCollectionByQuery(query);
@@ -360,26 +371,23 @@ public class PagosHandler {
 
 	/**
 	 * Contruir el criterio de búsqueda para la consulta en el formulario de
-	 * visita.
+	 * pagos.
 	 * 
-	 * @param visitaNombre
+	 * @param fecha
 	 *            Criterio de busqueda.
-	 * @param departamentoId
-	 *            Identificador del departamento.
-	 * @param campoBusqueda
-	 *            Nombre del campo en el cual se debe buscar.
+	 * @param usrId
+	 *            Identificador del usuario.
 	 * @return Criteria Criterio para la búsqueda.
 	 */
 	public static final Criteria getCriterio(final Date fecha,
 			final Integer usrId) {
 		Criteria criterio = new Criteria();
-		if (fecha != null) {
-			criterio.addEqualTo("fecha", fecha);
-		}
 		if (usrId != null) {
 			criterio.addEqualTo("usrId", usrId);
 		}
-		
+		if (fecha != null) {
+			criterio.addEqualTo("fecha", fecha);
+		}		
 		return criterio;
 	}
 

@@ -11,6 +11,7 @@
         <s1 title="Registro pagos a colector">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
              <ft:continuation-id/>
+             <ft:widget id="editar"><fi:styling type="hidden"/></ft:widget>
              <ft:widget id="mensajes de error"/>
              <fi:items>
 			         <table>	           
@@ -85,7 +86,7 @@
 								</ft:repeater-rows>
 								<tr>
 									<td colspan="17" align="right">
-										<!-- <ft:widget id="../agregar"/> -->
+										<ft:widget id="../agregar"/>
 										<ft:widget id="../eliminar"/>
 									</td>
 								</tr>

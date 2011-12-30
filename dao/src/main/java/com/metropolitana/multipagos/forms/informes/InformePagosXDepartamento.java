@@ -64,7 +64,7 @@ public class InformePagosXDepartamento {
 				"carteraIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
-				"carteraIdRef.cupon", "montoPago", "carteraIdRef.ano",
+				"carteraIdRef.cupon", "montoPago", "carteraIdRef.anio",
 				"carteraIdRef.mes", "carteraIdRef.suscriptor", "fechaPago",
 				"servicioIdRef.servicioNombre", "carteraIdRef.cuenta", "0.00" });
 
@@ -72,7 +72,7 @@ public class InformePagosXDepartamento {
 				"carteraIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
-				"carteraIdRef.cupon", "montoPago", "carteraIdRef.ano",
+				"carteraIdRef.cupon", "montoPago", "carteraIdRef.anio",
 				"carteraIdRef.mes", "carteraIdRef.suscriptor", "fechaPago",
 				"servicioIdRef.servicioNombre", "carteraIdRef.cuenta", });
 
