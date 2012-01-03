@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Visitas Pendientes</title>
+    </header>
+    <body>
+        <s1 title="Visitas Pendientes">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th align="left" colspan="4">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="5">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="9"/></tr>
+                    </tr>
+                    <tr>
+                        <th>CONTRATO</th>
+                        <th>FACTURA INTERNA</th>
+                        <th>SUSCRIPTOR</th>
+                        <th>DEPARTAMENTO</th>
+                        <th>LOCALIDAD</th>
+						<th>SERVICIO</th>
+                        <th>AÑO</th>
+                        <th>MES</th>
+                        <th>F.ASIGNADO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<jx:set var="departamento" value=""/>                   
+ 
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+	                    
+                        <jx:if test="departamento != item[4]}">
+                         <jx:if test="${!status.first}">
+                            <tr>
+	                           	<th colspan="4">Total Pendientes</th> 
+	                           	<th colspan="5"><jx:formatNumber value="${status.count}"/></th>                             
+                       		</tr>
+                            </jx:if>
+                            <jx:if test="${!status.last}">
+                                <tr><td colspan="9"></td></tr>
+                            </jx:if>
+                            
+                            
+                       </jx:if>
+                        <jx:set var="departamento" value="${item[4]}"/>
+                        <tr>
+                        	<td align="right">${item[0]}</td>
+                            <td align="right">${item[1]}</td>
+                            <td align="right">${item[2]}</td>
+	                        <td align="right">${item[3]}</td>
+                            <td align="right">${item[4]}</td>
+                            <td align="right">${item[5]}</td>
+                            <td align="right">${item[6]}</td>
+                            <td align="right">${item[7]}</td>
+                            <td align="right"><formatoFecha fecha="${item[8]}" patron="dd/MMM/yyyy"/></td>
+                        </tr>                        
+                        <jx:if test="${status.last}">
+                            <tr>
+                             	<th colspan="4">Total Pendientes</th> 
+                             	<th colspan="5"><jx:formatNumber value="${status.count}"/></th>                             
+                         	</tr>
+                        </jx:if>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>
