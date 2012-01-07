@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2546</attrib>
-		<attrib name="serial">1084493</attrib>
+		<attrib name="build">2548</attrib>
+		<attrib name="serial">1084507</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -8908,6 +8908,36 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="25984">false</attrib>
 								<attrib name="5342">false</attrib>
 								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">observaciones</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1084505</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
@@ -9905,6 +9935,66 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
 							<attrib name="type">382</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">anio</attrib>
+							<attrib name="id">1084496</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990702</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">mes</attrib>
+							<attrib name="id">1084500</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990703</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>

@@ -39,7 +39,7 @@ public class InformeVisitasXColector {
 				Object[] detalle = (Object[]) iter.next();
 				visitas++;
 				
-				detalle[15]= visitas;
+				detalle[16]= visitas;
 				
                 lista.add(detalle);
 			}
@@ -79,7 +79,7 @@ public class InformeVisitasXColector {
 				"simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
 				"servicioIdRef.servicioNombre", "colectorId",
 				"colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
-				"colectorIdRef.primerApellido", "avisoCobro", "fprogCobro",
+				"colectorIdRef.primerApellido", "avisoCobro", "observaciones","fprogCobro",
 				"0.00", "0.00" });
 
 		query.addGroupBy(new String[] { "visitaId", "numeroContrato",
@@ -89,7 +89,7 @@ public class InformeVisitasXColector {
 				"simboloIdRef.simboloNumero", "simboloIdRef.simboloNombre",
 				"servicioIdRef.servicioNombre", "colectorId",
 				"colectorIdRef.colectorNumero", "colectorIdRef.primerNombre",
-				"colectorIdRef.primerApellido", "avisoCobro", "fprogCobro" });
+				"colectorIdRef.primerApellido", "avisoCobro", "observaciones", "fprogCobro" });
 		
 
 		query.addOrderBy("avisoCobro", true);

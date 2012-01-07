@@ -11,19 +11,20 @@
     <columnas No="4" Unit="100"/>
     <columnas No="5" Unit="100"/>
     <columnas No="6" Unit="80"/>
-    <columnas No="7" Unit="80"/>
+    <columnas No="7" Unit="200"/>
+    <columnas No="8" Unit="80"/>
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${7}"/>
+    <jx:set var="colFin" value="${8}"/>
 
     <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
     <celda Col="${col+2}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
-    <estilo startCol="${col}" startRow="${fila}" endCol="${col+3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${col+4}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
     
-    <celda Col="${col+3}" Row="${fila}">Fecha Final:</celda> 
-     <celda Col="${col+5}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
-    <estilo startCol="${col+3}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    <celda Col="${col+4}" Row="${fila}">Fecha Final:</celda> 
+     <celda Col="${col+6}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col+4}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
     <jx:set var="fila" value="${fila+2}"/>
 
     <jx:set var="fila" value="${fila+2}"/>
@@ -47,7 +48,8 @@
         <celda Col="${col+4}" Row="${fila}">FACTURA INTERNA</celda>
         <celda Col="${col+5}" Row="${fila}">MES PENDIENTE</celda>
         <celda Col="${col+6}" Row="${fila}">SALDO</celda>
-        <celda Col="${col+7}" Row="${fila}">FECHA PAGO</celda>
+        <celda Col="${col+7}" Row="${fila}">OBSERVACION</celda>
+        <celda Col="${col+8}" Row="${fila}">FECHA PAGO</celda>
         <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
         <jx:set var="fila" value="${fila+1}"/>
         <jx:set var="filaInicial" value="${fila}"/>
@@ -60,7 +62,13 @@
     <celda Col="${col+4}" Row="${fila}">${item[6]}</celda>
     <celda Col="${col+5}" Row="${fila}">${item[7]}</celda>
     <celda Col="${col+6}" Row="${fila}" ValueType="flotante">${item[8]}</celda>
-    <celda Col="${col+7}" Row="${fila}"><formatoFecha fecha="${item[9]}"/></celda>    
+    <jx:if test="${item[12] != null}">
+    	<celda Col="${col+7}" Row="${fila}">${item[12]}</celda>
+    </jx:if>
+    <jx:if test="${item[12]== null}">
+    	<celda Col="${col+7}" Row="${fila}">-</celda>
+    </jx:if>
+    <celda Col="${col+8}" Row="${fila}"><formatoFecha fecha="${item[9]}"/></celda>    
 	<estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>
     <jx:set var="fila" value="${fila+1}"/>
     

@@ -9,13 +9,14 @@ function visitaspendientesform(form) {
         var fechaIni = form.getChild("fechaIni").getValue();
         var fechaFin = form.getChild("fechaFin").getValue();
         var departamentoId = form.getChild("departamentoId").getValue();
+        var servicioId = form.getChild("servicioId").getValue();
         
-        var bean = handler.getVisitasPendientes(fecha, fechaIni, fechaFin, departamentoId);
+        var bean = handler.getVisitasPendientes(fecha, fechaIni, fechaFin, departamentoId, servicioId);
 		var URL = "forms/visitaspendientes/results.jx";
 		if (form.submitId == "excel") {
 			URL = "forms/visitaspendientes/results.xls";
 		}
         cocoon.sendPageAndWait(URL,
-            { "bean":bean, "fecha":fecha, "fechaIni":fechaIni, "fechaFin":fechaFin, "departamentoId":departamentoId});
+            { "bean":bean, "fecha":fecha, "fechaIni":fechaIni, "fechaFin":fechaFin, "departamentoId":departamentoId, "servicioId":servicioId});
     }
 }

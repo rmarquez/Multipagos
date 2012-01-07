@@ -293,6 +293,7 @@
 		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" column="COLECTOR_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="localidadId" primarykey="true" nullable="false" default-fetch="true" column="LOCALIDAD_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="servicioId" primarykey="true" nullable="false" default-fetch="true" column="SERVICIO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="observaciones" default-fetch="true" column="OBSERVACIONES" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numeroContrato" nullable="false" default-fetch="true" column="NUMERO_CONTRATO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="fechaVisita" nullable="false" default-fetch="true" column="FECHA_VISITA" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="avisoCobro" nullable="false" default-fetch="true" column="AVISO_COBRO" jdbc-type="INTEGER"/>
@@ -349,6 +350,8 @@
 		<field-descriptor name="observaciones" default-fetch="true" column="OBSERVACIONES" jdbc-type="VARCHAR"/>
 		<field-descriptor name="salgoPagar" default-fetch="true" column="SALGO_PAGAR" jdbc-type="NUMERIC"/>
 		<field-descriptor name="porContrato" nullable="false" default-fetch="true" column="POR_CONTRATO" jdbc-type="BIT"/>
+		<field-descriptor name="anio" default-fetch="true" column="ANIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="mes" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
 		<reference-descriptor name="pagoIdRef" class-ref="com.metropolitana.multipagos.Pagos" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="pagoId"/>
 		</reference-descriptor>

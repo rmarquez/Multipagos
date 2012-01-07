@@ -25,21 +25,21 @@ function alSeleccionarUsuario(event) {
     }
 }
 
-function calcularVisitas(event) {
-	var cont = 0;
-	event.source.parent.getChild("cantidadVisitas").setValue(Integer.valueOf(cont));
-	var detalleVisitas = event.source.parent.getChild("detalle");
+function alCambiar(event) {
+    var contador = event.source.value;
+    var cantidadVisitas = event.source.parent.getParent().getParent().getChild("cantidadVisitas");
+    cantidadVisitas.setValue(null);
+    
+    var cont = 0;
+	var detalleVisitas = event.source.parent.getParent().getParent().getChild("detalle");
 	for (var i = 0; i<detalleVisitas.size; i++) {
 	    var row = detalleVisitas.getRow(i);
 	    var contador = row.getChild("contador").getValue();
-	    if(contador != null){
-	    	java.lang.System.out.println("contador = " + contador);
-		    cont += parseInt(contador);
-	    }
-	    
+	    cont += parseInt(contador);
     }	
-	event.source.parent.getChild("cantidadVisitas").setValue(Integer.valueOf(cont));
-   
+    if (contador != null) {
+        cantidadVisitas.setValue(Integer.valueOf(cont));
+    }
 }
 
 
@@ -60,19 +60,30 @@ function alSeleccionarContrato(event) {
     var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 	if(numContrato != null){
 		var cartera = handlerCartera.carteraXContrato(numContrato, diferido);
+		var pagado = cartera.getPagado();
+	java.lang.System.out.println("**** Pagado = " + pagado);
+	java.lang.System.out.println("**** cartera = " + cartera);
 		if(cartera != null){
-			carteraId.setValue(cartera.getCarteraId()); 
-			suscriptor.setValue(cartera.getSuscriptor());
-			localidad.setValue(cartera.getLocalidadId());
-			servicio.setValue(cartera.getServicioId());
-			fechaVisita.setValue(new Packages.java.util.Date());			
-		}
+			//if(!pagado){
+				carteraId.setValue(cartera.getCarteraId()); 
+				suscriptor.setValue(cartera.getSuscriptor());
+				localidad.setValue(cartera.getLocalidadId());
+				servicio.setValue(cartera.getServicioId());
+				fechaVisita.setValue(new Packages.java.util.Date());
+			/*} else if (pagado) {
+				if (cartera.getFechaPago() != null){
+					var fechaPago = java.text.SimpleDateFormat("dd/MM/yyyy").format(cartera.getFechaPago());					
+				}
+				event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato fue pagado el dia: "+ fechaPago +", favor verificar # de contrato."));
+			}*/
+			
+			
+		} 
 		if (handlerVisita.existeContrato(numContrato)==true) {
 			var visita = handlerVisita.getUltimaVisita(numContrato);
 			if (visita != null) {
 				var ultimaVisita = java.text.SimpleDateFormat("dd/MM/yyyy").format(visita);
-			}
-			
+			}			
     		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado el dia: "+ ultimaVisita +", favor verificar # de contrato."));
     	}
 	} 	
@@ -125,7 +136,7 @@ function alSeleccionarColector(event) {
     var horaRegistro = event.source.parent.getChild("horaRegistro");
     horaRegistro.setValue(null);
     var contador = event.source.parent.getChild("contador");
-    contador.setValue(null);
+    
     var handlerColector = new ColectorHandler();
     if (colectorId != null) {
     	var colector = handlerColector.colectorXNumero(colector);

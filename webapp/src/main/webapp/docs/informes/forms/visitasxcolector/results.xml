@@ -60,12 +60,12 @@
                             <td align="right"><formatoFecha fecha="${item[5]}" patron="dd/MMM/yyyy"/></td>
                             <td align="right">${item[6]}</td>
                             <td align="right">${item[7]}</td>
-                            <td align="right"></td>
+                            <td align="right">${item[14]}</td>
                             <td align="right">${item[8]}</td>
                             <td align="right">${item[10]}</td>
                             <td align="right">${item[11]} ${item[12]}</td>
                             <td align="right">${item[13]}</td>
-                            <td align="right"><formatoFecha fecha="${item[14]}" patron="dd/MMM/yyyy"/></td>
+                            <td align="right"><formatoFecha fecha="${item[15]}" patron="dd/MMM/yyyy"/></td>
                         </tr>                        
                         <jx:if test="${status.last}">
                             <tr>

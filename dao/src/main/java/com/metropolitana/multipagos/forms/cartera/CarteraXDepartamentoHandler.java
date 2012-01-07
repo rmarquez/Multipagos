@@ -305,7 +305,7 @@ public class CarteraXDepartamentoHandler {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);
 		criterio.setEsDiferido(diferido);
-		criterio.setPagado(Boolean.FALSE);
+		//criterio.setPagado(Boolean.FALSE);
 		Query query = new QueryByCriteria(criterio);
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}

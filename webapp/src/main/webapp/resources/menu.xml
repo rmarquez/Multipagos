@@ -4,7 +4,7 @@
         <!-- Menu Archivo -->
         <div dojoType="PopupMenu2" widgetId="inicioMenu">
             <div dojoType="MenuItem2" caption="Página de Inicio"
-                 onClick="parent.window.location='/multipagos/bienvenidos'"></div>
+                 onClick="parent.window.location='/multipagos/bienvenidos'"></div>           
             <div dojoType="MenuItem2" caption="Salir"
                 onClick="parent.window.location='/multipagos/salir'"></div>
         </div>
@@ -62,6 +62,8 @@
                          onClick="parent.window.location='/multipagos/informes/pagosxdepartamento'"/>
                 <div dojoType="MenuItem2" caption="Promesas de Pago"
                          onClick="parent.window.location='/multipagos/informes/promesasdepago'"/>
+                <div dojoType="MenuItem2" caption="Visitas Pendientes"
+                         onClick="parent.window.location='/multipagos/informes/visitaspendientes'"/>
                 
           </div>
         

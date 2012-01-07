@@ -11,9 +11,9 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th align="left" colspan="4">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
-                        <th align="left" colspan="4">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
-                        <tr><td colspan="8"/></tr>
+                        <th align="left" colspan="5">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="5">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="10"/></tr>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,12 +24,12 @@
                         <jx:if test="${colector != item[10]}">
                             <jx:if test="${!status.first}">
                                 <tr>
-                                    <tr><td colspan="7"/></tr>
+                                    <tr><td colspan="10"/></tr>
                                 </tr>                                
                             </jx:if>
                             <tr>
-                                <th colspan="8">COLECTOR: ${item[10]} ${item[11]}</th>
-                                <th colspan="8"/>
+                                <th colspan="10">COLECTOR: ${item[10]} ${item[11]}</th>
+                                <th colspan="10"/>
                             </tr>
                             <tr>
 		                        <th>CONTRATO</th>
@@ -39,6 +39,7 @@
 								<th>FACTURA INTERNA</th>
 		                        <th>MES PENDIENTE</th>
 		                        <th>SALDO</th>
+		                        <th>OBSERVACION</th>
 		                        <th>FECHA PAGO</th>
 		                    </tr>
                         </jx:if>
@@ -51,11 +52,12 @@
 	                        <td align="right">${item[6]}</td>
 	                        <td align="right">${item[7]}</td>
 	                        <td align="right"><formatoNumero numero="${item[8]}"/></td>
+	                        <td align="right">${item[12]}</td>
                             <td align="right"><formatoFecha fecha="${item[9]}" patron="dd/MMM/yyyy"/></td>
                         </tr>                        
                         <jx:if test="${status.last}">
                             <tr>
-                                <tr><td colspan="8"/></tr>
+                                <tr><td colspan="10"/></tr>
                             </tr>
                         </jx:if>
                     </jx:forEach>

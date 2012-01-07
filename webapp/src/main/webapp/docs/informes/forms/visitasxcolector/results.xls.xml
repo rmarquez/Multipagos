@@ -98,14 +98,14 @@
     <celda Col="${col+4}" Row="${fila}"><formatoFecha fecha="${item[5]}" patron="dd/MMM/yyyy"/></celda>
     <celda Col="${col+5}" Row="${fila}">${item[6]}</celda>
     <celda Col="${col+6}" Row="${fila}">${item[7]}</celda>
-    <celda Col="${col+7}" Row="${fila}">0</celda>
+    <celda Col="${col+7}" Row="${fila}">${item[14]}</celda>
     <celda Col="${col+8}" Row="${fila}">${item[8]}</celda>
     <jx:if test="${colectorId == null}"> 
 	    <celda Col="${col+9}" Row="${fila}">${item[10]}</celda>
 	    <celda Col="${col+10}" Row="${fila}">${item[11]} ${item[12]}</celda>
     </jx:if>
     <celda Col="${col+11}" Row="${fila}">${item[13]}</celda>
-    <celda Col="${col+12}" Row="${fila}"><formatoFecha fecha="${item[14]}" patron="dd/MMM/yyyy"/></celda>
+    <celda Col="${col+12}" Row="${fila}"><formatoFecha fecha="${item[15]}" patron="dd/MMM/yyyy"/></celda>
     <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
     <jx:set var="fila" value="${fila+1}"/>
 
@@ -113,7 +113,7 @@
     <jx:if test="${status.last}">      
         <celda Col="${col}" Row="${fila}">Total Visitas</celda>
         <estilo startCol="${col}" startRow="${fila}" endCol="${col+6}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
-        <celda Col="${col+6}" Row="${fila}" ValueType="flotante" patron="#,##0"><jx:formatNumber value="${item[15]}"/></celda>
+        <celda Col="${col+6}" Row="${fila}" ValueType="flotante" patron="#,##0"><jx:formatNumber value="${item[16]}"/></celda>
         <estilo  startCol="${col+6}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" Recuadro="1" Bold="1" Unit="16" Format="#,##0"/>
          <jx:set var="fila" value="${fila+1}"/>        
     </jx:if>

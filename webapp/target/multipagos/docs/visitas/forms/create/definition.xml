@@ -145,7 +145,8 @@
                <fd:field id="avisoCobro" required="true">
 					<fd:label>Aviso Cobro: </fd:label>					
 					<fd:datatype base="integer" />
-				</fd:field>
+				</fd:field>				
+				
 				
 				<fd:field id="fprogCobro" state="invisible">
 		            <fd:label>Prog Cobro</fd:label>
@@ -158,12 +159,22 @@
 					</fd:datatype>			
 		        </fd:field>
 		        
+		        <fd:field id="observaciones">
+					<fd:label>Observaciones </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+		        
 		        <fd:field id="horaRegistro" required="true">
 					<fd:datatype base="string" />
 				</fd:field>
 				
 				<fd:field id="contador">
-					<fd:datatype base="integer"/>														
+					<fd:datatype base="integer"/>
+					<fd:on-value-changed>
+					<fd:javascript>
+						alCambiar(event);
+					</fd:javascript>
+				</fd:on-value-changed>													
 				</fd:field>
 
 	        	<fd:booleanfield id="marcar">
@@ -183,11 +194,11 @@
 				<fd:hint>
 					Haga click en el botón para agregar un registro.
 				</fd:hint>
-				<fd:on-action>
+				<!-- <fd:on-action>
 	                <fd:javascript>
 	                    calcularVisitas(event);
 	                </fd:javascript>
-            	</fd:on-action>
+            	</fd:on-action> -->
 			</fd:repeater-action>
 
 			<fd:repeater-action id="eliminar" command="delete-rows"
@@ -197,11 +208,11 @@
 					Haga click en el botón para eliminar los registros
 					seleccionados.
 				</fd:hint>
-				<fd:on-action>
+				<!-- <fd:on-action>
 	                <fd:javascript>
 	                    calcularVisitas(event);
 	                </fd:javascript>
-            	</fd:on-action>
+            	</fd:on-action> -->
 			</fd:repeater-action>
 
         <fd:submit id="crear">

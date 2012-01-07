@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_pagos.java                        Build:2537
+//===   detalle_pagos.java                        Build:2547
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -34,6 +34,8 @@ public class DetallePagos implements java.io.Serializable
    private String     observaciones;
    private BigDecimal salgoPagar;
    private Boolean    porContrato;
+   private String     anio;
+   private String     mes;
 
    //---------------------------------------------------------------------------
 
@@ -177,6 +179,24 @@ public class DetallePagos implements java.io.Serializable
    public void setPorContrato(Boolean porContrato)
    {
       this.porContrato = porContrato;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getAnio() { return anio; }
+
+   public void setAnio(String anio)
+   {
+      this.anio = anio;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getMes() { return mes; }
+
+   public void setMes(String mes)
+   {
+      this.mes = mes;
    }
 
    //---------------------------------------------------------------------------

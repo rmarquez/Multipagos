@@ -34,10 +34,8 @@ function validarForm(form) {
 	var detalle = form.getChild("detalle");
 	
 	if(cantidadVisitas==null) {
-	form.getChild("mensajes de error").addMessage("¡ No se han registrado visitas !, verifique sus datos, puede contener algun error. ");
-	  return false;
-	}
-	  
-	  
+		form.getChild("mensajes de error").addMessage("¡ No se han registrado visitas !, verifique sus datos, puede contener algun error. ");
+		return false;
+	}	  
 	return true;
 }

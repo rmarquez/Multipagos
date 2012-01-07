@@ -20,14 +20,14 @@ import org.apache.ojb.broker.query.ReportQueryByCriteria;
 public class InformePagosXDepartamento {
 	
 	public static List getPagosXDepartamentos(Date fechaIni,
-			Date fechaFin, Integer departamentoId) throws Exception {
+			Date fechaFin, Integer departamentoId, Integer colectorId) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			BigDecimal montoTotal = BigDecimal.ZERO;
 			List<Object[]> lista = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			for (Iterator iter = broker
-					.getReportQueryIteratorByQuery(queryPagosXDepartamentos(fechaIni, fechaFin, departamentoId)); iter.hasNext();) {
+					.getReportQueryIteratorByQuery(queryPagosXDepartamentos(fechaIni, fechaFin, departamentoId, colectorId)); iter.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
 				
 				montoTotal = montoTotal.add((BigDecimal)detalle[7]);
@@ -44,7 +44,7 @@ public class InformePagosXDepartamento {
 		}
 	}
 	
-	private static ReportQueryByCriteria queryPagosXDepartamentos(Date fechaIni, Date fechaFin, Integer departamentoId) {
+	private static ReportQueryByCriteria queryPagosXDepartamentos(Date fechaIni, Date fechaFin, Integer departamentoId, Integer colectorId) {
 
 		Criteria criterio = new Criteria();
 
@@ -56,6 +56,9 @@ public class InformePagosXDepartamento {
 		}
 		if (departamentoId != null) {
 			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
+		}
+		if (colectorId != null) {
+			criterio.addEqualTo("colectorId", colectorId);
 		}
         
 		ReportQueryByCriteria query = new ReportQueryByCriteria(

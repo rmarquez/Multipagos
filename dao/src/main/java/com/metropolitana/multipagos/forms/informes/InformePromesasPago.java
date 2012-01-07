@@ -71,12 +71,12 @@ public class InformePromesasPago {
 		query.setAttributes(new String[] { "visitaId", "colectorId", "numeroContrato",
 				"carteraIdRef.suscriptor", "carteraIdRef.direccion", "localidadIdRef.departamentoIdRef.departamentoNombre",
 				"carteraIdRef.facturaInterna", "carteraIdRef.mes", "carteraIdRef.saldo",
-				"fprogCobro", "colectorIdRef.primerNombre", "colectorIdRef.primerApellido" });
+				"fprogCobro", "colectorIdRef.primerNombre", "colectorIdRef.primerApellido", "observaciones"});
 
 		query.addGroupBy(new String[] { "visitaId", "colectorId", "numeroContrato",
 				"carteraIdRef.suscriptor", "carteraIdRef.direccion", "localidadIdRef.departamentoIdRef.departamentoNombre",
 				"carteraIdRef.facturaInterna", "carteraIdRef.mes", "carteraIdRef.saldo",
-				"fprogCobro", "colectorIdRef.primerNombre", "colectorIdRef.primerApellido" });
+				"fprogCobro", "colectorIdRef.primerNombre", "colectorIdRef.primerApellido", "observaciones" });
 
 		query.addOrderBy("colectorId", true);
 		query.addOrderBy("fprogCobro", true);

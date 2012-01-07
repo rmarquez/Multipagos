@@ -14,3 +14,11 @@ function departamentosCombo() {
     }
 }
 
+function servicioCombo() {
+    if (autorizar("cata")) {
+    	var handler = new Packages.com.metropolitana.multipagos.forms.servicio.ServicioHandler();
+        var bean = handler.getServicioList();
+        cocoon.sendPage("servicioCombo-data", {"bean": bean});
+    }
+}
+

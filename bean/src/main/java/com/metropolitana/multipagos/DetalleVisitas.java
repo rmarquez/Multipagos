@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_visitas.java                        Build:2530
+//===   detalle_visitas.java                        Build:2548
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -24,6 +24,7 @@ public class DetalleVisitas implements java.io.Serializable
    private Integer    colectorId;
    private Integer    localidadId;
    private Integer    servicioId;
+   private String     observaciones;
    private String     numeroContrato;
    private Date       fechaVisita;
    private Integer    avisoCobro;
@@ -82,6 +83,15 @@ public class DetalleVisitas implements java.io.Serializable
    public void setServicioId(Integer servicioId)
    {
       this.servicioId = servicioId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getObservaciones() { return observaciones; }
+
+   public void setObservaciones(String observaciones)
+   {
+      this.observaciones = observaciones;
    }
 
    //---------------------------------------------------------------------------
