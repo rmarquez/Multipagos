@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2548</attrib>
-		<attrib name="serial">1084507</attrib>
+		<attrib name="build">2550</attrib>
+		<attrib name="serial">1084508</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -194,21 +194,21 @@ COMMIT;</attrib>
 				</castor>
 				<ojb>
 					<referenceDescriptor>Y</referenceDescriptor>
-					<output>/tmp/multipagos/ojb/java</output>
 					<sequence-manager>NextVal</sequence-manager>
+					<output>/tmp/multipagos/ojb/java</output>
 					<useDateConvertor>Y</useDateConvertor>
 					<defaultconnection>Y</defaultconnection>
 					<collectionDescriptor>Y</collectionDescriptor>
-					<Package>com.metropolitana.multipagos</Package>
 					<username>postgres</username>
+					<Package>com.metropolitana.multipagos</Package>
 				</ojb>
 			</GenericGenModule>
 			<DocsGenModule>
 				<pdf>
 					<pageSize>1</pageSize>
 					<output>/tmp/multipagos/docs/modelo.pdf</output>
-					<language>es</language>
 					<thumbnails>128</thumbnails>
+					<language>es</language>
 				</pdf>
 				<html>
 					<output>/tmp/multipagos/docs</output>
@@ -225,6 +225,20 @@ COMMIT;</attrib>
 					<output/>
 				</xml>
 			</DatadictGenModule>
+			<SqlGenModule>
+				<hsqldbSql>
+					<output/>
+				</hsqldbSql>
+				<stdSql>
+					<output/>
+				</stdSql>
+				<oraSql>
+					<output/>
+				</oraSql>
+				<pgSql>
+					<output>/tmp/multipagos/sql/crear_db.sql</output>
+				</pgSql>
+			</SqlGenModule>
 			<CodeGenModule>
 				<java>
 					<namePrefix/>
@@ -240,24 +254,10 @@ COMMIT;</attrib>
 					<getter>Y</getter>
 					<package>com.metropolitana.multipagos</package>
 					<genConsts>N</genConsts>
-					<useJdo>Y</useJdo>
 					<dirtyCheck>N</dirtyCheck>
+					<useJdo>Y</useJdo>
 				</java>
 			</CodeGenModule>
-			<SqlGenModule>
-				<stdSql>
-					<output/>
-				</stdSql>
-				<hsqldbSql>
-					<output/>
-				</hsqldbSql>
-				<oraSql>
-					<output/>
-				</oraSql>
-				<pgSql>
-					<output>/tmp/multipagos/sql/crear_db.sql</output>
-				</pgSql>
-			</SqlGenModule>
 		</modsConfig>
 		<modsUsage>
 			<module name="DocsGenModule.html"/>
@@ -2898,8 +2898,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_user_usr_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2933,8 +2933,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2968,8 +2968,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3003,8 +3003,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3038,8 +3038,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3073,8 +3073,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3108,8 +3108,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3364,8 +3364,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_role_rol_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3399,8 +3399,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3434,8 +3434,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3700,8 +3700,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('auth_resource_res_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3735,8 +3735,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3770,8 +3770,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3805,8 +3805,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4042,8 +4042,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4077,8 +4077,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4387,8 +4387,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4422,8 +4422,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4600,8 +4600,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('estado_corte_estado_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4630,8 +4630,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4660,8 +4660,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4779,8 +4779,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('departamento_departamento_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4809,8 +4809,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4839,8 +4839,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5263,8 +5263,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('localidad_localidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5293,8 +5293,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5323,8 +5323,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5353,8 +5353,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5466,8 +5466,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('barrio_barrio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5496,8 +5496,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5526,8 +5526,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5556,8 +5556,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5701,8 +5701,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('simbolo_simbolo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5731,8 +5731,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5761,8 +5761,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5791,8 +5791,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6022,8 +6022,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6057,8 +6057,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6177,8 +6177,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('servicio_servicio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6207,8 +6207,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6237,8 +6237,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6350,8 +6350,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('banco_banco_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6380,8 +6380,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6410,8 +6410,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6523,8 +6523,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cuentas_cuenta_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6553,8 +6553,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6583,8 +6583,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6613,8 +6613,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6643,8 +6643,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6756,8 +6756,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('prueba_prueba_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6786,8 +6786,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6816,8 +6816,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6929,8 +6929,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cantidad_monedas_cantidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6959,8 +6959,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6989,8 +6989,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7019,8 +7019,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7318,8 +7318,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('colector_colector_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7348,8 +7348,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7378,8 +7378,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7408,8 +7408,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7438,8 +7438,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7468,8 +7468,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7498,8 +7498,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7528,8 +7528,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7665,8 +7665,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cartera_x_departamento_cartera_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7695,8 +7695,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7725,8 +7725,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7755,8 +7755,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7785,8 +7785,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7815,8 +7815,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7845,8 +7845,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7875,8 +7875,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7905,8 +7905,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7935,8 +7935,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7965,8 +7965,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7995,8 +7995,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8025,8 +8025,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8055,8 +8055,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8085,8 +8085,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8115,8 +8115,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8145,8 +8145,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8175,8 +8175,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8205,8 +8205,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8235,8 +8235,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8265,8 +8265,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8295,8 +8295,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8325,8 +8325,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8355,8 +8355,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8385,8 +8385,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8415,8 +8415,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8528,8 +8528,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('visitas_visita_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8558,8 +8558,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8588,8 +8588,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8618,8 +8618,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8731,8 +8731,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8761,8 +8761,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8791,8 +8791,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8821,8 +8821,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8851,8 +8851,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8881,8 +8881,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8911,8 +8911,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8921,9 +8921,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">observaciones</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">observaciones</attrib>
 							<attrib name="id">1084505</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -8941,8 +8941,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8966,13 +8966,13 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						<fieldAttribs>
 							<attribs>
 								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
+								<attrib name="5342">true</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9001,8 +9001,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9031,8 +9031,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9061,8 +9061,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9174,8 +9174,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('pagos_pago_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9204,8 +9204,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9234,8 +9234,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9264,8 +9264,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9294,8 +9294,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9324,8 +9324,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9354,8 +9354,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9467,8 +9467,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9497,8 +9497,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9527,8 +9527,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9557,8 +9557,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9587,12 +9587,12 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
+								<attrib name="6390">true</attrib>
 							</attribs>
 						</fieldAttribs>
 						<attribs>
@@ -9617,8 +9617,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9647,8 +9647,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9677,8 +9677,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9707,8 +9707,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9737,8 +9737,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9762,13 +9762,13 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						<fieldAttribs>
 							<attribs>
 								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
+								<attrib name="5342">true</attrib>
 								<attrib name="31786">false</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9797,8 +9797,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9827,8 +9827,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9857,8 +9857,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9887,8 +9887,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9917,8 +9917,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9947,8 +9947,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9977,8 +9977,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10090,8 +10090,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('arqueo_pagos_arqueo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10120,8 +10120,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10150,8 +10150,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10180,8 +10180,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10210,8 +10210,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10240,8 +10240,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10270,8 +10270,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10300,8 +10300,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10330,8 +10330,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10360,8 +10360,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10390,8 +10390,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10420,8 +10420,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10450,8 +10450,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10480,8 +10480,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10510,8 +10510,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10540,8 +10540,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10653,8 +10653,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10683,8 +10683,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10713,8 +10713,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10743,8 +10743,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10856,8 +10856,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10886,8 +10886,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10916,8 +10916,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10946,8 +10946,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11059,8 +11059,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11089,8 +11089,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11119,8 +11119,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11149,8 +11149,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11179,8 +11179,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11209,8 +11209,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11239,8 +11239,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11269,8 +11269,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11382,8 +11382,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11412,8 +11412,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11442,8 +11442,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11472,8 +11472,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11502,8 +11502,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11532,8 +11532,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11562,8 +11562,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11592,8 +11592,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11916,8 +11916,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11951,8 +11951,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12187,8 +12187,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('logs_logs_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12222,8 +12222,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12257,8 +12257,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12292,8 +12292,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12327,8 +12327,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12469,8 +12469,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('tmp_cartera_tmp_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12499,8 +12499,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12529,8 +12529,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12559,8 +12559,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12589,8 +12589,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12619,8 +12619,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12649,8 +12649,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12679,8 +12679,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12709,8 +12709,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12739,8 +12739,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12769,8 +12769,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12799,8 +12799,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12829,8 +12829,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12859,8 +12859,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12889,8 +12889,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12919,8 +12919,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12949,8 +12949,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12979,8 +12979,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13009,8 +13009,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13039,8 +13039,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13069,8 +13069,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13182,8 +13182,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13212,8 +13212,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13242,8 +13242,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13272,8 +13272,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13302,8 +13302,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13332,8 +13332,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13362,8 +13362,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13392,8 +13392,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13422,8 +13422,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13452,8 +13452,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13482,8 +13482,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13512,8 +13512,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13542,8 +13542,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13572,8 +13572,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13602,8 +13602,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13632,8 +13632,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13662,8 +13662,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13692,8 +13692,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13722,8 +13722,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13752,8 +13752,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13782,8 +13782,8 @@ INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>

@@ -142,7 +142,7 @@
 				</fd:field>
 				
 
-               <fd:field id="avisoCobro" required="true">
+               <fd:field id="avisoCobro">
 					<fd:label>Aviso Cobro: </fd:label>					
 					<fd:datatype base="integer" />
 				</fd:field>				

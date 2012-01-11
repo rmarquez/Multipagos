@@ -5,18 +5,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-
-
 import com.metropolitana.multipagos.DetalleVisitas;
-
-
 
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
-
-
 
 /**
  * 
@@ -31,7 +25,6 @@ public class InformeVisitasXColector {
 		PersistenceBroker broker = null;
 		try {
 			int visitas = 0;
-			int numRepetidos = 0;
 			List<Object[]> lista = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			for (Iterator iter = broker

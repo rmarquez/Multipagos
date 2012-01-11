@@ -64,7 +64,8 @@ function alSeleccionarContrato(event) {
 	java.lang.System.out.println("**** Pagado = " + pagado);
 	java.lang.System.out.println("**** cartera = " + cartera);
 		if(cartera != null){
-			//if(!pagado){
+			//if(cartera.getPagado()==false){
+				java.lang.System.out.println("**** Pagado2 = " + pagado);
 				carteraId.setValue(cartera.getCarteraId()); 
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidad.setValue(cartera.getLocalidadId());
@@ -114,7 +115,7 @@ function alSeleccionarSimbolo(event) {
     	if(simbolo2 != null){
 	    	simboloNombre.setValue(simbolo2.getSimboloNombre());    	
 	    	simboloId.setValue(simbolo2.getSimboloId()); 
-	    	if(simbolo2.getSimboloNumero()=="30") {   
+	    	if(simbolo2.getSimboloNumero()=="30" || simbolo2.getSimboloNumero()=="35") {   
 	    		fprogCobro.setState(WidgetState.ACTIVE);        	
 	    	} else {
 	    		fprogCobro.setState(WidgetState.INVISIBLE); 

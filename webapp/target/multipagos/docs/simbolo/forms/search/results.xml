@@ -24,7 +24,7 @@
                   <jx:forEach items="${bean}" varStatus="status">
                         <tr>
 
-                           <td><jx:formatNumber value="${status.count + first}"/></td>
+                           <td>${status.current.simboloNumero}</td>
                            <td>${status.current.simboloNombre}</td>
                            <td>${status.current.inactivo}</td>
                              <td>

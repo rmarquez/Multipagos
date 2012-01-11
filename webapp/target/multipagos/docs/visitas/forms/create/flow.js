@@ -31,7 +31,23 @@ function createform(form) {
 function validarForm(form) {
 	var cantidadVisitas = form.getChild("cantidadVisitas").getValue();
 	var widgetMensaje = form.getChild("mensajes de error");
+	var handlerSimbolo = new SimboloHandler();
 	var detalle = form.getChild("detalle");
+	
+	for (var i = 0; i<detalle.size; i++) {
+	    var row = detalle.getRow(i);
+	    var simboloId = row.getChild("simboloId").getValue();
+	    if(simboloId != null){
+	    	var simbolo = handlerSimbolo.simboloXNumero(simboloId);
+	    	if(simbolo.getSimboloNumero()!="34") {   
+	    		var avisoCobro = row.getChild("avisoCobro").getValue();
+	    		if (avisoCobro == null){
+	    			form.getChild("mensajes de error").addMessage("El campo aviso cobro no puede ser nulo. ");
+	    			return false;
+	    		}	    		      	
+	    	}
+	    }
+    }
 	
 	if(cantidadVisitas==null) {
 		form.getChild("mensajes de error").addMessage("¡ No se han registrado visitas !, verifique sus datos, puede contener algun error. ");
