@@ -4,6 +4,7 @@ importClass(Packages.java.text.DateFormat);
 importClass(Packages.java.text.SimpleDateFormat);
 importClass(Packages.java.util.Calendar);
 importClass(Packages.java.util.Date);
+importClass(Packages.java.lang.Boolean);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
@@ -61,25 +62,25 @@ function alSeleccionarContrato(event) {
 	if(numContrato != null){
 		var cartera = handlerCartera.carteraXContrato(numContrato, diferido);
 		var pagado = cartera.getPagado();
-	java.lang.System.out.println("**** Pagado = " + pagado);
-	java.lang.System.out.println("**** cartera = " + cartera);
+	
 		if(cartera != null){
-			//if(cartera.getPagado()==false){
-				java.lang.System.out.println("**** Pagado2 = " + pagado);
+			if(pagado.compareTo(false)==0){
 				carteraId.setValue(cartera.getCarteraId()); 
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidad.setValue(cartera.getLocalidadId());
 				servicio.setValue(cartera.getServicioId());
 				fechaVisita.setValue(new Packages.java.util.Date());
-			/*} else if (pagado) {
+			} else {
 				if (cartera.getFechaPago() != null){
 					var fechaPago = java.text.SimpleDateFormat("dd/MM/yyyy").format(cartera.getFechaPago());					
 				}
 				event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato fue pagado el dia: "+ fechaPago +", favor verificar # de contrato."));
-			}*/
+			}
 			
 			
-		} 
+		} else {
+			event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato no aparece en la base de datos, verifique que sea el numero correcto."));
+		}
 		if (handlerVisita.existeContrato(numContrato)==true) {
 			var visita = handlerVisita.getUltimaVisita(numContrato);
 			if (visita != null) {
