@@ -57,7 +57,7 @@ function alSeleccionarColector(event) {
     	} else {
 	    	var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosXColector();
 	    	var bean = handler.getListPagosXColector(pagoFecha, colectorId);
-	    	java.lang.System.out.println("Cantidad en list  = " + bean.size());
+	    	//java.lang.System.out.println("Cantidad en list  = " + bean.size());
 	        for (var i = 0; i < bean.size(); i++) {
 	        	var rowGuardar = bean.get(i);
 	        	 detalle.addRow();	

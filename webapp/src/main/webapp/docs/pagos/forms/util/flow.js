@@ -10,6 +10,22 @@ importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 
+function validarForm(form) {
+	var widgetMensaje = form.getChild("mensajes de error");
+	var detalle = form.getChild("detalle");
+	
+	for (var i = 0; i<detalle.size; i++) {
+	    var row = detalle.getRow(i);
+	    var montoPago = row.getChild("montoPago").getValue();
+	    if(montoPago == null){
+	    	form.getChild("mensajes de error").addMessage("El monto del pago no puede ser nulo, favor verifique los datos. ");
+	    	return false;
+	    }
+    }		  
+	return true;
+}
+
+
 function alSeleccionarUsuario(event) {
     var usrId = event.source.value;
     var fecha = event.source.parent.getChild("fecha");

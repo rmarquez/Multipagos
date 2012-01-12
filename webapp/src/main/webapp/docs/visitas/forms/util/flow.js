@@ -61,6 +61,7 @@ function alSeleccionarContrato(event) {
 		var cartera = handlerCartera.carteraXContrato(numContrato, diferido);			
 		if(cartera != null){
 			var pagado = cartera.getPagado();
+			
 			if(pagado.compareTo(false)==0){
 				carteraId.setValue(cartera.getCarteraId()); 
 				suscriptor.setValue(cartera.getSuscriptor());

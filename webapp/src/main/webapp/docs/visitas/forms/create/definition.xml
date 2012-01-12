@@ -23,7 +23,7 @@
 			</fd:on-value-changed>
 		</fd:field>
 
-        <fd:field id="fecha">
+        <fd:field id="fecha" state="output">
             <fd:label>Fecha</fd:label>
             <fd:datatype base="date">
 				<fd:convertor type="formatting" variant="date">

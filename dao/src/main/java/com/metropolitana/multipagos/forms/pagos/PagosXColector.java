@@ -57,6 +57,7 @@ public class PagosXColector {
 		query.addGroupBy(new String[] { "recibo", "facturaInterna",
 				"numeroContrato", "fechaPago", "montoPago" });
 
+		query.addOrderBy("recibo", true);
 		query.addOrderBy("fechaPago", true);
 		return query;
 	}
