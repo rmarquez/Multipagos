@@ -45,7 +45,7 @@
                             
                             
                        </jx:if>
-                        <jx:set var="departamento" value="${item[4]}"/>
+                       <jx:set var="departamento" value="${item[4]}"/>
                         <tr>
                         	<td align="right">${item[0]}</td>
                             <td align="right">${item[1]}</td>
@@ -56,7 +56,7 @@
                             <td align="right">${item[6]}</td>
                             <td align="right">${item[7]}</td>
                             <td align="right"><formatoFecha fecha="${item[8]}" patron="dd/MMM/yyyy"/></td>
-                        </tr>                        
+                        </tr>                       
                         <jx:if test="${status.last}">
                             <tr>
                              	<th colspan="4">Total Pendientes</th> 

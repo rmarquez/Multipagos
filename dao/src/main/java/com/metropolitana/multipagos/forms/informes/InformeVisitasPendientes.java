@@ -20,6 +20,7 @@ public class InformeVisitasPendientes {
 		PersistenceBroker broker = null;
 		try {
 			int pend = 0;
+			int visit = 0;
 			String contrato = "";
 			List<Object[]> lista = new ArrayList<Object[]>();
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
@@ -30,21 +31,24 @@ public class InformeVisitasPendientes {
 				Object[] detalle = (Object[]) iter.next();
 
 				contrato = (String) detalle[0];
-
+							
+				visit++;
+				
 			}
+			
+			System.out.println("cantidad de visitas = " + visit); 
+			
 			for (Iterator iterPendiente = broker
 					.getReportQueryIteratorByQuery(queryVisitasPendientes(
-							fechaIngreso, contrato, departamentoId, servicioId,
-							broker)); iterPendiente.hasNext();) {
+							fechaIngreso, contrato, departamentoId, servicioId)); iterPendiente.hasNext();) {
 				Object[] pendiente = (Object[]) iterPendiente.next();
 				pend++;
-				pendiente[9] = pend;
-				
-				
+				pendiente[9] = pend;				
 
 				lista.add(pendiente);
 
 			}
+			System.out.println("cantidad de pendientes = " + pend); 
 			return lista;
 		} catch (Exception e) {
 			throw e;
@@ -55,16 +59,17 @@ public class InformeVisitasPendientes {
 		}
 	}
 
+	
 	private static ReportQueryByCriteria queryVisitas(Date fechaIngreso,
 			Date fechaIni, Date fechaFin, Integer departamentoId,
 			Integer servicioId) {
-
-		Criteria criterio = new Criteria();
-		if (fechaIngreso != null) {
-			criterio.addEqualTo("carteraIdRef.fechaIngreso", fechaIngreso);
+		
+        Criteria criterio = new Criteria();
+        
+        if (fechaIngreso != null) {
+        	criterio.addEqualTo("carteraIdRef.fechaIngreso", fechaIngreso);
 		}
-
-		if (fechaIni != null) {
+        if (fechaIni != null) {
 			criterio.addGreaterOrEqualThan("fechaVisita", fechaIni);
 		}
 		if (fechaFin != null) {
@@ -76,8 +81,8 @@ public class InformeVisitasPendientes {
 		if (servicioId != null) {
 			criterio.addEqualTo("servicioId", servicioId);
 		}
-		ReportQueryByCriteria query = new ReportQueryByCriteria(
-				DetalleVisitas.class, criterio);
+
+		ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleVisitas.class, criterio);
 		query.setAttributes(new String[] { "numeroContrato" });
 		query.addGroupBy(new String[] { "numeroContrato" });
 
@@ -87,19 +92,20 @@ public class InformeVisitasPendientes {
 
 	private static ReportQueryByCriteria queryVisitasPendientes(
 			Date fechaIngreso, String numeroContrato, Integer departamentoId,
-			Integer servicioId, PersistenceBroker broker) {
+			Integer servicioId) {
 
 		Criteria criterio = new Criteria();
 
 		if (fechaIngreso != null) {
 			criterio.addEqualTo("fechaIngreso", fechaIngreso);
 		}
-		if (departamentoId != null) {
-			criterio.addEqualTo("departamentoId", departamentoId);
-		}
 		if (numeroContrato != null) {
 			criterio.addNotEqualTo("contrato", numeroContrato);
 		}
+		if (departamentoId != null) {
+			criterio.addEqualTo("departamentoId", departamentoId);
+		}
+		
 		if (servicioId != null) {
 			criterio.addEqualTo("servicioId", servicioId);
 		}
