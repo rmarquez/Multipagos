@@ -32,12 +32,25 @@ function createform(form) {
 	      	if (permisos.getResources().contains('arqueo')) {
 	      		handlerBean.autorizarArqueo(bean, auth_getUserID(),usuario);
 	      	} 
-        }
-        dialogosino("Arqueo", "Arqueo procesado con éxito",
-                        "¿Desea procesar una nuevo arqueo?","create", "/bienvenidos");
+        }        
+        /**if (dialogosino("Arqueo", "Arqueo procesado con éxito",
+		        "¿Desea imprimir comprobante del arqueo?")) {
+		imprimirArqueo(bean, form);
+		} else {**/
+			dialogosino("Arqueo", "Arqueo procesado con éxito",
+                    "¿Desea procesar una nuevo arqueo?","create", "/bienvenidos");
+		//}
+        
     }
 }
 
+function imprimirArqueo(bean, form) {
+	var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();  
+	var colectorHandler = new Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler(); 
+	var colector = colectorHandler.retrieve(bean.colectorId);
+    cocoon.sendPage("imprimir.pdf", {"bean" : bean, "handlerBean": handlerBean, "colector":colector});
+return;
+}
 
 function validarForm(form) {
 	var diferencia = BigDecimal.ZERO;

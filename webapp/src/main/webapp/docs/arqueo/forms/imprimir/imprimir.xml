@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <!-- Importamos las macros definidas por el programador -->
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <pagina margin-left="0.75" margin-top="1.25">
+        <table border="0">
+            <tbody>
+                <tr>
+                    <th font-size="15" width="8.0" align="center">
+                        MULTIPAGOS<br/>
+                        COMPROBANTE DE ARQUEO</th>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="20"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td width="0.8"><b>Fecha:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="2"><formatoFecha fecha="${bean.pagoFecha}" patron="d 'de' MMM 'de' yyyy"/></td>
+                    <td width="0.8"><b>Supervisor:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="3.5">${bean.usrIdRef.usrFullName}</td>
+                    <td width="0.8"><b>Colector:</b></td>
+                    <td border-bottom="0" width="3.0" end-indent="5.5">${colector.getPrimerNombre()} ${colector.getPrimerApellido()}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <br space-before-optimum="10"/>        
+        <table border="0">
+            <tbody>
+                <tr><th font-size="12" width="8.0" align="center">DETALLE EFECTIVO (C$)</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+            	
+                <jx:forEach var="item" items="${bean.arqueoCantidadList}">
+                        <tr>
+                            <td align="left" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.4">${item.cantidadIdRef.cantidadNombre}</td>
+                            <td align="left" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.5">${item.cantidad}</td>
+                            <td align="right" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.4">${item.total}</td>                            
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        <!-- <table border-top="1">
+            <tbody>
+                <tr>
+                    <td width="7.6"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="8"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <th font-size="12" width="5.0" align="center">ARQUEO DE LA VENTA DEL DIA</th>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="10"/>
+        <jx:set var="subtotalGeneral" value="${handler.getMontoFactura(bean.addDetalleCargaRuta.prodId, bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, 2)}"/>
+        <jx:set var="subtotal" value="${subtotalGeneral.subtract(montoPostpago)}"/>
+        <table>
+            <tbody>
+                   <tr>
+                       <td width="1.5"><b>SUBTOTAL:</b></td>
+                       <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${subtotal}" ceroIfNull="true"/></b></td>
+               </tr>
+            </tbody>
+       </table>
+       <br space-before-optimum="1"/>
+       <jx:set var="descuento" value="${handler.getMontoTotalDescuento(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, null, null)}"/>
+        <table>
+          <tbody>
+          <tr>
+                <td width="1.5"><b>DESCUENTO:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${descuento}"/></b></td>
+            </tr>
+          </tbody>
+       </table>
+       <br space-before-optimum="1"/>
+       <jx:set var="sub_descuento" value="${subtotal.subtract(descuento)}"/>
+        <table>
+          <tbody>
+          <tr>
+              <td width="1.5"><b>SUBTOTAL/DESC:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${sub_descuento}"/></b></td>
+            </tr>
+          </tbody>
+       </table>
+       <br space-before-optimum="1"/>
+       <jx:set var="iva" value="${handler.getMontoFacturaIva(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, null)}"/>
+        <table>
+          <tbody>
+          <tr>
+                <td width="1.5"><b>IVA:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${iva}"/></b></td>
+            </tr>
+          </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="total" value="${sub_descuento.add(iva)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${total}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="retencion" value="${handler.getMontoTotalRetencion(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, TIPOFAC_CONTADO)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>RETENCION:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${retencion}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="total" value="${sub_descuento.add(iva).subtract(retencion)}"/>
+        <table>
+          <tbody>
+          <tr>
+                <td width="1.5"><b>TOTAL VENDIDO:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${total}" ceroIfNull="true"/></b></td>
+            </tr>
+          </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="montoEfectivo" value="${handler.getMontoFactura(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, 1)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL EFECTIVO:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoEfectivo}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="montoTarjeta" value="${handler.getMontoFactura(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, 4)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL TARJETA:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoTarjeta}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="montoCheque" value="${handler.getMontoFactura(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, 2)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL CHEQUE:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoCheque}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="montoTransferencia" value="${handler.getMontoFactura(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, 3)}"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL TRANSFERENCIA:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoTransferencia}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL PAGADO:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${handler.getMontoFactura(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId, null)}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="1"/>
+        <jx:set var="credito" value="${handler.getMontoFacturaCredito(bean.vendedorId, bean.cargaRutaFecha, bean.cargaRutaId)}" ceroIfNull="true"/>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="1.5"><b>TOTAL CREDITO:</b></td>
+                    <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${credito}" ceroIfNull="true"/></b></td>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="5"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <th font-size="12" width="5.0" align="center">MONTO POR CELULARES POSTPAGO</th>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="5"/>
+        <table>
+          <tbody>
+          <tr>
+                <td width="1.5"><b>MONTO:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoPostpago}"/></b></td>
+            </tr>
+          </tbody>
+       </table>
+       <br space-before-optimum="1"/>
+       <jx:set var="ivaPost" value="${montoPostpago.multiply(handlerEmpresa.getPorcentajeImpuesto())}"/>
+        <table>
+          <tbody>
+          <tr>
+                <td width="1.5"><b>IVA:</b></td>
+                <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${ivaPost}"/></b></td>
+            </tr>
+          </tbody>
+       </table>
+       <br space-before-optimum="1"/>
+        <table>
+          <tbody>
+          <tr>
+            <td width="1.5"><b>MONTO TOTAL:</b></td>
+              <td border-bottom="1" width="1.5" start-indent="2" end-indent="2"><b>C$<formatoNumero numero="${montoPostpago.add(ivaPost)}"/></b></td>
+          </tr>
+          </tbody>
+       </table> -->
+
+        <br space-before-optimum="40"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Entregue Conforme<br/>${colector.getPrimerNombre()} ${colector.getPrimerApellido()}<br/></td>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Recibi Conforme<br/>${bean.usrIdRef.usrFullName}<br/></td>
+                </tr>
+            </tbody>          
+           
+                    
+        </table>
+        <br space-before-optimum="16"/>
+    </pagina>
+</document>

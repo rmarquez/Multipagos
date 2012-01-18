@@ -17,7 +17,7 @@ function viewform(form) {
         form.save(bean);        	
         handlerBean.update(bean, auth_getUserID());
         	
-        dialogosino("Arqueo", "Consulta", "¿Desea procesar otro arqueo?", "search", "/bienvenidos");
+        dialogosino("Arqueo", "Vista de arqueos", "¿ Desea consultar otro arqueo ?", "search", "/bienvenidos");
     }
 }
 

@@ -61,6 +61,13 @@
 		          </map:otherwise>
 		        </map:select>
 		    </map:match>
+		    <!-- Documentos en formato PDF -->
+             <map:match pattern="**.pdf">
+                <map:generate type="jx" src="forms/{1}/{1}.xml"/>
+                <map:transform type="i18n"/>
+                <map:transform src="context://stylesheets/multipagos-pagina2fo.xsl"/>
+                <map:serialize type="fo2pdf"/>
+             </map:match>    
             <map:match pattern="*.continue">
                 <map:call continuation="{1}"/>
             </map:match>
