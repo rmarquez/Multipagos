@@ -3,6 +3,7 @@ importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
+importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
 function clienteform(form) {
     if (autorizar("cata")) {
     	form.getChild("fechaIngreso").setValue(new Packages.java.util.Date());
@@ -61,4 +62,27 @@ function alSeleccionarColector(event) {
     if (colector != null) {
     		horaRegistro.setValue(hora);
     }
+}
+
+
+function validarFormCliente(form) {
+	var widgetMensaje = form.getChild("mensajes de error");
+	
+	var facturaInterna = form.getChild("facturaInterna").getValue();
+	var handlerCartera = new CarteraXDepartamentoHandler();
+	var handlerPagos = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
+	
+	if(facturaInterna != null){
+    	var cartera = handlerCartera.carteraXFactura(facturaInterna);
+    	
+    	if (handlerPagos.existeFactura(facturaInterna)==true) {  
+    		if (cartera.getFechaPago() != null){
+				var fechaPago = java.text.SimpleDateFormat("dd/MM/yyyy").format(cartera.getFechaPago());					
+			}
+    		form.getChild("mensajes de error").addMessage("La factura ya fue pagada el dia "+ fechaPago +", favor verificar No. factura. ");
+	    	return false;
+    	}     	
+	} 
+			  
+	return true;
 }

@@ -84,8 +84,8 @@ function alSeleccionarFactura(event) {
 	
     if(facturaInterna != null){
     	var cartera = handlerCartera.carteraXFactura(facturaInterna);
-    	if(editar==false){
-	    	if (handlerPagos.existeFactura(facturaInterna)==true) {    		
+    	if(editar.compareTo(false)==0){
+        	if (handlerPagos.existeFactura(facturaInterna)==true) {    		
 	    		event.source.parent.getChild("facturaInterna").setValidationError(new ValidationError("La factura ya fue registrada, favor verificar No. factura."));
 	    	} else {		    	
 		    	if(cartera != null){

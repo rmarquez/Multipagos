@@ -41,7 +41,7 @@
         
     </fb:repeater>
     
-   <!--   <fb:repeater id="detalleCantidadUs" parent-path="." row-path="arqueoCantidadUsList">
+     <fb:repeater id="detalleCantidadUs" parent-path="." row-path="arqueoCantidadUsList">
         <fb:identity>
             <fb:value id="cantidadIdUs" path="cantidadId"/>
         </fb:identity>
@@ -108,6 +108,6 @@
         <fb:on-insert-row>
             <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoDeposito" addmethod="addArqueoDeposito"/>
         </fb:on-insert-row>
-    </fb:repeater>-->
+    </fb:repeater>
     
 </fb:context>

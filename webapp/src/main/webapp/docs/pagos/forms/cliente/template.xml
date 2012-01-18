@@ -10,11 +10,13 @@
     <body>
         <s1 title="Cartera x departamento">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+            <ft:widget id="mensajes de error"/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Agregar datos del cliente</fi:label>
                     <fi:items>
                     	<ft:widget id="pagado"><fi:styling type="hidden"/></ft:widget>
+                    	
                     	<ft:widget id="fechaIngreso"/>
                         <ft:widget id="contrato"/>
                         <ft:widget id="suscriptor"/>

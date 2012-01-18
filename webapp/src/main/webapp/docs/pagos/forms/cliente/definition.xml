@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
 	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+	     <fd:validation>
+        <fd:javascript>        	
+            return validarFormCliente(widget);         
+        </fd:javascript>
+    </fd:validation>
     <fd:widgets>
+    	<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages>
+        
     	<fd:booleanfield id="pagado"></fd:booleanfield>
     	<fd:field id="fechaIngreso" state="output">
             <fd:label>Fecha</fd:label>

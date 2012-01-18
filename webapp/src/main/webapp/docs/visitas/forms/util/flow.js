@@ -73,6 +73,11 @@ function alSeleccionarContrato(event) {
 					var fechaPago = java.text.SimpleDateFormat("dd/MM/yyyy").format(cartera.getFechaPago());					
 				}
 				event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato fue pagado el dia: "+ fechaPago +", favor verificar # de contrato."));
+				carteraId.setValue(cartera.getCarteraId()); 
+				suscriptor.setValue(cartera.getSuscriptor());
+				localidad.setValue(cartera.getLocalidadId());
+				servicio.setValue(cartera.getServicioId());
+				fechaVisita.setValue(new Packages.java.util.Date());
 			}			
 			
 		} else {

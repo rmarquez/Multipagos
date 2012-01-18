@@ -154,13 +154,7 @@
                                 <td><ft:widget id="marcar"/></td>
                                 <td><ft:widget id="cantidadValor"><fi:styling type="hidden"/></ft:widget></td>
                               </tr>
-                            </ft:repeater-rows>
-                            <tr>
-                              <td colspan="4" align="right">
-                                <ft:widget id="../agregar"/>
-                                <ft:widget id="../eliminar"/>
-                              </td>
-                            </tr>
+                            </ft:repeater-rows>                            
                           </tbody>
                         </table>
                       </div>
@@ -199,13 +193,7 @@
                                 <td><ft:widget id="marcar-us"/></td>
                                 <td><ft:widget id="cantidadValorUs"><fi:styling type="hidden"/></ft:widget></td>
                               </tr>
-                            </ft:repeater-rows>
-                            <tr>
-                              <td colspan="4" align="right">
-                                <ft:widget id="../agregar-us"/>
-                                <ft:widget id="../eliminar-us"/>
-                              </td>
-                            </tr>
+                            </ft:repeater-rows>                            
                           </tbody>
                         </table>
                       </div>
@@ -251,13 +239,7 @@
                                 <td><ft:widget id="conversion"><fi:styling size="6"/></ft:widget></td>
                                 <td><ft:widget id="marcar-cheque"/></td>
                               </tr>
-                            </ft:repeater-rows>
-                            <tr>
-                              <td colspan="8" align="right">
-                                <ft:widget id="../agregar-cheque"/>
-                                <ft:widget id="../eliminar-cheque"/>
-                              </td>
-                            </tr>
+                            </ft:repeater-rows>                            
                           </tbody>
                         </table>
                       </div>
@@ -303,13 +285,7 @@
                                 <td><ft:widget id="conversion"><fi:styling size="6"/></ft:widget></td>
                                 <td><ft:widget id="marcar-deposito"/></td>
                               </tr>
-                            </ft:repeater-rows>
-                            <tr>
-                              <td colspan="8" align="right">
-                                <ft:widget id="../agregar-deposito"/>
-                                <ft:widget id="../eliminar-deposito"/>
-                              </td>
-                            </tr>
+                            </ft:repeater-rows>                            
                           </tbody>
                         </table>
                       </div>

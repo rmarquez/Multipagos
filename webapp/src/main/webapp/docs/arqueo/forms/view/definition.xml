@@ -26,12 +26,7 @@
     		<fd:label>Colector: </fd:label>    
 			<fd:datatype base="integer"/>
 			<fd:selection-list src="cocoon:/colector.combo"
-				cache="none" />	
-			<fd:on-value-changed>
-				<fd:javascript>
-					alSeleccionarColector(event);
-				</fd:javascript>
-			</fd:on-value-changed>
+				cache="none" />				
 		</fd:field>
 		
 		
@@ -95,7 +90,14 @@
 	        	
 				</fd:widgets>
 			</fd:repeater>		
-		
+			
+			<fd:repeater-action id="agregar-p" command="add-row"
+				repeater="detalleCantidad">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
 		
        
 		<!-- Detalle Cantidad -->
@@ -143,7 +145,7 @@
 				
 				
 
-	        	<fd:booleanfield id="marcar">
+	        	<fd:booleanfield id="marcar" state="output">
 					<fd:label>Seleccionar</fd:label>
 					<fd:hint>Selecciona el registro.</fd:hint>
 					<fd:help>
@@ -218,7 +220,7 @@
 				
 				
 
-	        	<fd:booleanfield id="marcar-us">
+	        	<fd:booleanfield id="marcar-us" state="output">
 					<fd:label>Seleccionar</fd:label>
 					<fd:hint>Selecciona el registro.</fd:hint>
 					<fd:help>
@@ -322,7 +324,7 @@
 		            </fd:datatype>		            
 		        </fd:field>
 				
-	        	<fd:booleanfield id="marcar-cheque">
+	        	<fd:booleanfield id="marcar-cheque" state="output">
 					<fd:label>Seleccionar</fd:label>
 					<fd:hint>Selecciona el registro.</fd:hint>
 					<fd:help>
@@ -430,7 +432,7 @@
 		            </fd:validation>
 		        </fd:field>
 				
-	        	<fd:booleanfield id="marcar-deposito">
+	        	<fd:booleanfield id="marcar-deposito" state="output">
 					<fd:label>Seleccionar</fd:label>
 					<fd:hint>Selecciona el registro.</fd:hint>0
 					<fd:help>
@@ -590,7 +592,9 @@
 	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
 	            var pagoFecha = form.getChild("pagoFecha").getValue();
 	            var montoUs = form.getChild("totalCkUs").getValue();
+	            if(pagoFecha != null) {
 	            var tasa = tasaHandler.retrieve(pagoFecha);
+	            	            
 	            if (montoUs != null) {
 	            	if (tasa != null) {
 	            		return montoUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
@@ -598,6 +602,7 @@
 	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
 	            	}	                	                
 	            } 
+	            }
 	            return java.math.BigDecimal.ZERO;
            </fd:value>
         </fd:calculatedfield>
@@ -664,6 +669,7 @@
 	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
 	            var pagoFecha = form.getChild("pagoFecha").getValue();
 	            var montoUs = form.getChild("totalDpUs").getValue();
+	            if(pagoFecha != null){
 	            var tasa = tasaHandler.retrieve(pagoFecha);
 	            if (montoUs != null) {
 	            	if (tasa != null) {
@@ -672,6 +678,7 @@
 	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
 	            	}	                	                
 	            } 
+	            }
 	            return java.math.BigDecimal.ZERO;
            </fd:value>
         </fd:calculatedfield>
