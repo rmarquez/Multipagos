@@ -133,6 +133,15 @@
                 <jx:otherwise>N/A</jx:otherwise>
             </jx:choose>
     </jx:macro>
+    
+    <jx:macro name="valorFecha">
+        <jx:parameter name="valor"/>
+        <jx:parameter name="patron"/>
+        <jx:set name="fechavalor"><formatoFecha fecha="${valor}" pattern="${patron}"/></jx:set>
+        <jx:if test="${valor != null}">
+            ${fechavalor}
+        </jx:if>
+    </jx:macro>
 
     <!--
         Presenta un caracter en blanco o el caracter que sea pasado

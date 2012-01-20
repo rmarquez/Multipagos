@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
     <fd:widgets>
-    	<fd:field id="fecha">
+    	<!-- <fd:field id="fecha">
             <fd:label>Fecha Asignacion (dd/mm/yyyy):</fd:label>
             <fd:help>Escriba la fecha en la cual se asignaron los clientes</fd:help>
             <fd:datatype base="date">
@@ -11,7 +11,7 @@
                     </fd:patterns>
                 </fd:convertor>
             </fd:datatype>
-        </fd:field>
+        </fd:field> -->
     
         <fd:field id="fechaIni">
             <fd:label>Fecha inicial (dd/mm/yyyy):</fd:label>
@@ -46,8 +46,21 @@
 		<fd:field id="servicioId">
 			<fd:label>Servicio</fd:label>
 			<fd:datatype base="integer" />
-			<fd:selection-list src="cocoon:/servicio.combo"	cache="none"/>					
+			<fd:selection-list src="cocoon:/servicio.combo"	cache="none"/>
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarServicio(event);
+				</fd:javascript>
+			</fd:on-value-changed>					
 		</fd:field>	
+		
+		<fd:field id="asignacionAnio">
+			<fd:label>Fecha Asignacion</fd:label>
+			<fd:datatype base="date"/>
+			<fd:selection-list src="cocoon:/asignacionAnio.combo"	cache="none"/>								
+		</fd:field>
+		
+		
        
         <fd:submit id="listar">
             <fd:label>Listar</fd:label>

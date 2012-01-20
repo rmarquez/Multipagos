@@ -33,13 +33,13 @@ function createform(form) {
 	      		handlerBean.autorizarArqueo(bean, auth_getUserID(),usuario);
 	      	} 
         }        
-        /**if (dialogosino("Arqueo", "Arqueo procesado con éxito",
+        if (dialogosino("Arqueo", "Arqueo procesado con éxito",
 		        "¿Desea imprimir comprobante del arqueo?")) {
 		imprimirArqueo(bean, form);
-		} else {**/
+		} else {
 			dialogosino("Arqueo", "Arqueo procesado con éxito",
                     "¿Desea procesar una nuevo arqueo?","create", "/bienvenidos");
-		//}
+		}
         
     }
 }

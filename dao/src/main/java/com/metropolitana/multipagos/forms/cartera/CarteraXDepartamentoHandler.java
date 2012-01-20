@@ -19,6 +19,7 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
@@ -193,23 +194,22 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 
-	/**
-	 * Genera listado de contratos.
-	 * 
-	 * @param criterio
-	 *            Criterio de filtrado de la lista
-	 * @return Collection o null listado de Localidads
-	 * @throws Exception
-	 */
-	/*private Collection getList(final Criteria criterio) throws Exception {
+	public static List getAnioAsignacion(final Integer servicioId) throws Exception {
+		
 		PersistenceBroker broker = null;
-
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			QueryByCriteria query = new QueryByCriteria(CarteraXDepartamento.class,
-					criterio);
-			query.addOrderBy("contrato", true);
-			return broker.getCollectionByQuery(query);
+			Criteria criterio = new Criteria();
+			if (servicioId != null) {
+				criterio.addEqualTo("servicioId", servicioId);
+			}
+			ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
+			query.setAttributes(new String[] { "fechaIngreso"});
+			//query.setDistinct(true);
+			query.addGroupBy(new String[] { "fechaIngreso"});
+			
+			query.addOrderByAscending("fechaIngreso");
+			return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -217,28 +217,7 @@ public class CarteraXDepartamentoHandler {
 				broker.close();
 			}
 		}
-	}*/
-
-	/**
-	 * Genera listado de contratos del objeto cartera x departamento.
-	 * 
-	 * @param contrato
-	 *            numero o parte del numero de contrato de un cliente 
-	 * @return Collection o null listado de contratos
-	 * @throws Exception
-	 */
-	/*public Collection<CarteraXDepartamento> getList(final String contrato) throws Exception {
-		try {
-			Criteria criterio = new Criteria();
-			if (contrato != null && contrato.length() > 0) {
-				criterio.addLike("upper(contrato)",
-						contrato.toUpperCase(Locale.getDefault()) + "*");
-			}
-			return getList(criterio);
-		} catch (Exception e) {
-			throw e;
-		}
-	}*/
+	}
 	
 	public Collection getList(final String contrato) throws Exception {
 			PersistenceBroker broker = null;

@@ -17,6 +17,9 @@ public class InformeVisitasPendientes {
 	public static List getVisitasPendientes(Date fechaIngreso, Date fechaIni,
 			Date fechaFin, Integer departamentoId, Integer servicioId)
 			throws Exception {
+		System.out.println("Fecha Ingreso = " + fechaIngreso);
+		System.out.println("Fecha Inicio = " + fechaIni);
+		System.out.println("Servicio = " + servicioId);
 		PersistenceBroker broker = null;
 		try {
 			int pend = 0;
@@ -29,11 +32,8 @@ public class InformeVisitasPendientes {
 							fechaIni, fechaFin, departamentoId, servicioId)); iter
 					.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
-
-				contrato = (String) detalle[0];
-							
-				visit++;
-				
+				contrato = (String) detalle[0];							
+				visit++;				
 			}
 			
 			System.out.println("cantidad de visitas = " + visit); 

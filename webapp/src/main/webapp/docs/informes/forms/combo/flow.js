@@ -22,3 +22,12 @@ function servicioCombo() {
     }
 }
 
+function asignacionAnioCombo() {
+    if (autorizar("cata")) {
+		var servicioId = !isNaN(parseInt(cocoon.request.servicioId)) ? parseInt(cocoon.request.servicioId): null;
+        var handler = new Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler();
+       	var bean = handler.getAnioAsignacion(servicioId);
+        cocoon.sendPage("asignacionAnioCombo-data", {"bean": bean});
+    }
+}
+
