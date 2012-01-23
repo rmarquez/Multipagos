@@ -56,8 +56,14 @@
 		
 		<fd:field id="asignacionAnio">
 			<fd:label>Fecha Asignacion</fd:label>
-			<fd:datatype base="date"/>
-			<fd:selection-list src="cocoon:/asignacionAnio.combo"	cache="none"/>								
+			<fd:datatype base="date">
+			<fd:convertor>
+                    <fd:patterns>
+                        <fd:pattern>dd/MM/yyyy</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+			<fd:selection-list src="cocoon:/asignacionAnio.combo" cache="none"/>								
 		</fd:field>
 		
 		

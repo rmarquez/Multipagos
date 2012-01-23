@@ -138,6 +138,11 @@ public class Util {
      *            Fecha a formatear
      * @return String Cadena que contiene una fecha
      */
+    public static String fechaToString(final Date fecha) {
+    	java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");    	
+        return sdf.format(fecha);
+    }
+    
     public static String formatoFechaCompleta(final Date fecha) {
         return DateFormat.getDateInstance(DateFormat.FULL).format(fecha);
     }
@@ -151,7 +156,7 @@ public class Util {
         NumberFormat formatter = new DecimalFormat(strPatron);
         return formatter.format(numero);
     }
-
+    
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
     private static final DecimalFormat df = new DecimalFormat();
 

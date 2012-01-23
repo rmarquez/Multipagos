@@ -6,11 +6,9 @@
     <fd:item value="">
         <fd:label>-- Fecha Asignacion --</fd:label>
     </fd:item>
-    <jx:forEach var="item" items="${bean}">
-	    <jx:set var="fechavalor" value="${java.util.Date()}"/>
-	    <!--  <jx:set var="fechavalor" value="${item[0]}"/> -->
+    <jx:forEach var="item" items="${bean}">	    
 	    
-	   <jx:set var="fechavalor"><formatoFecha fecha="${item[0]}" patron="dd/MMM/yyyy"/></jx:set>
+	    <jx:set var="fechavalor" value="${util.fechaToString(item[0])}"/> 
 		     <fd:item value="${fechavalor}">    	
 		    		<fd:label><formatoFecha fecha="${item[0]}" patron="dd/MMM/yyyy"/></fd:label>
 		   	</fd:item>	    

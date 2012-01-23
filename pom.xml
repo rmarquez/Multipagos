@@ -26,17 +26,18 @@
       <email>rmarquez@gmail.com</email>
     </developer>
   </developers>
-
+  
   <build>
     <plugins>
       <plugin>
         <!-- Construccion del Sitio, no funciona con es-NI due: http://jira.codehaus.org/browse/MNG-1216-->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <configuration>
+        <version>2.0.1</version>
+        <!-- <configuration>
           <locales>en</locales>
           <outputEncoding>UTF-8</outputEncoding>
-        </configuration>
+        </configuration> -->
       </plugin>
     </plugins>
   </build>
@@ -89,7 +90,7 @@
   </pluginRepositories>
 
   <dependencies>
-  
+     
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

@@ -33,7 +33,7 @@ function createform(form) {
 	      		handlerBean.autorizarArqueo(bean, auth_getUserID(),usuario);
 	      	} 
         }        
-        if (dialogosino("Arqueo", "Arqueo procesado con éxito",
+       if (dialogosino("Arqueo", "Arqueo procesado con éxito",
 		        "¿Desea imprimir comprobante del arqueo?")) {
 		imprimirArqueo(bean, form);
 		} else {
@@ -48,7 +48,8 @@ function imprimirArqueo(bean, form) {
 	var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();  
 	var colectorHandler = new Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler(); 
 	var colector = colectorHandler.retrieve(bean.colectorId);
-    cocoon.sendPage("imprimir.pdf", {"bean" : bean, "handlerBean": handlerBean, "colector":colector});
+	var cantidadHandler = new Packages.com.metropolitana.multipagos.forms.cantidades.CantidadHandler();
+    cocoon.sendPage("imprimir.pdf", {"bean" : bean, "handlerBean": handlerBean, "colector":colector, "cantidadHandler":cantidadHandler});
 return;
 }
 

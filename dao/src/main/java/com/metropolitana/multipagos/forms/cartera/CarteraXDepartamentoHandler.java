@@ -205,7 +205,6 @@ public class CarteraXDepartamentoHandler {
 			}
 			ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
 			query.setAttributes(new String[] { "fechaIngreso"});
-			//query.setDistinct(true);
 			query.addGroupBy(new String[] { "fechaIngreso"});
 			
 			query.addOrderByAscending("fechaIngreso");

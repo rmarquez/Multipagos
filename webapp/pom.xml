@@ -120,7 +120,8 @@
       <groupId>com.metropolitana.multipagos</groupId>
       <artifactId>dao</artifactId>
     </dependency>
-
+	
+	
     <!-- Cocoon -->
     <!--+ Auto-include:
           | avalon-framework-api-4.3.jar

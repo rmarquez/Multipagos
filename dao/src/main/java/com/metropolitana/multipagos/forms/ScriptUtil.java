@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * ScriptUtil contiene una serie de funciones para ser utilizadas en el flow
  *
- * @author cchavez
+ * @author rmarquez
  *
  */
 public class ScriptUtil {
