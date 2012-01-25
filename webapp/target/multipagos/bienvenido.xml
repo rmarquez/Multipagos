@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<document menu="true" xmlns:xi="http://www.w3.org/2001/XInclude">
+<document menu="true" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
     <header>
         <title>Inicio</title>
     </header>
@@ -7,6 +8,6 @@
         <s1 title="Bienvenido">
             <p>Bienvenido al <xi:include href="resources/datosapp.xml" xpointer="xpointer(/aplicacion/nombre)"/>.</p>
             <p>Por favor elija una opción en el menú de arriba.</p>            
-        </s1>
+        </s1>        
     </body>
 </document>

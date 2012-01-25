@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" 
+		  xmlns:xi="http://www.w3.org/2001/XInclude" 
+		  menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Inicio</title>
+    </header>
+    <body>
+    	<s1 title="Bienvenido">
+            <p>Bienvenido al Sistema de Control de pagos.</p>
+            <p>Por favor elija una opción en el menú de arriba.</p>            
+        </s1>
+        <s1 title="Control Diario">
+            <p>En este momento la cantidad de visitas y pagos para el dia de hoy es:</p>            
+        </s1>
+        
+        <jx:set var="visitas" value="${handler.getCantidadVisitas()}"/>
+        <jx:set var="pagos" value="${handler.getCantidadPagos()}"/> 
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Visitas</th>
+                        <th>Pagos</th>
+                    </tr>
+                    <tr>
+                        <td>${visitas}</td>
+                        <td>${pagos}</td>
+                    </tr>
+                </thead>
+                
+            </table>           
+         
+    </body>
+</document>

@@ -4,7 +4,7 @@
         <!-- Menu Archivo -->
         <div dojoType="PopupMenu2" widgetId="inicioMenu">
             <div dojoType="MenuItem2" caption="Página de Inicio"
-                 onClick="parent.window.location='/multipagos/bienvenidos'"></div>           
+                 onClick="parent.window.location='/multipagos/bienvenidos'"></div>                       
             <div dojoType="MenuItem2" caption="Salir"
                 onClick="parent.window.location='/multipagos/salir'"></div>
         </div>

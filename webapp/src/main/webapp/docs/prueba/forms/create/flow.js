@@ -15,7 +15,6 @@ function createform(form) {
         var formUpload = new Form("forms/create/definition.xml");
 	    //formUpload.showForm("upload/uploadForm");
 	    if (formUpload.submitId == "true") {
-	    	java.lang.System.out.prinfln("************ Hola *************");
 	    	
 	    } 
 
