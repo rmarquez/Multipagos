@@ -17,17 +17,30 @@
             <p>En este momento la cantidad de visitas y pagos para el dia de hoy es:</p>            
         </s1>
         
-        <jx:set var="visitas" value="${handler.getCantidadVisitas()}"/>
-        <jx:set var="pagos" value="${handler.getCantidadPagos()}"/> 
+        <jx:set var="visitas" value="${handler.getCantidadVisitas(null)}"/>
+        <jx:set var="pagos" value="${handler.getCantidadPagos(null)}"/>
             <table border="1">
                 <thead>
-                    <tr>
+                    <tr>                        
+                        <th>Departamento</th>
                         <th>Visitas</th>
                         <th>Pagos</th>
                     </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach var="item" items="${bean}" varStatus="status">
+                        <tr>
+                           <td>${item[1]}</td>
+                           <td>${item[2]}</td>
+                           <td>${item[3]}</td>                             
+                        </tr>
+                  </jx:forEach>
+                </tbody>
+               <thead>                    
                     <tr>
-                        <td>${visitas}</td>
-                        <td>${pagos}</td>
+                    	<th>Totales: </th>
+                        <th>${visitas}</th>
+                        <th>${pagos}</th>
                     </tr>
                 </thead>
                 

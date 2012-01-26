@@ -175,11 +175,11 @@
     </pluginRepository>
   </pluginRepositories>
   <dependencies>
-  	<!-- <dependency>
-	   <groupId>jxl</groupId>
-	   <artifactId>jxl</artifactId>
-	   <version>2.6.10</version>
-	</dependency>  -->
+  	<dependency>
+	    <groupId>net.sourceforge.jexcelapi</groupId>
+	    <artifactId>jxl</artifactId>
+	    <version>2.6</version>
+	</dependency>
     <dependency>
       <groupId>cglib</groupId>
       <artifactId>cglib</artifactId>
