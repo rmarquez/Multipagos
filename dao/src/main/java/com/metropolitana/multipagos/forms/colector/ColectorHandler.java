@@ -13,9 +13,11 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
 import com.metropolitana.multipagos.Colector;
-import com.metropolitana.multipagos.Simbolo;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
+import org.apache.commons.collections.IteratorUtils;
+import org.apache.ojb.broker.PBFactoryException;
+import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 public class ColectorHandler {
 
@@ -294,6 +296,51 @@ public class ColectorHandler {
 			throw e;
 		}
 	}
+	
+	public Collection getListColector() throws PBFactoryException {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			ReportQueryByCriteria query = new ReportQueryByCriteria(
+					Colector.class, new Criteria());
+			query.setAttributes(new String[] { "colectorId",
+					"primerNombre", "primerApellido" });
+			query.addOrderBy("primerNombre", true);
+			return IteratorUtils.toList(broker
+					.getReportQueryIteratorByQuery(query));
+		} catch (PBFactoryException e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	public Collection getListColector(final String primerNombre)
+			throws Exception {
+			PersistenceBroker broker = null;
+			try {
+				broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+				Criteria criterio = new Criteria();
+				criterio.addLike("upper(primerNombre)", "*"
+						+ primerNombre.toUpperCase(Locale.getDefault())
+						+ "*");
+				ReportQueryByCriteria query = new ReportQueryByCriteria(
+						Colector.class, criterio);
+				query.setAttributes(new String[] { "colectorId",
+						"primerNombre", "primerApellido" });
+				query.addOrderByAscending("primerNombre");
+				return IteratorUtils.toList(broker
+						.getReportQueryIteratorByQuery(query));
+			} catch (Exception e) {
+				throw e;
+			} finally {
+				if (broker != null && !broker.isClosed()) {
+					broker.close();
+				}
+			}
+		}
 	
 	public static Colector colectorXNumero(final Integer colectorNumero)
 			throws Exception {

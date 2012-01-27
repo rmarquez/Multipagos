@@ -86,7 +86,12 @@
             <fi:group>
               <fi:styling layout="columns"/>
               <fi:items>
-                  <ft:widget id="diferencia"/>
+              		 <tr>
+                       <tw>
+                         <ft:widget-label id="diferencia"/><diferencian><ft:widget id="diferencia"/></diferencian>
+                       </tw>                            
+                     </tr>
+                  
                    <ft:widget id="conversionUs"/>
                    <ft:widget id="conversionCkUs"/>
                    <ft:widget id="conversionDpUs"/>

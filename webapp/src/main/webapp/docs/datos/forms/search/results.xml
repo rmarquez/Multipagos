@@ -17,25 +17,61 @@
             <p>En este momento la cantidad de visitas y pagos para el dia de hoy es:</p>            
         </s1>
         
-        <jx:set var="visitas" value="${handler.getCantidadVisitas(null)}"/>
-        <jx:set var="pagos" value="${handler.getCantidadPagos(null)}"/>
+        <jx:set var="visitas" value="${handler.getCantidadVisitas(null, null)}"/>
+        <jx:set var="pagos" value="${handler.getCantidadPagos(null, null)}"/>
+        
             <table border="1">
                 <thead>
                     <tr>                        
                         <th>Departamento</th>
                         <th>Visitas</th>
                         <th>Pagos</th>
+                        <th>Total</th>
+                        <th>Meta</th>
+                        <th>Diferencia</th>
                     </tr>
                 </thead>
                 <tbody>
                   <jx:forEach var="item" items="${bean}" varStatus="status">
                         <tr>
-                           <td>${item[1]}</td>
+                           <td align="left">${item[1]}</td>
                            <td>${item[2]}</td>
-                           <td>${item[3]}</td>                             
+                           <td>${item[3]}</td>
+                           <td>${item[4]}</td> 
+                           <td>${item[5]}</td> 
+                           <jx:if test="${(item[6]) &lt; 0 }">
+                           		<td><diferencian>${item[6]}</diferencian></td>
+                       		</jx:if>
+                       		<jx:if test="${(item[6]) &gt; 0 || (item[6]) == 0}">
+                           		<td><diferenciap>${item[6]}</diferenciap></td>
+                       		</jx:if>                        
                         </tr>
-                  </jx:forEach>
-                </tbody>
+                        <jx:if test="${(item[0]) == 1}">
+	                        
+	                        <tbody>
+				                  <jx:forEach var="item2" items="${usr}" varStatus="status">
+				                        <tr>
+				                        	<jx:if test="${(item2[0]) &lt; 12 }">
+					                           <td align="right"><blue>${item2[1]}</blue></td>
+					                           <td><blue>${item2[3]}</blue></td>
+					                           <td><blue>${item2[4]}</blue></td>
+					                           <td><blue>${item2[5]}</blue></td> 
+					                           <td><blue>${item2[6]}</blue></td> 
+					                           <jx:if test="${(item2[7]) &lt; 0 }">
+					                           		<td><diferencian>${item2[7]}</diferencian></td>
+					                       		</jx:if>
+					                       		<jx:if test="${(item2[7]) &gt; 0 || (item2[7]) == 0}">
+					                           		<td><diferenciap>${item2[7]}</diferenciap></td>
+					                       		</jx:if> 
+				                       		</jx:if> 	                       
+				                        </tr>				                        
+				                  </jx:forEach>
+				                </tbody>
+				           </jx:if>     
+	                  </jx:forEach>
+	                </tbody>
+                
+                
                <thead>                    
                     <tr>
                     	<th>Totales: </th>

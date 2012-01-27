@@ -19,7 +19,7 @@ import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 public class ContadorVisitasPagos {
 	
-	public static Integer getCantidadVisitas(Integer departamentoId) {
+	public static Integer getCantidadVisitas(Integer departamentoId, Integer usrId) {
 		
 		PersistenceBroker broker = null;
 
@@ -30,14 +30,16 @@ public class ContadorVisitasPagos {
 		if(departamentoId != null) {
 			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
 		}
-		
+		if(usrId != null){
+			criterio.addEqualTo("visitaIdRef.usrId", usrId);			
+		}
 		ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleVisitas.class, criterio);
 		Integer cantidad = Integer.valueOf(broker.getCount(query));
 		broker.close();
 		return cantidad;
 	}
 	
-	public static Integer getCantidadPagos(Integer departamentoId) {
+	public static Integer getCantidadPagos(Integer departamentoId, Integer usrId) {
 		
 		PersistenceBroker broker = null;
 
@@ -48,7 +50,9 @@ public class ContadorVisitasPagos {
 		if(departamentoId != null) {
 			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
 		}
-		
+		if(usrId != null){
+			criterio.addEqualTo("pagoIdRef.usrId", usrId);			
+		}
 		ReportQueryByCriteria query = new ReportQueryByCriteria(DetallePagos.class, criterio);
 		Integer cantidad = Integer.valueOf(broker.getCount(query));
 		broker.close();
@@ -64,12 +68,45 @@ public class ContadorVisitasPagos {
 			for (Iterator iter = broker.getReportQueryIteratorByQuery(queryCantidadesDepartamentos()); iter.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
 				
-				Integer visitas = getCantidadVisitas((Integer)detalle[0]);
-				Integer pagos = getCantidadPagos((Integer)detalle[0]);
+				Integer visitas = getCantidadVisitas((Integer)detalle[0], null);
+				Integer pagos = getCantidadPagos((Integer)detalle[0], null);
 				
 				
 				detalle[2] =visitas;
 				detalle[3] =pagos;
+				
+				Integer total = visitas + pagos;
+				
+				detalle[4] =total;
+				Integer meta = 0;
+				if((Integer)detalle[0] == 1){
+					meta = Integer.valueOf(3100);
+				}
+				if((Integer)detalle[0] == 2){
+					meta = Integer.valueOf(350);
+				}
+				if((Integer)detalle[0] == 3){
+					meta = Integer.valueOf(350);
+				}
+				if((Integer)detalle[0] == 4){
+					meta = Integer.valueOf(70);
+				}
+				if((Integer)detalle[0] == 5){
+					meta = Integer.valueOf(490);
+				}
+				if((Integer)detalle[0] == 6){
+					meta = Integer.valueOf(70);
+				}
+				if((Integer)detalle[0] == 7){
+					meta = Integer.valueOf(70);
+				}
+				if((Integer)detalle[0] == 10){
+					meta = Integer.valueOf(70);
+				}
+				Integer diferencia = (total - meta);
+				
+				detalle[5] = meta;
+				detalle[6] =diferencia;
 				
                 lista.add(detalle);
 			}
@@ -86,17 +123,106 @@ public class ContadorVisitasPagos {
 	private static ReportQueryByCriteria queryCantidadesDepartamentos() {
 
 		Criteria criterio = new Criteria();		
-		criterio.addEqualTo("inactivo", Boolean.FALSE);		
-        
+		criterio.addEqualTo("inactivo", Boolean.FALSE);			
+		
 		ReportQueryByCriteria query = new ReportQueryByCriteria(
 				Departamento.class, criterio);
 		query.setAttributes(new String[] { "departamentoId",
-				"departamentoNombre", "0.00", "0.00" });
+				"departamentoNombre", "0.00", "0.00", "0.00", "0.00", "0.00"});
 
 		query.addGroupBy(new String[] { "departamentoId",
 				"departamentoNombre" });
 
 		query.addOrderBy("departamentoId", true);
+		return query;
+	}
+	
+	public static List getControlSupervisor() throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			BigDecimal montoTotal = BigDecimal.ZERO;
+			List<Object[]> lista = new ArrayList<Object[]>();
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			for (Iterator iter = broker.getReportQueryIteratorByQuery(queryCantidadesSupervisor(Integer.valueOf(1))); iter.hasNext();) {
+				Object[] detalle = (Object[]) iter.next();
+			
+			
+				if((Integer)detalle[2] == 1){
+						
+					Integer visitas = getCantidadVisitas((Integer)detalle[2], (Integer)detalle[0]);
+					Integer pagos = getCantidadPagos((Integer)detalle[2], (Integer)detalle[0]);
+					
+					
+					detalle[3] =visitas;
+					detalle[4] =pagos;
+					
+					Integer total = visitas + pagos;
+					
+					detalle[5] =total;
+					Integer meta = 0;
+					String nombre = "";
+					if((Integer)detalle[0] == 4){
+						meta = Integer.valueOf(600);
+						nombre = "Grupo I";
+					}
+					if((Integer)detalle[0] == 5){
+						meta = Integer.valueOf(600);
+						nombre = "Grupo II";
+					}
+					if((Integer)detalle[0] == 6){
+						meta = Integer.valueOf(670);
+						nombre = "Grupo V";
+					}
+					if((Integer)detalle[0] == 7){
+						meta = Integer.valueOf(670);
+						nombre = "Grupo IV";
+					}
+					if((Integer)detalle[0] == 11){
+						meta = Integer.valueOf(600);
+						nombre = "Grupo III";
+					}
+					
+					Integer diferencia = (total - meta);
+					detalle[1] = nombre;
+					detalle[6] = meta;
+					detalle[7] =diferencia;
+					
+	                lista.add(detalle);
+				}
+				
+				
+			}
+			return lista;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	private static ReportQueryByCriteria queryCantidadesSupervisor(Integer departamentoId) {
+
+		Criteria criterio = new Criteria();		
+		criterio.addEqualTo("visitaIdRef.usrIdRef.usrEnable", Boolean.TRUE);	
+		if(departamentoId != null){
+		criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
+		}
+		ReportQueryByCriteria query = new ReportQueryByCriteria(
+				DetalleVisitas.class, criterio);
+		query.setAttributes(new String[] { "visitaIdRef.usrId",
+										   "visitaIdRef.usrIdRef.usrLogin", 
+										   "localidadIdRef.departamentoId",
+										   "0.00", 
+										   "0.00", 
+										   "0.00", 
+										   "0.00", 
+										   "0.00"});
+
+		query.addGroupBy(new String[] { "visitaIdRef.usrId","visitaIdRef.usrIdRef.usrLogin" , "localidadIdRef.departamentoId"});
+
+		query.addOrderBy("visitaIdRef.usrId", true);
 		return query;
 	}
 	

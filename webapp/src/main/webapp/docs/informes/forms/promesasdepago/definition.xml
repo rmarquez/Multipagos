@@ -26,9 +26,11 @@
         </fd:field>
 
         <fd:field id="colectorId">
-        	<fd:label>Colector:</fd:label>
+			<fd:label>Colector:</fd:label>
 			<fd:datatype base="integer"/>
-			<fd:selection-list src="cocoon:/colector.combo"	cache="none" />
+			<fd:suggestion-list type="javascript">
+		      return suggestionListColector(filter);
+		    </fd:suggestion-list>
 		</fd:field>
 
         
