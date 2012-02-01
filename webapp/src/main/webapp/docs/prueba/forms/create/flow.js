@@ -15,7 +15,8 @@ function createform(form) {
         var formUpload = new Form("forms/create/definition.xml");
 	    //formUpload.showForm("upload/uploadForm");
 	    if (formUpload.submitId == "true") {
-	    	
+	    	var handler = new Packages.com.metropolitana.multipagos.forms.Xls2Postgres();
+	    	handler.leerExcel();
 	    } 
 
         /*var bean = new Packages.net.agssa.sga.Banco();

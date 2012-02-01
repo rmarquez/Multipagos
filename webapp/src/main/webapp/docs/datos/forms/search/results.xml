@@ -9,13 +9,10 @@
         <title>Inicio</title>
     </header>
     <body>
-    	<s1 title="Bienvenido">
-            <p>Bienvenido al Sistema de Control de pagos.</p>
-            <p>Por favor elija una opción en el menú de arriba.</p>            
-        </s1>
-        <s1 title="Control Diario">
-            <p>En este momento la cantidad de visitas y pagos para el dia de hoy es:</p>            
-        </s1>
+    	
+        
+        <p>La cantidad de visitas y pagos para el dia de <diferencian><formatoFecha fecha="${fecha}" patron="dd/MMM/yyyy"/> a las ${hora} </diferencian>es:</p>            
+        
         
         <jx:set var="visitas" value="${handler.getCantidadVisitas(null, null)}"/>
         <jx:set var="pagos" value="${handler.getCantidadPagos(null, null)}"/>
@@ -77,6 +74,7 @@
                     	<th>Totales: </th>
                         <th>${visitas}</th>
                         <th>${pagos}</th>
+                        <th>${visitas+pagos}</th>
                     </tr>
                 </thead>
                 

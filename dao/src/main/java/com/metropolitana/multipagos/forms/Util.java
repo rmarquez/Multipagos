@@ -92,6 +92,19 @@ public class Util {
         calendar.set(Calendar.YEAR, fecha+1);
         return calendar.getTime();
     }
+    
+    
+    public static String hora(final Date fecha) {
+        Calendar calendar = Calendar.getInstance();
+        int hora, minutos, segundos;
+        calendar.setTime(fecha);
+        
+        hora = calendar.get(Calendar.HOUR_OF_DAY);
+        minutos= calendar.get(Calendar.MINUTE);
+        segundos = calendar.get(Calendar.SECOND);
+        String horaActual = hora + ":" + minutos + ":" + segundos;
+        return horaActual;
+    }
 
     /**
      * Regresa la fecha final del período a partir de una fecha dada.

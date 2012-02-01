@@ -163,23 +163,23 @@ public class ContadorVisitasPagos {
 					String nombre = "";
 					if((Integer)detalle[0] == 4){
 						meta = Integer.valueOf(600);
-						nombre = "Grupo I";
+						nombre = "Equipo 1";
 					}
 					if((Integer)detalle[0] == 5){
 						meta = Integer.valueOf(600);
-						nombre = "Grupo II";
+						nombre = "Equipo 2";
 					}
 					if((Integer)detalle[0] == 6){
 						meta = Integer.valueOf(670);
-						nombre = "Grupo V";
+						nombre = "Equipo 5";
 					}
 					if((Integer)detalle[0] == 7){
 						meta = Integer.valueOf(670);
-						nombre = "Grupo IV";
+						nombre = "Equipo 4";
 					}
 					if((Integer)detalle[0] == 11){
 						meta = Integer.valueOf(600);
-						nombre = "Grupo III";
+						nombre = "Equipo 3";
 					}
 					
 					Integer diferencia = (total - meta);
