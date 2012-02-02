@@ -9,8 +9,8 @@
         <map:script src="context://docs/util/dialogos/sino/flow.js"/>
         <map:script src="context://docs/util/dialogos/aceptar/flow.js"/>
         <map:script src="forms/create/flow.js"/>
-        <!--<map:script src="forms/search/flow.js"/>
-        <map:script src="forms/edit/flow.js"/>-->
+        <map:script src="forms/migrar/flow.js"/>
+        <!--<map:script src="forms/edit/flow.js"/>-->
     </map:flow>
 
     <map:pipelines>
