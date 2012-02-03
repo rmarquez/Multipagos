@@ -500,4 +500,17 @@ public class Util {
 		}
 		return monto;
 	}
+	
+	/**
+	* Metodo que convertir un String en BigDecimal
+	* @param valor, el String
+	* 
+	* @return BigDecimal, el String convertido en BigDecimal
+	*/
+	public static BigDecimal stringToBigDecimal(String valor) {
+		if (valor != null) {
+			valor = valor.replace(",", "");
+		}		
+		return new BigDecimal(new Double(valor));
+	}
 }
