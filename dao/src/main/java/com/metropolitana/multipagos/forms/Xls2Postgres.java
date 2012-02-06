@@ -23,14 +23,40 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Xls2Postgres {
 
 	public void leerExcel() throws Exception {
-
+		
 		// Limpiamos la tabla donde insertaremos los registros.
 		limpiarTabla();
+		
+		// Inicializamos los valores
+		String contrato = "";
+		String suscriptor = "";
+        String nit = ""; 
+        String direccion = ""; 
+        String barrio = ""; 
+        String factura = ""; 
+        String nfiscal = ""; 
+        String anio = ""; 
+        String mes = ""; 
+        String estado = ""; 
+        String departamento = ""; 
+        String localidad = ""; 
+        String cupon = ""; 
+        String telefono = ""; 
+        String descuento = ""; 
+        String servicio = ""; 
+        String empleador = ""; 
+        String dempleador = ""; 
+        String cuenta = ""; 
+        String concepto = "";
+        String saldo = "";
+        Date asignado = new Date();
 
 		try {
 			// Se abre el fichero Excel
@@ -39,141 +65,91 @@ public class Xls2Postgres {
 			Sheet sheet = workbook.getSheet(0);
 
 			int filas = sheet.getRows();
-
-			// Inicializamos los valores
-			String contrato = "";
-			String suscriptor = "";
-            String nit = ""; 
-            String direccion = ""; 
-            String barrio = ""; 
-            String factura = ""; 
-            String nfiscal = ""; 
-            String anio = ""; 
-            String mes = ""; 
-            String estado = ""; 
-            String departamento = ""; 
-            String localidad = ""; 
-            String cupon = ""; 
-            String telefono = ""; 
-            String descuento = ""; 
-            String servicio = ""; 
-            String empleador = ""; 
-            String dempleador = ""; 
-            String cuenta = ""; 
-            String concepto = "";
-            String saldo = "";
-            Date asignado = new Date();
-
-			// Se leen las columnas
-			for (int i = 0; i < 22; i++) {
-				// Se leen las filas
-				for (int j = 0; j < 4; j++) {
-					// Se obtiene la celda i-esimay(Xls2Postgres.java:224)
-
-					Cell cell = sheet.getCell(i, j);
+			// Se leen las filas
+            for (int j = 0; j < filas; j++) {
+            	// Se leen las columnas				
+					for (int i = 0; i < 22; i++) {
+					// Se obtiene la celda i-esimay
+					Cell cell = sheet.getCell(i,j);
 
 					if (cell.getColumn() == 0) {
-						contrato = cell.getContents();
-						//System.out.println("contrato = " + contrato);
+						contrato = cell.getContents();						
 					}
 					if (cell.getColumn() == 1) {
 						suscriptor = cell.getContents();
-						//System.out.println("suscriptor = " + suscriptor);
 					}
 					if (cell.getColumn() == 2) {
 						nit = cell.getContents();
-						//System.out.println("nit = " + nit);
 					}
 					if (cell.getColumn() == 3) {
 						direccion = cell.getContents();
-						//System.out.println("direccion = " + direccion);
 					}
 					if (cell.getColumn() == 4) {
 						barrio = cell.getContents();
-						//System.out.println("barrio = " + barrio);
 					}
 					if (cell.getColumn() == 5) {
 						factura = cell.getContents();
-						//System.out.println("factura = " + factura);
 					}
 					if (cell.getColumn() == 6) {
 						nfiscal = cell.getContents();
-						//System.out.println("nfiscal = " + nfiscal);
 					}
 					if (cell.getColumn() == 7) {
 						anio = cell.getContents();
-						//System.out.println("anio = " + anio);
 					}
 					if (cell.getColumn() == 8) {
 						mes = cell.getContents();
-						//System.out.println("mes = " + mes);
 					}
 					if (cell.getColumn() == 9) {
 						saldo = cell.getContents();
-						//System.out.println("saldo = " + saldo);
 					}
 					if (cell.getColumn() == 10) {
 						estado = cell.getContents();
-						//System.out.println("estado = " + estado);
 					}
 					if (cell.getColumn() == 11) {
 						departamento = cell.getContents();
-						//System.out.println("departamento = " + departamento);
 					}
 					if (cell.getColumn() == 12) {
 						localidad = cell.getContents();
-						//System.out.println("localidad = " + localidad);
 					}
 					if (cell.getColumn() == 13) {
 						cupon = cell.getContents();
-						//System.out.println("cupon = " + cupon);
 					}
 					if (cell.getColumn() == 14) {
 						telefono = cell.getContents();
-						//System.out.println("telefono = " + telefono);
 					}
 					if (cell.getColumn() == 15) {
 						descuento = cell.getContents();
-						//System.out.println("descuento = " + descuento);
 					}
 					if (cell.getColumn() == 16) {
 						servicio = cell.getContents();
-						//System.out.println("servicio = " + servicio);
 					}
 					if (cell.getColumn() == 17) {
 						empleador = cell.getContents();
-						//System.out.println("empleador = " + empleador);
 					}
 					if (cell.getColumn() == 18) {
 						dempleador = cell.getContents();
-						//System.out.println("dempleador = " + dempleador);
 					}
 					if (cell.getColumn() == 19) {
 						asignado = ((DateCell)cell).getDate();
-						//System.out.println("Asignado = " + asignado);
 					}
 					if (cell.getColumn() == 20) {
 						cuenta = cell.getContents();
-						//System.out.println("cuenta = " + cuenta);
 					}
 					if (cell.getColumn() == 21) {
 						concepto = cell.getContents();
-						//System.out.println("concepto = " + concepto);
 					}
-
-				}
-			}
-			//for(){
 				
-			//}
+				}
+			
 			// Insertamos los nuevos registros.
 			insertTabla(contrato, suscriptor, nit, direccion, barrio, factura,
 					nfiscal, anio, mes, saldo, estado, departamento, localidad,
 					cupon, telefono, descuento, servicio, empleador,
 					dempleador, asignado, cuenta, concepto);
-
+			}
+            borrarExcel();
 		} catch (Exception ex) {
-			//System.out.println("Error!");
+			System.out.println("Error!");
 			ex.printStackTrace();
 		}
 	}
@@ -184,7 +160,6 @@ public class Xls2Postgres {
 	 * @throws Exception
 	 */
 	private void limpiarTabla() throws Exception {
-		System.out.println("******* LIMPIAR ********");
 		Connection connPostgres = null;
 		String deleteQuery;
 
@@ -243,7 +218,6 @@ public class Xls2Postgres {
 			final String servicio, final String empleador,
 			final String dempleador, final Date asignado, final String cuenta,
 			final String concepto) throws Exception {
-		System.out.println("******* INSERTAR ********");
 		
 		Connection connPostgres = null;
 		String insertQuery;
@@ -273,8 +247,7 @@ public class Xls2Postgres {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (connPostgres != null)
-					connPostgres.close();
+				if (connPostgres != null) connPostgres.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -292,11 +265,11 @@ public class Xls2Postgres {
 			final String concepto)	throws Exception {
 		
 		PreparedStatement psOrigen = null;
-		ResultSet rsOrigen = null;
+		//ResultSet rsOrigen = null;
 		
 
 		try {			
-			//while (rsOrigen.next()) {
+			//while (lista.next()) {
 				psOrigen = connPostgres.prepareStatement(insertQuery);
 				
 				psOrigen.setString(1, contrato.toString());
@@ -367,11 +340,11 @@ public class Xls2Postgres {
 					psOrigen.setString(22, concepto.toString());
 				}
 				
-				rsOrigen = psOrigen.executeQuery();
+				psOrigen.executeUpdate();
 			//}
 			
 			psOrigen.close();
-			rsOrigen.close();
+			//rsOrigen.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -381,5 +354,16 @@ public class Xls2Postgres {
         Format formatter = new SimpleDateFormat("yyyy-MM-dd");
         return formatter.format(asignado);
     }	
+	
+	private void borrarExcel() {         
+         String sFichero = "/tmp/multipagos.xls";
+         File archivo = new File(sFichero);         
+         if (archivo.delete())
+                 System.out.println("El archivo " + sFichero + " ha sido borrado correctamente");
+         else
+                 System.out.println("El archivo " + sFichero + " no se ha podido borrar");
+
+ }
+
 	
 }

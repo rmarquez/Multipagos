@@ -540,3 +540,15 @@ span#fact_monto_cs, span#fact_monto_us, span#formap_id, span#tipom_id, span#fact
 .suggestcomprobante {
     width : 400px
 }
+
+#progress-bar {
+	   background: url(percentage-bg.png) no-repeat left center;
+	   width: 316px;
+	   height: 39px;
+	   margin: 0 auto;
+}
+#progress-level {
+   background: url(progress.png) no-repeat left center;
+   width: 60%; /* SET THIS TO GET THE DESIRE LEVEL */
+   height: 39px;
+}

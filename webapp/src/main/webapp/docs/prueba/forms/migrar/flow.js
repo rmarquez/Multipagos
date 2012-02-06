@@ -6,3 +6,4 @@ function migrarform(form) {
         cocoon.sendPage("/bienvenidos");
         
 }
+

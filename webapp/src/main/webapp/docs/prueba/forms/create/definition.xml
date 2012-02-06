@@ -6,6 +6,9 @@
           <fd:hint>agregar documento excel.</fd:hint>
           <fd:help>El archivo debe ser llamado multipagos.xsl</fd:help>
         </fd:upload>
+        <div id="progress-bar">
+			<div id="progress-level"></div>
+		</div>
         <fd:submit id="true">
             <fd:label><i18n:text>Agregar</i18n:text></fd:label>
             
