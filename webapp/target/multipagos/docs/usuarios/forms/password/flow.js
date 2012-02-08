@@ -21,7 +21,7 @@ function passwordform(form) {
     form.load(bean);
     var kont = form.showForm("password-form-display");
 
-    handler.updatePassword(form.getChild("usrId").getValue(), form.getChild("usrPasswordNew").getValue());
+    handler.updatePassword(form.getChild("usrId").getValue(), encriptar.encriptarMD5(form.getChild("usrPasswordNew").getValue()));
 
     kont.invalidate();
 
@@ -42,27 +42,29 @@ function passwordform(form) {
 // @return true si el cambio de contraseña puede ser llevado a cabo
 //
 function passwordValidar(userID, usrId, usrPasswordDb, passwordActual, passwordNuevo, passwordRepetir) {
+	var encriptar = new Packages.com.metropolitana.multipagos.forms.EncriptarMd5();
+	//var md5 = encriptar.encriptarMD5(passwordActual);
     // Determinamos si el usuario que inicio sesion es el administrador
     if (userID == 1) {
         // Si el usuario administrador se esta cambiando su contaseña, siempre
         // se debe verificar la contraseña actual
         if (userID == usrId.getValue()) {
-            if (!usrPasswordDb.equals(passwordActual.getValue())) {
-                var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("edu.inatec.key.passwderror", true);
+            if (!usrPasswordDb.equals(encriptar.encriptarMD5(passwordActual.getValue()))) {
+                var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("com.metropolitana.key.passwderror", true);
                 passwordActual.setValidationError(validationError);
                 return false;
             }
         // El administador esta cambiando las contraseñas de otros usuarios
         // verificar el password unicamente si este es proporcionado
-        } else if (passwordActual.getValue() != null && !usrPasswordDb.equals(passwordActual.getValue())) {
-            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("edu.inatec.key.passwderror", true);
+        } else if (passwordActual.getValue() != null && !usrPasswordDb.equals(encriptar.encriptarMD5(passwordActual.getValue()))) {
+            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("com.metropolitana.key.passwderror", true);
             passwordActual.setValidationError(validationError);
             return false;
         }
     } else {
         // En el caso de cualquier otro usuario el password siempre se válida
-        if (!usrPasswordDb.equals(passwordActual.getValue())) {
-            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("edu.inatec.key.passwderror", true);
+        if (!usrPasswordDb.equals(encriptar.encriptarMD5(passwordActual.getValue()))) {
+            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("com.metropolitana.key.passwderror", true);
             passwordActual.setValidationError(validationError);
             return false;
         }
@@ -72,22 +74,27 @@ function passwordValidar(userID, usrId, usrPasswordDb, passwordActual, passwordN
     var result = passwordRepetir.getValue() != null && passwordNuevo.getValue() != null &&
                  passwordNuevo.getValue().equals(passwordRepetir.getValue());
     if (!result) {
-        var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("edu.inatec.key.dospasswordnoigual", true);
+        var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("com.metropolitana.key.dospasswordnoigual", true);
         passwordRepetir.setValidationError(validationError);
     }
     return result;
 }
 
 function passwordValidarFormulario(form) {
+	var encriptar = new Packages.com.metropolitana.multipagos.forms.EncriptarMd5();
     var result = false;
     // Usuario que inicio sesión
     var userID = auth_getUserID();
     // Usuario al que hay que cambiarle la contraseña
     var usrId = form.getChild("usrId");
     var passwordActual = form.getChild("usrPasswordActual");
+    //var md5 = encriptar.encriptarMD5(passwordActual);
+    
     var passwordNuevo = form.getChild("usrPasswordNew");
+    
     var passwordRepetir = form.getChild("usrPasswordRepetir");
-    var handler = new Packages.edu.inatec.sga.forms.auth_user.Auth_userHandler();
+    
+    var handler = new Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler();
     // Usuario al que hay que cambiar la contaseña
     var bean = handler.retrieve(usrId.getValue());
 
@@ -99,7 +106,7 @@ function passwordValidarFormulario(form) {
         // Hay que verificar que un usuario normal no intente
         // cambiar la contraseña de otro usuario
         if (userID != usrId.getValue()) {
-            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("edu.inatec.key.operacionnopermitida", true);
+            var validationError = new Packages.org.apache.cocoon.forms.validation.ValidationError("com.metropolitana.key.operacionnopermitida", true);
             usrId.setValidationError(validationError);
         } else {
             result = passwordValidar(userID, usrId, bean.getUsrPassword(), passwordActual, passwordNuevo, passwordRepetir);

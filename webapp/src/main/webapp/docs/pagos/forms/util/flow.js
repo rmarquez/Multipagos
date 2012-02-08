@@ -21,6 +21,16 @@ function validarForm(form) {
 	    	form.getChild("mensajes de error").addMessage("El monto del pago no puede ser nulo, favor verifique los datos. ");
 	    	return false;
 	    }
+	    var year = row.getChild("year").getValue();
+	    if(year == null){
+	    	form.getChild("mensajes de error").addMessage("El Año no puede ser vacio, favor verifique los datos. ");
+	    	return false;
+	    }
+	    var mes = row.getChild("mes").getValue();
+	    if(mes == null){
+	    	form.getChild("mensajes de error").addMessage("El Mes no puede ser vacio, favor verifique los datos. ");
+	    	return false;
+	    }
     }		  
 	return true;
 }
@@ -154,16 +164,20 @@ function xContrato(event) {
 	facturaInterna.setValue(null);
 	var numContrato = event.source.parent.getChild("numContrato");
 	numContrato.setValue(null);	
+	var year = event.source.parent.getChild("year");
+	year.setValue(null);
 	var mes = event.source.parent.getChild("mes");
     mes.setValue(null);
 	
 	if (porContrato.booleanValue()== true) {
 		facturaInterna.setState(WidgetState.OUTPUT);
 		numContrato.setState(WidgetState.ACTIVE);
+		year.setState(WidgetState.ACTIVE);
 		mes.setState(WidgetState.ACTIVE);
 	} else {
 		facturaInterna.setState(WidgetState.ACTIVE);
 		numContrato.setState(WidgetState.OUTPUT);
+		year.setState(WidgetState.OUTPUT);
 		mes.setState(WidgetState.OUTPUT);
 	}	
 }
@@ -176,7 +190,7 @@ function alSeleccionarContrato(event) {
     var servicio = event.source.parent.getChild("servicioId");
     var localidad = event.source.parent.getChild("localidadId");
     var saldoPagar = event.source.parent.getChild("salgoPagar");
-    var year = event.source.parent.getChild("year");
+    //var year = event.source.parent.getChild("year");
     
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
@@ -189,7 +203,7 @@ function alSeleccionarContrato(event) {
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
-			year.setValue(cartera.getAnio());
+			//year.setValue(cartera.getAnio());
 			
 		}
 		if (handlerCartera.existeContrato(numContrato)==false) {

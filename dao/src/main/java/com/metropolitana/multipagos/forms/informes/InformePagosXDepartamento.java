@@ -67,16 +67,16 @@ public class InformePagosXDepartamento {
 				"carteraIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
-				"carteraIdRef.cupon", "montoPago", "carteraIdRef.anio",
-				"carteraIdRef.mes", "carteraIdRef.suscriptor", "fechaPago",
+				"carteraIdRef.cupon", "montoPago", "anio",
+				"mes", "carteraIdRef.suscriptor", "fechaPago",
 				"servicioIdRef.servicioNombre", "carteraIdRef.cuenta", "0.00" });
 
 		query.addGroupBy(new String[] { "pagoId",
 				"carteraIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
-				"carteraIdRef.cupon", "montoPago", "carteraIdRef.anio",
-				"carteraIdRef.mes", "carteraIdRef.suscriptor", "fechaPago",
+				"carteraIdRef.cupon", "montoPago", "anio",
+				"mes", "carteraIdRef.suscriptor", "fechaPago",
 				"servicioIdRef.servicioNombre", "carteraIdRef.cuenta", });
 
 		query.addOrderBy("pagoId", true);

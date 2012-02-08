@@ -31,13 +31,13 @@
                               	<th><ft:repeater-widget-label widget-id="suscriptor"/></th>
                               	<th><ft:repeater-widget-label widget-id="localidadId"/></th>
                               	<th><ft:repeater-widget-label widget-id="fechaVisita"/></th>
-                              	<th><ft:repeater-widget-label widget-id="simbolo"/></th>
+                              	<th><ft:repeater-widget-label widget-id="simbolo"/></th>                              	
                               	<th><ft:repeater-widget-label widget-id="simboloNombre"/></th>
+                              	<th><ft:repeater-widget-label widget-id="fprogCobro"/></th>
                               	<th><ft:repeater-widget-label widget-id="servicioId"/></th>
                               	<th><ft:repeater-widget-label widget-id="colectorNumero"/></th>
                               	<th><ft:repeater-widget-label widget-id="colectorNombre"/></th>
-                              	<th><ft:repeater-widget-label widget-id="avisoCobro"/></th>                              	
-                              	<th><ft:repeater-widget-label widget-id="fprogCobro"/></th>
+                              	<th><ft:repeater-widget-label widget-id="avisoCobro"/></th>   
                               	<th><ft:repeater-widget-label widget-id="observaciones"/></th>
                               	<th><ft:repeater-widget-label widget-id="marcar"/></th>
                               </tr>			                                
@@ -52,11 +52,11 @@
 										<td><ft:widget id="fechaVisita"/></td>
 										<td><ft:widget id="simbolo"><fi:styling align="right" size="3"/></ft:widget></td>
 										<td><ft:widget id="simboloNombre"/></td>
+										<td><ft:widget id="fprogCobro"/></td>
 										<td><ft:widget id="servicioId"/></td>
 										<td><ft:widget id="colectorNumero"><fi:styling align="right" size="3"/></ft:widget></td>
 										<td><ft:widget id="colectorNombre"/></td>
-										<td><ft:widget id="avisoCobro"><fi:styling align="right" size="6"/></ft:widget></td>
-										<td><ft:widget id="fprogCobro"/></td>
+										<td><ft:widget id="avisoCobro"><fi:styling align="right" size="6"/></ft:widget></td>										
 										<td><ft:widget id="observaciones"/></td>
 										<td><ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget></td>
 										<td><ft:widget id="marcar"/></td>

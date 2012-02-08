@@ -197,17 +197,10 @@
             <map:serialize type="xml"/>
         </map:match>
 
-      <!-- Esto es lo que modifique comandante -->
+      <!-- redirecciona pagina de inicio -->
                 
         <map:match pattern="bienvenidos-vista"> 
         	<map:redirect-to uri="cocoon://datos/search" session="true"/>
-        	       	
-            <!--<map:generate type="jx" src="docs/datos/forms/search/results.xml"/>           
-            <map:transform type="i18n"/>
-            <map:transform src="context://stylesheets/multipagos.xslt"/>
-            <map:transform type="xinclude"/>
-            <map:transform type="xalan" src="context://stylesheets/forms/forms-samples-styling.xsl"/>
-            <map:serialize/>-->
         </map:match>
 
         <map:match pattern="noautorizado-vista">

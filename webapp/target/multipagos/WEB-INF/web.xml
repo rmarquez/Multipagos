@@ -195,7 +195,8 @@
  -->
     <init-param>
       <param-name>upload-directory</param-name>
-      <param-value>resources/files</param-value>
+      <!-- <param-value>resources/files</param-value> -->
+      <param-value>/tmp</param-value>
     </init-param>
    
 

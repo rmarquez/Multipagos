@@ -15,7 +15,6 @@
               <table>
                   <tr>
                       <tw align="center"><ft:widget id="true"/></tw>
-                      <!-- <tw align="center"><ft:widget id="false"/></tw> -->
                   </tr>
               </table>
           </ft:form-template>

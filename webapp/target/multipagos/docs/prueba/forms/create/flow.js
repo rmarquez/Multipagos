@@ -14,9 +14,7 @@ function createform(form) {
         
         var formUpload = new Form("forms/create/definition.xml");
 	    //formUpload.showForm("upload/uploadForm");
-	    if (formUpload.submitId == "true") {
-	    	
-	    } 
+        cocoon.sendPage("migrar");
 
         /*var bean = new Packages.net.agssa.sga.Banco();
         var handlerBean = new Packages.net.agssa.sga.forms.banco.BancoHandler();
