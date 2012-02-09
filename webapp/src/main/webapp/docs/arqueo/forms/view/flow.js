@@ -3,7 +3,7 @@ importClass(Packages.java.lang.Boolean);
 importClass(Packages.com.metropolitana.multipagos.forms.MenuUser);
 
 function viewform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("buscar")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.arqueoId));
     	form.getChild("agregar-p").performAction();

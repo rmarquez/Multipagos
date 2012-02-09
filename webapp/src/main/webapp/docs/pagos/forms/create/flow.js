@@ -8,7 +8,7 @@ importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 function createform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("agregar")) {
     	var usrId = auth_getUserID();
     	var handlerUser = new Auth_userHandler();
     	var usuario = handlerUser.retrieve(usrId);

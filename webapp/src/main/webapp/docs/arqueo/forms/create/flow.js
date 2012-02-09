@@ -6,7 +6,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartam
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 importClass(Packages.org.apache.cocoon.forms.validation.ValidationError);
 function createform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("agregar")) {
     	var usrId = auth_getUserID();
     	var handlerUser = new Auth_userHandler();
     	var usuario = handlerUser.retrieve(usrId);

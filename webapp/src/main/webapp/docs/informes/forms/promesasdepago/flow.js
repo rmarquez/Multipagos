@@ -1,5 +1,5 @@
 function promesasdepagoform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("informes")) {
         form.getChild("fechaIni").setValue(Packages.com.metropolitana.multipagos.forms.Util.primeroDelMes());
         form.getChild("fechaFin").setValue(new Packages.java.util.Date());
         form.showForm("promesasdepago-form-display");

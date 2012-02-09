@@ -5,7 +5,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 
 function editform(form) {
-    if (autorizar("informes")) {
+    if (autorizar("editar")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
     	var bean = handlerBean.retrieve(parseInt(cocoon.request.visitaId));
     	form.load(bean);

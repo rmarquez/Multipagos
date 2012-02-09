@@ -50,7 +50,7 @@
                
         <!-- Menu Catalogo -->
         <div dojoType="PopupMenu2" widgetId="informeMenu">
-              <jx:if test="${bean.getResources().contains('cata')}">
+              <jx:if test="${bean.getResources().contains('informes')}">
                   <div dojoType="MenuItem2" caption="Informes" submenuId="infos"/>
               </jx:if>
         </div>
@@ -74,7 +74,7 @@
               </jx:if>
         </div>
         
-        <jx:if test="${bean.getResources().contains('informes')}">
+        <jx:if test="${bean.getResources().contains('cata')}">
              <!--Submenu de Administracion de catalogos-->
             <div dojoType="PopupMenu2" widgetId="adminCatalogos">
             	<div dojoType="MenuItem2" caption="Bancos" submenuId="bancos"/>
@@ -182,9 +182,11 @@
         
          <!-- Submenu de Control de visitas -->
          <div dojoType="PopupMenu2" widgetId="visitas">
-             <div dojoType="MenuItem2" caption="Crear"
-                  onClick="parent.window.location='/multipagos/visitas/create'"/>
-             <jx:if test="${bean.getResources().contains('informes')}">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/visitas/create'"/>
+		     </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">
              		<div dojoType="MenuItem2" caption="Buscar"
                      		onClick="parent.window.location='/multipagos/visitas/search'"/>
              </jx:if>
@@ -192,9 +194,11 @@
          
          <!-- Submenu de Control de pagos -->
          <div dojoType="PopupMenu2" widgetId="pagos">
-             <div dojoType="MenuItem2" caption="Crear"
-                  onClick="parent.window.location='/multipagos/pagos/create'"/>
-             <jx:if test="${bean.getResources().contains('informes')}">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/pagos/create'"/>
+             </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">
 		             <div dojoType="MenuItem2" caption="Buscar"
 		                     onClick="parent.window.location='/multipagos/pagos/search'"/>
                      <div dojoType="MenuItem2" caption="Cliente"
@@ -204,10 +208,14 @@
          
           <!-- Submenu de Control de arqueo -->
          <div dojoType="PopupMenu2" widgetId="arqueos">
-             <div dojoType="MenuItem2" caption="Crear"
-                  onClick="parent.window.location='/multipagos/arqueo/create'"/> 
-             <div dojoType="MenuItem2" caption="Buscar"
-                  onClick="parent.window.location='/multipagos/arqueo/search'"/>           
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+	             <div dojoType="MenuItem2" caption="Crear"
+	                  onClick="parent.window.location='/multipagos/arqueo/create'"/> 
+             </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">             
+	             <div dojoType="MenuItem2" caption="Buscar"
+	                  onClick="parent.window.location='/multipagos/arqueo/search'"/> 
+              </jx:if>          
          </div>
        
         <!-- Menu Ayuda -->
@@ -218,11 +226,13 @@
     </span>
     <div dojoType="MenuBar2">
         <div dojoType="MenuBarItem2" caption="Archivo" submenuId="inicioMenu"></div>
-        <jx:if test="${bean.getResources().contains('informes')}">
+        <jx:if test="${bean.getResources().contains('cata')}">
         		<div dojoType="MenuBarItem2" caption="Catalogo" submenuId="catalogoMenu"></div>
         </jx:if>
         <div dojoType="MenuBarItem2" caption="Control de cobros" submenuId="controCobroMenu"></div>
-        <div dojoType="MenuBarItem2" caption="Informes" submenuId="informeMenu"></div>
+        <jx:if test="${bean.getResources().contains('informes')}">
+        		<div dojoType="MenuBarItem2" caption="Informes" submenuId="informeMenu"></div>
+        </jx:if>
         <div dojoType="MenuBarItem2" caption="Administración" submenuId="administracionMenu"></div>
         <!-- <div dojoType="MenuBarItem2" caption="Ayuda" submenuId="ayudaMenu"></div> -->
     </div>

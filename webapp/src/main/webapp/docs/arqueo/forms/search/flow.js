@@ -1,5 +1,5 @@
 function searchform(form) {
-    if (autorizar("cata")) {
+    if (autorizar("buscar")) {
         form.getChild("fecha").setValue(new Packages.java.util.Date());
         form.showForm("search-form-display");
         
