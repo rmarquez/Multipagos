@@ -306,12 +306,9 @@ public class Xls2Postgres {
 			final String dempleador, final Date asignado, final String cuenta,
 			final String concepto)	throws Exception {
 		
-		PreparedStatement psOrigen = null;
-		//ResultSet rsOrigen = null;
-		
+		PreparedStatement psOrigen = null;		
 
-		try {			
-			//while (lista.next()) {
+		try {
 				psOrigen = connPostgres.prepareStatement(insertQuery);
 				
 				psOrigen.setString(1, contrato.toString());
@@ -383,10 +380,8 @@ public class Xls2Postgres {
 				}
 				
 				psOrigen.executeUpdate();
-			//}
-			
+						
 			psOrigen.close();
-			//rsOrigen.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

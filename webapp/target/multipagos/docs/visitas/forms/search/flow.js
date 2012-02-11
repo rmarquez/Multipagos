@@ -2,7 +2,7 @@ importClass(Packages.java.lang.Integer);
 importClass(Packages.java.lang.Long);
 importClass(Packages.java.lang.Boolean);
 function searchform(form) {
-    if (autorizar("informes")) {
+    if (autorizar("buscar")) {
     	var editar = false;
     	
         form.showForm("search-form-display");

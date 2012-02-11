@@ -1,7 +1,7 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.lang.Long);
 function searchform(form) {
-    if (autorizar("informes")) {
+    if (autorizar("buscar")) {
         form.showForm("search-form-display");
         var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
         var fecha = form.getChild("fecha").getValue();

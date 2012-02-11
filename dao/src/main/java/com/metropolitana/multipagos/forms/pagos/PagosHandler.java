@@ -214,7 +214,13 @@ public class PagosHandler {
 			det.setColectorIdRef(ColectorHandler.retrieve(det.getColectorId(), broker));
 			det.setServicioIdRef(ServicioHandler.retrieve(det.getServicioId(), broker));
 			det.setLocalidadIdRef(LocalidadHandler.retrieve(det.getLocalidadId(), broker));
-			cambiarEstadoCartera(det.getCarteraId(), det.getFechaPago(), broker);
+            BigDecimal montoPago = det.getMontoPago();
+            BigDecimal saldoPagar = det.getSalgoPagar();
+            // Se cambiara el estado solo si el monto pagado es igual o mayor al monto pendiente.
+			if(montoPago.compareTo(saldoPagar)==0 || montoPago.compareTo(saldoPagar)==1){
+				cambiarEstadoCartera(det.getCarteraId(), det.getFechaPago(), broker);
+			}				
+			
 			det.setPagoIdRef(bean);
 			
 		}
