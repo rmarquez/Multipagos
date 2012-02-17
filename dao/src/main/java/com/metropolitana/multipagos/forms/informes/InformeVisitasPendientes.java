@@ -58,8 +58,7 @@ public class InformeVisitasPendientes {
 			Object[] fila = { rs.getObject(1), rs.getObject(2),
 					rs.getObject(3), rs.getObject(4), rs.getObject(5),
 					rs.getObject(6), rs.getObject(7), rs.getObject(8),
-					rs.getObject(9) };
-                
+					rs.getObject(9) };              
 
             lista.add(fila);
                 

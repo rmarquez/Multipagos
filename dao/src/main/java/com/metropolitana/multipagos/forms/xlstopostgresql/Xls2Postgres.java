@@ -35,7 +35,7 @@ import java.util.List;
  * 
  * 07-02-2012
  */
-public class Xls2Postgres {
+public class Xls2Postgres extends UtilXls2Postgres {
 
 	public void leerExcel() throws Exception {
 		

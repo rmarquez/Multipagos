@@ -17,6 +17,11 @@
                       <tw align="center"><ft:widget id="true"/></tw>
                   </tr>
               </table>
+              <p>
+                <div dojoType="ajax:FormUploadProgress">
+                    <div>Upload Progress Sample</div>
+                </div>
+            </p>
           </ft:form-template>
       </s1>
   </body>
