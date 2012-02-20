@@ -26,6 +26,8 @@
             <jx:if test="${usrId==1}">
             <div dojoType="MenuItem2" caption="Registro de Logs"
                         onClick="parent.window.location='/multipagos/logs/search'"/>
+            <div dojoType="MenuItem2" caption="Subir Base de datos"
+                        onClick="parent.window.location='/multipagos/altadb/create'"/>
             </jx:if>
         </div>
         

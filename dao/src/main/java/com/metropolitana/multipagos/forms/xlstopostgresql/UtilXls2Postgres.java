@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class UtilXls2Postgres {
 	
-	public void sqlProcess() throws Exception {
+	public int sqlProcess() throws Exception {
 		Connection connPostgres = null;
 		String query;
 
@@ -383,6 +383,9 @@ public class UtilXls2Postgres {
 			"inner join tmp_p1 b on a.factura_interna = b.factura_interna;";
             ejecutarQuery(connPostgres, query);
             
+            query = "select count (*) from tmp_con_dpts_lcldds_barrios; ";
+			int cantidad = countQuery(connPostgres, query);
+            
             query = "drop table tmp_p1;";
             ejecutarQuery(connPostgres, query);
             
@@ -395,7 +398,7 @@ public class UtilXls2Postgres {
             query = "drop table tmp_con_dpts_lcldds_barrios_2;";
             ejecutarQuery(connPostgres, query);
             
-            
+            return cantidad;
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -407,6 +410,7 @@ public class UtilXls2Postgres {
 				e.printStackTrace();
 			}
 		}
+		return 0;
 	}
 	
 	private void ejecutarQuery(Connection connPostgres, String query)

@@ -202,7 +202,7 @@
         <map:match pattern="bienvenidos-vista"> 
         	<map:redirect-to uri="cocoon://datos/search" session="true"/>
         </map:match>
-
+              
         <map:match pattern="noautorizado-vista">
             <map:generate src="noautorizado.xml"/>
             <map:call resource="normal"/>
@@ -296,7 +296,7 @@
                 <map:parameter name="failure-redirect" value="entrada"/>
             </map:call>
         </map:match>
-
+        
         <map:match pattern="noautorizado">
             <map:call function="protect">
                 <map:parameter name="handler" value="authhandler"/>

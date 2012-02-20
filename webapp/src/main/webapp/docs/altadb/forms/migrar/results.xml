@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" 
+		  xmlns:xi="http://www.w3.org/2001/XInclude" 
+		  menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Base de datos actualizada</title>
+    </header>
+    <body>
+        <s1 title="Base de datos actualizada">
+            <p>Se agregaron ${cantidad} nuevos registros</p>
+        </s1>
+    </body>
+</document>
