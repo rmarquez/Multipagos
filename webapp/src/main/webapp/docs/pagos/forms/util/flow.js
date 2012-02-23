@@ -11,6 +11,7 @@ importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
 importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
 
 function validarForm(form) {
+	var cantidadPagos = form.getChild("cantidadPagos").getValue();
 	var widgetMensaje = form.getChild("mensajes de error");
 	var detalle = form.getChild("detalle");
 	
@@ -31,6 +32,12 @@ function validarForm(form) {
 	    	form.getChild("mensajes de error").addMessage("El Mes no puede ser vacio, favor verifique los datos. ");
 	    	return false;
 	    }
+	    if(cantidadPagos==null) {
+			form.getChild("mensajes de error").addMessage("¡ No se han registrado pagos !, verifique sus datos, puede contener algun error. ");
+			return false;
+		}
+	    
+	    //cantidadPagos
     }		  
 	return true;
 }

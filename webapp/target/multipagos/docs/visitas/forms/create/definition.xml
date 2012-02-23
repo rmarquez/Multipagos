@@ -57,14 +57,7 @@
                 </fd:field>
                 
                <fd:field id="carteraId">
-					<fd:datatype base="integer"/>					
-					<!-- <fd:selection-list src="cocoon:/carterad.combo"
-						cache="none" />	
-					<fd:on-value-changed>
-						<fd:javascript>
-							alSeleccionarCartera(event);
-						</fd:javascript>
-					</fd:on-value-changed> -->						
+					<fd:datatype base="integer"/>
 				</fd:field>
 							
 				<fd:field id="suscriptor" state="output">
@@ -103,9 +96,7 @@
 				
 				
 				<fd:field id="simboloId" required="true">
-					<fd:datatype base="integer"/>
-					<!-- <fd:selection-list src="cocoon:/simbolo.combo"
-						cache="none" /> -->					
+					<fd:datatype base="integer"/>										
 				</fd:field>
 				
 				<fd:field id="simboloNombre" state="output">
@@ -131,9 +122,7 @@
                 </fd:field>
 				
 				<fd:field id="colectorId" required="true">
-					<fd:datatype base="integer"/>
-					<!-- <fd:selection-list src="cocoon:/colector.combo"
-						cache="none" />	 -->
+					<fd:datatype base="integer"/>					
 				</fd:field>
 				
 				<fd:field id="colectorNombre" state="output">

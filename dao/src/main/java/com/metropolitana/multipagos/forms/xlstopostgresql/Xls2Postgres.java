@@ -276,14 +276,13 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			String password = "";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
-
 			// Limpiamos la tabla tmp_cartera antes de insertar los datos
 			insertQuery = "INSERT INTO tmp_cartera(contrato, suscriptor, nit, direccion, barrio, factura_interna, numero_fiscal, anio, mes, saldo, estado, departamento, localidad, cupon, telefono, descuento, servicio, empleador, direccion_empleador, f_asignado, cuenta, concepto_diferido) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			ejecutarInsertQuery(connPostgres, insertQuery, contrato,
 					suscriptor, nit, direccion, barrio, factura, nfiscal, anio,
 					mes, saldo, estado, departamento, localidad, cupon,
 					telefono, descuento, servicio, empleador, dempleador,
-					asignado, cuenta, concepto);
+					Util.fechaDias(asignado, 1), cuenta, concepto);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -365,9 +364,10 @@ public class Xls2Postgres extends UtilXls2Postgres {
 					psOrigen.setString(19, null);
 				} else {
 					psOrigen.setString(19, dempleador.toString());
-				}			
-				java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(asignado));                        
+				}
+				java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(asignado));  
 				psOrigen.setDate(20, fecha);
+				
 				if(cuenta==""){
 					psOrigen.setString(21, null);
 				} else {
