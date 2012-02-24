@@ -513,4 +513,32 @@ public class Util {
 		}		
 		return new BigDecimal(new Double(valor));
 	}
+	
+	public static String sinAcentos(String valor) {
+		if (valor != null) {
+			valor=valor.replace('Á','A');
+			valor=valor.replace('É','E');
+			valor=valor.replace('Í','I');
+			valor=valor.replace('Ó','O');
+			valor=valor.replace('Ú','U');
+			valor=valor.replace('Ñ','N');
+			valor=valor.replace('Ä','A');
+			valor=valor.replace('Ë','E');
+			valor=valor.replace('Ï','I');
+			valor=valor.replace('Ö','O');
+			valor=valor.replace('Ü','U');
+			valor=valor.replace('á','a');
+			valor=valor.replace('é','e');
+			valor=valor.replace('í','i');
+			valor=valor.replace('ó','o');
+			valor=valor.replace('ú','u');
+			valor=valor.replace('ñ','n');
+			valor=valor.replace('ä','a');
+			valor=valor.replace('ë','e');
+			valor=valor.replace('ï','i');
+			valor=valor.replace('ö','o');
+			valor=valor.replace('ü','u');
+		}		
+		return valor;
+	}
 }

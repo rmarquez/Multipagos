@@ -26,6 +26,9 @@ public class UtilXls2Postgres {
 
 			query = "select count (factura_interna) from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento); ";
 			int count = countQuery(connPostgres, query);
+			
+			query = "select * into tmp_excluidos from tmp_cartera where tmp_id in (select tmp_id from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento));";
+            ejecutarQuery(connPostgres, query);
                         
             if(count > 0){
                 query = "delete from tmp_cartera  where tmp_id in (select tmp_id from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento));";
@@ -35,16 +38,19 @@ public class UtilXls2Postgres {
             query = "update tmp_cartera set departamento = upper(departamento);";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_cartera set departamento = 'MANAGUA'  where departamento like  '%MANAGUA%';";
+            query = "update tmp_cartera set departamento = 'MANAGUA' where departamento like '%MANAGUA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_cartera set departamento = 'ESTELI'  where departamento like  '%ESTEL%';";
+            query = "update tmp_cartera set departamento = 'ESTELI' where departamento like '%ESTEL%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_cartera set departamento = 'LEON'  where departamento like  'LEÓN';";
+            query = "update tmp_cartera set departamento='LEON' where departamento like 'LEÓN';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_cartera set departamento = 'MATAGALPA'  where departamento like  '%MATA%';";
+            query = "update tmp_cartera set departamento = 'LEON' where departamento like 'LÉON';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_cartera set departamento = 'MATAGALPA' where departamento like '%MATA%';";
             ejecutarQuery(connPostgres, query);
             
             query = "insert into departamento (departamento_nombre) " +
@@ -65,100 +71,106 @@ public class UtilXls2Postgres {
             query = "update tmp_con_dpts set localidad = upper(localidad);";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MANAGUA'  where localidad like  'MAN%';";
+            query = "update tmp_con_dpts set localidad = 'MANAGUA' where localidad like 'MAN%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MANAGUA'  where localidad like  '.MANA%';";
+            query = "update tmp_con_dpts set localidad = 'MANAGUA' where localidad like '.MANA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MANAGUA'  where localidad like  'MAA%';";
+            query = "update tmp_con_dpts set localidad = 'MANAGUA' where localidad like 'MAA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MANAGUA'  where localidad like  'MGUA%';";
+            query = "update tmp_con_dpts set localidad = 'MANAGUA' where localidad like 'MGUA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'CIUDAD SANDINO'  where localidad like  '%SANDINO%';";
+            query = "update tmp_con_dpts set localidad = 'CIUDAD SANDINO' where localidad like '%SANDINO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'CIUDAD DARIO'  where localidad like  '%DARIO%';";
+            query = "update tmp_con_dpts set localidad = 'CIUDAD DARIO' where localidad like '%DARIO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'CIUDAD DARIO'  where localidad like 'CIUDAD DARÍO';";
+            query = "update tmp_con_dpts set localidad = 'CIUDAD DARIO' where localidad like 'CIUDAD DARÍO';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'ESTELI'  where localidad like 'ESTEL%';";
+            query = "update tmp_con_dpts set localidad = 'ESTELI' where localidad like 'ESTEL%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'LEON'  where localidad like  'LEÓN';";
+            query = "update tmp_con_dpts set localidad = 'LEON' where localidad like '%LEÓN%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'TOTOGALPA'  where localidad like  '%TOTOGALPA%';";
+            query = "update tmp_con_dpts set localidad = 'LEON' where localidad like '%LE�N%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'EL TUMA - LA DALIA'  where localidad like  '%TUMA%';";
+            query = "update tmp_con_dpts set localidad = 'LEON' where localidad like 'LÉON';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MUY MUY'  where localidad like  'MUYMUY';";
+            query = "update tmp_con_dpts set localidad = 'TOTOGALPA' where localidad like '%TOTOGALPA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SEBACO'  where localidad like  '%SEBACO%';";
+            query = "update tmp_con_dpts set localidad = 'EL TUMA - LA DALIA' where localidad like '%TUMA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SEBACO'  where localidad like  'SÉBACO';";
+            query = "update tmp_con_dpts set localidad = 'MUY MUY' where localidad like 'MUYMUY';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN RAMON'  where localidad like  '%SAN RAMON%';";
+            query = "update tmp_con_dpts set localidad = 'SEBACO' where localidad like '%SEBACO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'RANCHO GRANDE'  where localidad like  '%RANCHO%';";
+            query = "update tmp_con_dpts set localidad = 'SEBACO' where localidad like 'SÉBACO';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'RENE BARRANTES'  where localidad like  '%RENE%';";
+            query = "update tmp_con_dpts set localidad = 'SAN RAMON' where localidad like '%SAN RAMON%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN FERNANDO'  where localidad like  '%SAN FERNANDO%';";
+            query = "update tmp_con_dpts set localidad = 'RANCHO GRANDE' where localidad like '%RANCHO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN NICOLAS'  where localidad like  '%SAN NICOLAS%';";
+            query = "update tmp_con_dpts set localidad = 'RENE BARRANTES' where localidad like '%RENE%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN ISIDRO'  where localidad like  '%SAN ISIDRO%';";
+            query = "update tmp_con_dpts set localidad = 'SAN FERNANDO' where localidad like '%SAN FERNANDO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN JOSE DE CUSMAPA'  where localidad like  'SAN JOSÉ DE CUSMAPA';";
+            query = "update tmp_con_dpts set localidad = 'SAN NICOLAS' where localidad like '%SAN NICOLAS%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN JUAN DE RIO COCO'  where localidad like  'SAN JUAN DEL RIO COCO';";
+            query = "update tmp_con_dpts set localidad = 'SAN ISIDRO' where localidad like '%SAN ISIDRO%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'JALAPA'  where localidad like  '%JALAPA%';";
+            query = "update tmp_con_dpts set localidad = 'SAN JOSE DE CUSMAPA' where localidad like 'SAN JOSÉ DE CUSMAPA';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MATAGALPA'  where localidad like  '%MATA%';";
+            query = "update tmp_con_dpts set localidad = 'SAN JUAN DE RIO COCO' where localidad like 'SAN JUAN DEL RIO COCO';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'LA TRINIDAD'  where localidad like  '%TRIN%';";
+            query = "update tmp_con_dpts set localidad = 'JALAPA' where localidad like '%JALAPA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MULUKUKU'  where localidad like  '%MULU%';";
+            query = "update tmp_con_dpts set localidad = 'MATAGALPA' where localidad like '%MATA%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'SAN RAFAEL DEL SUR'  where localidad like  '%RAFAEL DEL SUR%';";
+            query = "update tmp_con_dpts set localidad = 'LA TRINIDAD' where localidad like '%TRIN%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'MANAGUA'  where localidad like  'MAN%';";
+            query = "update tmp_con_dpts set localidad = 'MULUKUKU' where localidad like '%MULU%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'NAGAROTE'  where localidad like  '%NAGAROTE%';";
+            query = "update tmp_con_dpts set localidad = 'SAN RAFAEL DEL SUR' where localidad like '%RAFAEL DEL SUR%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'NINDIRI'  where localidad like  '%NINDIRI%';";
+            query = "update tmp_con_dpts set localidad = 'MANAGUA' where localidad like 'MAN%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'TIPITAPA'  where localidad like  '%TIPITAPA%';";
+            query = "update tmp_con_dpts set localidad = 'NAGAROTE' where localidad like '%NAGAROTE%';";
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts set localidad = 'LA TRINIDAD'  where localidad like  '%LA TIRNIDAD%';";
+            query = "update tmp_con_dpts set localidad = 'NINDIRI' where localidad like '%NINDIRI%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set localidad = 'TIPITAPA' where localidad like '%TIPITAPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set localidad = 'LA TRINIDAD' where localidad like '%LA TIRNIDAD%';";
             ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp__;";
@@ -189,7 +201,7 @@ public class UtilXls2Postgres {
         	"ORDER BY 1;"; 
             ejecutarQuery(connPostgres, query);
             
-            query = "update tmp_con_dpts_lcldds set barrio = 'BO. CARLOS NUNEZ'  where barrio like  'BO. CARLOS NU%';";
+            query = "update tmp_con_dpts_lcldds set barrio = 'BO. CARLOS NUNEZ'  where barrio like 'BO. CARLOS NU%';";
             ejecutarQuery(connPostgres, query);
             
             //Valores Null
@@ -305,7 +317,7 @@ public class UtilXls2Postgres {
 		            "where a.barrio_id is null;";
 		            ejecutarQuery(connPostgres, query);
 		            
-		            query = "select	a.* into tmp_con_dpts_lcldds_barrios_n2 from  tmp_con_dpts_lcldds_barrios a where a.barrio_id is not null;";
+		            query = "select	a.* into tmp_con_dpts_lcldds_barrios_n2 from tmp_con_dpts_lcldds_barrios a where a.barrio_id is not null;";
 		            ejecutarQuery(connPostgres, query);
 		            
 		            query = "drop table tmp_con_dpts_lcldds_barrios;";
@@ -428,6 +440,58 @@ public class UtilXls2Postgres {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public int contarExcluidos() throws Exception {
+		Connection connPostgres = null;
+		String query;
+
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "postgres";
+			String password = "";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+
+			query = "select count (factura_interna) from tmp_excluidos;";
+			int cantidad = countQuery(connPostgres, query);
+			
+			query = "update cartera_x_departamento set servicio_id=8 where servicio_id=1 and factura_interna in (select factura_interna from tmp_excluidos);";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "update cartera_x_departamento set servicio_id=10 where servicio_id=5 and factura_interna in (select factura_interna from tmp_excluidos);";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "update cartera_x_departamento set servicio_id=12 where servicio_id=7 and factura_interna in (select factura_interna from tmp_excluidos);";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "update cartera_x_departamento set servicio_id=11 where servicio_id=2 and factura_interna in (select factura_interna from tmp_excluidos);";
+			ejecutarQuery(connPostgres, query);
+			
+            if(cantidad > 0){
+            	query = "drop table tmp_excluidos;";
+                ejecutarQuery(connPostgres, query);   
+            }
+            return cantidad;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null)
+					connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 	
 	private static int countQuery(Connection connPostgres, String query) throws Exception {

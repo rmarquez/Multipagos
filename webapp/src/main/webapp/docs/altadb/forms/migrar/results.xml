@@ -10,7 +10,8 @@
     </header>
     <body>
         <s1 title="Base de datos actualizada">
-            <p>Se agregaron ${cantidad} nuevos registros</p>
+            <p>Se agregaron <b>${cantidad}</b> nuevos registros, <b>${excluidos}</b> fueron excluidos porque ya existen en nuestra base de datos </p>
+            <p>Para un total de <b>${cantidad + excluidos}</b> registros. </p>
         </s1>
     </body>
 </document>
