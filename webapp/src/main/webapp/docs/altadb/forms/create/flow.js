@@ -10,10 +10,16 @@ cocoon.load("resource://org/apache/cocoon/forms/flow/javascript/Form.js");
 
 function createform(form) {
     //if (autorizar("cata")) {
-        form.showForm("create-form-display");
+        //form.showForm("create-form-display");
         
         var formUpload = new Form("forms/create/definition.xml");
-	    //formUpload.showForm("upload/uploadForm");
+        
+        //form.setAttribute("counter", new java.lang.Integer(0));
+        
+        //var k = form.showForm("create-form-display");
+        //var k = formUpload.showForm("upload-display-pipeline.jx");
+        
+        //k.invalidate();
         cocoon.sendPage("migrar");        
 
        // dialogosino("El archivo ha sido procesado con exito",

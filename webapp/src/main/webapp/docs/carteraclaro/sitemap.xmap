@@ -10,7 +10,6 @@
         <map:script src="context://docs/util/dialogos/aceptar/flow.js"/>
         <map:script src="forms/create/flow.js"/>
         <map:script src="forms/migrar/flow.js"/>
-        <!--<map:script src="forms/edit/flow.js"/>-->
     </map:flow>
 
     <map:pipelines>
@@ -44,12 +43,11 @@
                 <map:call function="handleForm">
                     <map:parameter name="function" value="{1}form"/>
                     <map:parameter name="definitionURI" value="forms/{1}/definition.xml"/>
-                    <!--<map:parameter name="bindingURI" value="forms/{1}/bind.xml"/>-->
                     <map:parameter name="attribute-name" value="{1}form"/>
                 </map:call>
             </map:match>
             
-         <map:match pattern="upload*">
+          <map:match pattern="upload*">
 	     <map:generate src="{0}.xml"/>
 	     <map:transform src="context://samples/stylesheets/dynamic-page2html.xsl">
 	        <map:parameter name="servletPath" value="{request:servletPath}"/>

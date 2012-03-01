@@ -53,6 +53,7 @@ public class CarteraTestHelper {
 		cartera.setEstadoId(estado.getEstadoId());
 		cartera.setEstadoIdRef(estado);
 		cartera.setFechaIngreso(fechaIngreso);
+		cartera.setPagadoClaro(false);
 		handler.insert(cartera, usrId, null, null, null, null);
 
 		return cartera;
