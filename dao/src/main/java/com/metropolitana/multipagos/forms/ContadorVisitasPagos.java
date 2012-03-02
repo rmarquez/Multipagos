@@ -86,7 +86,7 @@ public class ContadorVisitasPagos {
 					meta = Integer.valueOf(350);
 				}
 				if((Integer)detalle[0] == 3){
-					meta = Integer.valueOf(350);
+					meta = Integer.valueOf(300);
 				}
 				if((Integer)detalle[0] == 4){
 					meta = Integer.valueOf(70);

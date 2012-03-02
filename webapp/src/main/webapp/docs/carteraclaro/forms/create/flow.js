@@ -12,6 +12,26 @@ function createform(form) {
         form.showForm("create-form-display");
         
         var formUpload = new Form("forms/create/definition.xml");
+        
+        //var pendiente = form.getChild("pendiente").getValue()
+        //var pagado = form.getChild("pagado").getValue()
+        
+        //cocoon.sendPage("migrar?pendiente="+pendiente+"&pagado="+pagado);
+        
 	    cocoon.sendPage("migrar");    
+}
+
+function validarForm(form) {
+	var widgetMensaje = form.getChild("mensajes de error");
+	
+	var pagado = form.getChild("pagado").getValue();
+	var pendiente = form.getChild("pendiente").getValue();	
+	
+	if(pagado.equals(Boolean.TRUE) && pendiente.equals(Boolean.TRUE)){ 		
+		form.getChild("mensajes de error").addMessage("No pueden seleccionar los conceptos pagados y pendientes al mismo tiempo, seleccionar solo uno");
+		return false;	    	
+	} 
+			  
+	return true;
 }
 

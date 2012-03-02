@@ -25,17 +25,13 @@ public void leerExcel() throws Exception {
 		// Inicializamos los valores
 		String contrato = "";
 		String suscriptor = "";
-        String direccion = ""; 
-        String barrio = ""; 
         String factura = ""; 
         String nfiscal = ""; 
         String anio = ""; 
         String mes = ""; 
-        String saldo = "";        
-        String estado = ""; 
-        String departamento = ""; 
-        String servicio = ""; 
         Date asignado = new Date();
+        String servicio = ""; 
+        Date pagado = new Date();
 
 		try {
 			// Se abre el fichero Excel
@@ -47,7 +43,7 @@ public void leerExcel() throws Exception {
 			// Se leen las filas
             for (int j = 0; j < filas; j++) {
             	// Se leen las columnas				
-					for (int i = 0; i < 13; i++) {
+					for (int i = 0; i < 9; i++) {
 					// Se obtiene la celda i-esimay
 					Cell cell = sheet.getCell(i,j);
 
@@ -58,45 +54,30 @@ public void leerExcel() throws Exception {
 						suscriptor = cell.getContents();
 					}
 					if (cell.getColumn() == 2) {
-						direccion = cell.getContents();
-					}
-					if (cell.getColumn() == 3) {
-						barrio = cell.getContents();
-					}
-					if (cell.getColumn() == 4) {
 						factura = cell.getContents();
 					}
-					if (cell.getColumn() == 5) {
+					if (cell.getColumn() == 3) {
 						nfiscal = cell.getContents();
 					}					
-					if (cell.getColumn() == 6) {
+					if (cell.getColumn() == 4) {
 						anio = cell.getContents();
 					}
-					if (cell.getColumn() == 7) {
+					if (cell.getColumn() == 5) {
 						mes = cell.getContents();
 					}
-					if (cell.getColumn() == 8) {
-						saldo = cell.getContents();
+					if (cell.getColumn() == 6) {
+						asignado = ((DateCell)cell).getDate();
 					}
-					
-					if (cell.getColumn() == 9) {
-						estado = cell.getContents();
-					}
-					if (cell.getColumn() == 10) {
-						departamento = cell.getContents();
-					}					
-					if (cell.getColumn() == 11) {
+					if (cell.getColumn() == 7) {
 						servicio = cell.getContents();
 					}
-					if (cell.getColumn() == 12) {
-						asignado = ((DateCell)cell).getDate();
+					if (cell.getColumn() == 8) {
+						pagado = ((DateCell)cell).getDate();
 					}				
 				}
 			
 			// Insertamos los nuevos registros.
-			insertTabla(contrato, suscriptor, direccion, barrio, factura,
-					nfiscal, anio, mes, saldo, estado, departamento,
-					servicio,  asignado);
+			insertTabla(contrato, suscriptor, factura, nfiscal, anio, mes, asignado, servicio, pagado);
 			}
             borrarRegistrosBasura();
             borrarExcel();
@@ -195,10 +176,8 @@ public void leerExcel() throws Exception {
 	}
 	
 	private void insertTabla(final String contrato, final String suscriptor,
-			final String direccion, final String barrio,
 			final String factura, final String nfiscal, final String anio,
-			final String mes, final String saldo, final String estado,
-			final String departamento,final String servicio, final Date asignado) throws Exception {
+			final String mes, final Date asignado,final String servicio, final Date pagado) throws Exception {
 		
 		Connection connPostgres = null;
 		String insertQuery;
@@ -216,11 +195,8 @@ public void leerExcel() throws Exception {
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 			// Limpiamos la tabla tmp_cartera antes de insertar los datos
-			insertQuery = "INSERT INTO tmp_carteraclaro(contrato, suscriptor, direccion, barrio, factura_interna, numero_fiscal, anio, mes, saldo, estado, departamento, servicio,f_asignado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			ejecutarInsertQuery(connPostgres, insertQuery, contrato,
-					suscriptor, direccion, Util.sinAcentos(barrio), factura, nfiscal, anio,
-					mes, saldo, estado, Util.sinAcentos(departamento), servicio, 
-					Util.fechaDias(asignado, 1));
+			insertQuery = "INSERT INTO tmp_carteraclaro(contrato, suscriptor, factura_interna, numero_fiscal, anio, mes, f_asignado, servicio,fecha_pago) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			ejecutarInsertQuery(connPostgres, insertQuery, contrato, suscriptor, factura, nfiscal, anio, mes, Util.fechaDias(asignado, 1), servicio, Util.fechaDias(pagado, 1) );
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -234,10 +210,8 @@ public void leerExcel() throws Exception {
 	}
 	
 	private void ejecutarInsertQuery(Connection connPostgres, String insertQuery, final String contrato, final String suscriptor,
-			final String direccion, final String barrio,
 			final String factura, final String nfiscal, final String anio,
-			final String mes, final String saldo, final String estado,
-			final String departamento, final String servicio, final Date asignado)	throws Exception {
+			final String mes, final Date asignado, final String servicio, final Date pagado)	throws Exception {
 		
 		PreparedStatement psOrigen = null;		
 
@@ -247,33 +221,29 @@ public void leerExcel() throws Exception {
 				psOrigen.setString(1, contrato.toString());
 				psOrigen.setString(2, suscriptor.toString());
 							
-				psOrigen.setString(3, direccion.toString());
-				psOrigen.setString(4, barrio.toString());
-				psOrigen.setString(5, factura.toString());
+				psOrigen.setString(3, factura.toString());
 				if(nfiscal==""){
-					psOrigen.setString(6, null);
+					psOrigen.setString(4, null);
 				} else {
-					psOrigen.setString(6, nfiscal.toString());
+					psOrigen.setString(4, nfiscal.toString());
 				}
 				if(anio==""){
-					psOrigen.setString(7, null);
+					psOrigen.setString(5, null);
 				} else {
-					psOrigen.setString(7, anio.toString());
+					psOrigen.setString(5, anio.toString());
 				}
 				if(mes==""){
-					psOrigen.setString(8, null);
+					psOrigen.setString(6, null);
 				} else {
-					psOrigen.setString(8, mes.toString());
+					psOrigen.setString(6, mes.toString());
 				}			
-				psOrigen.setBigDecimal(9, Util.stringToBigDecimal(saldo));
-				psOrigen.setString(10, estado.toString());
-				psOrigen.setString(11, departamento.toString());
-				
-							
-				psOrigen.setString(12, servicio.toString());
-				
 				java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(asignado));  
-				psOrigen.setDate(13, fecha);
+				psOrigen.setDate(7, fecha);				
+							
+				psOrigen.setString(8, servicio.toString());
+				
+				java.sql.Date fecha_pago = java.sql.Date.valueOf(getFechaSQL(pagado));  
+				psOrigen.setDate(9, fecha_pago);
 				
 				
 				

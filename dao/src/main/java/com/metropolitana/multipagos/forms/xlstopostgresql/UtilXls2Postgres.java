@@ -511,23 +511,7 @@ public class UtilXls2Postgres {
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
-			query = "update tmp_carteraclaro set departamento = upper(departamento);";
-			ejecutarQuery(connPostgres, query);
-			
-			query = "update tmp_carteraclaro set departamento = 'MANAGUA' where departamento like '%MANAGUA%';";
-            ejecutarQuery(connPostgres, query);
-            
-            query = "update tmp_carteraclaro set departamento = 'ESTELI' where departamento like '%ESTEL%';";
-            ejecutarQuery(connPostgres, query);
-            
-            query = "update tmp_carteraclaro set departamento='LEON' where departamento like 'LEÓN';";
-            ejecutarQuery(connPostgres, query);
-            
-            query = "update tmp_carteraclaro set departamento = 'LEON' where departamento like 'LÉON';";
-            ejecutarQuery(connPostgres, query);
-            
-            query = "update tmp_carteraclaro set departamento = 'MATAGALPA' where departamento like '%MATA%';";
-            ejecutarQuery(connPostgres, query);
+			corregirClaroDep();
 			
 			query = "drop table tmp_claro_dpts;";
 			ejecutarQuery(connPostgres, query);
@@ -569,6 +553,105 @@ public class UtilXls2Postgres {
 		//return 0;
 	}
 	
+	
+	public int pagosClaro() throws Exception {
+		Connection connPostgres = null;
+		String query;
+		
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "postgres";
+			String password = "";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+
+			//corregirClaroDep();
+			
+			query = "select a.* into tmp_claro_dpts_2 from cartera_x_departamento a where factura_interna in (select factura_interna from tmp_carteraclaro) and pagado_claro=false and pagado=false;";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "UPDATE cartera_x_departamento SET fecha_pago=tmp_carteraclaro.fecha_pago FROM tmp_carteraclaro WHERE cartera_x_departamento.factura_interna=tmp_carteraclaro.factura_interna AND cartera_x_departamento.pagado=false;";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "update cartera_x_departamento set pagado_claro=true where factura_interna in (select factura_interna from tmp_carteraclaro) and pagado_claro=false and pagado=false;";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "select count (factura_interna) from cartera_x_departamento where factura_interna in (select factura_interna from tmp_claro_dpts_2);";
+			int cantidad = countQuery(connPostgres, query);
+			
+			query = "drop table tmp_claro_dpts_2;";
+			ejecutarQuery(connPostgres, query);
+			
+				
+			
+            return cantidad;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null)
+					connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	private void corregirClaroDep() throws Exception {
+		Connection connPostgres = null;
+		String query;
+
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "postgres";
+			String password = "";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+
+			query = "update tmp_carteraclaro set departamento = upper(departamento);";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "update tmp_carteraclaro set departamento = 'MANAGUA' where departamento like '%MANAGUA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_carteraclaro set departamento = 'ESTELI' where departamento like '%ESTEL%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_carteraclaro set departamento='LEON' where departamento like 'LEÓN';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_carteraclaro set departamento = 'LEON' where departamento like 'LÉON';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_carteraclaro set departamento = 'MATAGALPA' where departamento like '%MATA%';";
+            ejecutarQuery(connPostgres, query);
+            
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null)
+					connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//return 0;
+	}
 	private static int countQuery(Connection connPostgres, String query) throws Exception {
 		PreparedStatement psOrigen = null;
 		ResultSet rsOrigen = null;
