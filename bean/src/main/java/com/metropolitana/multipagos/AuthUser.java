@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2525
+//===   auth_user.java                        Build:2554
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -25,6 +25,7 @@ public class AuthUser implements java.io.Serializable
    private Boolean    usrEnable;
    private String     usrEmail;
    private String     usrCargo;
+   private Boolean    usrEditdb;
 
    //---------------------------------------------------------------------------
 
@@ -87,6 +88,15 @@ public class AuthUser implements java.io.Serializable
    public void setUsrCargo(String usrCargo)
    {
       this.usrCargo = usrCargo;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getUsrEditdb() { return usrEditdb; }
+
+   public void setUsrEditdb(Boolean usrEditdb)
+   {
+      this.usrEditdb = usrEditdb;
    }
 
    //---------------------------------------------------------------------------

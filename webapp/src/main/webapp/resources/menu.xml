@@ -25,10 +25,12 @@
                         onClick="parent.window.location='/multipagos/usuarios/password'"/>
             <jx:if test="${usrId==1}">
             <div dojoType="MenuItem2" caption="Registro de Logs"
-                        onClick="parent.window.location='/multipagos/logs/search'"/>
+                        onClick="parent.window.location='/multipagos/logs/search'"/>            
+            </jx:if>
             <div dojoType="MenuItem2" caption="Subir Base de datos"
                         onClick="parent.window.location='/multipagos/altadb/create'"/>
-            </jx:if>
+            <div dojoType="MenuItem2" caption="Cartera pagos Claro"
+                        onClick="parent.window.location='/multipagos/carteraclaro/create'"/>
         </div>
         
          
@@ -66,6 +68,10 @@
                          onClick="parent.window.location='/multipagos/informes/promesasdepago'"/>
                 <div dojoType="MenuItem2" caption="Visitas Pendientes"
                          onClick="parent.window.location='/multipagos/informes/visitaspendientes'"/>
+                <div dojoType="MenuItem2" caption="Pagos en Claro"
+                         onClick="parent.window.location='/multipagos/informes/pagosenclaro'"/>
+                <div dojoType="MenuItem2" caption="Cartera x Servico"
+                         onClick="parent.window.location='/multipagos/informes/carteraxservicio'"/>
                 
           </div>
         

@@ -410,6 +410,9 @@ public class UtilXls2Postgres {
             query = "drop table tmp_con_dpts_lcldds_barrios_2;";
             ejecutarQuery(connPostgres, query);
             
+            query = "update cartera_x_departamento set es_diferido=true where es_diferido=false and concepto_diferido is not null;";
+            ejecutarQuery(connPostgres, query);
+            
             return cantidad;
 
 		} catch (Exception e) {

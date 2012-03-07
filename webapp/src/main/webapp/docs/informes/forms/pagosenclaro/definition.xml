@@ -31,13 +31,14 @@
 			<fd:selection-list src="cocoon:/departamentos.combo" cache="none" />
 		</fd:field>
 		
-		<fd:field id="colectorId">
-			<fd:label>Colector:</fd:label>
-			<fd:datatype base="integer"/>
-			<fd:suggestion-list type="javascript">
-		      return suggestionListColector(filter);
-		    </fd:suggestion-list>
-		</fd:field>        
+		<fd:field id="servicioId">
+			<fd:label>Servicio</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/servicio.combo"	cache="none"/>
+							
+		</fd:field>	
+
+        
        
        <fd:submit id="listar">
             <fd:label>Listar</fd:label>

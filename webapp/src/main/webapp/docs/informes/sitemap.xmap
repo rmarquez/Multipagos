@@ -14,6 +14,8 @@
         <map:script src="forms/pagosxdepartamento/flow.js"/>
         <map:script src="forms/promesasdepago/flow.js"/>
         <map:script src="forms/visitaspendientes/flow.js"/>
+        <map:script src="forms/pagosenclaro/flow.js"/>
+        <map:script src="forms/carteraxservicio/flow.js"/>
     </map:flow>
 
     <map:pipelines>

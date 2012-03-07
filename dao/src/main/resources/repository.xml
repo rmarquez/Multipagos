@@ -36,6 +36,7 @@
 		<field-descriptor name="usrEnable" nullable="false" default-fetch="true" column="USR_ENABLE" jdbc-type="BIT"/>
 		<field-descriptor name="usrEmail" default-fetch="true" column="USR_EMAIL" jdbc-type="VARCHAR"/>
 		<field-descriptor name="usrCargo" nullable="false" default-fetch="true" column="USR_CARGO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="usrEditdb" nullable="false" default-fetch="true" column="USR_EDITDB" jdbc-type="BIT"/>
 		<collection-descriptor name="authUserRoleList" element-class-ref="com.metropolitana.multipagos.AuthUserRole" auto-update="true" auto-delete="true" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>

@@ -5,24 +5,30 @@
           <!-- Import the macros that define CForms template elements -->
           <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
     <header>
-        <title>Pagos por departamentos</title>
+        <title>Cartera de Clientes x Servicio</title>
     </header>
     <body>
-        <s1 title="Pagos por Departamentos">
-            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
-            <ft:continuation-id/>
+        <s1 title="Cartera de Clientes x Servicio">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post">
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
-                    <fi:label>Criterios para listar los pagos por departamentos</fi:label>
+                    <fi:label>Criterios para listar la cartera de clientes</fi:label>
                     <fi:items>
-                        <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
-                        <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                         <ft:widget id="departamentoId"/>
-                        <ft:widget id="colectorId" type="suggest"/>
+                        <ft:widget id="servicioId"/>
+                        <table>
+		                    <tr>
+		                        <tw><ft:widget-label id="pagado"/></tw>
+		                        <tw><ft:widget id="pagado"/></tw>
+		                    </tr>
+		                    <tr>
+		                        <tw><ft:widget-label id="pagadoClaro"/></tw>
+		                        <tw><ft:widget id="pagadoClaro"/></tw>
+		                    </tr>
+	                    </table>
                         
                     </fi:items>
                 </fi:group>
-                <ft:widget id="listar"/>
                 <ft:widget id="excel"/>
             </ft:form-template>
         </s1>

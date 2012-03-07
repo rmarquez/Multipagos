@@ -1,3 +1,4 @@
+importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 /**
     Este formulario contiene un control upload para subir archivos,
     con botones de Adjuntar
@@ -9,16 +10,19 @@
 cocoon.load("resource://org/apache/cocoon/forms/flow/javascript/Form.js");
 
 function createform(form) {
+	
+	var usrId = auth_getUserID();
+	var handlerUser = new Auth_userHandler();
+	var usuario = handlerUser.retrieve(usrId);
+	if((usuario.getUsrEditdb()).equals(Boolean.TRUE)){
+	
         form.showForm("create-form-display");
         
         var formUpload = new Form("forms/create/definition.xml");
         
-        //var pendiente = form.getChild("pendiente").getValue()
-        //var pagado = form.getChild("pagado").getValue()
-        
-        //cocoon.sendPage("migrar?pendiente="+pendiente+"&pagado="+pagado);
-        
-	    cocoon.sendPage("migrar");    
+	    cocoon.sendPage("migrar");  
+	}
+	cocoon.sendPage("/noautorizado");
 }
 
 function validarForm(form) {

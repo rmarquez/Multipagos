@@ -44,7 +44,9 @@ public class InformePagosXDepartamento {
 		}
 	}
 	
-	private static ReportQueryByCriteria queryPagosXDepartamentos(Date fechaIni, Date fechaFin, Integer departamentoId, Integer colectorId) {
+	private static ReportQueryByCriteria queryPagosXDepartamentos(
+			Date fechaIni, Date fechaFin, Integer departamentoId,
+			Integer colectorId) {
 
 		Criteria criterio = new Criteria();
 
@@ -55,11 +57,12 @@ public class InformePagosXDepartamento {
 			criterio.addLessOrEqualThan("fechaPago", fechaFin);
 		}
 		if (departamentoId != null) {
-			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
+			criterio.addEqualTo("carteraIdRef.departamentoId", departamentoId);
 		}
 		if (colectorId != null) {
 			criterio.addEqualTo("colectorId", colectorId);
 		}
+		
         
 		ReportQueryByCriteria query = new ReportQueryByCriteria(
 				DetallePagos.class, criterio);
@@ -83,5 +86,9 @@ public class InformePagosXDepartamento {
 		query.addOrderBy("fechaPago", true);
 		return query;
 	}
+	
+	
+	
+	
 
 }

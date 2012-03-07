@@ -62,6 +62,11 @@
             <fd:help>Indique si el usuario esta habilitado o no</fd:help>
             <fd:hint>Habilitar/Deshabilitar usuario.</fd:hint>
         </fd:booleanfield>
+        
+        <fd:booleanfield id="usrEditdb">
+            <fd:label>Editar Base de Datos:</fd:label>
+            <fd:help>Indique si el usuario podra subir registros nuevos para la base de datos</fd:help>
+        </fd:booleanfield>
 
         <fd:field id="usrEmail">
             <fd:label>Correo electrónico:</fd:label>
