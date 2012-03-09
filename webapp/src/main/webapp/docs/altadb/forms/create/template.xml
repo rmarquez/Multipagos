@@ -11,17 +11,20 @@
   <body>
       <s1 title="Adjuntar XLS">
           <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true" enctype="multipart/form-data">
-              <ft:widget id="archivo_xls">
+              <fi:group>
+              <fi:styling type="fieldset" layout="columns"/>
+              <fi:label>Agregar documento excel</fi:label>
+              <fi:items>
+              <ft:widget id="archivo_xls"/>
+              <table>
+                  <tr>
+                      <tw align="center"><ft:widget id="true"/></tw>
+                  </tr>
+              </table>
               
-	            <!-- <fi:styling type="progress-bar" width="20${cocoon.session.getAttribute('ajax.upload.width')}">
-	              <div>10${cocoon.session.getAttribute("ajax.upload1.kb")} Kb of 
-	                   200${cocoon.session.getAttribute("ajax.upload1.kbTotal")} Kb at
-	                   14.2${cocoon.session.getAttribute("ajax.upload1.kbps")} Kb/s;
-	                   12${cocoon.session.getAttribute("ajax.upload1.remaining")} remaining
-	                   
-	              </div>
-	            </fi:styling> -->
-	          </ft:widget>
+              </fi:items>
+                </fi:group>
+	           
 	                        
               <p>Antes de proceder a actualizar la base de datos se debe cumplir con lo siguiente:</p>
               
@@ -33,17 +36,7 @@
 				<p>Asignado, cuenta, concepto diferido.</p>
 				<p>* Los primeros valores para la columna <b>Concepto diferido</b> no debe ser nulo. ( Se puede agregar - )</p>
 				<p>* El documento no debe de llavar titulos solo los valores.</p>	
-			  
-              
-              
-             <p>
-                <ft:widget id="true"/><br/>
-            </p>
-            <!-- <p>
-                <div dojoType="ajax:FormUploadProgress">
-                    <div>Upload Progress Sample</div>
-                </div>
-            </p> -->
+            
           </ft:form-template>
           
       </s1>

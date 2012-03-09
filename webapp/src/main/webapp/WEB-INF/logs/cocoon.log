@@ -1,34 +1,22 @@
-INFO  (2012-03-07) 16:56.12:286 [access] (Unknown-URI) Unknown-Thread/CocoonServlet: Reloading from: file:/home/rmarquez/workspace/multipagos/webapp/src/main/webapp/WEB-INF/cocoon.xconf
-INFO  (2012-03-07) 16:56.12:592 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "default" created with maximum queue-size=2147483647,max-pool-size=5,min-pool-size=5,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="ABORT",shutdown-wait-time-ms=-1
-INFO  (2012-03-07) 16:56.12:595 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "daemon" created with no queue,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=true,keep-alive-time-ms=60000,block-policy=ABORT,shutdown-wait-time-ms=-1
-INFO  (2012-03-07) 16:56.12:708 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" initialized
-INFO  (2012-03-07) 16:56.12:727 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "anon-15186833" created with maximum queue-size=2147483647,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="RUN",shutdown-wait-time-ms=5000
-INFO  (2012-03-07) 16:56.12:757 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: Adding CronJob 'Cocoon.scheduled-email-ofertas'
-INFO  (2012-03-07) 16:57.19:993 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to '/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio'
-INFO  (2012-03-07) 16:57.20:003 [access] (/multipagos/informes/carteraxservicio) btpool0-1/CocoonServlet: 'informes/carteraxservicio' Processed by Apache Cocoon 2.1.12-dev in 744 milliseconds.
-INFO  (2012-03-07) 16:57.20:102 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/entrada-form'
-INFO  (2012-03-07) 16:57.20:291 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/entrada-vista'
-INFO  (2012-03-07) 16:57.21:309 [access] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/CocoonServlet: 'entrada' Processed by Apache Cocoon 2.1.12-dev in 1.298 seconds.
-INFO  (2012-03-07) 16:57.21:373 [access] (/multipagos/resources/dojo/dojo.js) btpool0-1/CocoonServlet: 'resources/dojo/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 18 milliseconds.
-INFO  (2012-03-07) 16:57.21:376 [access] (/multipagos/resources/forms/mattkruse-lib/selectbox.js) btpool0-1/CocoonServlet: 'resources/forms/mattkruse-lib/selectbox.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:381 [access] (/multipagos/resources/forms/htmlarea/htmlarea.js) btpool0-1/CocoonServlet: 'resources/forms/htmlarea/htmlarea.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-INFO  (2012-03-07) 16:57.21:384 [access] (/multipagos/scripts/util.js) btpool0-1/CocoonServlet: 'scripts/util.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:390 [access] (/multipagos/resources/forms/js/forms-lib.js) btpool0-2/CocoonServlet: 'resources/forms/js/forms-lib.js' Processed by Apache Cocoon 2.1.12-dev in 31 milliseconds.
-INFO  (2012-03-07) 16:57.21:391 [access] (/multipagos/resources/forms/css/forms.css) btpool0-3/CocoonServlet: 'resources/forms/css/forms.css' Processed by Apache Cocoon 2.1.12-dev in 28 milliseconds.
-INFO  (2012-03-07) 16:57.21:392 [access] (/multipagos/resources/forms/mattkruse-lib/PopupWindow.js) btpool0-5/CocoonServlet: 'resources/forms/mattkruse-lib/PopupWindow.js' Processed by Apache Cocoon 2.1.12-dev in 10 milliseconds.
-INFO  (2012-03-07) 16:57.21:392 [access] (/multipagos/styles/multipagos.css) btpool0-1/CocoonServlet: 'styles/multipagos.css' Processed by Apache Cocoon 2.1.12-dev in 6 milliseconds.
-INFO  (2012-03-07) 16:57.21:392 [access] (/multipagos/resources/forms/mattkruse-lib/OptionTransfer.js) btpool0-6/CocoonServlet: 'resources/forms/mattkruse-lib/OptionTransfer.js' Processed by Apache Cocoon 2.1.12-dev in 24 milliseconds.
-INFO  (2012-03-07) 16:57.21:393 [access] (/multipagos/resources/forms/mattkruse-lib/AnchorPosition.js) btpool0-4/CocoonServlet: 'resources/forms/mattkruse-lib/AnchorPosition.js' Processed by Apache Cocoon 2.1.12-dev in 31 milliseconds.
-INFO  (2012-03-07) 16:57.21:446 [access] (/multipagos/resources/forms/js/common.js) btpool0-5/CocoonServlet: 'resources/forms/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 7 milliseconds.
-WARN  (2012-03-07) 16:57.21:479 [access] (/multipagos/images/banner_parte2.jpg) btpool0-5/CocoonServlet: Error during resolving of the input stream
+INFO  (2012-03-09) 17:05.34:509 [access] (Unknown-URI) Unknown-Thread/CocoonServlet: Reloading from: file:/home/rmarquez/workspace/multipagos/webapp/src/main/webapp/WEB-INF/cocoon.xconf
+INFO  (2012-03-09) 17:05.34:726 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "default" created with maximum queue-size=2147483647,max-pool-size=5,min-pool-size=5,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="ABORT",shutdown-wait-time-ms=-1
+INFO  (2012-03-09) 17:05.34:728 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "daemon" created with no queue,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=true,keep-alive-time-ms=60000,block-policy=ABORT,shutdown-wait-time-ms=-1
+INFO  (2012-03-09) 17:05.34:823 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" initialized
+INFO  (2012-03-09) 17:05.34:842 [core.runnable] (Unknown-URI) Unknown-Thread/DefaultRunnableManager: ThreadPool named "anon-1042586" created with maximum queue-size=2147483647,max-pool-size=2147483647,min-pool-size=1,priority=5,isDaemon=false,keep-alive-time-ms=60000,block-policy="RUN",shutdown-wait-time-ms=5000
+INFO  (2012-03-09) 17:05.34:872 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: Adding CronJob 'Cocoon.scheduled-email-ofertas'
+INFO  (2012-03-09) 17:05.42:592 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to '/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio'
+INFO  (2012-03-09) 17:05.42:600 [access] (/multipagos/informes/carteraxservicio) btpool0-1/CocoonServlet: 'informes/carteraxservicio' Processed by Apache Cocoon 2.1.12-dev in 659 milliseconds.
+INFO  (2012-03-09) 17:05.42:707 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/entrada-form'
+INFO  (2012-03-09) 17:05.42:888 [sitemap] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/entrada-vista'
+INFO  (2012-03-09) 17:05.44:017 [access] (/multipagos/entrada?resource=%2Fmultipagos%2Finformes%2Fcarteraxservicio) btpool0-1/CocoonServlet: 'entrada' Processed by Apache Cocoon 2.1.12-dev in 1.406 seconds.
+WARN  (2012-03-09) 17:05.44:183 [access] (/multipagos/images/banner_parte2.jpg) btpool0-1/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:420:65
-WARN  (2012-03-07) 16:57.21:526 [access] (/multipagos/resources/jx/manifest.js) btpool0-5/CocoonServlet: Error during resolving of the input stream
+WARN  (2012-03-09) 17:05.44:231 [access] (/multipagos/resources/jx/manifest.js) btpool0-1/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:403:79
-INFO  (2012-03-07) 16:57.21:529 [access] (/multipagos/resources/dojo/src/widget/templates/images/tab_close.gif) btpool0-5/CocoonServlet: 'resources/dojo/src/widget/templates/images/tab_close.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-ERROR (2012-03-07) 16:57.21:549 [sitemap.handled-errors] (/multipagos/resources/jx.js) btpool0-5/ErrorHandlerHelper: Resource not found.
+ERROR (2012-03-09) 17:05.44:251 [sitemap.handled-errors] (/multipagos/resources/jx.js) btpool0-1/ErrorHandlerHelper: Resource not found.
 	at <map:mount> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:445:77
-INFO  (2012-03-07) 16:57.21:552 [sitemap] (/multipagos/resources/jx.js) btpool0-5/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:449:28
-ERROR (2012-03-07) 16:57.21:673 [sitemap.transformer.xinclude] (/multipagos/resources/jx.js) btpool0-5/XIncludeTransformer.XIncludePipe: Error in processXIncludeElement
+INFO  (2012-03-09) 17:05.44:254 [sitemap] (/multipagos/resources/jx.js) btpool0-1/HandleErrorsNode: Processing handle-errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:449:28
+ERROR (2012-03-09) 17:05.44:362 [sitemap.transformer.xinclude] (/multipagos/resources/jx.js) btpool0-1/XIncludeTransformer.XIncludePipe: Error in processXIncludeElement
 org.mozilla.javascript.EvaluatorException: "file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/resources/flow/flow.js", line 14: Cannot convert NaN to java.lang.Integer
 	at org.apache.cocoon.components.flow.javascript.JSErrorReporter.runtimeError(JSErrorReporter.java:67)
 	at org.mozilla.javascript.Context.reportRuntimeError(Context.java:588)
@@ -140,7 +128,7 @@ org.mozilla.javascript.EvaluatorException: "file:///home/rmarquez/workspace/mult
 	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
 	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
 	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
-ERROR (2012-03-07) 16:57.21:677 [sitemap] (/multipagos/resources/jx.js) btpool0-5/ErrorHandlerHelper: An exception occured while handling errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:449:28
+ERROR (2012-03-09) 17:05.44:367 [sitemap] (/multipagos/resources/jx.js) btpool0-1/ErrorHandlerHelper: An exception occured while handling errors at <map:handle-errors> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:449:28
 javax.xml.transform.TransformerException: javax.xml.transform.TransformerException: Sitemap: error calling function 'display_menu'
 	at <map:call> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:233:45
 	at org.apache.xalan.xsltc.trax.TransformerImpl.postErrorToListener(TransformerImpl.java:695)
@@ -187,7 +175,7 @@ javax.xml.transform.TransformerException: javax.xml.transform.TransformerExcepti
 	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
 	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
 	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
-ERROR (2012-03-07) 16:57.21:678 [access] (/multipagos/resources/jx.js) btpool0-5/CocoonServlet: Internal Cocoon Problem
+ERROR (2012-03-09) 17:05.44:369 [access] (/multipagos/resources/jx.js) btpool0-1/CocoonServlet: Internal Cocoon Problem
 javax.xml.transform.TransformerException: javax.xml.transform.TransformerException: Sitemap: error calling function 'display_menu'
 	at <map:call> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:233:45
 	at org.apache.xalan.xsltc.trax.TransformerImpl.postErrorToListener(TransformerImpl.java:695)
@@ -234,64 +222,30 @@ javax.xml.transform.TransformerException: javax.xml.transform.TransformerExcepti
 	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
 	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
 	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
-WARN  (2012-03-07) 16:57.21:848 [access] (/multipagos/resources/dojo/__package__.js) btpool0-5/CocoonServlet: Error during resolving of the input stream
+WARN  (2012-03-09) 17:05.44:390 [access] (/multipagos/resources/dojo/__package__.js) btpool0-1/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:403:79
-INFO  (2012-03-07) 16:57.21:868 [access] (/multipagos/resources/forms/manifest.js) btpool0-5/CocoonServlet: 'resources/forms/manifest.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:881 [access] (/multipagos/resources/forms/js/SimpleForm.js) btpool0-5/CocoonServlet: 'resources/forms/js/SimpleForm.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:895 [access] (/multipagos/resources/forms/js/InfoPopup.js) btpool0-5/CocoonServlet: 'resources/forms/js/InfoPopup.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:907 [access] (/multipagos/resources/forms/js/templates/InfoPopup.css) btpool0-5/CocoonServlet: 'resources/forms/js/templates/InfoPopup.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:918 [access] (/multipagos/resources/forms/js/templates/InfoPopup.html) btpool0-5/CocoonServlet: 'resources/forms/js/templates/InfoPopup.html' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:938 [access] (/multipagos/resources/forms/js/templates/images/help.gif) btpool0-6/CocoonServlet: 'resources/forms/js/templates/images/help.gif' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:942 [access] (/multipagos/resources/dojo/src/namespaces/dojo.js) btpool0-5/CocoonServlet: 'resources/dojo/src/namespaces/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 8 milliseconds.
-INFO  (2012-03-07) 16:57.21:942 [access] (/multipagos/resources/forms/js/templates/images/close.gif) btpool0-4/CocoonServlet: 'resources/forms/js/templates/images/close.gif' Processed by Apache Cocoon 2.1.12-dev in 6 milliseconds.
-INFO  (2012-03-07) 16:57.21:952 [access] (/multipagos/resources/dojo/src/widget/PopupContainer.js) btpool0-5/CocoonServlet: 'resources/dojo/src/widget/PopupContainer.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.21:967 [access] (/multipagos/resources/dojo/src/html/selection.js) btpool0-5/CocoonServlet: 'resources/dojo/src/html/selection.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.21:985 [access] (/multipagos/resources/dojo/src/html/iframe.js) btpool0-5/CocoonServlet: 'resources/dojo/src/html/iframe.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.30:490 [sitemap] (/multipagos/5d433c56673e501d73382e17182d7d330c35595c.continue) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/do-login?resource=/multipagos/informes/carteraxservicio&username=admin&passwd=f6019ee5263a21172ca4ef5ffb9d8b76'
-INFO  (2012-03-07) 16:57.31:154 [sitemap] (/multipagos/5d433c56673e501d73382e17182d7d330c35595c.continue) btpool0-5/ForwardRedirector: Redirecting to 'cocoon://usuarios'
-INFO  (2012-03-07) 16:57.31:312 [core.authentication-manager] (/multipagos/5d433c56673e501d73382e17182d7d330c35595c.continue) btpool0-5/PipelineAuthenticator: Authenticator: User authenticated using handler 'authhandler'
-INFO  (2012-03-07) 16:57.31:334 [sitemap] (/multipagos/5d433c56673e501d73382e17182d7d330c35595c.continue) btpool0-5/ForwardRedirector: Redirecting to '/multipagos/informes/carteraxservicio'
-INFO  (2012-03-07) 16:57.31:334 [access] (/multipagos/5d433c56673e501d73382e17182d7d330c35595c.continue) btpool0-5/CocoonServlet: '5d433c56673e501d73382e17182d7d330c35595c.continue' Processed by Apache Cocoon 2.1.12-dev in 868 milliseconds.
-INFO  (2012-03-07) 16:57.31:380 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/carteraxservicio'
-INFO  (2012-03-07) 16:57.31:416 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/carteraxservicio-form-display'
-INFO  (2012-03-07) 16:57.31:527 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/departamentosCombo-data'
-INFO  (2012-03-07) 16:57.31:582 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/servicioCombo-data'
-INFO  (2012-03-07) 16:57.31:634 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
-INFO  (2012-03-07) 16:57.31:764 [access] (/multipagos/informes/carteraxservicio) btpool0-5/CocoonServlet: 'informes/carteraxservicio' Processed by Apache Cocoon 2.1.12-dev in 415 milliseconds.
-INFO  (2012-03-07) 16:57.31:784 [access] (/multipagos/informes/resources/forms/js/forms-lib.js) btpool0-4/CocoonServlet: 'informes/resources/forms/js/forms-lib.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.31:785 [access] (/multipagos/informes/resources/forms/css/forms.css) btpool0-6/CocoonServlet: 'informes/resources/forms/css/forms.css' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.31:788 [access] (/multipagos/informes/resources/forms/mattkruse-lib/AnchorPosition.js) btpool0-6/CocoonServlet: 'informes/resources/forms/mattkruse-lib/AnchorPosition.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.31:792 [access] (/multipagos/informes/resources/forms/mattkruse-lib/selectbox.js) btpool0-1/CocoonServlet: 'informes/resources/forms/mattkruse-lib/selectbox.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.31:801 [access] (/multipagos/informes/resources/forms/mattkruse-lib/PopupWindow.js) btpool0-2/CocoonServlet: 'informes/resources/forms/mattkruse-lib/PopupWindow.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.31:802 [access] (/multipagos/informes/resources/forms/htmlarea/htmlarea.js) btpool0-6/CocoonServlet: 'informes/resources/forms/htmlarea/htmlarea.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.31:803 [access] (/multipagos/informes/resources/forms/mattkruse-lib/OptionTransfer.js) btpool0-4/CocoonServlet: 'informes/resources/forms/mattkruse-lib/OptionTransfer.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-INFO  (2012-03-07) 16:57.31:808 [access] (/multipagos/informes/resources/dojo/dojo.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 29 milliseconds.
-INFO  (2012-03-07) 16:57.31:867 [access] (/multipagos/informes/resources/forms/js/common.js) btpool0-5/CocoonServlet: 'informes/resources/forms/js/common.js' Processed by Apache Cocoon 2.1.12-dev in 4 milliseconds.
-WARN  (2012-03-07) 16:57.31:913 [access] (/multipagos/images/banner_parte2.jpg) btpool0-5/CocoonServlet: Error during resolving of the input stream
+INFO  (2012-03-09) 17:05.50:948 [sitemap] (/multipagos/7c34144d150f8f3f61111516387d836010393964.continue) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/do-login?resource=/multipagos/informes/carteraxservicio&username=admin&passwd=f6019ee5263a21172ca4ef5ffb9d8b76'
+INFO  (2012-03-09) 17:05.51:653 [sitemap] (/multipagos/7c34144d150f8f3f61111516387d836010393964.continue) btpool0-1/ForwardRedirector: Redirecting to 'cocoon://usuarios'
+INFO  (2012-03-09) 17:05.51:785 [core.authentication-manager] (/multipagos/7c34144d150f8f3f61111516387d836010393964.continue) btpool0-1/PipelineAuthenticator: Authenticator: User authenticated using handler 'authhandler'
+INFO  (2012-03-09) 17:05.51:804 [sitemap] (/multipagos/7c34144d150f8f3f61111516387d836010393964.continue) btpool0-1/ForwardRedirector: Redirecting to '/multipagos/informes/carteraxservicio'
+INFO  (2012-03-09) 17:05.51:804 [access] (/multipagos/7c34144d150f8f3f61111516387d836010393964.continue) btpool0-1/CocoonServlet: '7c34144d150f8f3f61111516387d836010393964.continue' Processed by Apache Cocoon 2.1.12-dev in 885 milliseconds.
+INFO  (2012-03-09) 17:05.51:843 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/carteraxservicio'
+INFO  (2012-03-09) 17:05.51:882 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/carteraxservicio-form-display'
+INFO  (2012-03-09) 17:05.51:990 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/departamentosCombo-data'
+INFO  (2012-03-09) 17:05.52:038 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/servicioCombo-data'
+INFO  (2012-03-09) 17:05.52:094 [sitemap] (/multipagos/informes/carteraxservicio) btpool0-1/ForwardRedirector: Redirecting to 'cocoon:/menu-vista'
+INFO  (2012-03-09) 17:05.52:210 [access] (/multipagos/informes/carteraxservicio) btpool0-1/CocoonServlet: 'informes/carteraxservicio' Processed by Apache Cocoon 2.1.12-dev in 397 milliseconds.
+WARN  (2012-03-09) 17:05.52:322 [access] (/multipagos/images/banner_parte2.jpg) btpool0-1/CocoonServlet: Error during resolving of the input stream
 	at <map:read> - file:///home/rmarquez/workspace/multipagos/webapp/src/main/webapp/sitemap.xmap:420:65
-INFO  (2012-03-07) 16:57.31:992 [access] (/multipagos/informes/resources/dojo/src/namespaces/dojo.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/namespaces/dojo.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.32:011 [access] (/multipagos/informes/resources/dojo/src/widget/Menu2.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/widget/Menu2.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.32:033 [access] (/multipagos/informes/resources/dojo/src/widget/PopupContainer.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/widget/PopupContainer.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.32:056 [access] (/multipagos/informes/resources/dojo/src/html/selection.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/html/selection.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.32:069 [access] (/multipagos/informes/resources/dojo/src/html/iframe.js) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/html/iframe.js' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.32:091 [access] (/multipagos/informes/resources/dojo/src/widget/templates/Menu2.css) btpool0-5/CocoonServlet: 'informes/resources/dojo/src/widget/templates/Menu2.css' Processed by Apache Cocoon 2.1.12-dev in 3 milliseconds.
-INFO  (2012-03-07) 16:57.32:259 [access] (/multipagos/informes/resources/forms/manifest.js) btpool0-5/CocoonServlet: 'informes/resources/forms/manifest.js' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.32:282 [access] (/multipagos/informes/resources/forms/js/SimpleForm.js) btpool0-5/CocoonServlet: 'informes/resources/forms/js/SimpleForm.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
-INFO  (2012-03-07) 16:57.32:299 [access] (/multipagos/informes/resources/forms/js/InfoPopup.js) btpool0-5/CocoonServlet: 'informes/resources/forms/js/InfoPopup.js' Processed by Apache Cocoon 2.1.12-dev in 1 milliseconds.
-INFO  (2012-03-07) 16:57.32:310 [access] (/multipagos/informes/resources/forms/js/templates/InfoPopup.css) btpool0-5/CocoonServlet: 'informes/resources/forms/js/templates/InfoPopup.css' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.32:321 [access] (/multipagos/informes/resources/forms/js/templates/InfoPopup.html) btpool0-5/CocoonServlet: 'informes/resources/forms/js/templates/InfoPopup.html' Processed by Apache Cocoon 2.1.12-dev in 2 milliseconds.
-INFO  (2012-03-07) 16:57.47:216 [sitemap] (/multipagos/informes/3a505f021818696a7d29155b143f127f2b893821.continue) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/3a505f021818696a7d29155b143f127f2b893821.continue'
-INFO  (2012-03-07) 16:57.49:236 [sitemap] (/multipagos/informes/3a505f021818696a7d29155b143f127f2b893821.continue) btpool0-5/ForwardRedirector: Redirecting to 'cocoon:/forms/carteraxservicio/results.xls'
-INFO  (2012-03-07) 17:02.29:426 [access] (/multipagos/informes/3a505f021818696a7d29155b143f127f2b893821.continue) btpool0-5/CocoonServlet: 'informes/3a505f021818696a7d29155b143f127f2b893821.continue' Processed by Apache Cocoon 2.1.12-dev in 4.70375 minutes.
-WARN  (2012-03-07) 17:05.11:362 [sitemap] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.selection.SelectorSelector]
-INFO  (2012-03-07) 17:05.11:394 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" already disposed.
-INFO  (2012-03-07) 17:05.11:394 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: shutting down scheduler graceful (waiting for running jobs to complete)
-WARN  (2012-03-07) 17:05.11:396 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.CacheManager]
-WARN  (2012-03-07) 17:05.11:396 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.ContextManager]
-WARN  (2012-03-07) 17:05.11:396 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.avalon.excalibur.logger.LoggerManager]
-WARN  (2012-03-07) 17:05.11:397 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.thread.RunnableManager]
-WARN  (2012-03-07) 17:05.11:398 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.modules.input.InputModuleSelector]
-WARN  (2012-03-07) 17:05.11:398 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.excalibur.xml.xpath.XPathProcessor]
-WARN  (2012-03-07) 17:05.11:398 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.flow.ContinuationsManager]
-WARN  (2012-03-07) 17:05.11:398 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.context.SessionContextProviderSelector]
-WARN  (2012-03-07) 17:05.11:398 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.event.WidgetListenerBuilderSelector]
+WARN  (2012-03-09) 17:06.02:581 [sitemap] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.selection.SelectorSelector]
+INFO  (2012-03-09) 17:06.02:583 [core.store] (Unknown-URI) Unknown-Thread/EHDefaultStore: EHCache cache "cocoon-ehcache-1" already disposed.
+INFO  (2012-03-09) 17:06.02:584 [cron] (Unknown-URI) Unknown-Thread/QuartzJobScheduler: shutting down scheduler graceful (waiting for running jobs to complete)
+WARN  (2012-03-09) 17:06.02:588 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.CacheManager]
+WARN  (2012-03-09) 17:06.02:588 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.ContextManager]
+WARN  (2012-03-09) 17:06.02:588 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.avalon.excalibur.logger.LoggerManager]
+WARN  (2012-03-09) 17:06.02:588 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.thread.RunnableManager]
+WARN  (2012-03-09) 17:06.02:590 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.modules.input.InputModuleSelector]
+WARN  (2012-03-09) 17:06.02:590 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.excalibur.xml.xpath.XPathProcessor]
+WARN  (2012-03-09) 17:06.02:591 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.components.flow.ContinuationsManager]
+WARN  (2012-03-09) 17:06.02:591 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.webapps.session.context.SessionContextProviderSelector]
+WARN  (2012-03-09) 17:06.02:591 [core.manager] (Unknown-URI) Unknown-Thread/ExcaliburComponentManager: disposing of handler for unreleased component. role [org.apache.cocoon.forms.event.WidgetListenerBuilderSelector]

@@ -18,15 +18,7 @@
               <fi:items>
                     
               <ft:widget id="archivo_xls"/>
-             <!-- <table>
-                  
-                  <tr>                     
-                      <tw>
-                          <ft:widget id="pagado"/><ft:widget-label id="pagado"/>
-                          <ft:widget id="pendiente"/><ft:widget-label id="pendiente"/>
-                      </tw>
-                  </tr>
-              </table> --> 
+             
               <table>
                   <tr>
                       <tw align="center"><ft:widget id="true"/></tw>
