@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="colectorId" path="colectorId"/>
+    <fb:value id="departamentoId" path="departamentoId"/>
+    <fb:value id="localidadId" path="localidadId"/>
+    
+    <fb:repeater id="detalle" parent-path="." row-path="detalleBarriosList">
+        <fb:identity>
+            <fb:value id="barrioId" path="barrioId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+            <fb:value id="barrioId" path="barrioId"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.DetalleBarrios" addmethod="addDetalleBarrios"/>
+        </fb:on-insert-row>
+    </fb:repeater>    
+</fb:context>

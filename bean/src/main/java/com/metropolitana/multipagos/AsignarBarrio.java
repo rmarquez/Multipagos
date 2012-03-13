@@ -1,5 +1,5 @@
 //==============================================================================
-//===   barrio.java                        Build:2558
+//===   asignar_barrio.java                        Build:2558
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -10,7 +10,7 @@ import com.metropolitana.multipagos.*;
 
 //==============================================================================
 
-public class Barrio implements java.io.Serializable
+public class AsignarBarrio implements java.io.Serializable
 {
 
    //---------------------------------------------------------------------------
@@ -18,18 +18,36 @@ public class Barrio implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   private Integer    barrioId;
+   private Integer    asignarbId;
+   private Integer    colectorId;
+   private Integer    departamentoId;
    private Integer    localidadId;
-   private String     barrioNombre;
-   private Boolean    inactivo;
 
    //---------------------------------------------------------------------------
 
-   public Integer getBarrioId() { return barrioId; }
+   public Integer getAsignarbId() { return asignarbId; }
 
-   public void setBarrioId(Integer barrioId)
+   public void setAsignarbId(Integer asignarbId)
    {
-      this.barrioId = barrioId;
+      this.asignarbId = asignarbId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getColectorId() { return colectorId; }
+
+   public void setColectorId(Integer colectorId)
+   {
+      this.colectorId = colectorId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getDepartamentoId() { return departamentoId; }
+
+   public void setDepartamentoId(Integer departamentoId)
+   {
+      this.departamentoId = departamentoId;
    }
 
    //---------------------------------------------------------------------------
@@ -43,24 +61,6 @@ public class Barrio implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   public String getBarrioNombre() { return barrioNombre; }
-
-   public void setBarrioNombre(String barrioNombre)
-   {
-      this.barrioNombre = barrioNombre;
-   }
-
-   //---------------------------------------------------------------------------
-
-   public Boolean getInactivo() { return inactivo; }
-
-   public void setInactivo(Boolean inactivo)
-   {
-      this.inactivo = inactivo;
-   }
-
-   //---------------------------------------------------------------------------
-
    private Collection detalleBarriosList = new ArrayList();
 
    public Collection getDetalleBarriosList() { return detalleBarriosList;}
@@ -69,23 +69,33 @@ public class Barrio implements java.io.Serializable
 
    public void addDetalleBarrios( DetalleBarrios detalleBarrios )
    {
-      detalleBarrios.setBarrioIdRef(this);
+      detalleBarrios.setAsignarbIdRef(this);
       detalleBarriosList.add( detalleBarrios );
    }
 
    //---------------------------------------------------------------------------
 
-   private Collection carteraXDepartamentoList = new ArrayList();
+   private Colector colectorIdRef;
 
-   public Collection getCarteraXDepartamentoList() { return carteraXDepartamentoList;}
+   public Colector getColectorIdRef() { return colectorIdRef; }
 
-   public void setCarteraXDepartamentoList(Collection c) { this.carteraXDepartamentoList = c;}
-
-   public void addCarteraXDepartamento( CarteraXDepartamento carteraXDepartamento )
+   public void setColectorIdRef(Colector colector)
    {
-      carteraXDepartamento.setBarrioIdRef(this);
-      carteraXDepartamentoList.add( carteraXDepartamento );
+      this.colectorIdRef = colector;
    }
+
+
+   //---------------------------------------------------------------------------
+
+   private Departamento departamentoIdRef;
+
+   public Departamento getDepartamentoIdRef() { return departamentoIdRef; }
+
+   public void setDepartamentoIdRef(Departamento departamento)
+   {
+      this.departamentoIdRef = departamento;
+   }
+
 
    //---------------------------------------------------------------------------
 

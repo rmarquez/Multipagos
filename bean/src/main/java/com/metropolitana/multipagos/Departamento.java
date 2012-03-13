@@ -1,5 +1,5 @@
 //==============================================================================
-//===   departamento.java                        Build:2525
+//===   departamento.java                        Build:2556
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -61,6 +61,20 @@ public class Departamento implements java.io.Serializable
    {
       localidad.setDepartamentoIdRef(this);
       localidadList.add( localidad );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignarBarrioList = new ArrayList();
+
+   public Collection getAsignarBarrioList() { return asignarBarrioList;}
+
+   public void setAsignarBarrioList(Collection c) { this.asignarBarrioList = c;}
+
+   public void addAsignarBarrio( AsignarBarrio asignarBarrio )
+   {
+      asignarBarrio.setDepartamentoIdRef(this);
+      asignarBarrioList.add( asignarBarrio );
    }
 
    //---------------------------------------------------------------------------

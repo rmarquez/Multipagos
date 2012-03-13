@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+
+        <fd:field id="colectorId">
+			<fd:label>Colector:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:suggestion-list type="javascript">
+		      return suggestionListColector(filter);
+		    </fd:suggestion-list>
+		</fd:field>
+		
+        <fd:field id="departamentoId" required="true">
+            <fd:label>Departamento: </fd:label>
+            <fd:help>Elija el departamento de la localidad</fd:help>
+            <fd:hint>Departamento</fd:hint>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/departamentos.combo" dynamic="true"/>
+            <fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarDepartamento(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+		
+        <fd:field id="localidadId">
+			<fd:label>Localidad</fd:label>
+			<fd:datatype base="integer" />					
+			<fd:selection-list src="cocoon:/localidad.combo" dynamic="true"/>			
+		</fd:field>
+		
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

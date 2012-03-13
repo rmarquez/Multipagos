@@ -1,5 +1,5 @@
 //==============================================================================
-//===   localidad.java                        Build:2528
+//===   localidad.java                        Build:2558
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -71,6 +71,20 @@ public class Localidad implements java.io.Serializable
    {
       barrio.setLocalidadIdRef(this);
       barrioList.add( barrio );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignarBarrioList = new ArrayList();
+
+   public Collection getAsignarBarrioList() { return asignarBarrioList;}
+
+   public void setAsignarBarrioList(Collection c) { this.asignarBarrioList = c;}
+
+   public void addAsignarBarrio( AsignarBarrio asignarBarrio )
+   {
+      asignarBarrio.setLocalidadIdRef(this);
+      asignarBarrioList.add( asignarBarrio );
    }
 
    //---------------------------------------------------------------------------
