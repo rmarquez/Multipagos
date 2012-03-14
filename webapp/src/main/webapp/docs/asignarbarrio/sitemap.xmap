@@ -58,6 +58,13 @@
 	             </map:select>
 	        </map:match>
 	        
+	        <!-- Documentos en formato EXCEL -->
+            <map:match pattern="**.xls">
+                <map:generate type="jx" src="{1}.xls.xml"/>
+                <map:transform src="context://stylesheets/multipagos-pagina2xls.xsl"/>
+                <map:serialize type="xls"/>
+            </map:match>
+            
             <map:match pattern="*.continue">
                 <map:call continuation="{1}"/>
             </map:match>

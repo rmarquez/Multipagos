@@ -10,7 +10,7 @@
 		    </fd:suggestion-list>
 		</fd:field>
 		
-        <fd:field id="departamentoId" required="true">
+        <fd:field id="departamentoId">
             <fd:label>Departamento: </fd:label>
             <fd:help>Elija el departamento de la localidad</fd:help>
             <fd:hint>Departamento</fd:hint>
@@ -31,6 +31,11 @@
 		
         <fd:submit id="buscar">
             <fd:label>Buscar</fd:label>
+        </fd:submit>
+        <fd:submit id="excel">
+            <fd:label>Excel</fd:label>
+            <fd:help>Excel</fd:help>
+            <fd:hint>Excel</fd:hint>
         </fd:submit>
     </fd:widgets>
 </fd:form>

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
          xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
-    <!-- <fd:validation>
+    <fd:validation>
         <fd:javascript>        	
             return validarForm(widget);         
         </fd:javascript>
-    </fd:validation>  -->
+    </fd:validation>
     
-    <fd:widgets>	
+    <fd:widgets>
+    	<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages> 	
         
         <fd:field id="colectorId">
 			<fd:label>Colector:</fd:label>
 			<fd:datatype base="integer"/>
 			<fd:suggestion-list type="javascript">
 		      return suggestionListColector(filter);
-		    </fd:suggestion-list>
+		    </fd:suggestion-list>		    
 		</fd:field>
 		
         <fd:field id="departamentoId" required="true">
@@ -40,6 +43,11 @@
 				</fd:javascript>
 			</fd:on-value-changed>
 		</fd:field>
+		
+		<fd:booleanfield id="inactivo">
+            <fd:label>Inactivo:</fd:label>
+            <fd:help>Indique si la asignacion se encuentra inactiva</fd:help>
+        </fd:booleanfield>
 		
         <fd:repeater id="detalle" initial-size="1">
             <fd:widgets>

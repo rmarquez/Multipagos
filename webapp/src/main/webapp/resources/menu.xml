@@ -96,6 +96,7 @@
             	<div dojoType="MenuItem2" caption="Tasa de cambio" submenuId="tasacambio"/>
             	<div dojoType="MenuItem2" caption="Cantidad Moneda" submenuId="cantidadmoneda"/>
             	<div dojoType="MenuItem2" caption="Colector" submenuId="colector"/>
+            	<div dojoType="MenuItem2" caption="Barrios x Colector" submenuId="asignarb"/>
                 
             </div>
                 <!-- Submenu de Catalogo de Bancos -->
@@ -176,6 +177,14 @@
 		                  onClick="parent.window.location='/multipagos/colector/create'"/>
 		             <div dojoType="MenuItem2" caption="Buscar"
 		                     onClick="parent.window.location='/multipagos/colector/search'"/>
+		         </div>
+		         
+		         <!-- Submenu de Asignar Barrios -->
+		         <div dojoType="PopupMenu2" widgetId="asignarb">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/asignarbarrio/create'"/>
+		             <div dojoType="MenuItem2" caption="Buscar"
+		                     onClick="parent.window.location='/multipagos/asignarbarrio/search'"/>
 		         </div>
         </jx:if>
         

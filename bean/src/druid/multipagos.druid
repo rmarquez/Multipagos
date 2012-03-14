@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2558</attrib>
-		<attrib name="serial">1087762</attrib>
+		<attrib name="build">2560</attrib>
+		<attrib name="serial">1087768</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -7207,9 +7207,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">colector_id</attrib>
-							<attrib name="refField">985793</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">985793</attrib>
+							<attrib name="name">colector_id</attrib>
 							<attrib name="id">1086838</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -7237,9 +7237,9 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">departamento_id</attrib>
-							<attrib name="refField">981654</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">981654</attrib>
+							<attrib name="name">departamento_id</attrib>
 							<attrib name="id">1086842</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -7267,14 +7267,44 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">localidad_id</attrib>
-							<attrib name="refField">982077</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">982077</attrib>
+							<attrib name="name">localidad_id</attrib>
 							<attrib name="id">1087758</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
 							<attrib name="refTable">982069</attrib>
 							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339">'f'</attrib>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">inactivo</attrib>
+							<attrib name="id">1087765</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">382</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -7607,8 +7637,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 						<attrib name="name">asignar_barrio_asignarb_id_seq</attrib>
 						<attrib name="increment">1</attrib>
 						<attrib name="cache">1</attrib>
-						<attrib name="start">1</attrib>
 						<attrib name="cycle">false</attrib>
+						<attrib name="start">1</attrib>
 						<attrib name="minValue">1</attrib>
 						<attrib name="maxValue">2147483647</attrib>
 						<attrib name="order">false</attrib>
@@ -12157,7 +12187,8 @@ INSERT INTO tipo_documento_logs VALUES(11,'Control Visitas');
 INSERT INTO tipo_documento_logs VALUES(12,'Control Pagos');
 INSERT INTO tipo_documento_logs VALUES(13,'Cantidad Monedas');
 INSERT INTO tipo_documento_logs VALUES(14,'Arqueo Pagos');
-INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');</attrib>
+INSERT INTO tipo_documento_logs VALUES(15,'Cuentas');
+INSERT INTO tipo_documento_logs VALUES(16,'Asignacion Barrios');</attrib>
 					</attribs>
 					<modsConfig>
 						<SqlGenModule>

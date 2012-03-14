@@ -127,4 +127,5 @@
    <message key="com.metropolitana.key.ctasretencion">La cta. de retención sobre compras deber ser diferente a la cta. de retención sobre ventas</message>
    <message key="com.metropolitana.key.porcretencion">No ha registrado el % de Retención en Empresa</message>
    <message key="com.metropolitana.key.liquidacionespendientes">No es posible realizar una carga, esta ruta tiene cargas sin liquidar.</message>
+   <message key="com.metropolitana.key.barrioyaelejido">El barrio ya fue seleccionado.</message>
 </catalogue>

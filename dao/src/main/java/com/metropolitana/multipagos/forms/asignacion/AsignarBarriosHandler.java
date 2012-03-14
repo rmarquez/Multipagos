@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AsignarBarrio;
 import com.metropolitana.multipagos.DetalleBarrios;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
@@ -13,6 +14,7 @@ import com.metropolitana.multipagos.forms.colector.ColectorHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
 import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 
+import com.metropolitana.multipagos.forms.logs.LogsHandler;
 import org.apache.commons.collections.IteratorUtils;
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
@@ -30,10 +32,10 @@ public class AsignarBarriosHandler {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			broker.beginTransaction();
 			Date fecha = Calendar.getInstance().getTime();
-			//actualizarReferencias(bean, broker);
+			actualizarReferencias(bean, broker);
 			broker.store(bean);
-			//broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
-			//		Integer.valueOf(1), broker));
+			broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
+					Integer.valueOf(1), broker));
 			broker.commitTransaction();
 		} catch (Exception e) {
 			throw e;
@@ -62,10 +64,10 @@ public class AsignarBarriosHandler {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			broker.beginTransaction();
 			Date fecha = Calendar.getInstance().getTime();
-			//actualizarReferencias(bean, broker);
+			actualizarReferencias(bean, broker);
 			broker.store(bean);
-			//broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
-			//			Integer.valueOf(2), broker));
+			broker.store(LogsHandler.setLogsDelSistema(bean, fecha, usrId,
+						Integer.valueOf(2), broker));
 			broker.commitTransaction();
 			broker.clearCache();
 		} catch (Exception e) {
@@ -244,5 +246,39 @@ public class AsignarBarriosHandler {
 		} catch (Exception e) {
 			throw e;
 		}
-	}	
+	}
+	
+	public static boolean asignacionColector(Integer colectorId) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (colectorId != null) {
+                    criterio.addEqualTo("colectorId", colectorId);
+            }
+            List lst = getAsignacionColectorList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getAsignacionColectorList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(AsignarBarrio.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

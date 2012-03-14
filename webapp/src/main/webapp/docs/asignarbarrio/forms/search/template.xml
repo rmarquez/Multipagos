@@ -21,6 +21,7 @@
                     </fi:items>
                 </fi:group>
                 <ft:widget id="buscar"/>
+                <ft:widget id="excel"/>
             </ft:form-template>
         </s1>
     </body>

@@ -74,6 +74,14 @@
                                     <jx:when test="${status.current.tipodLogId == 14}">
                                         ${status.current.logsDescripcion}</jx:when>                                    
                                     <jx:otherwise>
+                                    <!-- Cuentas -->
+                                    <jx:when test="${status.current.tipodLogId == 15}">
+                                        ${status.current.logsDescripcion}</jx:when>                                    
+                                    <jx:otherwise>
+                                    <!-- Asignacion Barrio -->
+                                    <jx:when test="${status.current.tipodLogId == 16}">
+                                        ${status.current.logsDescripcion}</jx:when>                                    
+                                    <jx:otherwise>
 
                                         ${status.current.logsReferencia}
                                     </jx:otherwise>

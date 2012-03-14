@@ -1,5 +1,5 @@
 //==============================================================================
-//===   asignar_barrio.java                        Build:2558
+//===   asignar_barrio.java                        Build:2559
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -22,6 +22,7 @@ public class AsignarBarrio implements java.io.Serializable
    private Integer    colectorId;
    private Integer    departamentoId;
    private Integer    localidadId;
+   private Boolean    inactivo;
 
    //---------------------------------------------------------------------------
 
@@ -57,6 +58,15 @@ public class AsignarBarrio implements java.io.Serializable
    public void setLocalidadId(Integer localidadId)
    {
       this.localidadId = localidadId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getInactivo() { return inactivo; }
+
+   public void setInactivo(Boolean inactivo)
+   {
+      this.inactivo = inactivo;
    }
 
    //---------------------------------------------------------------------------

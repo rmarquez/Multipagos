@@ -7,11 +7,20 @@ function searchform(form) {
         var colectorId = form.getChild("colectorId").getValue();
         var departamentoId =form.getChild("departamentoId").getValue();
         var localidadId = form.getChild("localidadId").getValue();
+        
+        var fecha = new Packages.java.util.Date();
+        
         var salir = false;
 
         while (!salir) {
             var bean = handler.getListAsignaciones(colectorId, departamentoId, localidadId);
-            cocoon.sendPageAndWait("forms/search/results.jx", {"bean": bean});
+            
+            var URL = "forms/search/results.jx";
+    		if (form.submitId == "excel") {
+    			URL = "forms/search/results.xls";
+    		}
+            
+            cocoon.sendPageAndWait(URL, {"bean": bean, "fecha":fecha});
             var asignarbId = parseInt(cocoon.request.asignarbId);
 
             if (!isNaN(asignarbId)) {

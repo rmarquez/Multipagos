@@ -34,6 +34,7 @@ public class TipoDocumentoLogHandler {
 	public final static Integer CANTIDAD_MONEDAS = Integer.valueOf(13);
 	public final static Integer ARQUEO_PAGOS = Integer.valueOf(14);
 	public final static Integer CUENTAS = Integer.valueOf(15);
+	public final static Integer ASIGNACION_BARRIO = Integer.valueOf(16);
 
 	/**
 	 * Recupera un tipo de documento log

@@ -18,6 +18,7 @@
                     <ft:widget id="colectorId" type="suggest"/>
           	 		<ft:widget id="departamentoId"/>
           	  		<ft:widget id="localidadId"/>
+          	  		<ft:widget id="inactivo"/>
                  </fi:items>
              </fi:group>
                	<br></br>

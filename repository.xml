@@ -202,6 +202,7 @@
 		<field-descriptor name="colectorId" nullable="false" default-fetch="true" column="COLECTOR_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="departamentoId" nullable="false" default-fetch="true" column="DEPARTAMENTO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="localidadId" nullable="false" default-fetch="true" column="LOCALIDAD_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="inactivo" nullable="false" default-fetch="true" column="INACTIVO" jdbc-type="BIT"/>
 		<reference-descriptor name="colectorIdRef" class-ref="com.metropolitana.multipagos.Colector" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="colectorId"/>
 		</reference-descriptor>

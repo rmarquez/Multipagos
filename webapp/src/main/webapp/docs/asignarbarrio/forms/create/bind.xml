@@ -3,6 +3,7 @@
     <fb:value id="colectorId" path="colectorId"/>
     <fb:value id="departamentoId" path="departamentoId"/>
     <fb:value id="localidadId" path="localidadId"/>
+    <fb:value id="inactivo" path="inactivo"/>
     
     <fb:repeater id="detalle" parent-path="." row-path="detalleBarriosList">
         <fb:identity>

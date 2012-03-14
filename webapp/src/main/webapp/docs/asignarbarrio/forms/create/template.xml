@@ -11,13 +11,15 @@
     <body>
         <s1 title="Asignar Barrios">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST" ajax="true">
-             <ft:continuation-id/>                
+             <ft:continuation-id/>
+             <ft:widget id="mensajes de error"/>                
         	<fi:group>
                 <fi:styling layout="columns"/>
                 <fi:items>
                     <ft:widget id="colectorId" type="suggest"/>
           	 		<ft:widget id="departamentoId"/>
           	  		<ft:widget id="localidadId"/>
+          	  		<ft:widget id="inactivo"/>
                  </fi:items>
              </fi:group>
                	<br></br>
