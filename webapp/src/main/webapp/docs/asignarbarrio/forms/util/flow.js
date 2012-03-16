@@ -45,8 +45,7 @@ function validarForm(form) {
     var returnval = true;    
     
     
-    if (colectorId != null) {
-    	
+    if (colectorId != null) {    	
     	if(handlerAsignacion.asignacionColector(colectorId)==true) {
     		form.getChild("mensajes de error").addMessage("A este colector ya se le fue asignado sus barrios, favor verificar si se encuentra activo.");
 	  		return false;

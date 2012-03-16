@@ -6,13 +6,11 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AsignarBarrio;
-import com.metropolitana.multipagos.DetalleBarrios;
-import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
+import com.metropolitana.multipagos.AsignarColector;
+import com.metropolitana.multipagos.DetalleColectores;
+import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
-import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
-import com.metropolitana.multipagos.forms.localidad.LocalidadHandler;
 
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
 import org.apache.commons.collections.IteratorUtils;
@@ -24,9 +22,9 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
-public class AsignarBarriosHandler {
+public class AsignarColectorHandler {
 	
-	public void insert(final AsignarBarrio bean, Integer usrId) throws Exception {
+	public void insert(final AsignarColector bean, Integer usrId) throws Exception {
 		org.apache.ojb.broker.PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
@@ -50,13 +48,13 @@ public class AsignarBarriosHandler {
 	}
 
 	/**
-	 * Actualiza los datos de un visita.
+	 * Actualiza los datos de un asignacion.
 	 * 
 	 * @param bean
 	 *            bean que contiene los datos
 	 * @throws Exception
 	 */
-	public void update(final AsignarBarrio bean, Integer usrId)
+	public void update(final AsignarColector bean, Integer usrId)
 			throws Exception {
 		PersistenceBroker broker = null;
 
@@ -83,59 +81,57 @@ public class AsignarBarriosHandler {
 	}
 	
 	/**
-	 * Obtiene un visita.
+	 * Obtiene un asignacion.
 	 * 
-	 * @param visitaId
-	 *            Identificador del visita a obtener
+	 * @param asignacionId
+	 *            Identificador del asignacion a obtener
 	 * @param broker
 	 *            PersistenceBroker
-	 * @return bean que contiene los datos del visita
+	 * @return bean que contiene los datos del asignacion
 	 */
-	public static AsignarBarrio retrieve(final Integer asignarbId,
+	public static AsignarColector retrieve(final Integer asignarcId,
 			final PersistenceBroker broker) {
-		AsignarBarrio criterio = new AsignarBarrio();
-		criterio.setAsignarbId(asignarbId);
+		AsignarColector criterio = new AsignarColector();
+		criterio.setAsignarcId(asignarcId);
 		Query query = new QueryByIdentity(criterio);
-		return (AsignarBarrio) broker.getObjectByQuery(query);
+		return (AsignarColector) broker.getObjectByQuery(query);
 	}
 
 	/**
 	 * Metodo que actualiza referencias a llaves extranjeras
 	 * 
 	 * @param asignar
-	 *            Bean de objeto visita
+	 *            Bean de objeto asignacion
 	 * @param broker
 	 */
-	private void actualizarReferencias(AsignarBarrio asignar, PersistenceBroker broker) {
-		asignar.setColectorIdRef(ColectorHandler.retrieve(asignar.getColectorId(), broker));
-		asignar.setDepartamentoIdRef(DepartamentosHandler.retrieve(asignar.getDepartamentoId(), broker));
-		asignar.setLocalidadIdRef(LocalidadHandler.retrieve(asignar.getLocalidadId(), broker));
+	private void actualizarReferencias(AsignarColector asignar, PersistenceBroker broker) {		
+		asignar.setUsrIdRef(Auth_userHandler.retrieve(asignar.getUsrId(), broker));
 		linkChilds(asignar, broker);
 	}
 
-	private void linkChilds(final AsignarBarrio bean, final PersistenceBroker broker) {
-		Iterator iterDetalle = bean.getDetalleBarriosList().iterator();
+	private void linkChilds(final AsignarColector bean, final PersistenceBroker broker) {
+		Iterator iterDetalle = bean.getDetalleColectoresList().iterator();
 		while (iterDetalle.hasNext()) {
-			DetalleBarrios det = (DetalleBarrios) iterDetalle.next();
-			det.setBarrioIdRef(BarrioHandler.retrieve(det.getBarrioId(), broker));
-			det.setAsignarbIdRef(bean);
+			DetalleColectores det = (DetalleColectores) iterDetalle.next();			
+			det.setColectorIdRef(ColectorHandler.retrieve(det.getColectorId(), broker));			
+			det.setAsignarcIdRef(bean);
 		}
 	}
 
 	/**
-	 * Obtiene un visita.
+	 * Obtiene una asignacion.
 	 * 
-	 * @param asignarbId
-	 *            Identificador del visita a obtener
-	 * @return bean que contiene los datos del visita
+	 * @param asignarcId
+	 *            Identificador del asignacion a obtener
+	 * @return bean que contiene los datos del asignacion
 	 */
-	public static AsignarBarrio retrieve(final Integer asignarbId)
+	public static AsignarColector retrieve(final Integer asignarcId)
 			throws Exception {
 		PersistenceBroker broker = null;
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			return retrieve(asignarbId, broker);
+			return retrieve(asignarcId, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -146,11 +142,11 @@ public class AsignarBarriosHandler {
 	}
 
 	/**
-	 * Genera listado de visitas.
+	 * Genera listado de asignaciones.
 	 * 
 	 * @param criterio
 	 *            Criterio de filtrado de la lista
-	 * @return Collection o null listado de visitas
+	 * @return Collection o null listado de asignaciones
 	 * @throws Exception
 	 */
 	private Collection getList(final Criteria criterio) throws Exception {
@@ -158,7 +154,7 @@ public class AsignarBarriosHandler {
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			QueryByCriteria query = new QueryByCriteria(AsignarBarrio.class,
+			QueryByCriteria query = new QueryByCriteria(AsignarColector.class,
 					criterio);
 			query.addOrderBy("asignarbId", true);
 			return broker.getCollectionByQuery(query);
@@ -171,49 +167,12 @@ public class AsignarBarriosHandler {
 		}
 	}
 
-	public List getListAsignaciones(final Integer colectorId, final Integer departamentoId, final Integer localidadId) throws Exception {
-	      
-		PersistenceBroker broker = null;
-
-	       try {
-	           broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-
-	           Criteria criterio = new Criteria();
-	           if (colectorId != null) {
-	               criterio.addEqualTo("colectorId", colectorId);
-	           }
-	           if (departamentoId != null) {
-	               criterio.addEqualTo("departamentoId", departamentoId);
-	           }
-	           if (localidadId != null) {
-	               criterio.addEqualTo("localidadId", localidadId);
-	           }
-	           ReportQueryByCriteria query = new ReportQueryByCriteria(AsignarBarrio.class, criterio);
-	           query.setAttributes(new String[] {"asignarbId",
-	                                             "colectorIdRef.primerNombre",
-	                                             "colectorIdRef.primerApellido",
-	                                             "departamentoIdRef.departamentoNombre",
-	                                             "localidadIdRef.localidadNombre"});
-	           query.addGroupBy(new String[] {"asignarbId",
-						                       "colectorIdRef.primerNombre",
-						                       "colectorIdRef.primerApellido",
-						                       "departamentoIdRef.departamentoNombre",
-						                       "localidadIdRef.localidadNombre"});
-	           query.addOrderBy("asignarbId", true);
-	           return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
-	       } catch (Exception e) {
-	           throw e;
-	       } finally {
-	           if (broker != null && !broker.isClosed()) {
-	               broker.close();
-	           }
-	       }
-	   }
+	
 
 	/**
-	 * Genera el listado de todos los visitas.
+	 * Genera el listado de todas los asignaciones.
 	 * 
-	 * @return Collection o null Listao de visitas
+	 * @return Collection o null Listado de asignaciones
 	 * @throws Exception
 	 */
 	public Collection getList() throws Exception {
@@ -224,12 +183,42 @@ public class AsignarBarriosHandler {
 		}
 	}
 	
-	public static boolean asignacionColector(Integer colectorId) throws Exception {
+	public List getListAsignaciones(final Integer usrId) throws Exception {
+	      
+		PersistenceBroker broker = null;
+
+	       try {
+	           broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+
+	           Criteria criterio = new Criteria();
+	           if (usrId != null) {
+	               criterio.addEqualTo("usrId", usrId);
+	           }
+	           
+	           ReportQueryByCriteria query = new ReportQueryByCriteria(AsignarColector.class, criterio);
+	           query.setAttributes(new String[] {"asignarcId",
+	                                             "usrIdRef.usrFullName"});
+	           
+	           query.addGroupBy(new String[] {"asignarcId",
+	           								  "usrIdRef.usrFullName"});
+	           
+	           query.addOrderBy("asignarcId", true);
+	           return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
+	       } catch (Exception e) {
+	           throw e;
+	       } finally {
+	           if (broker != null && !broker.isClosed()) {
+	               broker.close();
+	           }
+	       }
+	   }
+	
+	public static boolean asignacionColectorUsr(Integer usrId) throws Exception {
         try {
             Criteria criterio = new Criteria();
             
-            if (colectorId != null) {
-                    criterio.addEqualTo("colectorId", colectorId);
+            if (usrId != null) {
+                    criterio.addEqualTo("usrId", usrId);
             }
             List lst = getAsignacionColectorList(criterio);
             if (lst.isEmpty()) {
@@ -247,7 +236,7 @@ public class AsignarBarriosHandler {
 
         try {
             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-            QueryByCriteria query = new QueryByCriteria(AsignarBarrio.class, criterio);
+            QueryByCriteria query = new QueryByCriteria(AsignarColector.class, criterio);
             return (List)broker.getCollectionByQuery(query);
         } catch (Exception e) {
             throw e;

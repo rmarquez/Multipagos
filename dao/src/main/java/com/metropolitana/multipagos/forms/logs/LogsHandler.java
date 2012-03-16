@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AsignarBarrio;
+import com.metropolitana.multipagos.AsignarColector;
 import com.metropolitana.multipagos.AuthUser;
 import com.metropolitana.multipagos.Banco;
 import com.metropolitana.multipagos.Barrio;
@@ -739,6 +740,48 @@ public class LogsHandler {
 			AuthUser user, Integer estadoId, Date fecha) {
 		String strDescripcion = "";
 		strDescripcion = " Asignacion de Barrios para colector  : "+ asignacion.getColectorIdRef().getPrimerNombre() + " " + asignacion.getColectorIdRef().getPrimerApellido();
+		return getEstado(strDescripcion, estadoId, fecha, user);
+	}
+	
+	/**
+	 * Crea un registro de Logs para del documento asignacion
+	 * 
+	 * @param asignacion
+	 * @param fecha
+	 * @param usrId
+	 * @param estadoId
+	 * @param broker
+	 * @return
+	 * @throws Exception
+	 */
+	public static Logs setLogsDelSistema(AsignarColector asignacion,
+			Date fecha, Integer usrId, Integer estadoId,
+			PersistenceBroker broker) throws Exception {
+		Logs logs = new Logs();
+		AuthUser user = Auth_userHandler.retrieve(usrId, broker);
+		// Asignamos los valores a la transacción
+		logs.setLogsReferencia(asignacion.getAsignarcId().toString());
+		logs.setLogsFecha(fecha);
+		logs.setTipodLogIdRef(TipoDocumentoLogHandler.retrieve(
+				TipoDocumentoLogHandler.ASIGNACION_COLECTOR, broker));
+		logs.setLogsDescripcion(getDescripcion(asignacion, user, estadoId, fecha));
+		return logs;
+	}
+
+	/**
+	 * Log o Mensaje que se registrará .
+	 *
+	 * @param asignacion
+	 *            bean del objeto asignacion
+	 * @param user
+	 *            bean del objeto asignacion
+	 * @param estadoId
+	 * @return
+	 */
+	private static String getDescripcion(AsignarColector asignacion,
+			AuthUser user, Integer estadoId, Date fecha) {
+		String strDescripcion = "";
+		strDescripcion = " Asignacion de Colectores para supervisor  : "+ asignacion.getUsrIdRef().getUsrFullName();
 		return getEstado(strDescripcion, estadoId, fecha, user);
 	}
 	

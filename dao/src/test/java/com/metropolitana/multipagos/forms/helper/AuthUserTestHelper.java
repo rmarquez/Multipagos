@@ -37,7 +37,7 @@ public class AuthUserTestHelper {
 		usuario.setUsrLogin(usrLogin);
 		usuario.setUsrPassword(usrPass);
 		usuario.setUsrEnable(Boolean.TRUE);
-		//usuario.setUsrNotificarOfertas(Boolean.FALSE);
+		usuario.setUsrEditdb(Boolean.FALSE);
 		userHandler.insert(usuario);
 		return usuario;
 	}

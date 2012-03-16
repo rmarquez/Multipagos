@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+
+        <fd:field id="usrId">
+			<fd:label>Supervisor</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/supervisor.combo" cache="request"/>			
+		</fd:field>
+		
+        <fd:submit id="buscar">
+            <fd:label>Buscar</fd:label>
+        </fd:submit>
+        <fd:submit id="excel">
+            <fd:label>Excel</fd:label>
+            <fd:help>Excel</fd:help>
+            <fd:hint>Excel</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

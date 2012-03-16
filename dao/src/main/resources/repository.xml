@@ -40,6 +40,9 @@
 		<collection-descriptor name="authUserRoleList" element-class-ref="com.metropolitana.multipagos.AuthUserRole" auto-update="true" auto-delete="true" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
+		<collection-descriptor name="asignarColectorList" element-class-ref="com.metropolitana.multipagos.AsignarColector" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="usrId"/>
+		</collection-descriptor>
 		<collection-descriptor name="visitasList" element-class-ref="com.metropolitana.multipagos.Visitas" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
@@ -245,6 +248,27 @@
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>
 	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.AsignarColector" table="ASIGNAR_COLECTOR">
+		<field-descriptor name="asignarcId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="asignar_colector_asignarc_id_seq" column="ASIGNARC_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="usrId" nullable="false" default-fetch="true" column="USR_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="inactivo" nullable="false" default-fetch="true" column="INACTIVO" jdbc-type="BIT"/>
+		<reference-descriptor name="usrIdRef" class-ref="com.metropolitana.multipagos.AuthUser" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="usrId"/>
+		</reference-descriptor>
+		<collection-descriptor name="detalleColectoresList" element-class-ref="com.metropolitana.multipagos.DetalleColectores" auto-update="true" auto-delete="true" proxy="true">
+			<inverse-foreignkey field-ref="asignarcId"/>
+		</collection-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.DetalleColectores" table="DETALLE_COLECTORES">
+		<field-descriptor name="asignarcId" primarykey="true" nullable="false" default-fetch="true" column="ASIGNARC_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" column="COLECTOR_ID" jdbc-type="INTEGER"/>
+		<reference-descriptor name="asignarcIdRef" class-ref="com.metropolitana.multipagos.AsignarColector" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="asignarcId"/>
+		</reference-descriptor>
+		<reference-descriptor name="colectorIdRef" class-ref="com.metropolitana.multipagos.Colector" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="colectorId"/>
+		</reference-descriptor>
+	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Colector" table="COLECTOR">
 		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="colector_colector_id_seq" column="COLECTOR_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="colectorNumero" nullable="false" default-fetch="true" column="COLECTOR_NUMERO" jdbc-type="INTEGER"/>
@@ -255,6 +279,9 @@
 		<field-descriptor name="cedula" nullable="false" default-fetch="true" column="CEDULA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="inactivo" nullable="false" default-fetch="true" column="INACTIVO" jdbc-type="BIT"/>
 		<collection-descriptor name="asignarBarrioList" element-class-ref="com.metropolitana.multipagos.AsignarBarrio" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="colectorId"/>
+		</collection-descriptor>
+		<collection-descriptor name="detalleColectoresList" element-class-ref="com.metropolitana.multipagos.DetalleColectores" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="colectorId"/>
 		</collection-descriptor>
 		<collection-descriptor name="detalleVisitasList" element-class-ref="com.metropolitana.multipagos.DetalleVisitas" auto-update="false" auto-delete="false" proxy="true">
