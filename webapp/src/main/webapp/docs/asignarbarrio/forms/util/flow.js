@@ -42,8 +42,7 @@ function validarForm(form) {
     var widgetErrorMessage = form.getChild("mensajes de error");
     var colectorId = form.getChild("colectorId").getValue();
     var lista = new java.util.ArrayList();
-    var returnval = true;    
-    
+    var returnval = true;
     
     if (colectorId != null) {    	
     	if(handlerAsignacion.asignacionColector(colectorId)==true) {

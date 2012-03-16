@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.metropolitana.multipagos.AsignarBarrio;
 import com.metropolitana.multipagos.AsignarColector;
+import com.metropolitana.multipagos.Barrio;
+import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetalleColectores;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
@@ -246,4 +248,28 @@ public class AsignarColectorHandler {
             }
         }
     }
+	
+	public static List getColectoresAsignados(final Integer usrId) throws Exception {
+		
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (usrId != null) {
+				criterio.addEqualTo("asignarcIdRef.usrId", usrId);
+			}
+			ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleColectores.class, criterio);
+			query.setAttributes(new String[] { "colectorId", "colectorIdRef.primerNombre","colectorIdRef.primerApellido" });
+			query.addGroupBy(new String[] { "colectorId", "colectorIdRef.primerNombre","colectorIdRef.primerApellido" });
+			
+			query.addOrderByAscending("colectorId");
+			return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
 }

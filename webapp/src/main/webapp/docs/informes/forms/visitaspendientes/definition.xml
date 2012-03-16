@@ -57,7 +57,7 @@
 		<fd:field id="asignacionAnio">
 			<fd:label>Fecha Asignacion</fd:label>
 			<fd:datatype base="date">
-			<fd:convertor>
+				<fd:convertor>
                     <fd:patterns>
                         <fd:pattern>dd/MM/yyyy</fd:pattern>
                     </fd:patterns>

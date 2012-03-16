@@ -9,6 +9,7 @@ import java.util.List;
 import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AsignarBarrio;
 import com.metropolitana.multipagos.DetalleBarrios;
+import com.metropolitana.multipagos.DetalleColectores;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
@@ -257,4 +258,28 @@ public class AsignarBarriosHandler {
             }
         }
     }
+	
+	public static List getBarriosAsignados(final Integer colectorId) throws Exception {
+		
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (colectorId != null) {
+				criterio.addEqualTo("asignarbIdRef.colectorId", colectorId);
+			}
+			ReportQueryByCriteria query = new ReportQueryByCriteria(DetalleBarrios.class, criterio);
+			query.setAttributes(new String[] { "barrioId", "barrioIdRef.barrioNombre" });
+			query.addGroupBy(new String[] { "barrioId", "barrioIdRef.barrioNombre" });
+			
+			query.addOrderByAscending("barrioId");
+			return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
 }
