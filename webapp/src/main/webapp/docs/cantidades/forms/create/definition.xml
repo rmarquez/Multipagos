@@ -13,7 +13,7 @@
         <fd:field id="cantidadValor" required="true">
 			<fd:label>Cantidad: </fd:label>					
 			<fd:help>Escriba la cantidad que corresponde al valor descrito en cantidad nombre.</fd:help>
-			<fd:datatype base="integer" />
+			<fd:datatype base="decimal" />
 		</fd:field>
         
         <fd:booleanfield id="dolares">

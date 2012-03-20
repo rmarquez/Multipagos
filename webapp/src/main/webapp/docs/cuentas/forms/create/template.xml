@@ -11,6 +11,7 @@
     <body>
         <s1 title="Crear cuenta">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+            <ft:widget id="mensajes de error"/>
             <ft:continuation-id/>                 
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
@@ -20,6 +21,7 @@
                         <ft:widget id="cuentaEmpresa"/>
                         <ft:widget id="cuentaMoneda"/>
                         <ft:widget id="numeroCuenta"/>
+                        <ft:widget id="inactivo"/>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="crear"/>

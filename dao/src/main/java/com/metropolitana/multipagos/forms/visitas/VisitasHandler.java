@@ -155,6 +155,22 @@ public class VisitasHandler {
 		Iterator iterDetalle = bean.getDetalleVisitasList().iterator();
 		while (iterDetalle.hasNext()) {
 			DetalleVisitas det = (DetalleVisitas) iterDetalle.next();
+			System.out.println("visitaId =" + det.getVisitaId());
+			System.out.println("carteraId =" + det.getCarteraId());
+			System.out.println("simboloId =" + det.getSimboloId());
+			System.out.println("colectorId =" + det.getColectorId());
+			System.out.println("localidadId =" + det.getLocalidadId());
+			System.out.println("servicioId =" + det.getServicioId());
+			System.out.println("numero contraro =" + det.getNumeroContrato());
+			System.out.println("fecha visita =" + det.getFechaVisita());
+			System.out.println("aviso cobro =" + det.getAvisoCobro());
+			System.out.println("hora registro =" + det.getHoraRegistro());
+			System.out.println("f programacion cobro =" + det.getFprogCobro());
+			System.out.println("observaciones =" + det.getObservaciones());
+			
+			
+			
+			
 			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(
 					det.getCarteraId(), broker));
 			det.setSimboloIdRef(SimboloHandler.retrieve(

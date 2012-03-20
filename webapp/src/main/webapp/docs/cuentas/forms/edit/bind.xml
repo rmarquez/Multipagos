@@ -4,4 +4,5 @@
     <fb:value id="cuentaEmpresa" path="cuentaEmpresa"/>
     <fb:value id="cuentaMoneda" path="cuentaMoneda"/>
     <fb:value id="numeroCuenta" path="numeroCuenta"/>
+    <fb:value id="inactivo" path="inactivo"/>
 </fb:context>

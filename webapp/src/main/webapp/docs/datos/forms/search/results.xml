@@ -44,26 +44,26 @@
                        		</jx:if>                        
                         </tr>
                         <jx:if test="${(item[0]) == 1}">
-	                        
-	                        <tbody>
-				                  <jx:forEach var="item2" items="${usr}" varStatus="status">
-				                        <tr>
-				                        	<jx:if test="${(item2[0]) &lt; 12 }">
-					                           <td align="right"><blue>${item2[1]}</blue></td>
-					                           <td><blue>${item2[3]}</blue></td>
-					                           <td><blue>${item2[4]}</blue></td>
-					                           <td><blue>${item2[5]}</blue></td> 
-					                           <td><blue>${item2[6]}</blue></td> 
-					                           <jx:if test="${(item2[7]) &lt; 0 }">
-					                           		<td><diferencian>${item2[7]}</diferencian></td>
-					                       		</jx:if>
-					                       		<jx:if test="${(item2[7]) &gt; 0 || (item2[7]) == 0}">
-					                           		<td><diferenciap>${item2[7]}</diferenciap></td>
-					                       		</jx:if> 
-				                       		</jx:if> 	                       
-				                        </tr>				                        
-				                  </jx:forEach>
-				                </tbody>
+		                        <tbody>
+					                  <jx:forEach var="item2" items="${usr}" varStatus="status">
+					                        <tr>
+					                        	<jx:if test="${(item2[0]) &lt; 12 }">
+						                           <td align="right"><blue>${item2[1]}</blue></td>
+						                           <td><blue>${item2[3]}</blue></td>
+						                           <td><blue>${item2[4]}</blue></td>
+						                           <td><blue>${item2[5]}</blue></td> 
+						                           <td><blue>${item2[6]}</blue></td> 
+						                           <jx:if test="${(item2[7]) &lt; 0 }">
+						                           		<td><diferencian>${item2[7]}</diferencian></td>
+						                       		</jx:if>
+						                       		<jx:if test="${(item2[7]) &gt; 0 || (item2[7]) == 0}">
+						                           		<td><diferenciap>${item2[7]}</diferenciap></td>
+						                       		</jx:if> 
+					                       		</jx:if> 	                       
+					                        </tr>				                        
+					                  </jx:forEach>
+					                </tbody>
+				                
 				           </jx:if>     
 	                  </jx:forEach>
 	                </tbody>

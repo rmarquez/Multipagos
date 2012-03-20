@@ -1,5 +1,5 @@
 //==============================================================================
-//===   cuentas.java                        Build:2545
+//===   cuentas.java                        Build:2563
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -23,6 +23,7 @@ public class Cuentas implements java.io.Serializable
    private String     cuentaEmpresa;
    private String     cuentaMoneda;
    private String     numeroCuenta;
+   private Boolean    inactivo;
 
    //---------------------------------------------------------------------------
 
@@ -67,6 +68,15 @@ public class Cuentas implements java.io.Serializable
    public void setNumeroCuenta(String numeroCuenta)
    {
       this.numeroCuenta = numeroCuenta;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getInactivo() { return inactivo; }
+
+   public void setInactivo(Boolean inactivo)
+   {
+      this.inactivo = inactivo;
    }
 
    //---------------------------------------------------------------------------

@@ -118,6 +118,10 @@ function alSeleccionarFactura(event) {
 		    		numeroFiscal.setValue(cartera.getNumeroFiscal());
 		    		cupon.setValue(cartera.getCupon());
 		    		fechaPago.setValue(new Packages.java.util.Date());
+		    		if(cartera.getServicioId()==6){
+						year.setValue("0");
+						mes.setValue("0");
+					}
 				}
 	    	}
     	} else {
@@ -198,6 +202,7 @@ function alSeleccionarContrato(event) {
     var localidad = event.source.parent.getChild("localidadId");
     var saldoPagar = event.source.parent.getChild("salgoPagar");
     //var year = event.source.parent.getChild("year");
+    //var mes = event.source.parent.getChild("mes");
     
     var handlerCartera = new CarteraXDepartamentoHandler(); 
      //var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
@@ -210,7 +215,7 @@ function alSeleccionarContrato(event) {
 			localidad.setValue(cartera.getLocalidadId());
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
-			//year.setValue(cartera.getAnio());
+			
 			
 		}
 		if (handlerCartera.existeContrato(numContrato)==false) {

@@ -6,6 +6,7 @@
     <body>
         <s1 title="Colector">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+            <ft:widget id="mensajes de error"/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Agregar datos del colector</fi:label>

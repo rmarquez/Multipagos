@@ -16,6 +16,9 @@
                     <fi:label>Criterios de búsqueda de cuentas</fi:label>
                     <fi:items>
                         <ft:widget id="criteria"/>
+                        <ft:widget id="filtrar">
+		                  <fi:styling list-type="radio"/>
+		                </ft:widget>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="buscar"/>

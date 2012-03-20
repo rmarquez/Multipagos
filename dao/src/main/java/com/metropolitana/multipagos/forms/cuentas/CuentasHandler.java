@@ -3,8 +3,10 @@ package com.metropolitana.multipagos.forms.cuentas;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import com.metropolitana.multipagos.Colector;
 import com.metropolitana.multipagos.Cuentas;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
@@ -201,14 +203,14 @@ public class CuentasHandler {
 	 */
 	@SuppressWarnings("unchecked")
 	public final Collection<Cuentas> getResultadosXPagina(
-			final String cuentaEmpresa, final int pagina,
+			final String cuentaEmpresa, final Integer filtrar, final int pagina,
 			final int registrosXPagina) throws Exception {
 		PersistenceBroker broker = null;
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return Util.getResultadosXPagina(Cuentas.class,
-					getCriterio(cuentaEmpresa, CAMPO_BUSQUEDA),
+					Util.getCriterio(cuentaEmpresa, filtrar, CAMPO_BUSQUEDA),
 					CAMPO_BUSQUEDA, pagina, registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
@@ -255,5 +257,41 @@ public class CuentasHandler {
 
 		return criterio;
 	}
+	
+	public static boolean validadNumCuenta(String numeroCuenta) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (numeroCuenta != null) {
+                    //criterio.addEqualTo("numeroCuenta", numeroCuenta);
+                    criterio.addLike("upper(numeroCuenta)",
+                    		numeroCuenta.toUpperCase(Locale.getDefault()) + "*");
+            }
+            List lst = getNumCuentaList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNumCuentaList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Cuentas.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 
 }

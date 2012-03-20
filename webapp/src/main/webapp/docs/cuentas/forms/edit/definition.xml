@@ -35,6 +35,11 @@
             </fd:validation>
         </fd:field>
         
+        <fd:booleanfield id="inactivo">
+			<fd:label>Inactivo</fd:label>
+			<fd:help>Se utilizará para <b>desactivar</b> la cuenta.</fd:help>			
+		</fd:booleanfield>
+        
         <fd:submit id="guardar">
           <fd:label>Guardar</fd:label>
         </fd:submit>

@@ -3,6 +3,7 @@ package com.metropolitana.multipagos.forms.colector;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.ojb.broker.PersistenceBroker;
@@ -12,6 +13,7 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
+import com.metropolitana.multipagos.AsignarBarrio;
 import com.metropolitana.multipagos.Colector;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
@@ -364,4 +366,38 @@ public class ColectorHandler {
 		Query query = new QueryByCriteria(criterio);
 		return (Colector) broker.getObjectByQuery(query);
 	}
+	
+	public static boolean validadNumColector(Integer colectorNumero) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (colectorNumero != null) {
+                    criterio.addEqualTo("colectorNumero", colectorNumero);
+            }
+            List lst = getNumColectorList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNumColectorList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Colector.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

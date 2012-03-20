@@ -179,6 +179,7 @@
 		<field-descriptor name="cuentaEmpresa" nullable="false" default-fetch="true" column="CUENTA_EMPRESA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="cuentaMoneda" nullable="false" default-fetch="true" column="CUENTA_MONEDA" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numeroCuenta" nullable="false" default-fetch="true" column="NUMERO_CUENTA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="inactivo" nullable="false" default-fetch="true" column="INACTIVO" jdbc-type="BIT"/>
 		<reference-descriptor name="bancoIdRef" class-ref="com.metropolitana.multipagos.Banco" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="bancoId"/>
 		</reference-descriptor>

@@ -20,6 +20,7 @@
                         <ft:widget id="cuentaEmpresa"/>
                         <ft:widget id="cuentaMoneda"/>
                         <ft:widget id="numeroCuenta"/>
+                        <ft:widget id="inactivo"/>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="guardar"/>

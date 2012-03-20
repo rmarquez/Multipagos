@@ -3,6 +3,7 @@ package com.metropolitana.multipagos.forms.estado_corte;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.ojb.broker.PersistenceBroker;
@@ -12,6 +13,7 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
+import com.metropolitana.multipagos.Cuentas;
 import com.metropolitana.multipagos.EstadoCorte;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
@@ -259,4 +261,40 @@ public class EstadoCorteHandler {
 			throw e;
 		}
 	}
+	
+	public static boolean validarEstado(String estadoNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (estadoNombre != null) {
+                    //criterio.addEqualTo("numeroCuenta", numeroCuenta);
+                    criterio.addLike("upper(estadoNombre)",
+                    		estadoNombre.toUpperCase(Locale.getDefault()) + "*");
+            }
+            List lst = getEstadoList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getEstadoList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(EstadoCorte.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }
