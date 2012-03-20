@@ -45,7 +45,7 @@ function alCambiar(event) {
 function alSeleccionarContrato(event) {
 	var numContrato = event.source.value;
 	var carteraId = event.source.parent.getChild("carteraId");
-	carteraId.setValue(null);
+	//carteraId.setValue(null);
 	var suscriptor = event.source.parent.getChild("suscriptor");
     suscriptor.setValue(null);
     var servicio = event.source.parent.getChild("servicioId");

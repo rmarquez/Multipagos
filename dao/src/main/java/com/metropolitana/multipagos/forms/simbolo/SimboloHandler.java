@@ -3,9 +3,11 @@ package com.metropolitana.multipagos.forms.simbolo;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.EstadoCorte;
 import com.metropolitana.multipagos.Simbolo;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
@@ -334,4 +336,59 @@ public class SimboloHandler {
 			}
 		}
 	}
+	
+	public static boolean validarNumero(Integer simboloNumero) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (simboloNumero != null) {
+                    criterio.addEqualTo("simboloNumero", simboloNumero);
+                    
+            }
+            List lst = getSimboloList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	public static boolean validarNombre(String simboloNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            
+            if (simboloNombre != null) {
+                    //criterio.addEqualTo("numeroCuenta", numeroCuenta);
+                    criterio.addLike("upper(simboloNombre)",
+                    		simboloNombre.toUpperCase(Locale.getDefault()) + "*");
+            }
+            List lst = getSimboloList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getSimboloList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Simbolo.class, criterio);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

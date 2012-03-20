@@ -54,6 +54,16 @@ public class InformeCarteraXServicio {
 									"INNER JOIN SERVICIO S ON C.SERVICIO_ID=S.SERVICIO_ID "+
 									"INNER JOIN ESTADO_CORTE E ON C.ESTADO_ID=E.ESTADO_ID "+
 					    "WHERE C.PAGADO = ? AND PAGADO_CLARO = ? AND S.SERVICIO_ID = ?;"; 
+				
+			} else if(departamentoId == null && servicioId == null) {
+				selectQuery = "SELECT C.CONTRATO, C.SUSCRIPTOR, C.NIT, C.DIRECCION, B.BARRIO_NOMBRE, C.FACTURA_INTERNA, C.NUMERO_FISCAL, C.ANIO, C.MES, C.SALDO, "+
+					       "E.ESTADO_NOMBRE, D.DEPARTAMENTO_NOMBRE, L.LOCALIDAD_NOMBRE, C.CUPON, C.TELEFONO, C.DESCUENTO, S.SERVICIO_NOMBRE, C.FECHA_INGRESO, C.CUENTA "+ 
+					    "FROM (((CARTERA_X_DEPARTAMENTO C INNER JOIN DEPARTAMENTO D ON C.DEPARTAMENTO_ID=D.DEPARTAMENTO_ID) "+ 
+									"INNER JOIN LOCALIDAD L ON C.LOCALIDAD_ID=L.LOCALIDAD_ID) "+
+									"INNER JOIN BARRIO B ON C.BARRIO_ID=B.BARRIO_ID) "+ 
+									"INNER JOIN SERVICIO S ON C.SERVICIO_ID=S.SERVICIO_ID "+
+									"INNER JOIN ESTADO_CORTE E ON C.ESTADO_ID=E.ESTADO_ID "+
+					    "WHERE C.PAGADO = ? AND PAGADO_CLARO = ?;"; 
 			} else {
 				selectQuery = "SELECT C.CONTRATO, C.SUSCRIPTOR, C.NIT, C.DIRECCION, B.BARRIO_NOMBRE, C.FACTURA_INTERNA, C.NUMERO_FISCAL, C.ANIO, C.MES, C.SALDO, "+
 					       "E.ESTADO_NOMBRE, D.DEPARTAMENTO_NOMBRE, L.LOCALIDAD_NOMBRE, C.CUPON, C.TELEFONO, C.DESCUENTO, S.SERVICIO_NOMBRE, C.FECHA_INGRESO, C.CUENTA "+ 
@@ -74,6 +84,8 @@ public class InformeCarteraXServicio {
 			
 			} else if(departamentoId == null && servicioId != null) {
 				psOrigen.setInt(3, servicioId);
+				rs = psOrigen.executeQuery();
+			} else if(departamentoId == null && servicioId == null) {
 				rs = psOrigen.executeQuery();
 			} else {
 				psOrigen.setInt(3, departamentoId);

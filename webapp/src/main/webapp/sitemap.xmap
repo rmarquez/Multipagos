@@ -68,7 +68,8 @@
         </map:serializer>
         <map:serializer logger="sitemap.serializer.xml" mime-type="text/xml" name="xml" src="org.apache.cocoon.serialization.XMLSerializer"/>
         <map:serializer logger="sitemap.serializer.text" mime-type="text/plain" name="text" src="org.apache.cocoon.serialization.TextSerializer"/>
-        <map:serializer logger="sitemap.serializer.xls" mime-type="application/vnd.ms-excel" name="xls" src="org.apache.cocoon.serialization.HSSFSerializer" pool-grow="4" pool-max="20" pool-min="4" />
+		<map:serializer logger="sitemap.serializer.xls" mime-type="application/vnd.ms-excel" name="xls" src="org.apache.cocoon.serialization.HSSFSerializer"/>
+        <!--<map:serializer logger="sitemap.serializer.xls" mime-type="application/vnd.ms-excel" name="xls" src="org.apache.cocoon.serialization.HSSFSerializer" pool-grow="4" pool-max="20" pool-min="4" />-->
         <map:serializer logger="sitemap.serializer.sxw"  mime-type="application/vnd.sun.xml.writer" name="sxw" src="org.apache.cocoon.serialization.ZipArchiveSerializer"/>
         <map:serializer logger="sitemap.serializer.json" mime-type="text/javascript" name="json" src="org.apache.cocoon.serialization.TextSerializer">
           <encoding>UTF-8</encoding><!-- JSON responses are expected to be in UTF-8 -->
