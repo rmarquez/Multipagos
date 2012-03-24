@@ -1,5 +1,5 @@
 //==============================================================================
-//===   colector.java                        Build:2561
+//===   colector.java                        Build:2568
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -125,6 +125,20 @@ public class Colector implements java.io.Serializable
    {
       detalleColectores.setColectorIdRef(this);
       detalleColectoresList.add( detalleColectores );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignarVisitasList = new ArrayList();
+
+   public Collection getAsignarVisitasList() { return asignarVisitasList;}
+
+   public void setAsignarVisitasList(Collection c) { this.asignarVisitasList = c;}
+
+   public void addAsignarVisitas( AsignarVisitas asignarVisitas )
+   {
+      asignarVisitas.setColectorIdRef(this);
+      asignarVisitasList.add( asignarVisitas );
    }
 
    //---------------------------------------------------------------------------

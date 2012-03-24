@@ -12,7 +12,7 @@
             <fd:label>Ocurrieron los siguientes errores</fd:label>
         </fd:messages> 	
         
-        <fd:field id="colectorId">
+        <fd:field id="colectorId" required="true">
 			<fd:label>Colector:</fd:label>
 			<fd:datatype base="integer"/>
 			<fd:suggestion-list type="javascript">

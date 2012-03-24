@@ -604,7 +604,7 @@
 	           FLOAT | REAL | NUMERIC | DECIMAL | CHAR | VARCHAR |
 	           LONGVARCHAR | DATE | TIME | TIMESTAMP | BINARY |
 	           VARBINARY | LONGVARBINARY | CLOB | BLOB | STRUCT |
-               ARRAY | REF | BOOLEAN | DATALINK) #IMPLIED
+               ARRAY | REF | BOOLEAN | DATALINK | LONG) #IMPLIED
 	primarykey (true | false) "false"
 	nullable (true | false) "true"
 	indexed (true | false) "false"

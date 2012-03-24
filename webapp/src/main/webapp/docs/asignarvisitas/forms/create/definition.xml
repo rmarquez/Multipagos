@@ -21,7 +21,18 @@
 					alSeleccionarSupervisor(event);
 				</fd:javascript>
 			</fd:on-value-changed>		
-		</fd:field> 	
+		</fd:field> 
+		
+		<fd:field id="fecha" state="output">
+            <fd:label>Fecha: </fd:label>
+            <fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>			
+        </fd:field>	
         
         <fd:field id="colectorId" required="true">
     		<fd:label>Colector: </fd:label>    
@@ -36,13 +47,14 @@
 		
 		<fd:multivaluefield id="barrioId">
 	        <fd:help>Selecciones uno o mas barrios</fd:help>
-	        <fd:datatype base="integer"/>
+	        <fd:datatype base="long"/>
 	        <fd:selection-list src="cocoon:/barrio.combo" cache="request" />
+	        
 	    </fd:multivaluefield>
 	    
-	    <fd:multivaluefield id="servicioId">
+	    
+	    <!-- <fd:multivaluefield id="servicioId">
 	        <fd:help>Selecciones uno o mas servicios</fd:help>
-	        <fd:datatype base="integer"/>
 	        <fd:datatype base="integer"/>
 	        <fd:selection-list src="cocoon:/servicio.combo" cache="request" />
 	    </fd:multivaluefield>
@@ -88,7 +100,7 @@
                 </fd:convertor>
             </fd:datatype>
 			<fd:selection-list src="cocoon:/asignacionAnio.combo" cache="none"/>								
-		</fd:field>
+		</fd:field> -->
 		
         
 		<!-- <fd:field id="barrioId">

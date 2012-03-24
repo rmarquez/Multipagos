@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
     <fb:value id="usrId" path="usrId"/>
-    <fb:value id="colectorId" path="colectorId"/>
-    
-    <fb:value id="localidadId" path="localidadId"/>
-    <fb:value id="inactivo" path="inactivo"/>
+    <fb:value id="fecha" path="fecha"/>
+    <fb:value id="colectorId" path="colectorId"/>    
+    <fb:value id="barrioId" path="@barrioId"/>
+    <!-- <fb:value id="servicioId" path="servicioId"/>
+    <fb:value id="meses" path="mes"/>
+    <fb:value id="fechaIni" path="fechaIni"/>
+    <fb:value id="fechaFin" path="fechaFin"/> -->
     
     <!-- <fb:repeater id="detalle" parent-path="." row-path="detalleBarriosList">
         <fb:identity>

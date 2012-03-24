@@ -190,6 +190,7 @@ public class CantidadHandler {
 	public Collection getList(Boolean dolares) throws Exception {
 		try {
 			Criteria criterio = new Criteria();
+			criterio.addEqualTo("inactivo", Boolean.FALSE);
 			criterio.addEqualTo("dolares", dolares);
 			return getList(criterio);
 		} catch (Exception e) {
@@ -214,14 +215,14 @@ public class CantidadHandler {
 	 */
 	@SuppressWarnings("unchecked")
 	public final Collection<CantidadMonedas> getResultadosXPagina(
-			final String cantidadNombre, final int pagina,
+			final String cantidadNombre, final Integer filtrar, final int pagina,
 			final int registrosXPagina) throws Exception {
 		PersistenceBroker broker = null;
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return Util.getResultadosXPagina(CantidadMonedas.class,
-					getCriterio(cantidadNombre, CAMPO_BUSQUEDA),
+					getCriterio(cantidadNombre, CAMPO_BUSQUEDA, filtrar),
 					CAMPO_BUSQUEDA, pagina, registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
@@ -232,18 +233,18 @@ public class CantidadHandler {
 		}
 	}
 	
-	public static final Criteria getCriterio(final String criterioBusqueda, final String campoBusqueda) {
+	public static final Criteria getCriterio(final String criterioBusqueda, final String campoBusqueda, final Integer filtrar) {
         Criteria criterio = new Criteria();
         if (criterioBusqueda != null && criterioBusqueda.length() > 0) {
             criterio.addLike("upper(" + campoBusqueda + ")",
                     criterioBusqueda.toUpperCase(Locale.getDefault()) + "*");
         }
-        /*if(filtrar == Integer.valueOf(1)){
+        if(filtrar == Integer.valueOf(1)){
         	criterio.addEqualTo("inactivo", Boolean.FALSE);
         }
         if(filtrar == Integer.valueOf(2)){
         	criterio.addEqualTo("inactivo", Boolean.TRUE);
-        }*/
+        }
         return criterio;
     }
 
@@ -257,12 +258,12 @@ public class CantidadHandler {
 	 *             Indica que ha ocurrido un error al buscar la cantidad de
 	 *             resultados.
 	 */
-	public final int getContador(final String cantidadNombre) throws Exception {
+	public final int getContador(final String cantidadNombre, final Integer filtrar) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			QueryByCriteria query = new QueryByCriteria(CantidadMonedas.class,
-					getCriterio(cantidadNombre, CAMPO_BUSQUEDA));
+					getCriterio(cantidadNombre, CAMPO_BUSQUEDA, filtrar));
 			return broker.getCount(query);
 		} catch (Exception e) {
 			throw e;

@@ -16,7 +16,9 @@ function createform(form) {
     	form.showForm("create-form-display");
 
         var bean = new Packages.com.metropolitana.multipagos.ArqueoPagos();
-        var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();        
+        var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler(); 
+        var handlerUtil = new Packages.com.metropolitana.multipagos.forms.Util();
+        var hora =  handlerUtil.hora(new Packages.java.util.Date());
         
         form.save(bean);
         var autorizado = form.getChild("autorizado").getValue();
@@ -32,9 +34,12 @@ function createform(form) {
 	      	if (permisos.getResources().contains('arqueo')) {
 	      		handlerBean.autorizarArqueo(bean, auth_getUserID(),usuario);
 	      	} 
-        }        
+        }
+        var handlerPagos = new Packages.com.metropolitana.multipagos.forms.pagos.PagosXColector();
+    	var beanPagos = handlerPagos.getListPagosXColector(form.getChild("pagoFecha").getValue(), form.getChild("colectorId").getValue());
+    	
        if (dialogosino("Arqueo", "Arqueo procesado con éxito", "¿Desea imprimir comprobante del arqueo?")) {
-		imprimirArqueo(bean, form);
+		imprimirArqueo(bean, beanPagos, hora, form);
 		} else {
 			dialogosino("Arqueo", "Arqueo procesado con éxito",
                     "¿Desea procesar una nuevo arqueo?","create", "/bienvenidos");
@@ -43,12 +48,12 @@ function createform(form) {
     }
 }
 
-function imprimirArqueo(bean, form) {
+function imprimirArqueo(bean, beanPagos, hora, form) {
 	var handlerBean = new Packages.com.metropolitana.multipagos.forms.arqueo.ArqueoHandler();  
 	var colectorHandler = new Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler(); 
 	var colector = colectorHandler.retrieve(bean.colectorId);
 	var cantidadHandler = new Packages.com.metropolitana.multipagos.forms.cantidades.CantidadHandler();
-    cocoon.sendPage("imprimir.pdf", {"bean" : bean, "handlerBean": handlerBean, "colector":colector, "cantidadHandler":cantidadHandler});
+    cocoon.sendPage("imprimir.pdf", {"bean" : bean, "beanPagos" : beanPagos,  "hora" : hora, "handlerBean": handlerBean, "colector":colector, "cantidadHandler":cantidadHandler});
 return;
 }
 

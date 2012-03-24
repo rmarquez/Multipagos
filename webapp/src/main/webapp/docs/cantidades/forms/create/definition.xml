@@ -19,6 +19,9 @@
         <fd:booleanfield id="dolares">
 			<fd:label>Dolares</fd:label>								
 		</fd:booleanfield>
+		<fd:booleanfield id="inactivo">
+			<fd:label>Inactivo</fd:label>
+		</fd:booleanfield>
         <fd:submit id="crear">
           <fd:label>Crear</fd:label>
         </fd:submit>

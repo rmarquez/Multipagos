@@ -82,6 +82,8 @@ function alSeleccionarFactura(event) {
     suscriptor.setValue(null);
     var localidadId = event.source.parent.getChild("localidadId");
     localidadId.setValue(null);
+    var barrioId = event.source.parent.getChild("barrioId");
+    barrioId.setValue(null);
     var servicioId = event.source.parent.getChild("servicioId");
     servicioId.setValue(null);
     var year = event.source.parent.getChild("year");
@@ -109,6 +111,7 @@ function alSeleccionarFactura(event) {
 					carteraId.setValue(cartera.getCarteraId());
 					suscriptor.setValue(cartera.getSuscriptor());
 					localidadId.setValue(cartera.getLocalidadId());
+					barrioId.setValue(cartera.getBarrioId());
 					servicioId.setValue(cartera.getServicioId());
 					year.setValue(cartera.getAnio());
 		    		mes.setValue(cartera.getMes());
@@ -129,6 +132,7 @@ function alSeleccionarFactura(event) {
 				carteraId.setValue(cartera.getCarteraId());
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidadId.setValue(cartera.getLocalidadId());
+				barrioId.setValue(cartera.getBarrioId());
 				servicioId.setValue(cartera.getServicioId());
 				year.setValue(cartera.getAnio());
 	    		mes.setValue(cartera.getMes());
@@ -200,6 +204,7 @@ function alSeleccionarContrato(event) {
 	var suscriptor = event.source.parent.getChild("suscriptor");
     var servicio = event.source.parent.getChild("servicioId");
     var localidad = event.source.parent.getChild("localidadId");
+    var barrioId = event.source.parent.getChild("barrioId");
     var saldoPagar = event.source.parent.getChild("salgoPagar");
     //var year = event.source.parent.getChild("year");
     //var mes = event.source.parent.getChild("mes");
@@ -213,6 +218,7 @@ function alSeleccionarContrato(event) {
 			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());
 			localidad.setValue(cartera.getLocalidadId());
+			barrioId.setValue(cartera.getBarrioId());
 			servicio.setValue(cartera.getServicioId());	
 			saldoPagar.setValue(cartera.getSaldo());
 			

@@ -131,6 +131,11 @@
 						cache="request" />					
 				</fd:field>
 				
+				<fd:field id="barrioId" state="output">
+					<fd:label>Barrio</fd:label>
+					<fd:datatype base="integer" />		
+				</fd:field>
+				
 				<fd:field id="year" state="output">
 					<fd:label>Año</fd:label>					
 					<fd:datatype base="string" />

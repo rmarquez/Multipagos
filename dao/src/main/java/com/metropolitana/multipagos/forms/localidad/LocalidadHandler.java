@@ -338,6 +338,7 @@ public class LocalidadHandler {
 			final Integer departamentoId, final Integer filtrar,
 			final String campoBusqueda) {
 		Criteria criterio = new Criteria();
+		criterio.addEqualTo("departamentoIdRef.inactivo", Boolean.FALSE);
 		if (localidadNombre != null && localidadNombre.length() > 0) {
 			criterio.addLike("upper(" + campoBusqueda + ")",
 					localidadNombre.toUpperCase(Locale.getDefault()) + "*");

@@ -17,6 +17,7 @@
                 <fi:styling layout="columns"/>
                 <fi:items>
                     <ft:widget id="usrId"/>
+                    <ft:widget id="fecha"/>
           	  		<ft:widget id="colectorId"/>
           	  		<fi:group>
                     	<fi:styling type="fieldset" layout="row"/>
@@ -32,25 +33,25 @@
 						                <fi:selected-label>Seleccionados</fi:selected-label>
 						              </fi:styling>
 						        </ft:widget>
+						        
+						        
+						        
 						        </fi:items>
-			                <!-- </fi:group> -->
-			                <!-- <fi:group>
-		                    <fi:styling type="fieldset" layout="columns"/>
-		                    <fi:label>Servicios</fi:label>  -->
-		                    	<fi:items>
+			                
+		                    	<!-- <fi:items>
 						        <ft:widget id="servicioId">
 						              <fi:styling list-type="dojo-double-listbox" size="6">
 						                <fi:available-label>Servicios</fi:available-label>
 						                <fi:selected-label>Seleccionados</fi:selected-label>
 						              </fi:styling>
 						        </ft:widget>
-					        </fi:items>
-			               <!-- </fi:group> --> 
+					        </fi:items> -->
+			               
 	                	</fi:items>
 	                </fi:group>
 	                
 			        
-			        <fi:group>
+			        <!-- <fi:group>
                     	<fi:styling type="fieldset" layout="row"/>
                     	<fi:label>Fecha Asignacion y Meses pendientes</fi:label>
 	                    <fi:items>        
@@ -61,9 +62,7 @@
 					          	  		<ft:widget id="fechaFin"/>
 				          	  		</fi:items>
 				                </fi:group>
-	                 			<!-- <fi:group>
-				                    <fi:styling type="fieldset" layout="columns"/>
-				                     <fi:label>Servicios</fi:label>  -->
+	                 			
 				                    	<fi:items>
 								        <ft:widget id="meses">
 								              <fi:styling list-type="dojo-double-listbox" size="6">
@@ -72,9 +71,9 @@
 								              </fi:styling>
 								        </ft:widget>
 							        </fi:items>
-				                <!-- </fi:group> -->
+				               
 				        </fi:items>
-             		</fi:group>        
+             		</fi:group> -->        
 				                
                  		</fi:items>
              </fi:group>

@@ -10,6 +10,7 @@
             <fb:value id="carteraId" path="carteraId"/>
             <fb:value id="colectorId" path="colectorId"/>
             <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="barrioId" path="barrioId"/>
             <fb:value id="servicioId" path="servicioId"/>
         </fb:identity>
 
@@ -18,6 +19,7 @@
         	<fb:value id="carteraId" path="carteraId"/>
         	<fb:value id="colectorId" path="colectorId"/>
             <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="barrioId" path="barrioId"/>
             <fb:value id="servicioId" path="servicioId"/>            
             <fb:value id="numContrato" path="numeroContrato"/>
             <fb:value id="fechaPago" path="fechaPago"/>

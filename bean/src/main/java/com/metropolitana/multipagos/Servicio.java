@@ -1,5 +1,5 @@
 //==============================================================================
-//===   servicio.java                        Build:2528
+//===   servicio.java                        Build:2568
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -47,6 +47,20 @@ public class Servicio implements java.io.Serializable
    public void setInactivo(Boolean inactivo)
    {
       this.inactivo = inactivo;
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignarVisitasList = new ArrayList();
+
+   public Collection getAsignarVisitasList() { return asignarVisitasList;}
+
+   public void setAsignarVisitasList(Collection c) { this.asignarVisitasList = c;}
+
+   public void addAsignarVisitas( AsignarVisitas asignarVisitas )
+   {
+      asignarVisitas.setServicioIdRef(this);
+      asignarVisitasList.add( asignarVisitas );
    }
 
    //---------------------------------------------------------------------------

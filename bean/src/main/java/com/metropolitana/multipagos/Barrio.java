@@ -1,5 +1,5 @@
 //==============================================================================
-//===   barrio.java                        Build:2558
+//===   barrio.java                        Build:2568
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -75,6 +75,20 @@ public class Barrio implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   private Collection asignarVisitasList = new ArrayList();
+
+   public Collection getAsignarVisitasList() { return asignarVisitasList;}
+
+   public void setAsignarVisitasList(Collection c) { this.asignarVisitasList = c;}
+
+   public void addAsignarVisitas( AsignarVisitas asignarVisitas )
+   {
+      asignarVisitas.setBarrioIdRef(this);
+      asignarVisitasList.add( asignarVisitas );
+   }
+
+   //---------------------------------------------------------------------------
+
    private Collection carteraXDepartamentoList = new ArrayList();
 
    public Collection getCarteraXDepartamentoList() { return carteraXDepartamentoList;}
@@ -85,6 +99,34 @@ public class Barrio implements java.io.Serializable
    {
       carteraXDepartamento.setBarrioIdRef(this);
       carteraXDepartamentoList.add( carteraXDepartamento );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleVisitasList = new ArrayList();
+
+   public Collection getDetalleVisitasList() { return detalleVisitasList;}
+
+   public void setDetalleVisitasList(Collection c) { this.detalleVisitasList = c;}
+
+   public void addDetalleVisitas( DetalleVisitas detalleVisitas )
+   {
+      detalleVisitas.setBarrioIdRef(this);
+      detalleVisitasList.add( detalleVisitas );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detallePagosList = new ArrayList();
+
+   public Collection getDetallePagosList() { return detallePagosList;}
+
+   public void setDetallePagosList(Collection c) { this.detallePagosList = c;}
+
+   public void addDetallePagos( DetallePagos detallePagos )
+   {
+      detallePagos.setBarrioIdRef(this);
+      detallePagosList.add( detallePagos );
    }
 
    //---------------------------------------------------------------------------

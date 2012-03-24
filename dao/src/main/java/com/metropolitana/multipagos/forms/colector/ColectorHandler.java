@@ -27,6 +27,8 @@ public class ColectorHandler {
 	 * <code>COLECTOR_ID</code> Identificador del colector
 	 */
 	public static final String COLECTOR_ID = "colectorId";
+	
+	public static final String COLECTOR_NUM = "colectorNumero";
 
 	/** Primer campo para la búsqueda de colectores. */
 	private static final String CAMPO_BUSQUEDA1 = "primerNombre";
@@ -218,7 +220,7 @@ public class ColectorHandler {
 					Colector.class,
 					getCriterio(primerNombre, primerApellido, cedula, filtrar,
 							CAMPO_BUSQUEDA1, CAMPO_BUSQUEDA2, CAMPO_BUSQUEDA3),
-					CAMPO_BUSQUEDA1, pagina, registrosXPagina, broker);
+							COLECTOR_NUM, pagina, registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {

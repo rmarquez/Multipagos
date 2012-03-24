@@ -38,7 +38,7 @@
                           <thead>
                               <tr>
                               	<th><ft:repeater-widget-label widget-id="porContrato"/></th>
-                                <th><ft:repeater-widget-label widget-id="localidadId"/></th>	
+                                <th><ft:repeater-widget-label widget-id="localidadId"/></th>
                               	<th><ft:repeater-widget-label widget-id="numContrato"/></th>
                               	<th><ft:repeater-widget-label widget-id="facturaInterna"/></th>
                               	<th><ft:repeater-widget-label widget-id="numeroFiscal"/></th>
@@ -82,6 +82,8 @@
 										<td><ft:widget id="carteraId"><fi:styling type="hidden"/></ft:widget></td>
 										<td><ft:widget id="colectorId"><fi:styling type="hidden"/></ft:widget></td>
 										<td><ft:widget id="contador"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="barrioId"><fi:styling type="hidden"/></ft:widget></td>
+										
 									</tr>
 								</ft:repeater-rows>
 								<tr>

@@ -6,8 +6,9 @@
     <fd:item value="">
         <fd:label>${labelNullItem}</fd:label>
     </fd:item>
-    <jx:forEach var="item" items="${bean}">	
-	         <fd:item value="${item[0]}">    	
+    <jx:forEach var="item" items="${bean}">
+    <jx:set var="longValue" value="${util.intToLong(item[0])}"/> 	
+	         <fd:item value="${longValue}">    	
 		    		<fd:label>${item[1]}</fd:label>
 		   	</fd:item>	    
     </jx:forEach>

@@ -3,4 +3,5 @@
     <fb:value id="cantidadNombre" path="cantidadNombre"/>
     <fb:value id="cantidadValor" path="cantidadValor"/>
     <fb:value id="dolares" path="dolares"/>
+    <fb:value id="inactivo" path="inactivo"/>
 </fb:context>

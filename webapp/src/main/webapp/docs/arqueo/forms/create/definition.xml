@@ -280,7 +280,7 @@
 			<fd:repeater id="detalleCheque">
             <fd:widgets>
                 
-                <fd:field id="bancoId">
+                <fd:field id="bancoId" required="true">
                 	<fd:label>Banco</fd:label>
 					<fd:datatype base="integer"/>
 					<fd:selection-list src="cocoon:/banco.combo"

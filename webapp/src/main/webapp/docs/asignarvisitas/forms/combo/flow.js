@@ -19,8 +19,9 @@ function barrioCombo() {
     if (autorizar("cata")) {
 		var colectorId = !isNaN(parseInt(cocoon.request.colectorId)) ? parseInt(cocoon.request.colectorId): null;
         var handler = new Packages.com.metropolitana.multipagos.forms.asignacion.AsignarBarriosHandler();
+        var util = Packages.com.metropolitana.multipagos.forms.Util();
         var bean = handler.getBarriosAsignados(colectorId);
-        cocoon.sendPage("barrioCombo-data", {"bean": bean});
+        cocoon.sendPage("barrioCombo-data", {"bean": bean, "util": util});
     }
 }
 

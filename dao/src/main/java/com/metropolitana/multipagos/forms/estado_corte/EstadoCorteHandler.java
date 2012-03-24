@@ -267,9 +267,9 @@ public class EstadoCorteHandler {
             Criteria criterio = new Criteria();
             
             if (estadoNombre != null) {
-                    //criterio.addEqualTo("numeroCuenta", numeroCuenta);
-                    criterio.addLike("upper(estadoNombre)",
-                    		estadoNombre.toUpperCase(Locale.getDefault()) + "*");
+                    criterio.addEqualTo("estadoNombre", estadoNombre);
+                    //criterio.addLike("upper(estadoNombre)",
+                    //		estadoNombre.toUpperCase(Locale.getDefault()) + "*");
             }
             List lst = getEstadoList(criterio);
             if (lst.isEmpty()) {

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_visitas.java                        Build:2548
+//===   detalle_visitas.java                        Build:2566
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -23,6 +23,7 @@ public class DetalleVisitas implements java.io.Serializable
    private Integer    simboloId;
    private Integer    colectorId;
    private Integer    localidadId;
+   private Integer    barrioId;
    private Integer    servicioId;
    private String     observaciones;
    private String     numeroContrato;
@@ -74,6 +75,15 @@ public class DetalleVisitas implements java.io.Serializable
    public void setLocalidadId(Integer localidadId)
    {
       this.localidadId = localidadId;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getBarrioId() { return barrioId; }
+
+   public void setBarrioId(Integer barrioId)
+   {
+      this.barrioId = barrioId;
    }
 
    //---------------------------------------------------------------------------
@@ -196,6 +206,18 @@ public class DetalleVisitas implements java.io.Serializable
    public void setLocalidadIdRef(Localidad localidad)
    {
       this.localidadIdRef = localidad;
+   }
+
+
+   //---------------------------------------------------------------------------
+
+   private Barrio barrioIdRef;
+
+   public Barrio getBarrioIdRef() { return barrioIdRef; }
+
+   public void setBarrioIdRef(Barrio barrio)
+   {
+      this.barrioIdRef = barrio;
    }
 
 

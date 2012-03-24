@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2561
+//===   auth_user.java                        Build:2568
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -125,6 +125,20 @@ public class AuthUser implements java.io.Serializable
    {
       asignarColector.setUsrIdRef(this);
       asignarColectorList.add( asignarColector );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignarVisitasList = new ArrayList();
+
+   public Collection getAsignarVisitasList() { return asignarVisitasList;}
+
+   public void setAsignarVisitasList(Collection c) { this.asignarVisitasList = c;}
+
+   public void addAsignarVisitas( AsignarVisitas asignarVisitas )
+   {
+      asignarVisitas.setUsrIdRef(this);
+      asignarVisitasList.add( asignarVisitas );
    }
 
    //---------------------------------------------------------------------------

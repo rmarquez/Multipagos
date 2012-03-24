@@ -225,7 +225,7 @@ public class SimboloHandler {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return Util.getResultadosXPagina(Simbolo.class,
 					Util.getCriterio(simboloNombre, filtrar, CAMPO_BUSQUEDA),
-					CAMPO_BUSQUEDA, pagina, registrosXPagina, broker);
+					SIMBOLO_ID, pagina, registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {

@@ -73,6 +73,11 @@
 						cache="request" />
 				</fd:field>
 				
+				<fd:field id="barrioId" state="output">
+					<fd:label>Barrio</fd:label>
+					<fd:datatype base="integer" />
+				</fd:field>
+				
 				<fd:field id="fechaVisita">
 		            <fd:label>Fecha Visita</fd:label>
 		            <fd:datatype base="date">

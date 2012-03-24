@@ -373,4 +373,25 @@ public class BarrioHandler {
 			}
 		}
 	}
+	
+	public Collection getBarrioXCartera(final Integer carteraId) throws Exception {
+		
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (carteraId != null) {
+				criterio.addEqualTo("carteraXDepartamentoList.carteraId", carteraId);
+			}
+			QueryByCriteria query = new QueryByCriteria(Barrio.class, criterio);
+			query.addOrderByAscending("barrioNombre");
+			return broker.getCollectionByQuery(query);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
 }

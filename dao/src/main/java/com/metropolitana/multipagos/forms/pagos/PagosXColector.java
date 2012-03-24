@@ -53,9 +53,13 @@ public class PagosXColector {
 		ReportQueryByCriteria query = new ReportQueryByCriteria(
 				DetallePagos.class, criterio);
 		query.setAttributes(new String[] { "recibo", "facturaInterna",
-				"numeroContrato", "fechaPago", "montoPago" });
+				"numeroContrato", "fechaPago", "montoPago",
+				"localidadIdRef.localidadNombre", "carteraIdRef.suscriptor",
+				"carteraIdRef.mes", "carteraIdRef.anio", "recibo" });
 		query.addGroupBy(new String[] { "recibo", "facturaInterna",
-				"numeroContrato", "fechaPago", "montoPago" });
+				"numeroContrato", "fechaPago", "montoPago",
+				"localidadIdRef.localidadNombre", "carteraIdRef.suscriptor",
+				"carteraIdRef.mes", "carteraIdRef.anio", "recibo" });
 
 		query.addOrderBy("recibo", true);
 		query.addOrderBy("fechaPago", true);

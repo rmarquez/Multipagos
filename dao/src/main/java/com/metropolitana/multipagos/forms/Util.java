@@ -420,6 +420,7 @@ public class Util {
         if(filtrar == Integer.valueOf(2)){
         	criterio.addEqualTo("inactivo", Boolean.TRUE);
         }
+        
         return criterio;
     }
 
@@ -540,5 +541,11 @@ public class Util {
 			valor=valor.replace('ü','u');
 		}		
 		return valor;
+	}
+	
+	public static Long intToLong(Integer valor){
+		long nLong = (long)valor;
+		return nLong;
+		
 	}
 }

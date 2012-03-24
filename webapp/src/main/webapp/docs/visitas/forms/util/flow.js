@@ -52,6 +52,8 @@ function alSeleccionarContrato(event) {
     servicio.setValue(null);
     var localidad = event.source.parent.getChild("localidadId");
     localidad.setValue(null);
+    var barrioId = event.source.parent.getChild("barrioId");
+    barrioId.setValue(null);
     var fechaVisita = event.source.parent.getChild("fechaVisita");
     fechaVisita.setValue(null);
     var diferido = event.source.parent.getChild("diferido").getValue();
@@ -66,6 +68,7 @@ function alSeleccionarContrato(event) {
 				carteraId.setValue(cartera.getCarteraId()); 
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidad.setValue(cartera.getLocalidadId());
+				barrioId.setValue(cartera.getBarrioId());
 				servicio.setValue(cartera.getServicioId());
 				fechaVisita.setValue(new Packages.java.util.Date());
 			} else {
@@ -76,6 +79,7 @@ function alSeleccionarContrato(event) {
 				carteraId.setValue(cartera.getCarteraId()); 
 				suscriptor.setValue(cartera.getSuscriptor());
 				localidad.setValue(cartera.getLocalidadId());
+				barrioId.setValue(cartera.getBarrioId());
 				servicio.setValue(cartera.getServicioId());
 				fechaVisita.setValue(new Packages.java.util.Date());
 			}			
