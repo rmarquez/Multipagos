@@ -303,10 +303,12 @@ public class ColectorHandler {
 	
 	public Collection getListColector() throws PBFactoryException {
 		PersistenceBroker broker = null;
+		Criteria criterio = new Criteria();
+		criterio.addEqualTo("inactivo", Boolean.FALSE);
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			ReportQueryByCriteria query = new ReportQueryByCriteria(
-					Colector.class, new Criteria());
+					Colector.class, criterio);
 			query.setAttributes(new String[] { "colectorId",
 					"primerNombre", "primerApellido" });
 			query.addOrderBy("primerNombre", true);

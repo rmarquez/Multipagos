@@ -14,6 +14,16 @@ function localidadCombo() {
         cocoon.sendPage("localidadCombo-data", {"bean": bean});
     }
 }
+
+function barrioCombo() {
+    if (autorizar("agregar") || autorizar("editar")) {
+		var carteraId = !isNaN(parseInt(cocoon.request.carteraId)) ? parseInt(cocoon.request.carteraId): null;
+        var handler = new Packages.com.metropolitana.multipagos.forms.barrio.BarrioHandler();
+       	var bean = handler.getBarrioXCartera(carteraId);
+        cocoon.sendPage("barrioCombo-data", {"bean": bean});
+    }
+}
+
 function servicioCombo() {
     if (autorizar("agregar") || autorizar("editar")) {
     	var carteraId = !isNaN(parseInt(cocoon.request.carteraId)) ? parseInt(cocoon.request.carteraId): null;

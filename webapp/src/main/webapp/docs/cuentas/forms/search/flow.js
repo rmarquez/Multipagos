@@ -1,6 +1,7 @@
 importClass(Packages.java.lang.Integer);
 function searchform(form) {
     if (autorizar("cata")) {
+    	form.getChild("filtrar").setValue(Integer.valueOf(3));
         form.showForm("search-form-display");
         var handler = new Packages.com.metropolitana.multipagos.forms.cuentas.CuentasHandler();
         var cuentaEmpresa = form.getChild("criteria").getValue();

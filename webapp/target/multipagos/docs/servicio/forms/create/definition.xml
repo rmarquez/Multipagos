@@ -11,7 +11,9 @@
     	<fd:messages id="mensajes de error">
             <fd:label>Ocurrieron los siguientes errores</fd:label>
         </fd:messages>
-        
+        <fd:field id="servicioId">
+			<fd:datatype base="integer"/>
+		</fd:field>
         <fd:field id="servicioNombre" required="true">
             <fd:label>Servicio: </fd:label>
             <fd:help>Escriba el servicio correspondiente.</fd:help>

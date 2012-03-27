@@ -26,7 +26,6 @@
                                 <form-table handler="#{$cocoon/continuation/id}.continue">
                                     <parameter name="tasaFecha" value="${Fecha}"/>
                                     <submit name="Editar"/>
-                                    <submit name="Borrar"/>
                                 </form-table>
                             </td>
                         </tr>

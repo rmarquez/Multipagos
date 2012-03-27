@@ -4,7 +4,7 @@
         <title>Cantidades</title>
     </header>
     <body>
-        <jx:set var="cantidadRegistros" value="${handler.getContador(cantidadNombre)}"/>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(cantidadNombre, filtrar)}"/>
         <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
         <s1 title="Lista de cantidades">
             <hrefPaginacion cadena="cantidades.list?cantidadNombre=${cantidadNombre}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
@@ -13,6 +13,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Cantidades</th>
+                        <th>Dolares</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                         <tr>
                             <td><jx:formatNumber value="${status.count}"/></td>
                             <td>${status.current.cantidadNombre}</td>
+                            <td>${status.current.dolares}</td>
                             <td>
                                <link href="/multipagos/cantidades/edit?cantidadId=${status.current.cantidadId}">Editar</link>
                              </td>

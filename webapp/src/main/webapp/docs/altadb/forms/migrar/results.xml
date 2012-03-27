@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" 
-		  xmlns:xi="http://www.w3.org/2001/XInclude" 
-		  menu="true">
-<!-- Importamos las macros definidas por el programador -->
-<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import  uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
 
     <header>
         <title>Base de datos actualizada</title>

@@ -9,7 +9,7 @@
                 <fd:length max="50"/>
             </fd:validation>
         </fd:field>
-       <!--  <fd:field id="filtrar">
+       <fd:field id="filtrar">
 	      <fd:label>Mostrar:</fd:label>
 	      <fd:datatype base="integer"/>
 	      <fd:selection-list>
@@ -23,7 +23,7 @@
 	          <fd:label>Todos</fd:label>
 	        </fd:item>	        
 	      </fd:selection-list>
-	    </fd:field> -->
+	    </fd:field>
         <fd:submit id="buscar">
           <fd:label>Buscar</fd:label>
           <fd:help>Buscar</fd:help>

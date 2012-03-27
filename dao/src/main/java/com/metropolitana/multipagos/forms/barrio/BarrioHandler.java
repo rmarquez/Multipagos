@@ -311,8 +311,10 @@ public class BarrioHandler {
 	 * @throws Exception
 	 */
 	public Collection getList() throws Exception {
+		Criteria criterio = new Criteria();
+		criterio.addEqualTo("inactivo", Boolean.FALSE);
 		try {
-			return getList(new Criteria());
+			return getList(criterio);
 		} catch (Exception e) {
 			throw e;
 		}

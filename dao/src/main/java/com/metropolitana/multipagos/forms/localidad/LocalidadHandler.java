@@ -362,8 +362,10 @@ public class LocalidadHandler {
 	 * @throws Exception
 	 */
 	public Collection getLocalidadList() throws Exception {
+		Criteria criterio = new Criteria();
+		criterio.addEqualTo("inactivo", Boolean.FALSE);
 		try {
-			return getLocalidadList(new Criteria());
+			return getLocalidadList(criterio);
 		} catch (Exception e) {
 			throw e;
 		}

@@ -21,11 +21,12 @@
         
         <fd:field id="cuentaMoneda" required="true">
             <fd:label>Moneda: </fd:label>
-            <fd:datatype base="string"/>
-            <fd:validation>
-                <fd:length max="5"/>
-            </fd:validation>
-        </fd:field>
+	        <fd:datatype base="string"/>
+	        <fd:selection-list>
+	            <fd:item value="CORD"/>
+	            <fd:item value="DOLS"/>
+	        </fd:selection-list>
+	    </fd:field>
         
         <fd:field id="numeroCuenta" required="true">
             <fd:label>Numero Cuenta: </fd:label>

@@ -13,6 +13,7 @@
                         <ft:widget id="cantidadNombre"/>
                         <ft:widget id="cantidadValor"/>
                         <ft:widget id="dolares"/>
+                        <ft:widget id="inactivo"/>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="guardar"/>

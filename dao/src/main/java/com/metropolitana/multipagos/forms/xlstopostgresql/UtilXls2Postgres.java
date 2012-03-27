@@ -28,6 +28,7 @@ public class UtilXls2Postgres {
 			int count = countQuery(connPostgres, query);
 			
 			query = "select * into tmp_excluidos from tmp_cartera where tmp_id in (select tmp_id from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento));";
+			//query = "select * into tmp_excluidos from tmp_cartera where where factura_interna in (select factura_interna from cartera_x_departamento);";
             ejecutarQuery(connPostgres, query);
                         
             if(count > 0){
