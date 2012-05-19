@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Asignacion de Barrios</title>
+    </header>
+    <body>
+        <s1 title="Lista de asignaciones">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Colector</th>
+                        <th>Departamento</th>
+                        <th>Localidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+                           <tr>
+                            <td><jx:formatNumber value="${status.count}"/></td>
+                            <td>${item[1]} ${item[2]}</td>
+                            <td>${item[3]}</td>
+                            <td>${item[4]}</td>
+                            <td>
+                                <form-table handler="#{$cocoon/continuation/id}.continue">
+                                    <parameter name="asignarbId" value="${item[0]}"/>                                    
+                                    <submit name="Editar"/>
+                                </form-table>
+                            </td>
+                        </tr>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

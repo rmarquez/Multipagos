@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition"
+	     xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+	<fd:validation>
+        <fd:javascript>        	
+            return validarForm(widget)&amp;&amp;
+            	   validarUsuarioForm(widget);         
+        </fd:javascript>
+    </fd:validation>
+	
+	<fd:widgets>
+		<fd:booleanfield id="autorizado"/>
+		
+		<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages>  
+                
+       	<fd:field id="auth_user" state="invisible">
+	      <fd:label>Usuario:</fd:label>
+	      <fd:datatype base="string">
+	          <fd:validation><fd:length min="5" max="10"/></fd:validation>
+	      </fd:datatype>
+	  </fd:field>
+       <fd:field id="auth_passwd" state="invisible">
+           <fd:label>Contraseña:</fd:label>
+           <fd:datatype base="string">
+               <fd:validation><fd:length min="5" max="20"/></fd:validation>
+           </fd:datatype>
+       </fd:field>	        
+        
+        <fd:field id="usrId" state="output">
+			<fd:label>Supervisor: </fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/supervisor.combo"
+				cache="none" />			
+		</fd:field>
+
+        <fd:field id="pagoFecha" required="true">
+            <fd:label>Fecha: </fd:label>
+            <fd:datatype base="date">
+				<fd:convertor type="formatting" variant="date">
+					<fd:patterns>
+						<fd:pattern>dd/MM/yyyy</fd:pattern>
+					</fd:patterns>
+				</fd:convertor>
+			</fd:datatype>			
+        </fd:field>
+        
+        <fd:field id="colectorId" required="true">
+    		<fd:label>Colector: </fd:label>    
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/colector.combo"
+				cache="none" />	
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarColector(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+		
+		
+		<!-- Detalle de pagos realizados -->
+
+		<fd:repeater id="detalle">
+            <fd:widgets>
+                
+                <fd:field id="recibo" state="output">
+					<fd:label>Recibo </fd:label>					
+					<fd:datatype base="integer" />
+				</fd:field>
+				
+				<fd:field id="facturaInterna" state="output">
+					<fd:label>Fac Interna</fd:label>
+		            <fd:datatype base="string"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarFactura(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+                </fd:field>
+                
+                <fd:field id="suscriptor" state="output">
+					<fd:label>Suscriptor</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+                
+                <fd:field id="numContrato" state="output">
+					<fd:label>Contrato</fd:label>
+		            <fd:datatype base="string"/>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarContrato(event);
+						</fd:javascript>
+					</fd:on-value-changed>		            
+                </fd:field>
+                
+                <fd:field id="fecha" state="output">
+		            <fd:label>Fecha</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+		        
+		        <fd:field id="monto" state="output">
+		            <fd:label>Monto (C$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="monto &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>			
+
+	        	
+				</fd:widgets>
+			</fd:repeater>		
+		
+		
+       
+		<!-- Detalle Cantidad -->
+		
+		<fd:repeater id="detalleCantidad">
+            <fd:widgets>
+                
+                <fd:field id="cantidadId">
+                	<fd:label>Denominacion</fd:label>
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/cantidadcs.combo"
+						cache="none" />
+					<fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarCantidad(event);
+						</fd:javascript>
+					</fd:on-value-changed>					
+				</fd:field>
+				
+				<fd:field id="cantidadValor">
+					<fd:datatype base="decimal"/>								
+				</fd:field>
+				
+				<fd:field id="cantidad" required="true">
+					<fd:label>Cantidad</fd:label>			
+					<fd:datatype base="integer"/>
+					<fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarValor(event);
+						</fd:javascript>
+					</fd:on-value-changed>			
+				</fd:field>
+				
+				  <fd:field id="total" state="output">
+                    <fd:label>Total</fd:label>
+                    <fd:hint>Total</fd:hint>
+                    <fd:datatype base="decimal">
+                        <fd:convertor type="formatting" variant="number">
+                            <fd:patterns>
+                                <fd:pattern>#,##0.00</fd:pattern>
+                            </fd:patterns>
+                        </fd:convertor>
+                    </fd:datatype>                 
+                </fd:field>
+				
+				
+
+	        	<fd:booleanfield id="marcar">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar" command="add-row"
+				repeater="detalleCantidad">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar" command="delete-rows"
+				repeater="detalleCantidad" select="marcar">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>
+			</fd:repeater-action>
+			
+			
+			<!-- Detalle Cantidad Us -->
+		
+		<fd:repeater id="detalleCantidadUs">
+            <fd:widgets>
+                
+                <fd:field id="cantidadIdUs">
+                	<fd:label>Denominacion</fd:label>
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/cantidadus.combo"
+						cache="none" />
+					<fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarCantidadUs(event);
+						</fd:javascript>
+					</fd:on-value-changed>					
+				</fd:field>
+				
+				<fd:field id="cantidadValorUs">
+					<fd:datatype base="decimal"/>								
+				</fd:field>
+				
+				<fd:field id="cantidadUs" required="true">
+					<fd:label>Cantidad</fd:label>			
+					<fd:datatype base="integer"/>
+					<fd:on-value-changed>
+						<fd:javascript>
+							alSeleccionarValorUs(event);
+						</fd:javascript>
+					</fd:on-value-changed>			
+				</fd:field>
+				
+				<fd:field id="totalUs" state="output">
+                    <fd:label>Total</fd:label>
+                    <fd:hint>Total</fd:hint>
+                    <fd:datatype base="decimal">
+                        <fd:convertor type="formatting" variant="number">
+                            <fd:patterns>
+                                <fd:pattern>#,##0.00</fd:pattern>
+                            </fd:patterns>
+                        </fd:convertor>
+                    </fd:datatype>                    
+                </fd:field>
+				
+				
+
+	        	<fd:booleanfield id="marcar-us">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar-us" command="add-row" repeater="detalleCantidadUs">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar-us" command="delete-rows" repeater="detalleCantidadUs" select="marcar-us">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>
+			</fd:repeater-action>
+			
+			
+			<!-- Detalle Cheque -->
+			
+			<fd:repeater id="detalleCheque">
+            <fd:widgets>
+                
+                <fd:field id="bancoId" required="true">
+                	<fd:label>Banco</fd:label>
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/banco.combo"
+						cache="none" />										
+				</fd:field>
+				
+				<fd:field id="numeroCheque" required="true">
+					<fd:label>No. Cheque</fd:label>			
+					<fd:datatype base="integer" />			
+				</fd:field>
+				
+				<fd:booleanfield id="dolares">
+					<fd:label>Dolares</fd:label>
+					<fd:on-value-changed>
+						<fd:javascript>
+							pagoEnDolares(event);
+						</fd:javascript>
+					</fd:on-value-changed>					
+				</fd:booleanfield>
+				
+				<fd:field id="beneficiario" required="true">
+					<fd:label>Beneficiario </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="montoCs">
+		            <fd:label>Monto (C$)</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+		                <fd:assert test="montoCs &gt;0.00">
+		                    <fd:failmessage>
+		                        <i18n:text>com.metropolitana.key.mayorquecero</i18n:text>
+		                    </fd:failmessage>
+		                </fd:assert>
+		            </fd:validation>
+		        </fd:field>
+		        
+		        <fd:field id="montoUs" state="invisible">
+		            <fd:label>Monto (U$)</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alCambiarMontoUs(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+		        </fd:field>
+		        
+		        <fd:field id="conversion">
+		            <fd:label>Conversion</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>		            
+		        </fd:field>
+				
+	        	<fd:booleanfield id="marcar-cheque">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar-cheque" command="add-row" repeater="detalleCheque">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar-cheque" command="delete-rows" repeater="detalleCheque" select="marcar-cheque">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>
+			</fd:repeater-action>
+			
+			
+			<!-- Detalle Depositos -->
+			
+			<fd:repeater id="detalleDepositos">
+            <fd:widgets>
+                <fd:booleanfield id="dolares">
+					<fd:label>Dolares</fd:label>
+					<fd:on-value-changed>
+						<fd:javascript>
+							depositoEnDolares(event);
+						</fd:javascript>
+					</fd:on-value-changed>					
+				</fd:booleanfield>
+				
+				<fd:field id="cuentaCs">
+					<fd:label>Cuenta (C$)</fd:label>			
+					<fd:datatype base="integer"/>			
+				</fd:field>
+				
+				<fd:field id="cuentaUs" state="invisible">
+					<fd:label>Cuenta (U$)</fd:label>			
+					<fd:datatype base="integer"/>			
+				</fd:field>
+				
+				<fd:field id="referencia">
+					<fd:label>Referencia </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="montoCs">
+		            <fd:label>Monto (C$)</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+		                <fd:assert test="montoCs &gt;0.00">
+		                    <fd:failmessage>
+		                        <i18n:text>com.metropolitana.key.mayorquecero</i18n:text>
+		                    </fd:failmessage>
+		                </fd:assert>
+		            </fd:validation>
+		        </fd:field>
+		        
+		        <fd:field id="montoUs" state="invisible">
+		            <fd:label>Monto (U$)</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							alCambiarMontoUs(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+		        </fd:field>
+		        
+		        <fd:field id="conversion">
+		            <fd:label>Conversion</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+		                <fd:assert test="conversion &gt;0.00">
+		                    <fd:failmessage>
+		                        <i18n:text>com.metropolitana.key.mayorquecero</i18n:text>
+		                    </fd:failmessage>
+		                </fd:assert>
+		            </fd:validation>
+		        </fd:field>
+				
+	        	<fd:booleanfield id="marcar-deposito">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>0
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar-deposito" command="add-row" repeater="detalleDepositos">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar-deposito" command="delete-rows" repeater="detalleDepositos" select="marcar-deposito">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>
+			</fd:repeater-action>
+			
+			
+			<fd:calculatedfield id="totalCs" state="output">
+            <fd:label>Total Efectivo (C$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleCantidad/./total">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleCantidad");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("total").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="totalUs" state="output">
+            <fd:label>Total Efectivo (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleCantidadUs/./totalUs">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleCantidadUs");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("totalUs").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="conversionUs" state="output">
+            <fd:label>Conversion (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="pagoFecha, totalUs">
+	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
+	            var pagoFecha = form.getChild("pagoFecha").getValue();
+	            var totalUs = form.getChild("totalUs").getValue();
+	            if(pagoFecha != null){
+	            	var tasa = tasaHandler.retrieve(pagoFecha);
+	            }
+	            
+	            if (totalUs != null) {
+	            	if (tasa != null) {
+	            		return totalUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+	            	} else {
+	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
+	            	}	                	                
+	            } 
+	            return java.math.BigDecimal.ZERO;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        
+        <fd:calculatedfield id="totalCkCs" state="output">
+            <fd:label>Total CK (C$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleCheque/./montoCs">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleCheque");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("montoCs").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="totalCkUs" state="output">
+            <fd:label>Total CK (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleCheque/./montoUs">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleCheque");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("montoUs").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="conversionCkUs" state="output">
+            <fd:label>Conversion CK (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="pagoFecha, totalCkUs">
+	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
+	            var pagoFecha = form.getChild("pagoFecha").getValue();
+	            var montoUs = form.getChild("totalCkUs").getValue();
+	            var tasa = tasaHandler.retrieve(pagoFecha);
+	            if (montoUs != null) {
+	            	if (tasa != null) {
+	            		return montoUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+	            	} else {
+	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
+	            	}	                	                
+	            } 
+	            return java.math.BigDecimal.ZERO;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        
+        <!-- ooooooooooooooooooooooooooooooooooooooooo -->
+			
+		<fd:calculatedfield id="totalDpCs" state="output">
+            <fd:label>Total DP (C$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleDepositos/./montoCs">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleDepositos");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("montoCs").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="totalDpUs" state="output">
+            <fd:label>Total DP (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalleDepositos/./montoUs">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalleDepositos");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var total = row.getChild("montoUs").getValue();
+                      if (total != null) {
+                            subTotal = subTotal.add(total).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="conversionDpUs" state="output">
+            <fd:label>Conversion DP (U$):</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="pagoFecha, totalDpUs">
+	            var tasaHandler = Packages.com.metropolitana.multipagos.forms.tasafija.TasafijaHandler();
+	            var pagoFecha = form.getChild("pagoFecha").getValue();
+	            var montoUs = form.getChild("totalDpUs").getValue();
+	            var tasa = tasaHandler.retrieve(pagoFecha);
+	            if (montoUs != null) {
+	            	if (tasa != null) {
+	            		return montoUs.multiply(tasa.getTasaCambioMes()).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+	            	} else {
+	                	form.getChild("mensajes de error").addMessage("Se necesita la tasa de cambio del mes para la conversion.");             
+	            	}	                	                
+	            } 
+	            return java.math.BigDecimal.ZERO;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        
+        <fd:calculatedfield id="totalRecibo" state="output">
+            <fd:label>Total Recibo:</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="detalle/./monto">
+	            var subTotal = java.math.BigDecimal.ZERO;
+	            var detalle = form.getChild("detalle");
+                for (var i = 0; i &lt; detalle.size; i++) {
+                    var row = detalle.getRow(i);
+                      var monto = row.getChild("monto").getValue();
+                      if (monto != null) {
+                            subTotal = subTotal.add(monto).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+                      }
+                }
+	            return subTotal;
+           </fd:value>
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="totalGeneral" state="output">
+            <fd:label>Total General:</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value type="javascript" triggers="totalCs,conversionUs,conversionCkUs, conversionDpUs, totalCkCs, totalDpCs">
+	            var totalCs = form.getChild("totalCs").getValue();
+	            if (totalCs == null) {
+	            	totalCs = java.math.BigDecimal.ZERO;
+	            }
+	            var conversionUs = form.getChild("conversionUs").getValue();
+	            if (conversionUs == null) {
+	            	conversionUs = java.math.BigDecimal.ZERO;
+	            }
+	            var conversionCkUs = form.getChild("conversionCkUs").getValue();
+	            if (conversionCkUs == null) {
+	            	conversionCkUs = java.math.BigDecimal.ZERO;
+	            }
+	            var conversionDpUs = form.getChild("conversionDpUs").getValue();
+	            if (conversionDpUs == null) {
+	            	conversionDpUs = java.math.BigDecimal.ZERO;
+	            }
+	            var totalCkCs = form.getChild("totalCkCs").getValue();
+	            if (totalCkCs == null) {
+	            	totalCkCs = java.math.BigDecimal.ZERO;
+	            }
+	            var totalDpCs = form.getChild("totalDpCs").getValue();
+	            if (totalDpCs == null) {
+	            	totalDpCs = java.math.BigDecimal.ZERO;
+	            }
+	            return totalCs.add(conversionUs).add(conversionCkUs).add(conversionDpUs).add(totalCkCs).add(totalDpCs).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+           </fd:value>            
+        </fd:calculatedfield>
+        
+        <fd:calculatedfield id="diferencia" state="output">
+            <fd:label>Diferencia:</fd:label>
+            <fd:datatype base="decimal">
+                <fd:convertor type="formatting" variant="number">
+                    <fd:patterns>
+                        <fd:pattern>#,##0.00</fd:pattern>
+                    </fd:patterns>
+                </fd:convertor>
+            </fd:datatype>
+            <fd:value eval="Round(NVL(totalGeneral, 0) - NVL(totalRecibo, 0), 2)"/>
+        </fd:calculatedfield>	
+
+        <fd:submit id="crear">
+			<fd:label>Crear</fd:label>
+					
+		</fd:submit>
+		
+		<fd:submit id="aceptar" state="invisible">
+			<fd:label>Aceptar</fd:label>
+			<fd:on-value-changed>
+		        <fd:javascript>
+		            alSeleccionarAceptar(event);
+		        </fd:javascript>
+	        </fd:on-value-changed>
+		</fd:submit>
+
+   </fd:widgets>
+</fd:form>

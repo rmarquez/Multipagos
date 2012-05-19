@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="usrId" path="usrId"/>
+    <fb:value id="pagoFecha" path="pagoFecha"/>
+    <fb:value id="colectorId" path="colectorId"/>
+    
+    <fb:value id="totalCs" path="totalCs"/>
+    <fb:value id="totalUs" path="totalUs"/>
+    <fb:value id="conversionUs" path="conversionUs"/>
+    
+    <fb:value id="totalCkCs" path="totalCkCs"/>
+    <fb:value id="totalCkUs" path="totalCkUs"/>
+    <fb:value id="conversionCkUs" path="conversionCkUs"/>
+    
+    <fb:value id="totalDpCs" path="totalDpCs"/>
+    <fb:value id="totalDpUs" path="totalDpUs"/>
+    <fb:value id="conversionDpUs" path="conversionDpUs"/>
+    
+    <fb:value id="totalRecibo" path="totalRecibo"/>
+    <fb:value id="totalGeneral" path="totalGeneral"/>
+    <fb:value id="diferencia" path="diferencia"/>
+    
+	<fb:repeater id="detalleCantidad" parent-path="." row-path="arqueoCantidadList">
+        <fb:identity>
+            <fb:value id="cantidadId" path="cantidadId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="cantidadId" path="cantidadId"/>
+            <fb:value id="cantidad" path="cantidad"/>
+            <fb:value id="total" path="total"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoCantidad" addmethod="addArqueoCantidad"/>
+        </fb:on-insert-row>
+        
+    </fb:repeater>
+    
+     <fb:repeater id="detalleCantidadUs" parent-path="." row-path="arqueoCantidadUsList">
+        <fb:identity>
+            <fb:value id="cantidadIdUs" path="cantidadId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="cantidadIdUs" path="cantidadId"/>
+            <fb:value id="cantidadUs" path="cantidad"/>
+            <fb:value id="totalUs" path="total"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoCantidadUs" addmethod="addArqueoCantidadUs"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+    
+    <fb:repeater id="detalleCheque" parent-path="." row-path="arqueoChequeList">
+        <fb:identity>
+            <fb:value id="bancoId" path="bancoId"/>
+            <fb:value id="numeroCheque" path="nnumeroCheque"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="bancoId" path="bancoId"/>
+            <fb:value id="numeroCheque" path="numeroCheque"/>
+            <fb:value id="beneficiario" path="beneficiario"/>
+            <fb:value id="montoCs" path="montoCs"/>
+            <fb:value id="montoUs" path="montoUs"/>
+            <fb:value id="conversion" path="conversion"/>
+            <fb:value id="dolares" path="dolares"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoCheque" addmethod="addArqueoCheque"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+    
+    <fb:repeater id="detalleDepositos" parent-path="." row-path="arqueoDepositoList">
+        <fb:identity>
+            <fb:value id="referencia" path="referencia"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="cuentaCs" path="cuentaCs"/>
+            <fb:value id="cuentaUs" path="cuentaUs"/>
+        	<fb:value id="referencia" path="referencia"/>
+            <fb:value id="montoCs" path="montoCs"/>
+            <fb:value id="montoUs" path="montoUs"/>
+            <fb:value id="conversion" path="conversion"/>
+            <fb:value id="dolares" path="dolares"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArqueoDeposito" addmethod="addArqueoDeposito"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+    
+</fb:context>

@@ -11,7 +11,9 @@
         <fd:messages id="mensajes de error">
             <fd:label>Ocurrieron los siguientes errores</fd:label>
         </fd:messages>
-        
+        <fd:field id="barrioId">
+			<fd:datatype base="integer"/>
+		</fd:field>
         
         <fd:field id="barrioNombre" required="true">
             <fd:label>Barrio: </fd:label>

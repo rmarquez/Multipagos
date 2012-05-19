@@ -1,0 +1,82 @@
+-------------------------------------------------------------------------------
+Test set: com.metropolitana.multipagos.forms.TestAuthUser
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 sec <<< FAILURE!
+testInsertRetrieveBroker(com.metropolitana.multipagos.forms.TestAuthUser)  Time elapsed: 0.007 sec  <<< ERROR!
+org.apache.ojb.broker.PersistenceBrokerException: Used ConnectionManager instance could not obtain a connection
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:610)
+	at org.apache.ojb.broker.accesslayer.JdbcAccessImpl.executeDelete(JdbcAccessImpl.java:169)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:725)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:757)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at com.metropolitana.multipagos.junit.PBTestBase.removeAll(PBTestBase.java:42)
+	at com.metropolitana.multipagos.forms.TestAuthUser.cleanUpDB(TestAuthUser.java:105)
+	at com.metropolitana.multipagos.junit.PBTestBase.setUp(PBTestBase.java:22)
+	at com.metropolitana.multipagos.forms.TestAuthUser.setUp(TestAuthUser.java:19)
+	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.junit.internal.runners.OldTestClassRunner.run(OldTestClassRunner.java:35)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345)
+	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009)
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Could not borrow connection from pool. Active/Idle instances in pool=0/0. org.apache.ojb.broker.metadata.JdbcConnectionDescriptor:  org.apache.ojb.broker.metadata.JdbcConnectionDescriptor@12bd56c[
+  jcd-alias=default
+  default-connection=true
+  dbms=PostgreSQL
+  jdbc-level=3.0
+  driver=org.postgresql.Driver
+  protocol=jdbc
+  sub-protocol=postgresql
+  db-alias=//localhost:5432/multipagos-test
+  user=postgres
+  password=*****
+  eager-release=false
+  ConnectionPoolDescriptor={whenExhaustedAction=0, validationQuery=SELECT 1, maxIdle=-1, maxActive=21, maxWait=5000, removeAbandoned=false, numTestsPerEvictionRun=10, minEvictableIdleTimeMillis=600000, testWhileIdle=false, testOnReturn=false, logAbandoned=false, minIdle=0, fetchSize=0, removeAbandonedTimeout=300, timeBetweenEvictionRunsMillis=-1, testOnBorrow=true}
+  batchMode=false
+  useAutoCommit=AUTO_COMMIT_SET_TRUE_AND_TEMPORARY_FALSE
+  ignoreAutoCommitExceptions=false
+  sequenceDescriptor=org.apache.ojb.broker.metadata.SequenceDescriptor@1856a0a[
+     sequenceManagerClass=class org.apache.ojb.broker.util.sequence.SequenceManagerNextValImpl
+     Properties={autoNaming=true}
+]
+]
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:119)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.lookupConnection(ConnectionFactoryAbstractImpl.java:139)
+	at org.apache.ojb.broker.accesslayer.ConnectionManagerImpl.getConnection(ConnectionManagerImpl.java:117)
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:606)
+	... 27 more
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Error getting Connection from DriverManager with url (jdbc:postgresql://localhost:5432/multipagos-test) and driver (org.postgresql.Driver)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:285)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl$ConPoolFactory.makeObject(ConnectionFactoryPooledImpl.java:275)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:840)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:93)
+	... 30 more
+Caused by: org.postgresql.util.PSQLException: FATAL: no existe la base de datos ��multipagos-test��
+	at org.postgresql.core.v3.ConnectionFactoryImpl.readStartupMessages(ConnectionFactoryImpl.java:469)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:112)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.<init>(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.<init>(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.<init>(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.<init>(AbstractJdbc4Connection.java:30)
+	at org.postgresql.jdbc4.Jdbc4Connection.<init>(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at java.sql.DriverManager.getConnection(DriverManager.java:579)
+	at java.sql.DriverManager.getConnection(DriverManager.java:190)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:279)
+	... 33 more
+

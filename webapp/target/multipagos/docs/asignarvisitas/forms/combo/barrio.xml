@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:selection-list xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+				   xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <fd:item value="">
+        <fd:label>${labelNullItem}</fd:label>
+    </fd:item>
+    <jx:forEach var="item" items="${bean}">
+    <jx:set var="longValue" value="${util.intToLong(item[0])}"/> 	
+	         <fd:item value="${longValue}">    	
+		    		<fd:label>${item[1]}</fd:label>
+		   	</fd:item>	    
+    </jx:forEach>
+</fd:selection-list>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+        <fd:field id="rolName" required="true">
+            <fd:label>Nombre:</fd:label>
+            <fd:hint>Nombre del rol.</fd:hint>
+            <fd:help>Escriba el nombre del rol de usuario.</fd:help>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length min="5" max="50"/>
+            </fd:validation>
+        </fd:field>
+
+        <fd:booleanfield id="rolEnable">
+            <fd:label>Habilitado:</fd:label>
+            <fd:help>Indique si el rol esta habilitado o no.</fd:help>
+            <fd:hint>Habilitar/Deshabilitar rol.</fd:hint>
+        </fd:booleanfield>
+
+        <fd:repeater id="recursos">
+            <fd:widgets>
+                <fd:field id="resId" required="true">
+                    <fd:label>Recursos</fd:label>
+                    <fd:hint>Recursos disponibles.</fd:hint>
+                    <fd:help>Elija de la lista cuales de los recursos disponibles
+                             se accederan mediante el rol.</fd:help>
+                    <fd:datatype base="integer"/>
+                    <fd:validation>
+                        <fd:range min="1">
+                            <fd:failmessage>
+                                <i18n:text>com.metropolitana.key.elejirdelista</i18n:text>
+                            </fd:failmessage>
+                        </fd:range>
+                    </fd:validation>
+                    <fd:selection-list src="cocoon:/auth_resource.combo" dynamic="true"/>
+                </fd:field>
+                <!-- Este campo no se almacena en la base de datos
+                     es solo para fines del manejo en el formulario
+                     por ejemplo elejir los impuestos que se van
+                     a eliminar -->
+                <fd:booleanfield id="marcar">
+                    <fd:label>Seleccionar</fd:label>
+                    <fd:hint>Selecciona el registro.</fd:hint>
+                    <fd:help>Los registros seleccionados serán eliminados del formulario cuando se haga
+                            click en el botón <b>Eliminar</b>.</fd:help>
+                </fd:booleanfield>
+            </fd:widgets>
+        </fd:repeater>
+
+        <fd:repeater-action id="agregarrecurso" command="add-row" repeater="recursos">
+            <fd:label>Agregar</fd:label>
+            <fd:hint>Haga click en el botón para agregar un registro.</fd:hint>
+        </fd:repeater-action>
+
+        <fd:repeater-action id="eliminarrecurso" command="delete-rows" repeater="recursos" select="marcar">
+            <fd:label>Eliminar</fd:label>
+            <fd:hint>Haga click en el botón para eliminar los registros seleccionados.</fd:hint>
+        </fd:repeater-action>
+        <fd:submit id="crear">
+            <fd:label>Crear</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

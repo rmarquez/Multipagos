@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<document menu="true"
+    xmlns:jx="http://apache.org/cocoon/templates/jx/1.0"
+    xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+    xmlns:fi="http://apache.org/cocoon/forms/1.0#instance">
+    <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    <header>
+        <title>Usuarios</title>
+    </header>
+    <body>
+        <s1 title="Crear usuario">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del usuario</fi:label>
+                    <fi:items>
+                        <ft:widget id="usrLogin"/>
+                        <ft:widget id="usrCargo"/>
+                        <ft:widget id="usrPassword"><fi:styling type="password"/></ft:widget>
+                        <ft:widget id="usrPasswordRepetir"><fi:styling type="password"/></ft:widget>
+                        <ft:widget id="usrFullName"><fi:styling size="40"/></ft:widget>
+                        <ft:widget id="usrEmail"><fi:styling size="40"/></ft:widget>
+                        <ft:widget id="usrEnable"><fi:styling checked="checked"/></ft:widget>
+                        <ft:widget id="usrEditdb"/>
+                        <ft:repeater id="roles">
+                          <div>
+                            <table>
+                                <!-- Encabezado de la tabla-->
+                                <thead>
+                                    <tr>
+                                        <th><ft:repeater-widget-label id="roles" widget-id="rolId"/></th>
+                                        <th><ft:repeater-widget-label id="roles" widget-id="marcar"/></th>
+                                    </tr>
+                                </thead>
+                                <!-- Cuerpo de la tabla donde se editan los datos -->
+                                <tbody>
+                                    <ft:repeater-rows>
+                                        <tr>
+                                            <td><ft:widget id="rolId"/></td>
+                                            <td><ft:widget id="marcar"/></td>
+                                        </tr>
+                                    </ft:repeater-rows>
+                                    <!-- Botones para el manejo del subformulario -->
+                                    <tr>
+                                        <td colspan="2" align="right">
+                                            <ft:widget id="../agregarrol"/>
+                                            <ft:widget id="../eliminarrol"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                        </ft:repeater>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

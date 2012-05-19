@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Pagos x Departamento</title>
+    </header>
+    <body>
+        <s1 title="Pagos por Departamentos">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th align="left" colspan="6">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="7">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="13"/></tr>
+                    </tr>
+                    <tr>
+                    	<th>DEPARTAMENTO</th>
+                        <th>LOCALIDAD</th>
+        				<th>CONTRATO</th>
+				        <th>FACTURA INTERNA</th>
+				        <th>NUMERO FISCAL</th>
+				        <th>CUPON</th>
+				        <th>MONTO C$</th>
+				        <th>AÑO</th>
+				        <th>MES</th>
+				        <th>SUSCRIPTOR</th>
+				        <th>FECHA PAGO</th>
+				        <th>SERVICIO</th>
+				        <th>CUENTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<jx:set var="localidad" value=""/>                   
+ 
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+	                    
+                        <jx:if test="localidad != item[2]}">
+                         <jx:if test="${!status.first}">
+                            <tr>
+	                           	<th colspan="6">Total Pagos</th> 
+	                           	<th colspan="6"><formatoNumero numero="${item[13]}" ceroIfNull="true"/></th>                            
+                       		</tr>
+                            </jx:if>
+                            <jx:if test="${!status.last}">
+                                <tr><td colspan="11"></td></tr>
+                            </jx:if>
+                            <tr>
+                                <th colspan="12">Localidad: ${item[2]}</th>                                
+                            </tr>
+                            
+                       </jx:if>
+                        <jx:set var="localidad" value="${item[2]}"/>
+                        <tr>
+                        	<td align="left">${item[1]}</td>
+                        	<td align="left">${item[2]}</td>
+                            <td align="left">${item[3]}</td>
+	                        <td align="left">${item[4]}</td>
+                            <td align="left">${item[5]}</td>                            
+                            <td align="left">${item[6]}</td>
+                            <td align="right"><formatoNumero numero="${item[7]}" ceroIfNull="true"/></td>
+                            <td align="left">${item[8]}</td>
+                            <td align="left">${item[9]}</td>
+                            <td align="left">${item[10]}</td>
+                            <td align="right"><formatoFecha fecha="${item[11]}" patron="dd/MMM/yyyy"/></td> 
+                            <td align="left">${item[12]}</td>  
+                            <td align="left">${item[13]}</td>                          
+                        </tr>                        
+                        <jx:if test="${status.last}">
+                            <tr>
+                             	<th colspan="6">Total Pagos</th> 
+                             	<th colspan="6"><formatoNumero numero="${item[14]}" ceroIfNull="true"/></th>                             
+                         	</tr>
+                        </jx:if>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

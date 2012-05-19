@@ -12,6 +12,9 @@
         <fd:messages id="mensajes de error">
             <fd:label>Ocurrieron los siguientes errores</fd:label>
         </fd:messages>
+        <fd:field id="bancoId">
+			<fd:datatype base="integer"/>
+		</fd:field>
         
         <fd:field id="bancoNombre" required="true">
             <fd:label>Nombre: </fd:label>

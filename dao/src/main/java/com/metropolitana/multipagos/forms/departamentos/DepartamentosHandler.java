@@ -3,9 +3,11 @@ package com.metropolitana.multipagos.forms.departamentos;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import com.metropolitana.multipagos.Departamento;
+import com.metropolitana.multipagos.Servicio;
 import com.metropolitana.multipagos.forms.Util;
 import com.metropolitana.multipagos.forms.logs.LogsHandler;
 
@@ -262,4 +264,39 @@ public class DepartamentosHandler {
 			throw e;
 		}
 	}
+	
+	public static boolean existeDepartamento(String departamentoNombre) throws Exception {
+        try {
+            Criteria criterio = new Criteria();
+            if (departamentoNombre != null && departamentoNombre.length() > 0) {
+				criterio.addLike("upper(departamentoNombre)",
+						departamentoNombre.toUpperCase(Locale.getDefault()) + "*");
+			}
+            List lst = getNombreList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+	
+	private static List getNombreList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(Departamento.class, criterio);
+            query.addOrderBy("departamentoNombre", true);
+            return (List)broker.getCollectionByQuery(query);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
 }

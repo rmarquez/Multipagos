@@ -19,13 +19,13 @@
     <module>dao</module><!-- Capa de negocio -->
     <module>webapp</module><!-- Capa de vista -->
   </modules>
-  <developers>
+ <!--  <developers>
     <developer>
       <id>rmarquez</id>
       <name>Rafael Marquez</name>
       <email>rmarquez@gmail.com</email>
     </developer>
-  </developers>
+  </developers> -->
   
   <build>
     <plugins>
@@ -67,7 +67,7 @@
     <repository>
       <id>multipagos-repo</id>
       <name>Repositorio Maven en Multipagos.</name>
-      <url>http://172.21.1.124:8080/artifactory/metropolitana</url>
+      <url>http://72.167.33.13:8080/artifactory/multipagos-local</url>
     </repository>
   </repositories>
   <pluginRepositories>

@@ -43,6 +43,7 @@ function alCambiar(event) {
 }
 
 function alSeleccionarContrato(event) {
+
 	var numContrato = event.source.value;
 	var carteraId = event.source.parent.getChild("carteraId");
 	//carteraId.setValue(null);
@@ -59,40 +60,19 @@ function alSeleccionarContrato(event) {
     var diferido = event.source.parent.getChild("diferido").getValue();
     var handlerCartera = new CarteraXDepartamentoHandler();   
     var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
+    
 	if(numContrato != null){
-		var cartera = handlerCartera.carteraXContrato(numContrato, diferido);			
+		var cartera = handlerCartera.carteraXContrato( numContrato );
 		if(cartera != null){
-			var pagado = cartera.getPagado();
 			
-			if(pagado.compareTo(false)==0){
-				carteraId.setValue(cartera.getCarteraId()); 
-				suscriptor.setValue(cartera.getSuscriptor());
-				localidad.setValue(cartera.getLocalidadId());
-				barrioId.setValue(cartera.getBarrioId());
-				servicio.setValue(cartera.getServicioId());
-				fechaVisita.setValue(new Packages.java.util.Date());
-			} else {
-				if (cartera.getFechaPago() != null){
-					var fechaPago = java.text.SimpleDateFormat("dd/MM/yyyy").format(cartera.getFechaPago());					
-				}
-				event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato fue pagado el dia: "+ fechaPago +", favor verificar # de contrato."));
-				carteraId.setValue(cartera.getCarteraId()); 
-				suscriptor.setValue(cartera.getSuscriptor());
-				localidad.setValue(cartera.getLocalidadId());
-				barrioId.setValue(cartera.getBarrioId());
-				servicio.setValue(cartera.getServicioId());
-				fechaVisita.setValue(new Packages.java.util.Date());
-			}			
-			
-		} else {
-			event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato no aparece en la base de datos, verifique que sea el numero correcto."));
-		}
-		if (handlerVisita.existeContrato(numContrato)==true) {
-			var visita = handlerVisita.getUltimaVisita(numContrato);
-			if (visita != null) {
-				var ultimaVisita = java.text.SimpleDateFormat("dd/MM/yyyy").format(visita);
-			}			
-    		event.source.parent.getChild("numContrato").setValidationError(new ValidationError("El contrato ya fue registrado el dia: "+ ultimaVisita +", favor verificar # de contrato."));
+			carteraId.setValue(cartera.getCarteraId()); 
+			suscriptor.setValue(cartera.getSuscriptor());
+			localidad.setValue(cartera.getLocalidadId());
+			barrioId.setValue(cartera.getBarrioId());
+			servicio.setValue(cartera.getServicioId());
+			fechaVisita.setValue(new Packages.java.util.Date());			
+		}  else { 
+			 event.source.parent.getChild("numContrato").setValidationError(new ValidationError("Contrato NO encontrado"));				
     	}
 	} 	
 }
@@ -108,7 +88,57 @@ function alEncontrarCliente(event) {
     }
 }
 
+
 function alSeleccionarSimbolo(event) {
+
+	var simbolo = event.source.value;
+    var simboloId = event.source.parent.getChild("simboloId");
+    simboloId.setValue(null);
+    var simboloNombre = event.source.parent.getChild("simboloNombre");
+    simboloNombre.setValue(null);
+    var fprogCobro = event.source.parent.getChild("fprogCobro");
+    fprogCobro.setValue(null);
+    var handlerSimbolo = new SimboloHandler();
+    
+    if (simbolo != null ) {
+    	
+    	var simbolo2 = handlerSimbolo.simboloXNumero(simbolo);
+    	if(simbolo2 != null ) {
+    	
+    		simboloNombre.setValue(simbolo2.getSimboloNombre());    	
+	    	simboloId.setValue(simbolo2.getSimboloId()); 
+	    	
+    		if ( simbolo2.getSimboloNumero() <= "100")  {
+
+    			simbolo2 .setSimboloId(null);
+    			simboloId.setValue(null);
+    			simboloNombre.setValue(null);
+    			simbolo = null;
+    			handlerSimbolo = null;
+    			
+    			event.source.parent.getChild("simbolo").setValidationError(new ValidationError("Simbolo es Inválido, verifique si el # es correcto."));
+    			
+    		} else {
+		    	if(simbolo2.getSimboloNumero()=="30" || simbolo2.getSimboloNumero()=="35" || simbolo2.getSimboloNumero()=="302" ) {   
+		    		fprogCobro.setState(WidgetState.ACTIVE);        	
+		    	} else {
+		    		fprogCobro.setState(WidgetState.INVISIBLE); 
+		    	}
+		   }
+    	}
+    	
+    } else {
+		event.source.parent.getChild("simbolo").setValidationError(new ValidationError("Simbolo no encontrado, verifique si el # es correcto."));
+	}
+    
+
+    
+   
+}
+
+/* el original
+function alSeleccionarSimbolo(event) {
+	
     var simbolo = event.source.value;
     var simboloId = event.source.parent.getChild("simboloId");
     simboloId.setValue(null);
@@ -122,7 +152,8 @@ function alSeleccionarSimbolo(event) {
     	if(simbolo2 != null){
 	    	simboloNombre.setValue(simbolo2.getSimboloNombre());    	
 	    	simboloId.setValue(simbolo2.getSimboloId()); 
-	    	if(simbolo2.getSimboloNumero()=="30" || simbolo2.getSimboloNumero()=="35") {   
+	    	//  RSJ 201020412 if(simbolo2.getSimboloNumero()=="30" || simbolo2.getSimboloNumero()=="35") {   
+	    	if(simbolo2.getSimboloNumero()=="30" || simbolo2.getSimboloNumero()=="35" || simbolo2.getSimboloNumero()=="302" ) {   
 	    		fprogCobro.setState(WidgetState.ACTIVE);        	
 	    	} else {
 	    		fprogCobro.setState(WidgetState.INVISIBLE); 
@@ -132,6 +163,8 @@ function alSeleccionarSimbolo(event) {
     	} 
     }
 }
+*/
+
 
 function alSeleccionarColector(event) {
 	var colector = event.source.value;

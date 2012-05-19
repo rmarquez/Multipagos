@@ -12,7 +12,7 @@ function createform(form) {
                         "¿Desea procesar una nueva localidad?","create", "/bienvenidos");
     }
 }
-
+/**
 function validarForm(form) {
 	var handlerBean = new Packages.com.metropolitana.multipagos.forms.localidad.LocalidadHandler();
     var localidadNombre = form.getChild("localidadNombre").getValue();
@@ -25,3 +25,4 @@ function validarForm(form) {
 
 return true;
 }
+**/

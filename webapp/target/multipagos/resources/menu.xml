@@ -1,0 +1,256 @@
+<div id="menu-bar1" class="menu" xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+    <span id="menu-bar">
+
+        <!-- Menu Archivo -->
+        <div dojoType="PopupMenu2" widgetId="inicioMenu">
+            <div dojoType="MenuItem2" caption="Página de Inicio"
+                 onClick="parent.window.location='/multipagos/bienvenidos'"></div>                       
+            <div dojoType="MenuItem2" caption="Salir"
+                onClick="parent.window.location='/multipagos/salir'"></div>
+        </div>
+
+        <!-- Menu de Administracion -->
+        <div dojoType="PopupMenu2" widgetId="administracionMenu">
+              <div dojoType="MenuItem2" caption="Seguridad" submenuId="adminSeguridad"/>
+              
+
+        </div>
+        <!-- Submenu de Administracion de Seguridad -->
+        <div dojoType="PopupMenu2" widgetId="adminSeguridad">
+            <jx:if test="${bean.getResources().contains('auth')}">
+                <div dojoType="MenuItem2" caption="Usuarios" submenuId="usuarios"/>
+                <div dojoType="MenuItem2" caption="Roles" submenuId="roles"/>
+            </jx:if>
+            <div dojoType="MenuItem2" caption="Cambiar contraseña"
+                        onClick="parent.window.location='/multipagos/usuarios/password'"/>
+            <jx:if test="${usrId==1}">
+            <div dojoType="MenuItem2" caption="Registro de Logs"
+                        onClick="parent.window.location='/multipagos/logs/search'"/>            
+            </jx:if>
+            <div dojoType="MenuItem2" caption="Subir Base de datos"
+                        onClick="parent.window.location='/multipagos/altadb/create'"/>
+            <div dojoType="MenuItem2" caption="Cartera pagos Claro"
+                        onClick="parent.window.location='/multipagos/carteraclaro/create'"/>
+        </div>
+        
+         
+           <!--  <jx:if test="${bean.getResources().contains('auth')}">
+                Submenu de Administracion de Usuarios -->
+                <div dojoType="PopupMenu2" widgetId="usuarios">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/usuarios/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/usuarios/search'"/>
+                </div>
+                <!-- Submenu de Administracion de Roles -->
+                <div dojoType="PopupMenu2" widgetId="roles">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/roles/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/roles/search'" />
+                </div>
+            <!-- </jx:if>  -->
+        
+               
+        <!-- Menu Catalogo -->
+        <div dojoType="PopupMenu2" widgetId="informeMenu">
+              <jx:if test="${bean.getResources().contains('informes')}">
+                  <div dojoType="MenuItem2" caption="Informes" submenuId="infos"/>
+              </jx:if>
+        </div>
+        
+          <div dojoType="PopupMenu2" widgetId="infos">
+            	<div dojoType="MenuItem2" caption="Visitas x Colector"
+                         onClick="parent.window.location='/multipagos/informes/visitasxcolector'"/>
+                <div dojoType="MenuItem2" caption="Pagos x Departamento"
+                         onClick="parent.window.location='/multipagos/informes/pagosxdepartamento'"/>
+                <div dojoType="MenuItem2" caption="Promesas de Pago"
+                         onClick="parent.window.location='/multipagos/informes/promesasdepago'"/>
+                <div dojoType="MenuItem2" caption="Visitas Pendientes"
+                         onClick="parent.window.location='/multipagos/informes/visitaspendientes'"/>
+                <div dojoType="MenuItem2" caption="Pagos en Claro"
+                         onClick="parent.window.location='/multipagos/informes/pagosenclaro'"/>
+                <div dojoType="MenuItem2" caption="Cartera x Servico"
+                         onClick="parent.window.location='/multipagos/informes/carteraxservicio'"/>
+                
+          </div>
+        
+        <!-- Menu Catalogo -->
+        <div dojoType="PopupMenu2" widgetId="catalogoMenu">
+              <jx:if test="${bean.getResources().contains('cata')}">
+                  <div dojoType="MenuItem2" caption="Catalogos" submenuId="adminCatalogos"/>
+              </jx:if>
+        </div>
+        
+        <jx:if test="${bean.getResources().contains('cata')}">
+             <!--Submenu de Administracion de catalogos-->
+            <div dojoType="PopupMenu2" widgetId="adminCatalogos">
+            	<div dojoType="MenuItem2" caption="Bancos" submenuId="bancos"/>
+            	<div dojoType="MenuItem2" caption="Cuentas" submenuId="cuentas"/>
+            	<div dojoType="MenuItem2" caption="Departamentos" submenuId="departamentos"/>
+            	<div dojoType="MenuItem2" caption="Localidad" submenuId="localidad"/>
+            	<div dojoType="MenuItem2" caption="Barrio" submenuId="barrio"/>
+            	<div dojoType="MenuItem2" caption="Estado Corte" submenuId="estadoc"/>
+            	<div dojoType="MenuItem2" caption="Simbolos Sistema" submenuId="simbolo"/>
+            	<div dojoType="MenuItem2" caption="Servicios" submenuId="servicio"/>
+            	<div dojoType="MenuItem2" caption="Tasa de cambio" submenuId="tasacambio"/>
+            	<div dojoType="MenuItem2" caption="Cantidad Moneda" submenuId="cantidadmoneda"/>
+            	<div dojoType="MenuItem2" caption="Colector" submenuId="colector"/>
+            	<div dojoType="MenuItem2" caption="Barrios x Colector" submenuId="asignarb"/>
+                
+            </div>
+                <!-- Submenu de Catalogo de Bancos -->
+                <div dojoType="PopupMenu2" widgetId="bancos">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/banco/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/banco/search'"/>
+                </div>
+                <!-- Submenu de Catalogo de Cuentas -->
+                <div dojoType="PopupMenu2" widgetId="cuentas">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/cuentas/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/cuentas/search'"/>
+                </div>
+                <!-- Submenu de Catalogo de Departamentos -->
+                <div dojoType="PopupMenu2" widgetId="departamentos">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/departamento/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/departamento/search'"/>
+                </div>
+                <!-- Submenu de Catalogo de Localidad -->
+                <div dojoType="PopupMenu2" widgetId="localidad">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/localidad/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/localidad/search'"/>
+                </div>
+                <!-- Submenu de Catalogo de barrio -->
+                <div dojoType="PopupMenu2" widgetId="barrio">
+                    <div dojoType="MenuItem2" caption="Crear"
+                         onClick="parent.window.location='/multipagos/barrio/create'"/>
+                    <div dojoType="MenuItem2" caption="Buscar"
+                            onClick="parent.window.location='/multipagos/barrio/search'"/>
+                </div>
+                 <!-- Submenu de tasa de cambios -->
+                <div dojoType="PopupMenu2" widgetId="tasacambio">
+                    <div dojoType="MenuItem2" caption="Crear"
+                             onClick="parent.window.location='/multipagos/tasafija/create'"/>
+                        <div dojoType="MenuItem2" caption="Buscar"
+                                onClick="parent.window.location='/multipagos/tasafija/search'" />
+                </div>
+                <!-- Submenu de simbolo -->
+                <div dojoType="PopupMenu2" widgetId="simbolo">
+                    <div dojoType="MenuItem2" caption="Crear"
+                             onClick="parent.window.location='/multipagos/simbolo/create'"/>
+                        <div dojoType="MenuItem2" caption="Buscar"
+                                onClick="parent.window.location='/multipagos/simbolo/search'" />
+                </div>
+                <!-- Submenu de servicios -->
+                <div dojoType="PopupMenu2" widgetId="servicio">
+                    <div dojoType="MenuItem2" caption="Crear"
+                             onClick="parent.window.location='/multipagos/servicio/create'"/>
+                        <div dojoType="MenuItem2" caption="Buscar"
+                                onClick="parent.window.location='/multipagos/servicio/search'" />
+                </div>
+                <!-- Submenu de estado corte -->
+                <div dojoType="PopupMenu2" widgetId="estadoc">
+                    <div dojoType="MenuItem2" caption="Crear"
+                             onClick="parent.window.location='/multipagos/estado/create'"/>
+                        <div dojoType="MenuItem2" caption="Buscar"
+                                onClick="parent.window.location='/multipagos/estado/search'" />
+                </div>
+                
+                <!-- Submenu de estado corte -->
+                <div dojoType="PopupMenu2" widgetId="cantidadmoneda">
+                    <div dojoType="MenuItem2" caption="Crear"
+                             onClick="parent.window.location='/multipagos/cantidades/create'"/>
+                        <div dojoType="MenuItem2" caption="Buscar"
+                                onClick="parent.window.location='/multipagos/cantidades/search'" />
+                </div>
+                
+                <!-- Submenu de Colector -->
+		         <div dojoType="PopupMenu2" widgetId="colector">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/colector/create'"/>
+		             <div dojoType="MenuItem2" caption="Buscar"
+		                     onClick="parent.window.location='/multipagos/colector/search'"/>
+		         </div>
+		         
+		         <!-- Submenu de Asignar Barrios -->
+		         <div dojoType="PopupMenu2" widgetId="asignarb">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/asignarbarrio/create'"/>
+		             <div dojoType="MenuItem2" caption="Buscar"
+		                     onClick="parent.window.location='/multipagos/asignarbarrio/search'"/>
+		         </div>
+        </jx:if>
+        
+         <!-- Menu Control de cobros -->
+        <div dojoType="PopupMenu2" widgetId="controCobroMenu">
+              <!-- <jx:if test="${bean.getResources().contains('cata')}"> -->
+              	  <div dojoType="MenuItem2" caption="control visitas" submenuId="visitas"/>
+              	  <div dojoType="MenuItem2" caption="control pagos" submenuId="pagos"/>
+              	  <div dojoType="MenuItem2" caption="arqueo pagos" submenuId="arqueos"/>
+              <!-- </jx:if> -->
+        </div>
+        
+         <!-- Submenu de Control de visitas -->
+         <div dojoType="PopupMenu2" widgetId="visitas">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/visitas/create'"/>
+		     </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">
+             		<div dojoType="MenuItem2" caption="Buscar"
+                     		onClick="parent.window.location='/multipagos/visitas/search'"/>
+             </jx:if>
+         </div>
+         
+         <!-- Submenu de Control de pagos -->
+         <div dojoType="PopupMenu2" widgetId="pagos">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/pagos/create'"/>
+             </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">
+		             <div dojoType="MenuItem2" caption="Buscar"
+		                     onClick="parent.window.location='/multipagos/pagos/search'"/>
+                     <div dojoType="MenuItem2" caption="Cliente"
+		                     onClick="parent.window.location='/multipagos/pagos/cliente'"/>
+             </jx:if>
+         </div>
+         
+          <!-- Submenu de Control de arqueo -->
+         <div dojoType="PopupMenu2" widgetId="arqueos">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+	             <div dojoType="MenuItem2" caption="Crear"
+	                  onClick="parent.window.location='/multipagos/arqueo/create'"/> 
+             </jx:if>
+             <jx:if test="${bean.getResources().contains('buscar')}">             
+	             <div dojoType="MenuItem2" caption="Buscar"
+	                  onClick="parent.window.location='/multipagos/arqueo/search'"/> 
+              </jx:if>          
+         </div>
+       
+        <!-- Menu Ayuda -->
+        <div dojoType="PopupMenu2" widgetId="ayudaMenu">
+            <div dojoType="MenuItem2" caption="Acerca de..."
+                onClick="parent.window.location='/multipagos/acerca.html'"></div>
+            </div>
+    </span>
+    <div dojoType="MenuBar2">
+        <div dojoType="MenuBarItem2" caption="Archivo" submenuId="inicioMenu"></div>
+        <jx:if test="${bean.getResources().contains('cata')}">
+        		<div dojoType="MenuBarItem2" caption="Catalogo" submenuId="catalogoMenu"></div>
+        </jx:if>
+        <div dojoType="MenuBarItem2" caption="Control de cobros" submenuId="controCobroMenu"></div>
+        <jx:if test="${bean.getResources().contains('informes')}">
+        		<div dojoType="MenuBarItem2" caption="Informes" submenuId="informeMenu"></div>
+        </jx:if>
+        <div dojoType="MenuBarItem2" caption="Administración" submenuId="administracionMenu"></div>
+        <!-- <div dojoType="MenuBarItem2" caption="Ayuda" submenuId="ayudaMenu"></div> -->
+    </div>
+</div>

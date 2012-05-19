@@ -20,6 +20,7 @@
                     	<ft:widget id="localidadNombre"/>
                         <ft:widget id="departamentoId"/>
                         <ft:widget id="inactivo"><fi:styling type="hidden"/></ft:widget>
+                        <ft:widget id="localidadId"><fi:styling type="hidden"/></ft:widget>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="crear"/>

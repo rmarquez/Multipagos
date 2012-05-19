@@ -389,12 +389,12 @@ public class VisitasHandler {
 		}
 	}
 	
+	
 	public static boolean existeContrato(String numeroContrato) throws Exception {
         try {
             Criteria criterio = new Criteria();
             if (numeroContrato != null && numeroContrato.length() > 0) {
-				criterio.addLike("upper(numeroContrato)",
-						numeroContrato.toUpperCase(Locale.getDefault()) + "*");
+            	criterio.addEqualTo("numeroContrato", numeroContrato);
 			}
             List lst = getNombreList(criterio);
             if (lst.isEmpty()) {
@@ -449,6 +449,7 @@ public class VisitasHandler {
                     return (Date)fecha;
                 }
             }
+            
             return null;
         } catch (Exception e) {
             throw e;

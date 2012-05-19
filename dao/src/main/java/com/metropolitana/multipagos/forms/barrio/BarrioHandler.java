@@ -142,7 +142,7 @@ public class BarrioHandler {
 	public static Barrio retrieve(final Integer barrioId)
 			throws Exception {
 		PersistenceBroker broker = null;
-
+System.out.println("==== BArrio ID = " + barrioId);
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return retrieve(barrioId, broker);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+    	<fd:field id="departamentoId">
+        	<fd:label>Departamento:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/departamentos.combo" cache="none" />
+		</fd:field>
+		
+		<fd:field id="servicioId">
+			<fd:label>Servicio</fd:label>
+			<fd:datatype base="integer" />
+			<fd:selection-list src="cocoon:/servicio.combo"	cache="none"/>								
+		</fd:field>	
+		
+		<fd:booleanfield id="pagado">
+            <fd:label>Pagados en Multipagos:</fd:label>
+            <fd:help>Clientes que han pagado a Colectores de Multipagos</fd:help>
+        </fd:booleanfield>
+        
+        <fd:booleanfield id="pagadoClaro">
+            <fd:label>Pagados en Claro:</fd:label>
+            <fd:help>Clientes que han pagado en oficinas de Claro</fd:help>
+        </fd:booleanfield>
+        
+        <fd:submit id="excel">
+            <fd:label>Excel</fd:label>
+            <fd:help>Excel</fd:help>
+            <fd:hint>Excel</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

@@ -3,4 +3,5 @@
     <fb:value id="barrioNombre" path="barrioNombre"/>
     <fb:value id="localidadId" path="localidadId"/>
     <fb:value id="inactivo" path="inactivo"/>
+    <fb:value id="barrioId" path="barrioId"/>
 </fb:context>

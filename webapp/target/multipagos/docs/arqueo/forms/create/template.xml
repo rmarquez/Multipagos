@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+  <header>
+    <title>Arqueo</title>
+  </header>
+  <body>
+  <s1 title="Crear Arqueo">
+  <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+  <ft:continuation-id/>
+  <ft:widget id="autorizado"><fi:styling type="hidden"/></ft:widget>
+  <ft:widget id="mensajes de error"/>
+  <fi:items>
+         <table>	           
+            <tr>
+             <tw>
+                 <ft:widget-label id="auth_user"/>
+                 <ft:widget id="auth_user"></ft:widget>
+             </tw>
+             <tw>
+                 <ft:widget-label id="auth_passwd"/>
+                 <ft:widget id="auth_passwd"><fi:styling type="password"/></ft:widget>
+             </tw>                                 
+            </tr>           
+         </table>
+  </fi:items>
+  
+  <!-- Encabezado -->
+  <fi:group>
+    <fi:styling layout="row"/>
+    <fi:items>
+    
+   <fi:group>      
+    
+     </fi:group>  
+    
+    <fi:group>
+    
+        <fi:group>
+          <fi:label>General</fi:label>
+          <fi:styling type="fieldset" layout="row"/>
+          <fi:items>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                <ft:widget id="usrId"/>
+                <ft:widget id="pagoFecha"/>
+              </fi:items>
+            </fi:group>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                  <ft:widget id="colectorId"/>
+              </fi:items>
+            </fi:group>            
+          </fi:items>
+        </fi:group>
+        
+        <fi:group>
+          <fi:label>Totales</fi:label>
+          <fi:styling type="fieldset" layout="row"/>
+          <fi:items>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                
+              	<ft:widget id="totalRecibo"/>
+              	<ft:widget id="totalCs"/>
+              	<ft:widget id="totalCkCs"/>
+              	<ft:widget id="totalDpCs"/>
+              </fi:items>
+            </fi:group>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+                  <ft:widget id="totalGeneral"/>
+                  <ft:widget id="totalUs"/>
+                  <ft:widget id="totalCkUs"/>
+                  <ft:widget id="totalDpUs"/>
+              </fi:items>
+            </fi:group>
+            <fi:group>
+              <fi:styling layout="columns"/>
+              <fi:items>
+              		 <tr>
+                       <tw>
+                         <ft:widget-label id="diferencia"/><diferencian><ft:widget id="diferencia"/></diferencian>
+                       </tw>                            
+                     </tr>
+                  
+                   <ft:widget id="conversionUs"/>
+                   <ft:widget id="conversionCkUs"/>
+                   <ft:widget id="conversionDpUs"/>
+              </fi:items>
+            </fi:group>            
+          </fi:items>
+        </fi:group>
+        
+        <fi:group>
+          <fi:styling type="tabs" layout="columns"/>
+          <fi:label>Seleccione una pestaña:</fi:label>
+          <fi:items>
+          
+          <fi:group>
+     <fi:label>Datos pagos</fi:label>
+     <fi:styling layout="columns"/>
+     <fi:items>
+      <fi:group>
+         <fi:styling layout="columns"/>
+         <fi:label>Efectivo</fi:label>
+         <fi:items>
+	     <ft:repeater id="detalle">
+	       <div>
+	         <table>
+	           <thead>
+	             <tr>
+	               <th><ft:repeater-widget-label widget-id="recibo"/></th>
+	               <th><ft:repeater-widget-label widget-id="facturaInterna"/></th>
+	               <th><ft:repeater-widget-label widget-id="suscriptor"/></th>
+	               <th><ft:repeater-widget-label widget-id="numContrato"/></th>
+	               <th><ft:repeater-widget-label widget-id="fecha"/></th>
+	               <th><ft:repeater-widget-label widget-id="monto"/></th>
+	             </tr>
+	           </thead>
+	           <tbody>
+	             <ft:repeater-rows>
+	               <tr>
+	                 <td><ft:widget id="recibo"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="facturaInterna"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="suscriptor"/></td>
+	                 <td><ft:widget id="numContrato"><fi:styling size="6"/></ft:widget></td>
+	                 <td><ft:widget id="fecha"/></td>
+	                 <td><ft:widget id="monto"><fi:styling size="5"/></ft:widget></td>
+	               </tr>
+	             </ft:repeater-rows> 	                         
+	           </tbody>
+	         </table>
+	       </div>
+	     </ft:repeater>
+	     </fi:items>
+          </fi:group>
+        </fi:items>
+      </fi:group>
+           
+            <!-- Primer Pestaña -->
+            <fi:group>
+              <fi:label>Efectivo (C$)</fi:label>
+              <fi:styling layout="columns"/>
+              <fi:items>
+               <fi:group>
+                  <fi:styling type="fieldset" layout="columns"/>
+                  <fi:label>Efectivo</fi:label>
+                  <fi:items>
+                    <ft:repeater id="detalleCantidad">
+                      <div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th><ft:repeater-widget-label widget-id="cantidadId"/></th>
+                              <th><ft:repeater-widget-label widget-id="cantidad"/></th>
+                              <th><ft:repeater-widget-label widget-id="total"/></th>
+                              <th><ft:repeater-widget-label widget-id="marcar"/></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ft:repeater-rows>
+                              <tr>
+                                <td><ft:widget id="cantidadId"/></td>
+                                <td><ft:widget id="cantidad"><fi:styling size="5"/></ft:widget></td>
+                                <td><ft:widget id="total"/></td>
+                                <td><ft:widget id="marcar"/></td>
+                                <td><ft:widget id="cantidadValor"><fi:styling type="hidden"/></ft:widget></td>
+                              </tr>
+                            </ft:repeater-rows>
+                            <tr>
+                              <td colspan="4" align="right">
+                                <ft:widget id="../agregar"/>
+                                <ft:widget id="../eliminar"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ft:repeater>
+                  </fi:items>
+                </fi:group>
+              </fi:items>
+            </fi:group>
+            
+            <!-- Segunda Pestaña -->
+            <fi:group>
+              <fi:label>Efectivo (U$)</fi:label>
+              <fi:styling layout="columns"/>
+              <fi:items>
+               <fi:group>
+                  <fi:styling type="fieldset" layout="columns"/>
+                  <fi:label>Efectivo U$</fi:label>
+                  <fi:items>
+                    <ft:repeater id="detalleCantidadUs">
+                      <div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th><ft:repeater-widget-label widget-id="cantidadIdUs"/></th>
+                               <th><ft:repeater-widget-label widget-id="cantidadUs"/></th>
+                               <th><ft:repeater-widget-label widget-id="totalUs"/></th>
+                               <th><ft:repeater-widget-label widget-id="marcar-us"/></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ft:repeater-rows>
+                              <tr>
+                                <td><ft:widget id="cantidadIdUs"/></td>
+                                <td><ft:widget id="cantidadUs"><fi:styling size="5"/></ft:widget></td>
+                                <td><ft:widget id="totalUs"/></td>
+                                <td><ft:widget id="marcar-us"/></td>
+                                <td><ft:widget id="cantidadValorUs"><fi:styling type="hidden"/></ft:widget></td>
+                              </tr>
+                            </ft:repeater-rows>
+                            <tr>
+                              <td colspan="4" align="right">
+                                <ft:widget id="../agregar-us"/>
+                                <ft:widget id="../eliminar-us"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ft:repeater>
+                  </fi:items>
+                </fi:group>
+              </fi:items>
+            </fi:group>
+            
+            <!-- Tercera Pestaña -->
+            <fi:group>
+              <fi:label>Detalle CK</fi:label>
+              <fi:styling layout="columns"/>
+              <fi:items>
+               <fi:group>
+                  <fi:styling type="fieldset" layout="columns"/>
+                  <fi:label>Cheque</fi:label>
+                  <fi:items>
+                    <ft:repeater id="detalleCheque">
+                      <div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th><ft:repeater-widget-label widget-id="bancoId"/></th>
+                              <th><ft:repeater-widget-label widget-id="numeroCheque"/></th>
+                              <th><ft:repeater-widget-label widget-id="dolares"/></th>
+                              <th><ft:repeater-widget-label widget-id="beneficiario"/></th>
+                              <th><ft:repeater-widget-label widget-id="montoCs"/></th>
+                              <th><ft:repeater-widget-label widget-id="montoUs"/></th>
+                              <th><ft:repeater-widget-label widget-id="conversion"/></th>
+                              <th><ft:repeater-widget-label widget-id="marcar-cheque"/></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ft:repeater-rows>
+                              <tr>
+                                <td><ft:widget id="bancoId"/></td>
+                                <td><ft:widget id="numeroCheque"/></td>
+                                <td><ft:widget id="dolares"/></td>
+                                <td><ft:widget id="beneficiario"/></td>
+                                <td><ft:widget id="montoCs"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="montoUs"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="conversion"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="marcar-cheque"/></td>
+                              </tr>
+                            </ft:repeater-rows>
+                            <tr>
+                              <td colspan="8" align="right">
+                                <ft:widget id="../agregar-cheque"/>
+                                <ft:widget id="../eliminar-cheque"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ft:repeater>
+                  </fi:items>
+                </fi:group>
+              </fi:items>
+            </fi:group>          
+            
+            <!-- Cuarta Pestaña -->
+            <fi:group>
+              <fi:label>Detalle Depositos</fi:label>
+              <fi:styling layout="columns"/>
+              <fi:items>
+               <fi:group>
+                  <fi:styling type="fieldset" layout="columns"/>
+                  <fi:label>Depositos</fi:label>
+                  <fi:items>
+                    <ft:repeater id="detalleDepositos">
+                      <div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th><ft:repeater-widget-label widget-id="dolares"/></th>
+                              <th><ft:repeater-widget-label widget-id="cuentaCs"/></th>
+                              <th><ft:repeater-widget-label widget-id="cuentaUs"/></th>
+                              <th><ft:repeater-widget-label widget-id="referencia"/></th>
+                              <th><ft:repeater-widget-label widget-id="montoCs"/></th>
+                              <th><ft:repeater-widget-label widget-id="montoUs"/></th>
+                              <th><ft:repeater-widget-label widget-id="conversion"/></th>
+                              <th><ft:repeater-widget-label widget-id="marcar-deposito"/></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <ft:repeater-rows>
+                              <tr>
+                                <td><ft:widget id="dolares"/></td>
+                                <td><ft:widget id="cuentaCs"/></td>
+                                <td><ft:widget id="cuentaUs"/></td>                                    
+                                <td><ft:widget id="referencia"/></td>
+                                <td><ft:widget id="montoCs"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="montoUs"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="conversion"><fi:styling size="6"/></ft:widget></td>
+                                <td><ft:widget id="marcar-deposito"/></td>
+                              </tr>
+                            </ft:repeater-rows>
+                            <tr>
+                              <td colspan="8" align="right">
+                                <ft:widget id="../agregar-deposito"/>
+                                <ft:widget id="../eliminar-deposito"/>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </ft:repeater>
+                  </fi:items>
+                </fi:group>
+              </fi:items>
+            </fi:group>
+                    
+          </fi:items>
+        </fi:group> 
+   </fi:group>        
+                   
+     </fi:items>     
+     
+   </fi:group>    					
+   
+   <ft:widget id="crear"/> 
+   <ft:widget id="aceptar"/>  
+  </ft:form-template>
+ </s1>
+ </body>
+</document>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    <header>
+        <title>Cartera x departamento</title>
+    </header>
+    <body>
+        <s1 title="Cartera x departamento">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+            <ft:widget id="mensajes de error"/>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del cliente</fi:label>
+                    <fi:items>
+                    	<ft:widget id="pagado"><fi:styling type="hidden"/></ft:widget>
+                    	
+                    	<ft:widget id="fechaIngreso"/>
+                        <ft:widget id="contrato"/>
+                        <ft:widget id="suscriptor"/>
+                        <ft:widget id="nit"/>
+                        <ft:widget id="direccion"><fi:styling type="textarea" cols="43" rows="2"/></ft:widget>
+                        <ft:widget id="departamentoId"/>
+                        
+                        <ft:widget id="localidadId"/>
+                        <ft:widget id="barrioId"/>
+                        <ft:widget id="facturaInterna"/>
+                        <ft:widget id="numeroFiscal"/>
+                        <ft:widget id="anio"/>
+                        <ft:widget id="mes"/>
+                        <ft:widget id="saldo"/>
+                        <ft:widget id="estadoId"/>
+                        <ft:widget id="cupon"/>
+                        <ft:widget id="telefono"/>
+                        
+                        <ft:widget id="descuento"/>
+                        <ft:widget id="servicioId"/>
+                        <ft:widget id="empleador"/>
+                        <ft:widget id="direccionEmpleador"><fi:styling type="textarea" cols="43" rows="2"/></ft:widget>
+                        <ft:widget id="contratoRepetir"/>
+                        <table>
+                        <thead>
+                                <tr>
+                                    <th colspan="2">Datos del pago</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <ft:widget id="colectorId"/>
+                        <ft:widget id="recibo"/>
+                        <ft:widget id="montoPago"/>
+                        <ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget>
+                        
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <!-- <fd:validation>
+        <fd:javascript>        	
+            return validarForm(widget);         
+        </fd:javascript>
+    </fd:validation>  -->
+    
+    <fd:widgets>
+    	<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages> 	
+        
+        <fd:field id="colectorId" required="true">
+			<fd:label>Colector:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:suggestion-list type="javascript">
+		      return suggestionListColector(filter);
+		    </fd:suggestion-list>
+		</fd:field>
+		
+        <fd:field id="departamentoId" required="true">
+            <fd:label>Departamento: </fd:label>
+            <fd:help>Elija el departamento de la localidad</fd:help>
+            <fd:hint>Departamento</fd:hint>
+            <fd:datatype base="integer"/>            
+            <fd:selection-list src="cocoon:/departamentos.combo" dynamic="true"/>
+            <fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarDepartamento(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+		
+        <fd:field id="localidadId" required="true">
+			<fd:label>Localidad</fd:label>
+			<fd:datatype base="integer" />					
+			<fd:selection-list src="cocoon:/localidad.combo" dynamic="true"/>
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarLocalidad(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+		
+		<fd:booleanfield id="inactivo">
+            <fd:label>Inactivo:</fd:label>
+            <fd:help>Indique si la asignacion se encuentra inactiva</fd:help>
+        </fd:booleanfield>
+		
+        <fd:repeater id="detalle" initial-size="1">
+            <fd:widgets>
+            	
+                
+               <fd:field id="barrioId">
+               		<fd:label>Barrio</fd:label>
+					<fd:datatype base="integer"/>
+					<fd:selection-list src="cocoon:/barrio.combo" cache="request" />
+				</fd:field>
+				
+				
+				<fd:booleanfield id="marcar">
+					<fd:label>Seleccionar</fd:label>
+					<fd:hint>Selecciona el registro.</fd:hint>
+					<fd:help>
+						Los registros seleccionados serán eliminados del
+						formulario cuando se haga click en el botón
+						<b>Eliminar</b>
+					</fd:help>
+				</fd:booleanfield>
+				</fd:widgets>
+			</fd:repeater>
+
+			<fd:repeater-action id="agregar" command="add-row"	repeater="detalle">
+				<fd:label>Agregar</fd:label>
+				<fd:hint>
+					Haga click en el botón para agregar un registro.
+				</fd:hint>				
+			</fd:repeater-action>
+
+			<fd:repeater-action id="eliminar" command="delete-rows"
+				repeater="detalle" select="marcar">
+				<fd:label>Eliminar</fd:label>
+				<fd:hint>
+					Haga click en el botón para eliminar los registros
+					seleccionados.
+				</fd:hint>				
+			</fd:repeater-action>
+				
+        <fd:submit id="guardar">
+            <fd:label>Guardar</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

@@ -2,4 +2,5 @@
 <fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
     <fb:value id="bancoNombre" path="bancoNombre"/>
     <fb:value id="inactivo" path="inactivo"/>
+    <fb:value id="bancoId" path="bancoId"/>
 </fb:context>

@@ -239,8 +239,7 @@ public class CarteraXDepartamentoHandler {
 			}
 		}
 	
-	public static CarteraXDepartamento carteraXFactura(final String factura)
-			throws Exception {
+	public static CarteraXDepartamento carteraXFactura(final String factura) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
@@ -254,8 +253,8 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-	public static CarteraXDepartamento carteraXFactura(final String factura,
-			final PersistenceBroker broker) {
+	
+	private static CarteraXDepartamento carteraXFactura(final String factura, final PersistenceBroker broker) {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setFacturaInterna(factura);
 		Query query = new QueryByCriteria(criterio);
@@ -263,12 +262,13 @@ public class CarteraXDepartamentoHandler {
 	}
 	
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato, final Boolean diferido)
+	public static CarteraXDepartamento carteraXContrato(final String contrato )
 			throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			return carteraXContrato(contrato, diferido, broker);
+			return carteraXContrato(contrato, broker);
+		
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -278,12 +278,9 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-	private static CarteraXDepartamento carteraXContrato(final String contrato, final Boolean diferido,
-			final PersistenceBroker broker) {
+		private static CarteraXDepartamento carteraXContrato(final String contrato, final PersistenceBroker broker) {
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);
-		criterio.setEsDiferido(diferido);
-		//criterio.setPagado(Boolean.FALSE);
 		Query query = new QueryByCriteria(criterio);
 		return (CarteraXDepartamento) broker.getObjectByQuery(query);
 	}

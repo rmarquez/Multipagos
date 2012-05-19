@@ -6,12 +6,15 @@
     <body>
         <s1 title="Departamento">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+            <ft:continuation-id/>
+            <ft:widget id="mensajes de error"/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Agregar datos del departamento</fi:label>
                     <fi:items>
                         <ft:widget id="departamentoNombre"/>
                         <ft:widget id="inactivo"><fi:styling type="hidden"/></ft:widget>
+                        <ft:widget id="departamentoId"><fi:styling type="hidden"/></ft:widget>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="crear"/>

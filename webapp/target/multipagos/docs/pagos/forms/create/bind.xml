@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="usrId" path="usrId"/>
+    <fb:value id="fecha" path="fecha"/>
+    <fb:value id="montoTotal" path="montoTotal"/>
+    <fb:value id="cantidadPagos" path="cantidadPagos"/>
+
+	<fb:repeater id="detalle" parent-path="." row-path="detallePagosList">
+        <fb:identity>
+            <fb:value id="carteraId" path="carteraId"/>
+            <fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="barrioId" path="barrioId"/>
+            <fb:value id="servicioId" path="servicioId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="porContrato" path="porContrato"/>
+        	<fb:value id="carteraId" path="carteraId"/>
+        	<fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="localidadId" path="localidadId"/>
+            <fb:value id="barrioId" path="barrioId"/>
+            <fb:value id="servicioId" path="servicioId"/>            
+            <fb:value id="numContrato" path="numeroContrato"/>
+            <fb:value id="fechaPago" path="fechaPago"/>
+            <fb:value id="facturaInterna" path="facturaInterna"/>
+            <fb:value id="cupon" path="cupon"/>
+            <fb:value id="numeroFiscal" path="numeroFiscal"/>
+            <fb:value id="montoPago" path="montoPago"/>
+            <fb:value id="recibo" path="recibo"/>
+            <fb:value id="horaRegistro" path="horaRegistro"/>
+            <fb:value id="observaciones" path="observaciones"/>
+            <fb:value id="salgoPagar" path="salgoPagar"/>
+            <fb:value id="year" path="anio"/>
+            <fb:value id="mes" path="mes"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.DetallePagos" addmethod="addDetallePagos"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+</fb:context>

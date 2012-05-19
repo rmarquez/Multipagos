@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="0.022" errors="2" skipped="0" tests="2" name="com.metropolitana.multipagos.forms.TestLocalidad">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/java/jdk1.7.0_04/jre/lib/i386"/>
+    <property name="java.vm.version" value="23.0-b21"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/rmarquez/workspace/multipagos/dao"/>
+    <property name="java.runtime.version" value="1.7.0_04-b20"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="basedir" value="/home/rmarquez/workspace/multipagos/dao"/>
+    <property name="java.endorsed.dirs" value="/usr/java/jdk1.7.0_04/jre/lib/endorsed"/>
+    <property name="os.arch" value="i386"/>
+    <property name="surefire.real.class.path" value="/tmp/surefirebooter5926336101460301227.jar"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/i386:/lib:/usr/lib"/>
+    <property name="surefire.test.class.path" value="/home/rmarquez/workspace/multipagos/dao/target/test-classes:/home/rmarquez/workspace/multipagos/dao/target/classes:/home/rmarquez/.m2/repository/net/sourceforge/jexcelapi/jxl/2.6/jxl-2.6.jar:/home/rmarquez/.m2/repository/cglib/cglib/2.1_3/cglib-2.1_3.jar:/home/rmarquez/.m2/repository/asm/asm/1.5.3/asm-1.5.3.jar:/home/rmarquez/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar:/home/rmarquez/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/home/rmarquez/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/home/rmarquez/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/home/rmarquez/.m2/repository/commons-pool/commons-pool/1.3/commons-pool-1.3.jar:/home/rmarquez/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/home/rmarquez/.m2/repository/commons-dbcp/commons-dbcp/1.2.1/commons-dbcp-1.2.1.jar:/home/rmarquez/.m2/repository/ojb/db-ojb/1.0.4-r434474/db-ojb-1.0.4-r434474.jar:/home/rmarquez/.m2/repository/postgresql/postgresql/9.0-801.jdbc4/postgresql-9.0-801.jdbc4.jar:/home/rmarquez/.m2/repository/rhino/js/1.6R2/js-1.6R2.jar:/home/rmarquez/workspace/multipagos/bean/target/multipagos-bean-1.0-SNAPSHOT.jar:/home/rmarquez/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar:/home/rmarquez/.m2/repository/junit/junit/4.0/junit-4.0.jar:"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot Tiered Compilers"/>
+    <property name="os.version" value="2.6.43.2-6.fc15.i686.PAE"/>
+    <property name="user.home" value="/home/rmarquez"/>
+    <property name="user.timezone" value="America/Managua"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="user.name" value="rmarquez"/>
+    <property name="java.class.path" value="/home/rmarquez/workspace/multipagos/dao/target/test-classes:/home/rmarquez/workspace/multipagos/dao/target/classes:/home/rmarquez/.m2/repository/net/sourceforge/jexcelapi/jxl/2.6/jxl-2.6.jar:/home/rmarquez/.m2/repository/cglib/cglib/2.1_3/cglib-2.1_3.jar:/home/rmarquez/.m2/repository/asm/asm/1.5.3/asm-1.5.3.jar:/home/rmarquez/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar:/home/rmarquez/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/home/rmarquez/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/home/rmarquez/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/home/rmarquez/.m2/repository/commons-pool/commons-pool/1.3/commons-pool-1.3.jar:/home/rmarquez/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/home/rmarquez/.m2/repository/commons-dbcp/commons-dbcp/1.2.1/commons-dbcp-1.2.1.jar:/home/rmarquez/.m2/repository/ojb/db-ojb/1.0.4-r434474/db-ojb-1.0.4-r434474.jar:/home/rmarquez/.m2/repository/postgresql/postgresql/9.0-801.jdbc4/postgresql-9.0-801.jdbc4.jar:/home/rmarquez/.m2/repository/rhino/js/1.6R2/js-1.6R2.jar:/home/rmarquez/workspace/multipagos/bean/target/multipagos-bean-1.0-SNAPSHOT.jar:/home/rmarquez/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar:/home/rmarquez/.m2/repository/junit/junit/4.0/junit-4.0.jar:"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="/usr/java/jdk1.7.0_04/jre"/>
+    <property name="sun.java.command" value="/tmp/surefirebooter5926336101460301227.jar /tmp/surefire7022862425878007274tmp /tmp/surefire3119434478862285349tmp"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_04"/>
+    <property name="java.ext.dirs" value="/usr/java/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.boot.class.path" value="/usr/java/jdk1.7.0_04/jre/lib/resources.jar:/usr/java/jdk1.7.0_04/jre/lib/rt.jar:/usr/java/jdk1.7.0_04/jre/lib/sunrsasign.jar:/usr/java/jdk1.7.0_04/jre/lib/jsse.jar:/usr/java/jdk1.7.0_04/jre/lib/jce.jar:/usr/java/jdk1.7.0_04/jre/lib/charsets.jar:/usr/java/jdk1.7.0_04/jre/lib/jfr.jar:/usr/java/jdk1.7.0_04/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="localRepository" value="/home/rmarquez/.m2/repository"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase time="0.009" classname="com.metropolitana.multipagos.forms.TestLocalidad" name="testInsertRetrieveBroker">
+    <error message="Used ConnectionManager instance could not obtain a connection" type="org.apache.ojb.broker.PersistenceBrokerException">org.apache.ojb.broker.PersistenceBrokerException: Used ConnectionManager instance could not obtain a connection
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:610)
+	at org.apache.ojb.broker.accesslayer.JdbcAccessImpl.executeDelete(JdbcAccessImpl.java:169)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:725)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:757)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at com.metropolitana.multipagos.junit.PBTestBase.removeAll(PBTestBase.java:42)
+	at com.metropolitana.multipagos.junit.PBTestBase.removeAll(PBTestBase.java:33)
+	at com.metropolitana.multipagos.forms.TestLocalidad.cleanUpDB(TestLocalidad.java:115)
+	at com.metropolitana.multipagos.junit.PBTestBase.setUp(PBTestBase.java:22)
+	at com.metropolitana.multipagos.forms.TestLocalidad.setUp(TestLocalidad.java:23)
+	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.junit.internal.runners.OldTestClassRunner.run(OldTestClassRunner.java:35)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345)
+	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009)
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Could not borrow connection from pool. Active/Idle instances in pool=0/0. org.apache.ojb.broker.metadata.JdbcConnectionDescriptor:  org.apache.ojb.broker.metadata.JdbcConnectionDescriptor@12bd56c[
+  jcd-alias=default
+  default-connection=true
+  dbms=PostgreSQL
+  jdbc-level=3.0
+  driver=org.postgresql.Driver
+  protocol=jdbc
+  sub-protocol=postgresql
+  db-alias=//localhost:5432/multipagos-test
+  user=postgres
+  password=*****
+  eager-release=false
+  ConnectionPoolDescriptor={whenExhaustedAction=0, validationQuery=SELECT 1, maxIdle=-1, maxActive=21, maxWait=5000, removeAbandoned=false, numTestsPerEvictionRun=10, minEvictableIdleTimeMillis=600000, testWhileIdle=false, testOnReturn=false, logAbandoned=false, minIdle=0, fetchSize=0, removeAbandonedTimeout=300, timeBetweenEvictionRunsMillis=-1, testOnBorrow=true}
+  batchMode=false
+  useAutoCommit=AUTO_COMMIT_SET_TRUE_AND_TEMPORARY_FALSE
+  ignoreAutoCommitExceptions=false
+  sequenceDescriptor=org.apache.ojb.broker.metadata.SequenceDescriptor@1856a0a[
+     sequenceManagerClass=class org.apache.ojb.broker.util.sequence.SequenceManagerNextValImpl
+     Properties={autoNaming=true}
+]
+]
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:119)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.lookupConnection(ConnectionFactoryAbstractImpl.java:139)
+	at org.apache.ojb.broker.accesslayer.ConnectionManagerImpl.getConnection(ConnectionManagerImpl.java:117)
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:606)
+	... 28 more
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Error getting Connection from DriverManager with url (jdbc:postgresql://localhost:5432/multipagos-test) and driver (org.postgresql.Driver)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:285)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl$ConPoolFactory.makeObject(ConnectionFactoryPooledImpl.java:275)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:840)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:93)
+	... 31 more
+Caused by: org.postgresql.util.PSQLException: FATAL: no existe la base de datos ��multipagos-test��
+	at org.postgresql.core.v3.ConnectionFactoryImpl.readStartupMessages(ConnectionFactoryImpl.java:469)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:112)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.&lt;init&gt;(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.&lt;init&gt;(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.&lt;init&gt;(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.&lt;init&gt;(AbstractJdbc4Connection.java:30)
+	at org.postgresql.jdbc4.Jdbc4Connection.&lt;init&gt;(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at java.sql.DriverManager.getConnection(DriverManager.java:579)
+	at java.sql.DriverManager.getConnection(DriverManager.java:190)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:279)
+	... 34 more
+</error>
+  </testcase>
+  <testcase time="0.008" classname="com.metropolitana.multipagos.forms.TestLocalidad" name="testGetListBroker">
+    <error message="Used ConnectionManager instance could not obtain a connection" type="org.apache.ojb.broker.PersistenceBrokerException">org.apache.ojb.broker.PersistenceBrokerException: Used ConnectionManager instance could not obtain a connection
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:610)
+	at org.apache.ojb.broker.accesslayer.JdbcAccessImpl.executeDelete(JdbcAccessImpl.java:169)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:725)
+	at org.apache.ojb.broker.core.PersistenceBrokerImpl.deleteByQuery(PersistenceBrokerImpl.java:757)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at org.apache.ojb.broker.core.DelegatingPersistenceBroker.deleteByQuery(DelegatingPersistenceBroker.java:403)
+	at com.metropolitana.multipagos.junit.PBTestBase.removeAll(PBTestBase.java:42)
+	at com.metropolitana.multipagos.junit.PBTestBase.removeAll(PBTestBase.java:33)
+	at com.metropolitana.multipagos.forms.TestLocalidad.cleanUpDB(TestLocalidad.java:115)
+	at com.metropolitana.multipagos.junit.PBTestBase.setUp(PBTestBase.java:22)
+	at com.metropolitana.multipagos.forms.TestLocalidad.setUp(TestLocalidad.java:23)
+	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.junit.internal.runners.OldTestClassRunner.run(OldTestClassRunner.java:35)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:345)
+	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:1009)
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Could not borrow connection from pool. Active/Idle instances in pool=0/0. org.apache.ojb.broker.metadata.JdbcConnectionDescriptor:  org.apache.ojb.broker.metadata.JdbcConnectionDescriptor@12bd56c[
+  jcd-alias=default
+  default-connection=true
+  dbms=PostgreSQL
+  jdbc-level=3.0
+  driver=org.postgresql.Driver
+  protocol=jdbc
+  sub-protocol=postgresql
+  db-alias=//localhost:5432/multipagos-test
+  user=postgres
+  password=*****
+  eager-release=false
+  ConnectionPoolDescriptor={whenExhaustedAction=0, validationQuery=SELECT 1, maxIdle=-1, maxActive=21, maxWait=5000, removeAbandoned=false, numTestsPerEvictionRun=10, minEvictableIdleTimeMillis=600000, testWhileIdle=false, testOnReturn=false, logAbandoned=false, minIdle=0, fetchSize=0, removeAbandonedTimeout=300, timeBetweenEvictionRunsMillis=-1, testOnBorrow=true}
+  batchMode=false
+  useAutoCommit=AUTO_COMMIT_SET_TRUE_AND_TEMPORARY_FALSE
+  ignoreAutoCommitExceptions=false
+  sequenceDescriptor=org.apache.ojb.broker.metadata.SequenceDescriptor@1856a0a[
+     sequenceManagerClass=class org.apache.ojb.broker.util.sequence.SequenceManagerNextValImpl
+     Properties={autoNaming=true}
+]
+]
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:119)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.lookupConnection(ConnectionFactoryAbstractImpl.java:139)
+	at org.apache.ojb.broker.accesslayer.ConnectionManagerImpl.getConnection(ConnectionManagerImpl.java:117)
+	at org.apache.ojb.broker.accesslayer.StatementManager.getPreparedStatement(StatementManager.java:606)
+	... 28 more
+Caused by: org.apache.ojb.broker.accesslayer.LookupException: Error getting Connection from DriverManager with url (jdbc:postgresql://localhost:5432/multipagos-test) and driver (org.postgresql.Driver)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:285)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl$ConPoolFactory.makeObject(ConnectionFactoryPooledImpl.java:275)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:840)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryPooledImpl.checkOutJdbcConnection(ConnectionFactoryPooledImpl.java:93)
+	... 31 more
+Caused by: org.postgresql.util.PSQLException: FATAL: no existe la base de datos ��multipagos-test��
+	at org.postgresql.core.v3.ConnectionFactoryImpl.readStartupMessages(ConnectionFactoryImpl.java:469)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:112)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:66)
+	at org.postgresql.jdbc2.AbstractJdbc2Connection.&lt;init&gt;(AbstractJdbc2Connection.java:125)
+	at org.postgresql.jdbc3.AbstractJdbc3Connection.&lt;init&gt;(AbstractJdbc3Connection.java:30)
+	at org.postgresql.jdbc3g.AbstractJdbc3gConnection.&lt;init&gt;(AbstractJdbc3gConnection.java:22)
+	at org.postgresql.jdbc4.AbstractJdbc4Connection.&lt;init&gt;(AbstractJdbc4Connection.java:30)
+	at org.postgresql.jdbc4.Jdbc4Connection.&lt;init&gt;(Jdbc4Connection.java:24)
+	at org.postgresql.Driver.makeConnection(Driver.java:393)
+	at org.postgresql.Driver.connect(Driver.java:267)
+	at java.sql.DriverManager.getConnection(DriverManager.java:579)
+	at java.sql.DriverManager.getConnection(DriverManager.java:190)
+	at org.apache.ojb.broker.accesslayer.ConnectionFactoryAbstractImpl.newConnectionFromDriverManager(ConnectionFactoryAbstractImpl.java:279)
+	... 34 more
+</error>
+  </testcase>
+</testsuite>

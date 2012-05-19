@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    
+	<header>
+        <title>Asignacion Visitas</title>
+    </header>
+    <body>
+        <s1 title="Asignacion Visitas">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST" ajax="true">
+             <ft:continuation-id/>
+             <ft:widget id="mensajes de error"/>                
+        	<fi:group>
+                <fi:styling layout="columns"/>
+                <fi:items>
+                    <ft:widget id="usrId"/>
+                    <ft:widget id="fecha"/>
+          	  		<ft:widget id="colectorId"/>
+          	  		<fi:group>
+                    	<fi:styling type="fieldset" layout="row"/>
+                    	<fi:label>Barrios y Servicios</fi:label>
+	                    <fi:items>
+		          	  		<!-- <fi:group>
+		                    <fi:styling type="fieldset" layout="columns"/>
+		                    <fi:label>Barrios</fi:label>  -->
+		                    	<fi:items>
+			          	  		<ft:widget id="barrioId">
+						              <fi:styling list-type="dojo-double-listbox" size="6">
+						                <fi:available-label>Barrios</fi:available-label>
+						                <fi:selected-label>Seleccionados</fi:selected-label>
+						              </fi:styling>
+						        </ft:widget>
+						        
+						        
+						        
+						        </fi:items>
+			                
+		                    	<!-- <fi:items>
+						        <ft:widget id="servicioId">
+						              <fi:styling list-type="dojo-double-listbox" size="6">
+						                <fi:available-label>Servicios</fi:available-label>
+						                <fi:selected-label>Seleccionados</fi:selected-label>
+						              </fi:styling>
+						        </ft:widget>
+					        </fi:items> -->
+			               
+	                	</fi:items>
+	                </fi:group>
+	                
+			        
+			        <!-- <fi:group>
+                    	<fi:styling type="fieldset" layout="row"/>
+                    	<fi:label>Fecha Asignacion y Meses pendientes</fi:label>
+	                    <fi:items>        
+				                <fi:group>
+			                    	<fi:styling type="fieldset" layout="columns"/>		                    	
+				                    <fi:items>
+					                    <ft:widget id="fechaIni"/>
+					          	  		<ft:widget id="fechaFin"/>
+				          	  		</fi:items>
+				                </fi:group>
+	                 			
+				                    	<fi:items>
+								        <ft:widget id="meses">
+								              <fi:styling list-type="dojo-double-listbox" size="6">
+								                <fi:available-label>Meses</fi:available-label>
+								                <fi:selected-label>Seleccionados</fi:selected-label>
+								              </fi:styling>
+								        </ft:widget>
+							        </fi:items>
+				               
+				        </fi:items>
+             		</fi:group> -->        
+				                
+                 		</fi:items>
+             </fi:group>
+               	<br></br>
+                <!-- <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>                    
+                    <fi:label>Barrios a Asignar</fi:label>
+                    <fi:items> 
+                                                             
+                    <ft:repeater id="detalle">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>
+                                <th><ft:repeater-widget-label widget-id="barrioId"/></th>
+                              	<th><ft:repeater-widget-label widget-id="marcar"/></th>
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+						<ft:repeater-rows>
+							<tr>
+								<td><ft:widget id="barrioId"/></td>
+								<td><ft:widget id="marcar"/></td>
+							</tr>
+						</ft:repeater-rows>
+						<tr>
+							<td colspan="15" align="right">
+								<ft:widget id="../agregar"/>
+								<ft:widget id="../eliminar"/>
+							</td>
+						</tr>
+					 	</tbody>
+                      </table>
+             		    </div>
+                     </ft:repeater>                   
+                     <br/>                        					
+                 </fi:items>
+             </fi:group> -->
+             <ft:widget id="crear"/>
+         </ft:form-template>
+        </s1>
+    </body>
+</document>

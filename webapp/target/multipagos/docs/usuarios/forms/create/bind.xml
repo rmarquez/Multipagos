@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="usrLogin" path="usrLogin"/>
+    <fb:value id="usrFullName" path="usrFullName"/>
+    <fb:value id="usrPassword" path="usrPassword"/>
+    <fb:value id="usrEnable" path="usrEnable"/>
+    <fb:value id="usrEmail" path="usrEmail"/>
+    <fb:value id="usrCargo" path="usrCargo"/>
+     <fb:value id="usrEditdb" path="usrEditdb"/>
+    <fb:repeater id="roles" parent-path="." row-path="authUserRoleList">
+        <fb:identity>
+            <fb:value path="rolId" id="rolId"/>
+        </fb:identity>
+        <fb:on-bind>
+            <fb:value id="rolId" path="rolId"/>
+        </fb:on-bind>
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.AuthUserRole" addmethod="addAuthUserRole"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+</fb:context>

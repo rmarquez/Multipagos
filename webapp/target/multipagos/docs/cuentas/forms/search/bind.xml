@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="criteria" path="criteria"/>
+</fb:context>

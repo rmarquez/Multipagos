@@ -11,6 +11,8 @@
     <body>
         <s1 title="Editar Barrio">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="POST">
+            <ft:continuation-id/>
+                 <ft:widget id="mensajes de error"/>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Editar datos del barrio</fi:label>
@@ -18,6 +20,8 @@
                     	<ft:widget id="barrioNombre"/>
                         <ft:widget id="localidadId"/>
                         <ft:widget id="inactivo"/>
+                        <ft:widget id="barrioId"><fi:styling type="hidden"/></ft:widget>
+                        <ft:widget id="bN"><fi:styling type="hidden"/></ft:widget>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="guardar"/>

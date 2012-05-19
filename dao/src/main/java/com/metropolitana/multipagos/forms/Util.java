@@ -18,8 +18,13 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import com.metropolitana.multipagos.AuthUser;
 import com.metropolitana.multipagos.TasaFija;
 
-public class Util {
+// RSJ 20120424 
+import java.sql.*;
 
+
+public class Util {
+	
+	
     /**
      * Calcula la fecha que contiene el primer día del mes actual.
      *
@@ -547,5 +552,13 @@ public class Util {
 		long nLong = (long)valor;
 		return nLong;
 		
+	}
+	
+	public static Boolean compararCadenas (String cadena1, String cadena2) {
+		if(cadena1.equals(cadena2)) {
+			return true;
+		} else {
+			return false;
+		}		
 	}
 }

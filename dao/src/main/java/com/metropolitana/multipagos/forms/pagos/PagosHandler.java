@@ -415,8 +415,9 @@ public class PagosHandler {
         try {
             Criteria criterio = new Criteria();
             if (facturaInterna != null && facturaInterna.length() > 0) {
-				criterio.addLike("upper(facturaInterna)",
-						facturaInterna.toUpperCase(Locale.getDefault()) + "*");
+            	// RSJ 20120505  -cambio por ...
+				//criterio.addLike("upper(facturaInterna)",facturaInterna.toUpperCase(Locale.getDefault()) + "*");
+            	criterio.addEqualTo("facturaInterna", facturaInterna);
 			}
             List lst = getNombreList(criterio);
             if (lst.isEmpty()) {

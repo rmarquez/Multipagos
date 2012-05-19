@@ -50,7 +50,7 @@
 										<td><ft:widget id="suscriptor"/></td>
 										<td><ft:widget id="localidadId"/></td>	
 										<td><ft:widget id="fechaVisita"/></td>
-										<td><ft:widget id="simbolo"><fi:styling align="right" size="3"/></ft:widget></td>
+										<td><ft:widget id="simbolo"><fi:styling align="right" size="5"/></ft:widget></td>
 										<td><ft:widget id="simboloNombre"/></td>
 										<td><ft:widget id="fprogCobro"/></td>
 										<td><ft:widget id="servicioId"/></td>

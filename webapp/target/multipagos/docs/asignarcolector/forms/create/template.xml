@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+	<header>
+        <title>Asignar Colector</title>
+    </header>
+    <body>
+        <s1 title="asignacion de colectores">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+             <ft:continuation-id/>
+             <ft:widget id="mensajes de error"/>
+                <fi:group>
+                <fi:styling layout="columns"/>
+                <fi:items>
+                	<ft:widget id="usrId"/>
+                	<ft:widget id="inactivo"/>
+               	</fi:items>
+             </fi:group>
+               	<br></br>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Asignar Colectores</fi:label>
+                    <fi:items>
+                                           
+                    <ft:repeater id="detalle">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>                                
+                              	<th><ft:repeater-widget-label widget-id="colectorId"/></th>
+                              	<th><ft:repeater-widget-label widget-id="marcar"/></th>
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+								<ft:repeater-rows>
+									<tr>
+										<td><ft:widget id="colectorId"/></td>
+										<td><ft:widget id="marcar"/></td>
+									</tr>
+								</ft:repeater-rows>
+								<tr>
+									<td colspan="15" align="right">
+										<ft:widget id="../agregar"/>
+										<ft:widget id="../eliminar"/>
+									</td>
+								</tr>
+								 </tbody>
+                              </table>
+                		    </div>
+                        </ft:repeater>                    
+                        <br/>                        					
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

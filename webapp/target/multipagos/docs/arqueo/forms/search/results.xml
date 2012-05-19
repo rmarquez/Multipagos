@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+    <header>
+        <title>Arqueo</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(fecha, colectorId)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de arqueos">
+            <hrefPaginacion cadena="arqueo.list?fecha=${fecha}&amp;colectorId=${colectorId}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Fecha</th>
+                        <th>Colector</th>
+                        <th>Total en recibos</th>
+                        <th>Total General</th>
+                        <th>Diferencia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+                            <td><jx:formatNumber value="${status.count}"/></td>
+                            <td><jx:formatDate value="${status.current.pagoFecha}" pattern="dd/MMM/yyyy"/></td>
+                            <td>${status.current.colectorIdRef.primerNombre} ${status.current.colectorIdRef.primerApellido}</td>
+                            <td><jx:formatNumber value="${status.current.totalRecibo}"/></td>
+                            <td><jx:formatNumber value="${status.current.totalGeneral}"/></td>
+                            <td><jx:formatNumber value="${status.current.diferencia}"/></td>
+                            <td>
+                               <link href="/multipagos/arqueo/view?arqueoId=${status.current.arqueoId}">Ver</link>
+                             </td>
+                        </tr>
+                    </jx:forEach>
+                </tbody>
+            </table>            
+            <hrefPaginacion cadena="arqueo.list?fecha=${fecha}&amp;colectorId=${colectorId}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+        </s1>       
+    </body>
+     <link href="/multipagos/arqueo/search">Volver</link>
+</document>

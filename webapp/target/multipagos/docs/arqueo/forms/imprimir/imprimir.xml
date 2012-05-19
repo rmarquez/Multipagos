@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <!-- Importamos las macros definidas por el programador -->
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <pagina margin-left="0.75" margin-top="1.25">
+        <table border="0">
+            <tbody>
+                <tr>
+                    <th font-size="15" width="8.0" align="center">
+                        MULTIPAGOS<br/>
+                        COMPROBANTE DE ARQUEO</th>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="25"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td width="0.8"><b>Fecha:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="2"><formatoFecha fecha="${bean.pagoFecha}" patron="d 'de' MMM 'de' yyyy"/></td>
+                    <td width="0.8"><b>Supervisor:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="3.5">${bean.usrIdRef.usrFullName}</td>
+                    <td width="0.8"><b>Colector:</b></td>
+                    <td border-bottom="0" width="3.0" end-indent="5.5">${colector.getPrimerNombre()} ${colector.getPrimerApellido()}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td width="1.3"><b>Hora Arqueo:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="3.5">${hora}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <br space-before-optimum="15"/>        
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE EFECTIVO (C$)</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Denominacion</th>
+	                <th font-size="10" width="2.7" align="center">Cantidad</th>
+	                <th font-size="10" width="2.7" align="center">Total</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>            	
+                <jx:forEach var="item" items="${bean.arqueoCantidadList}">
+                        <tr>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="2.6">${item.cantidadIdRef.cantidadNombre}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="2.7">${item.cantidad}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="2.7"><formatoNumero numero="${item.total}" ceroIfNull="false"/></td>                            
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        <br space-before-optimum="10"/>
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE EFECTIVO (U$)</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Denominacion</th>
+	                <th font-size="10" width="2.7" align="center">Cantidad</th>
+	                <th font-size="10" width="2.7" align="center">Total</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <jx:forEach var="item" items="${bean.arqueoCantidadUsList}">
+                <jx:set var="canValor" value="${cantidadHandler.retrieve(item.cantidadId)}"/>
+                        <tr>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="2.6">${canValor.getCantidadNombre()}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="2.7">${item.cantidad}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="2.7"><formatoNumero numero="${item.total}" ceroIfNull="false"/></td>                            
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        
+        <br space-before-optimum="10"/>
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE CK</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="1.5" align="center">Banco</th>
+	                <th font-size="10" width="1.8" align="center">Numero Cheque</th>
+	                <th font-size="10" width="1.7" align="center">Beneficiario</th>
+	                <th font-size="10" width="1.5" align="center">Monto C$</th>
+	                <th font-size="10" width="1.5" align="center">Monto U$</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <jx:forEach var="item" items="${bean.arqueoChequeList}">
+                        <tr>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.5">${item.bancoIdRef.bancoNombre}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.8">${item.numeroCheque}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.7">${item.beneficiario}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.5"><formatoNumero numero="${item.montoCs}" ceroIfNull="false"/></td>  
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.5"><formatoNumero numero="${item.montoUs}" ceroIfNull="false"/></td>                          
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        
+        <br space-before-optimum="10"/>
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE CK</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="1.5" align="center">No. Cuenta C$</th>
+	                <th font-size="10" width="1.8" align="center">No. Cuenta U$</th>
+	                <th font-size="10" width="1.7" align="center">Referencia</th>
+	                <th font-size="10" width="1.5" align="center">Monto C$</th>
+	                <th font-size="10" width="1.5" align="center">Monto U$</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <jx:forEach var="item" items="${bean.arqueoDepositoList}">
+                        <tr>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.5">${item.cuentaCs}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.8">${item.cuentaUs}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.7">${item.referencia}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.5"><formatoNumero numero="${item.montoCs}" ceroIfNull="false"/></td>  
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.5"><formatoNumero numero="${item.montoUs}" ceroIfNull="false"/></td>                          
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        
+        <br space-before-optimum="25"/>        
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">TOTALES</th></tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="15"/>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Total C$</th>
+	                <th font-size="10" width="2.7" align="center">Total U$</th>
+	                <th font-size="10" width="2.7" align="center">Conversion Us</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                    <tr>
+                        <td align="center" width="2.6"><formatoNumero numero="${bean.totalCs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.totalUs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.conversionUs}" ceroIfNull="false"/></td>                            
+                    </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="10"/>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Total Cheque C$</th>
+	                <th font-size="10" width="2.7" align="center">Total Cheque U$</th>
+	                <th font-size="10" width="2.7" align="center">Conversion Ck Us</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                    <tr>
+                        <td align="center" width="2.6"><formatoNumero numero="${bean.totalCkCs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.totalCkUs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.conversionCkUs}" ceroIfNull="false"/></td>                            
+                    </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="10"/>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Total Deposito C$</th>
+	                <th font-size="10" width="2.7" align="center">Total Deposito U$</th>
+	                <th font-size="10" width="2.7" align="center">Conversion Dp Us</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                    <tr>
+                        <td align="center" width="2.6"><formatoNumero numero="${bean.totalDpCs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.totalDpUs}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.conversionDpUs}" ceroIfNull="false"/></td>                            
+                    </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="20"/>
+        <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE RECIBOS</th></tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                <tr>
+                	<th font-size="10" width="1.0" align="center">Localidad</th>
+	                <th font-size="10" width="1.0" align="center">Contrato</th>
+	                <th font-size="10" width="2.0" align="center">Cliente</th>
+	                <th font-size="10" width="1.0" align="center">Monto</th>
+	                <th font-size="10" width="0.5" align="center">Mes</th>
+	                <th font-size="10" width="0.5" align="center">Año</th>
+	                <th font-size="10" width="1.0" align="center">Factura</th>
+	                <th font-size="10" width="1.0" align="center">Recibo</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>            	
+                <jx:forEach var="item" items="${beanPagos}">
+                        <tr>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.0">${item[5]}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.0">${item[2]}</td>
+                            <td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="2.0">${item[6]}</td>
+                            <td align="center" start-indent="0.2" space-before="0.5" end-indent="0.3" width="1.0"><formatoNumero numero="${item[4]}" ceroIfNull="false"/></td>                            
+                        	<td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="0.5">${item[7]}</td>
+                        	<td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="0.5">${item[8]}</td>
+                        	<td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.0">${item[1]}</td>
+                        	<td align="center" start-indent="0.2"  space-before="0.5"  end-indent="0.3" width="1.0">${item[9]}</td>
+                        </tr>
+                </jx:forEach>
+            </tbody>
+        </table>
+        
+        <br space-before-optimum="20"/>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Total Recibo</th>
+	                <th font-size="10" width="2.7" align="center">Total General</th>
+	                <th font-size="10" width="2.7" align="center" border="2">Diferencia</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                    <tr>
+                        <td align="center" width="2.6"><formatoNumero numero="${bean.totalRecibo}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.totalGeneral}" ceroIfNull="false"/></td>
+                        <th align="center" width="2.7" border="2"><formatoNumero numero="${bean.diferencia}" ceroIfNull="false"/></th>                            
+                    </tr>
+            </tbody>
+        </table>
+
+        <br space-before-optimum="40"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Entregue Conforme<br/>${colector.getPrimerNombre()} ${colector.getPrimerApellido()}<br/></td>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Recibi Conforme<br/>${bean.usrIdRef.usrFullName}<br/></td>
+                </tr>
+            </tbody>          
+           
+                    
+        </table>
+        <br space-before-optimum="16"/>
+    </pagina>    
+</document>

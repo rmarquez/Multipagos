@@ -2,7 +2,7 @@ function editform(form) {
     if (autorizar("cata")) {
         var handlerBean = new Packages.com.metropolitana.multipagos.forms.barrio.BarrioHandler();
         var bean = handlerBean.retrieve(parseInt(cocoon.request.barrioId));
-
+		form.getChild("bN").setValue(bean.getBarrioNombre());
         form.load(bean);
         form.showForm("edit-form-display");
         form.save(bean);

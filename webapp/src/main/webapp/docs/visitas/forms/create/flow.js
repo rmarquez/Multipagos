@@ -7,6 +7,7 @@ importClass(Packages.com.metropolitana.multipagos.forms.simbolo.SimboloHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.colector.ColectorHandler);
 importClass(Packages.org.apache.cocoon.forms.util.I18nMessage);
 importClass(Packages.org.apache.cocoon.forms.datatype.EmptySelectionList);
+
 function createform(form) {
     //if (autorizar("registro_visitas")) {
     	var usrId = auth_getUserID();
@@ -38,8 +39,10 @@ function validarForm(form) {
 	    var row = detalle.getRow(i);
 	    var simboloId = row.getChild("simboloId").getValue();
 	    if(simboloId != null){
-	    	var simbolo = handlerSimbolo.simboloXNumero(simboloId);
-	    	if(simbolo.getSimboloNumero()!="34") {   
+	    //  RSJ 201020413 - cambiado  var simbolo = handlerSimbolo.simboloXNumero(simboloId);
+	    	var simbolo = handlerSimbolo.retrieve(simboloId);
+	       	//  RSJ 201020412 - cambiado if(simbolo.getSimboloNumero()!="34") {
+	    	if(simbolo.getSimboloNumero()!="34" || simbolo.getSimboloNumero()!="606" || simbolo.getSimboloNumero()!="607") {   
 	    		var avisoCobro = row.getChild("avisoCobro").getValue();
 	    		if (avisoCobro == null){
 	    			form.getChild("mensajes de error").addMessage("El campo aviso cobro no puede ser nulo. ");

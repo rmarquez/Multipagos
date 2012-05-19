@@ -268,6 +268,7 @@ public class SimboloHandler {
 	 * @return Collection o null Listao de simbolos
 	 * @throws Exception
 	 */
+/*
 	public Collection getList() throws PBFactoryException {
 		PersistenceBroker broker = null;
 		try {
@@ -287,6 +288,17 @@ public class SimboloHandler {
 			}
 		}
 	}
+*/
+	// RSJ 20120413 - cambio
+	public Collection getList() throws Exception {
+        Criteria criterio = new Criteria();
+        criterio.addEqualTo("inactivo", Boolean.FALSE);
+        try {
+            return getList(criterio);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 	
 	public static Simbolo simboloXNumero(final Integer simboloNumero)
 			throws Exception {
