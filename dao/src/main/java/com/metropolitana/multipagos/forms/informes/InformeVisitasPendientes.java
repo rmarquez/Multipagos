@@ -31,8 +31,8 @@ public class InformeVisitasPendientes {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 			

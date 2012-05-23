@@ -262,7 +262,7 @@ public class CarteraXDepartamentoHandler {
 	}
 	
 	
-	public static CarteraXDepartamento carteraXContrato(final String contrato )
+	public static CarteraXDepartamento carteraXContrato(final String contrato)
 			throws Exception {
 		PersistenceBroker broker = null;
 		try {
@@ -278,7 +278,8 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
-		private static CarteraXDepartamento carteraXContrato(final String contrato, final PersistenceBroker broker) {
+	private static CarteraXDepartamento carteraXContrato(final String contrato, final PersistenceBroker broker) {
+		System.out.println("+++ llega contraro = " + contrato);
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);
 		Query query = new QueryByCriteria(criterio);

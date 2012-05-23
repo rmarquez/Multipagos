@@ -19,8 +19,8 @@ public class UtilXls2Postgres {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
@@ -377,7 +377,7 @@ public class UtilXls2Postgres {
             query = "drop table tmp_p1;";
             ejecutarQuery(connPostgres, query);
             
-            query = "select	a.factura_interna, a.departamento_id, a.localidad_id, a.barrio_id, e.servicio_id, f.estado_id, substr(descuento,1,2) as descuento "+
+           query = "select	a.factura_interna, a.departamento_id, a.localidad_id, a.barrio_id, e.servicio_id, f.estado_id, substr(descuento,1,2) as descuento "+
         	"into 	tmp_p1 "+
         	"from 	tmp_con_dpts_lcldds_barrios a "+ 
         	"left 	outer join servicio 	e on rtrim(ltrim(a.servicio)) = rtrim(ltrim(e.servicio_nombre)) "+
@@ -385,21 +385,31 @@ public class UtilXls2Postgres {
         	"order 	by a.factura_interna;";
             ejecutarQuery(connPostgres, query);
             
+            query = "select distinct on (a.factura_interna) "+ 
+    	    "a.factura_interna, a.barrio_id, a.localidad_id, a.departamento_id, a.contrato, a.suscriptor, "+ 
+                "a.nit, a.direccion, a.barrio, a.tmp_id, a.numero_fiscal, a.anio, "+ 
+                "a.mes, a.saldo, a.estado, a.departamento, a.localidad, a.cupon, a.telefono, "+ 
+                "a.descuento, a.servicio, a.empleador, a.direccion_empleador, a.f_asignado, "+ 
+                "a.cuenta, a.concepto_diferido, a.es_diferido, b.estado_id, b.servicio_id "+
+            "into tmp_con_dpts_lcldds_barrios_3 "+ 
+            "from tmp_con_dpts_lcldds_barrios a "+
+            "inner join tmp_p1 b on a.factura_interna = b.factura_interna;";
+            ejecutarQuery(connPostgres, query);
+           
             query = "insert into cartera_x_departamento ( "+
 					"contrato, suscriptor, nit, direccion, barrio_id, factura_interna, numero_fiscal, anio, mes, saldo, estado_id, departamento_id, "+
 					"localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, fecha_ingreso, cuenta, concepto_diferido, "+
 					"es_diferido )"+	
-			"select  a.contrato,	a.suscriptor, a.nit, a.direccion, b.barrio_id, a.factura_interna, a.numero_fiscal, a.anio, a.mes, a.saldo, b.estado_id, "+
-					"b.departamento_id, b.localidad_id, a.cupon, a.telefono, 0 as descuento, b.servicio_id, a.empleador, a.direccion_empleador, "+
+			"select  a.contrato,	a.suscriptor, a.nit, a.direccion, a.barrio_id, a.factura_interna, a.numero_fiscal, a.anio, a.mes, a.saldo, a.estado_id, "+
+					"a.departamento_id, a.localidad_id, a.cupon, a.telefono, 0 as descuento, a.servicio_id, a.empleador, a.direccion_empleador, "+
 					"a.f_asignado as fecha_ingreso,a.cuenta, a.concepto_diferido, a.es_diferido "+
-			"from 	tmp_con_dpts_lcldds_barrios a "+
-			"inner join tmp_p1 b on a.factura_interna = b.factura_interna;";
+			"from 	tmp_con_dpts_lcldds_barrios_3 a ";
             ejecutarQuery(connPostgres, query);
             
             query = "select count (*) from tmp_con_dpts_lcldds_barrios; ";
 			int cantidad = countQuery(connPostgres, query);
             
-            query = "drop table tmp_p1;";
+			query = "drop table tmp_p1;";
             ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp_con_dpts_lcldds;";
@@ -409,6 +419,9 @@ public class UtilXls2Postgres {
             ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp_con_dpts_lcldds_barrios_2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds_barrios_3;";
             ejecutarQuery(connPostgres, query);
             
             query = "update cartera_x_departamento set es_diferido=true where es_diferido=false and concepto_diferido is not null;";
@@ -459,8 +472,8 @@ public class UtilXls2Postgres {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
@@ -510,8 +523,8 @@ public class UtilXls2Postgres {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
@@ -570,8 +583,8 @@ public class UtilXls2Postgres {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
@@ -621,8 +634,8 @@ public class UtilXls2Postgres {
 				System.out.println("No se encuentra el Driver: "
 						+ e.getMessage());
 			}
-			String username = "postgres";
-			String password = "";
+			String username = "dev";
+			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 
