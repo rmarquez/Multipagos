@@ -72,6 +72,8 @@
                          onClick="parent.window.location='/multipagos/informes/pagosenclaro'"/>
                 <div dojoType="MenuItem2" caption="Cartera x Servico"
                          onClick="parent.window.location='/multipagos/informes/carteraxservicio'"/>
+                <div dojoType="MenuItem2" caption="Visitas Diarias"
+                         onClick="parent.window.location='/multipagos/informes/visitasdiarias'"/>
                 
           </div>
         

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    <header>
+        <title>Reporte de Visitas Diarias</title>
+    </header>
+    <body>
+        <s1 title="Reporte de Visitas Diarias">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+            <ft:continuation-id/>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Criterios para listar las vistas</fi:label>
+                    <fi:items>
+                        <ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="listar"/>
+                <ft:widget id="excel"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

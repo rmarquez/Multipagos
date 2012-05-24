@@ -168,6 +168,11 @@
           <string>docs/informes/forms/combo/departamentos.xml</string>
           <string>docs/informes/forms/combo/asignacionAnio.xml</string>
           <string>docs/informes/forms/combo/colector.xml</string>
+          <string>docs/informes/forms/visitasdiarias/definition.xml</string>
+          <string>docs/informes/forms/visitasdiarias/results.xml</string>
+          <string>docs/informes/forms/visitasdiarias/flow.js</string>
+          <string>docs/informes/forms/visitasdiarias/template.xml</string>
+          <string>docs/informes/forms/visitasdiarias/results.xls.xml</string>
           <string>docs/informes/forms/pagosenclaro/definition.xml</string>
           <string>docs/informes/forms/pagosenclaro/results.xml</string>
           <string>docs/informes/forms/pagosenclaro/flow.js</string>

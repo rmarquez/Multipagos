@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Reporte de Visitas Diarias</title>
+    </header>
+    <body>
+        <s1 title="Reporte de Visitas Diarias">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>CONTRATO</th>
+                        <th>SUSCRIPTOR</th>
+                        <th>FACTURA INTERNA</th>
+                        <th>VALOR FACTURA</th>
+						<th>ACCION</th>
+                        <th>RESULTADO</th>
+                        <th>CAUSA</th>
+                        <th>FECHA VISITA</th>
+                        <th>C_RESULTADO</th>
+                        <th>C_CAUSA</th>
+                        <th>DEPARTAMENTO</th>
+                        <th>LOCALIDAD</th>
+                        <th>AVISO COBRO</th>
+                        <th>SUPERVISOR</th>
+                        <th>COLECTOR</th>
+                        <th>SERVICIO</th>
+                        <th>HORA REGISTRO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	                 
+ 
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+	                    <tr>
+                        	<td align="right">${item[0]}</td>
+                            <td align="right">${item[1]}</td>
+                            <td align="right">${item[2]}</td>
+	                        <td align="right"><formatoNumero numero="${item[3]}"/></td>
+	                        <td align="right">Visita de Cobro</td>
+	                        <td align="right">${item[4]}</td>
+                            <td align="right">${item[5]}</td>
+                            <td align="right"><formatoFecha fecha="${item[6]}" patron="dd/MMM/yyyy"/></td>
+                            <td align="right">${item[7]}</td>
+                            <td align="right">${item[8]}</td>
+                            <td align="right">${item[9]}</td>
+                            <td align="right">${item[10]}</td>
+                            <td align="right">${item[11]}</td>
+                            <td align="right">${item[12]}</td>
+                            <td align="right">${item[14]}</td>
+                            <td align="right">${item[15]}</td>
+                            <td align="right">${item[16]}</td>
+                        </tr>                        
+                        <jx:if test="${status.last}">
+                            <tr>
+                             	<th colspan="10">Total Visitas</th> 
+	                           	<th colspan="7"><jx:formatNumber value="${status.count}"/></th>                            
+                         	</tr>
+                        </jx:if>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>
