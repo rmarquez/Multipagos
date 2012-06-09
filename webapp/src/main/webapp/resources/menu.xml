@@ -29,6 +29,8 @@
             </jx:if>
             <div dojoType="MenuItem2" caption="Subir Base de datos"
                         onClick="parent.window.location='/multipagos/altadb/create'"/>
+            <div dojoType="MenuItem2" caption="Subir Base de datos Avon"
+                        onClick="parent.window.location='/multipagos/altadbavon/create'"/>
             <div dojoType="MenuItem2" caption="Cartera pagos Claro"
                         onClick="parent.window.location='/multipagos/carteraclaro/create'"/>
         </div>

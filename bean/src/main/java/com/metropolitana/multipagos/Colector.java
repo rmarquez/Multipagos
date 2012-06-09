@@ -1,5 +1,5 @@
 //==============================================================================
-//===   colector.java                        Build:2568
+//===   colector.java                        Build:2579
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -181,6 +181,20 @@ public class Colector implements java.io.Serializable
    {
       arqueoPagos.setColectorIdRef(this);
       arqueoPagosList.add( arqueoPagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleGestionList = new ArrayList();
+
+   public Collection getDetalleGestionList() { return detalleGestionList;}
+
+   public void setDetalleGestionList(Collection c) { this.detalleGestionList = c;}
+
+   public void addDetalleGestion( DetalleGestion detalleGestion )
+   {
+      detalleGestion.setColectorIdRef(this);
+      detalleGestionList.add( detalleGestion );
    }
 }
 

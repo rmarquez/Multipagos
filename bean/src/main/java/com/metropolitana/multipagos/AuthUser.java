@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2568
+//===   auth_user.java                        Build:2578
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -181,6 +181,20 @@ public class AuthUser implements java.io.Serializable
    {
       arqueoPagos.setUsrIdRef(this);
       arqueoPagosList.add( arqueoPagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection gestionAvonList = new ArrayList();
+
+   public Collection getGestionAvonList() { return gestionAvonList;}
+
+   public void setGestionAvonList(Collection c) { this.gestionAvonList = c;}
+
+   public void addGestionAvon( GestionAvon gestionAvon )
+   {
+      gestionAvon.setUsrIdRef(this);
+      gestionAvonList.add( gestionAvon );
    }
 }
 

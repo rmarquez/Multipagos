@@ -233,6 +233,27 @@ public class LocalidadHandler {
 		}
 	}
 	
+	public Collection getLocalidadXCarteraAvon(final Integer carteraId) throws Exception {
+		
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (carteraId != null) {
+				criterio.addEqualTo("carteraAvonList.carteraId", carteraId);
+			}
+			QueryByCriteria query = new QueryByCriteria(Localidad.class, criterio);
+			query.addOrderByAscending("localidadNombre");
+			return broker.getCollectionByQuery(query);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
 	public Collection getLocalidadXDepartamento(final Integer departamentoId) throws Exception {
 		
 		PersistenceBroker broker = null;

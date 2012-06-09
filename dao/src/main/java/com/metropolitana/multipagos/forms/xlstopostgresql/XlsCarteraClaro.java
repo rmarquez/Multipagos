@@ -255,10 +255,10 @@ public void leerExcel() throws Exception {
 		}
 	}
 	
-	private String getFechaSQL(final Date asignado) {
+	/*private String getFechaSQL(final Date asignado) {
         Format formatter = new SimpleDateFormat("yyyy-MM-dd");
         return formatter.format(asignado);
-    }	
+    }	*/
 	
 	private void borrarExcel() {         
          String sFichero = "/tmp/cartera.xls";

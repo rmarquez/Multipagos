@@ -11,9 +11,14 @@
             <table border="1">
                 <thead>
                     <tr>
+                        <th align="left" colspan="8">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="9">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="16"/></tr>
+                    </tr>
+                    <tr>
                         <th>CONTRATO</th>
                         <th>SUSCRIPTOR</th>
-                        <th>FACTURA INTERNA</th>
+                        <th>CANTIDAD FACTURA</th>
                         <th>VALOR FACTURA</th>
 						<th>ACCION</th>
                         <th>RESULTADO</th>
@@ -31,9 +36,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                	                 
+                	<jx:set var="colector" value=""/>                  
  
                     <jx:forEach var="item" items="${bean}" varStatus="status">
+                    	<jx:if test="colectorId != item[10]}">
+                         <jx:if test="${!status.first}">
+                            <tr>
+	                           	<th colspan="10">Total Visitas</th> 
+	                           	<th colspan="7"><jx:formatNumber value="${status.count}"/></th>                             
+                       		</tr>
+                            </jx:if>
+                            <jx:if test="${!status.last}">
+                                <tr><td colspan="17"></td></tr>
+                            </jx:if>
+                            <tr>
+                                <th colspan="13">colector: ${item[14]}</th>                                
+                            </tr>
+                            
+                       </jx:if>
+                        <jx:set var="colectorId" value="${item[13]}"/>
 	                    <tr>
                         	<td align="right">${item[0]}</td>
                             <td align="right">${item[1]}</td>

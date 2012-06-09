@@ -208,6 +208,19 @@
           <string>docs/util/dialogos/sino/definition.xml</string>
           <string>docs/util/dialogos/sino/flow.js</string>
           <string>docs/util/dialogos/sino/template.xml</string>
+          <string>docs/gestionavon/sitemap.xmap</string>
+          <string>docs/gestionavon/forms/util/flow.js</string>
+          <string>docs/gestionavon/forms/combo/localidad.xml</string>
+          <string>docs/gestionavon/forms/combo/flow.js</string>
+          <string>docs/gestionavon/forms/combo/supervisor.xml</string>
+          <string>docs/gestionavon/forms/combo/barrio.xml</string>
+          <string>docs/gestionavon/forms/combo/colector.xml</string>
+          <string>docs/gestionavon/forms/combo/simbolo.xml</string>
+          <string>docs/gestionavon/forms/combo/cartera.xml</string>
+          <string>docs/gestionavon/forms/create/bind.xml</string>
+          <string>docs/gestionavon/forms/create/definition.xml</string>
+          <string>docs/gestionavon/forms/create/flow.js</string>
+          <string>docs/gestionavon/forms/create/template.xml</string>
           <string>docs/altadb/sitemap.xmap</string>
           <string>docs/altadb/forms/migrar/bind.xml</string>
           <string>docs/altadb/forms/migrar/definition.xml</string>
@@ -464,6 +477,14 @@
           <string>docs/pagos/forms/create/flow.js</string>
           <string>docs/pagos/forms/create/template.xml</string>
           <string>docs/suggestions/flow.js</string>
+          <string>docs/altadbavon/sitemap.xmap</string>
+          <string>docs/altadbavon/forms/migrar/bind.xml</string>
+          <string>docs/altadbavon/forms/migrar/definition.xml</string>
+          <string>docs/altadbavon/forms/migrar/results.xml</string>
+          <string>docs/altadbavon/forms/migrar/flow.js</string>
+          <string>docs/altadbavon/forms/create/definition.xml</string>
+          <string>docs/altadbavon/forms/create/flow.js</string>
+          <string>docs/altadbavon/forms/create/template.xml</string>
           <string>docs/banco/sitemap.xmap</string>
           <string>docs/banco/forms/util/flow.js</string>
           <string>docs/banco/forms/search/bind.xml</string>

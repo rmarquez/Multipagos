@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import  uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+  <header>
+        <title>Carga de datos</title>
+  </header>
+  <body>
+      <s1 title="Adjuntar XLS">
+          <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true" enctype="multipart/form-data">
+              <fi:group>
+              <fi:styling type="fieldset" layout="columns"/>
+              <fi:label>Agregar documento excel</fi:label>
+              <fi:items>
+              <ft:widget id="archivo_xls"/>
+              <table>
+                  <tr>
+                      <tw align="center"><ft:widget id="true"/></tw>
+                  </tr>
+              </table>
+              
+              </fi:items>
+                </fi:group>
+	           
+	                        
+              <p>Antes de proceder a actualizar la base de datos se debe cumplir con lo siguiente:</p>
+              
+				<p>* La extención del archivo debe ser <b>.xsl</b></p>
+				<p>* El archivo debe ser renombrado a <b>avon</b></p>
+				<p>* El orden de las columnas del documento debe ser el siguiente: Codigo, Consejero,</p>
+				<p>Cedula, Direccion, Departamento, Localidad(Municipio), Barrio,Telefono, Zona, Factura, Saldo, Mes,</p>
+				<p> Año, Agencia, Campaña, Fecha_baja, Fecha_factura, Fecha_asignado</p>
+				<p>* El documento no debe de llavar titulos solo los valores.</p>	
+            
+          </ft:form-template>
+          
+      </s1>
+  </body>
+</document>

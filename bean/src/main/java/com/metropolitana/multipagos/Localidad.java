@@ -1,5 +1,5 @@
 //==============================================================================
-//===   localidad.java                        Build:2558
+//===   localidad.java                        Build:2577
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -127,6 +127,34 @@ public class Localidad implements java.io.Serializable
    {
       detallePagos.setLocalidadIdRef(this);
       detallePagosList.add( detallePagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection carteraAvonList = new ArrayList();
+
+   public Collection getCarteraAvonList() { return carteraAvonList;}
+
+   public void setCarteraAvonList(Collection c) { this.carteraAvonList = c;}
+
+   public void addCarteraAvon( CarteraAvon carteraAvon )
+   {
+      carteraAvon.setLocalidadIdRef(this);
+      carteraAvonList.add( carteraAvon );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleGestionList = new ArrayList();
+
+   public Collection getDetalleGestionList() { return detalleGestionList;}
+
+   public void setDetalleGestionList(Collection c) { this.detalleGestionList = c;}
+
+   public void addDetalleGestion( DetalleGestion detalleGestion )
+   {
+      detalleGestion.setLocalidadIdRef(this);
+      detalleGestionList.add( detalleGestion );
    }
 
    //---------------------------------------------------------------------------

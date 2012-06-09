@@ -1,5 +1,5 @@
 //==============================================================================
-//===   barrio.java                        Build:2568
+//===   barrio.java                        Build:2577
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -127,6 +127,34 @@ public class Barrio implements java.io.Serializable
    {
       detallePagos.setBarrioIdRef(this);
       detallePagosList.add( detallePagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection carteraAvonList = new ArrayList();
+
+   public Collection getCarteraAvonList() { return carteraAvonList;}
+
+   public void setCarteraAvonList(Collection c) { this.carteraAvonList = c;}
+
+   public void addCarteraAvon( CarteraAvon carteraAvon )
+   {
+      carteraAvon.setBarrioIdRef(this);
+      carteraAvonList.add( carteraAvon );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleGestionList = new ArrayList();
+
+   public Collection getDetalleGestionList() { return detalleGestionList;}
+
+   public void setDetalleGestionList(Collection c) { this.detalleGestionList = c;}
+
+   public void addDetalleGestion( DetalleGestion detalleGestion )
+   {
+      detalleGestion.setBarrioIdRef(this);
+      detalleGestionList.add( detalleGestion );
    }
 
    //---------------------------------------------------------------------------
