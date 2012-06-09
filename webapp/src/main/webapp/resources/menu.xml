@@ -203,6 +203,14 @@
         
          <!-- Submenu de Control de visitas -->
          <div dojoType="PopupMenu2" widgetId="visitas">
+         	<div dojoType="MenuItem2" caption="enitel" submenuId="enitel"/>
+            <div dojoType="MenuItem2" caption="avon" submenuId="avon"/>
+              	  
+         	
+         </div>
+         
+         <!-- enitel -->
+         <div dojoType="PopupMenu2" widgetId="enitel">
          	<jx:if test="${bean.getResources().contains('agregar')}">
 		             <div dojoType="MenuItem2" caption="Crear"
 		                  onClick="parent.window.location='/multipagos/visitas/create'"/>
@@ -212,6 +220,15 @@
                      		onClick="parent.window.location='/multipagos/visitas/search'"/>
              </jx:if>
          </div>
+         
+         <!-- avon -->
+         <div dojoType="PopupMenu2" widgetId="enitel">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/gestionavon/create'"/>
+		     </jx:if>
+         </div>
+         
          
          <!-- Submenu de Control de pagos -->
          <div dojoType="PopupMenu2" widgetId="pagos">
