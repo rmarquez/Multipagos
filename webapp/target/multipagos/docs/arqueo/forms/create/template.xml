@@ -124,6 +124,7 @@
 	               <th><ft:repeater-widget-label widget-id="numContrato"/></th>
 	               <th><ft:repeater-widget-label widget-id="fecha"/></th>
 	               <th><ft:repeater-widget-label widget-id="monto"/></th>
+	               <th><ft:repeater-widget-label widget-id="cliente"/></th>
 	             </tr>
 	           </thead>
 	           <tbody>
@@ -135,6 +136,7 @@
 	                 <td><ft:widget id="numContrato"><fi:styling size="6"/></ft:widget></td>
 	                 <td><ft:widget id="fecha"/></td>
 	                 <td><ft:widget id="monto"><fi:styling size="5"/></ft:widget></td>
+	                 <td><ft:widget id="cliente"/></td>
 	               </tr>
 	             </ft:repeater-rows> 	                         
 	           </tbody>

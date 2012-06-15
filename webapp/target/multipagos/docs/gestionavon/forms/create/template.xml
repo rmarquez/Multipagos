@@ -54,13 +54,13 @@
 										<td><ft:widget id="colectorNombre"/></td>
 										<td><ft:widget id="avisoCobro"><fi:styling align="right" size="6"/></ft:widget></td>										
 										<td><ft:widget id="observaciones"/></td>
-										<td><ft:widget id="horaRegistro"></ft:widget></td>
+										<td><ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget></td>
 										<td><ft:widget id="marcar"/></td>
-										<td><ft:widget id="cavonId"></ft:widget></td>
-										<td><ft:widget id="simboloId"></ft:widget></td>
-										<td><ft:widget id="colectorId"></ft:widget></td>
-										<td><ft:widget id="contador"></ft:widget></td>
-										<td><ft:widget id="barrioId"></ft:widget></td>																										
+										<td><ft:widget id="cavonId"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="simboloId"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="colectorId"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="contador"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="barrioId"><fi:styling type="hidden"/></ft:widget></td>																										
 										
 									</tr>
 								</ft:repeater-rows>

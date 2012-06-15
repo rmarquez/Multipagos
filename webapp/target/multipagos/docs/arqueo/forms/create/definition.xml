@@ -119,7 +119,12 @@
 			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
 			            </fd:assert>
 		      		</fd:validation>
-		        </fd:field>			
+		        </fd:field>
+		        
+		        <fd:field id="cliente" state="output">
+					<fd:label>cliente</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>			
 
 	        	
 				</fd:widgets>

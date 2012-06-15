@@ -1,5 +1,5 @@
 //==============================================================================
-//===   colector.java                        Build:2579
+//===   colector.java                        Build:2583
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -195,6 +195,20 @@ public class Colector implements java.io.Serializable
    {
       detalleGestion.setColectorIdRef(this);
       detalleGestionList.add( detalleGestion );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleAvonPagosList = new ArrayList();
+
+   public Collection getDetalleAvonPagosList() { return detalleAvonPagosList;}
+
+   public void setDetalleAvonPagosList(Collection c) { this.detalleAvonPagosList = c;}
+
+   public void addDetalleAvonPagos( DetalleAvonPagos detalleAvonPagos )
+   {
+      detalleAvonPagos.setColectorIdRef(this);
+      detalleAvonPagosList.add( detalleAvonPagos );
    }
 }
 

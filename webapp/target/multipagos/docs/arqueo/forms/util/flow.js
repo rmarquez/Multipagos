@@ -67,6 +67,7 @@ function alSeleccionarColector(event) {
 	    	     row.getChild("numContrato").setValue(rowGuardar[2]);
 	    	     row.getChild("fecha").setValue(rowGuardar[3]);
 	    	     row.getChild("monto").setValue(rowGuardar[4]);
+	    	     row.getChild("cliente").setValue(rowGuardar[10]);
 	       
 	        }
     	}

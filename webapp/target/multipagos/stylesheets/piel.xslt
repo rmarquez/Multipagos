@@ -25,7 +25,7 @@
 
     <xsl:template name="piedepagina">
         <div id="pie">
-            <p class="copyright">Copyright &#169; Multipagos 2011.</p>
+            <p class="copyright">Copyright &#169; Multipagos 2012.</p>
         </div>
     </xsl:template>
 </xsl:stylesheet>

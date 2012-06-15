@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <title>Consolidados razones no pago</title>
+
+    <columnas No="0" Unit="70"/>
+    <columnas No="1" Unit="150"/>
+    <columnas No="2" Unit="100"/>
+
+    <jx:set var="fila" value="${1}"/>
+    <jx:set var="col" value="${0}"/>
+    <jx:set var="colFin" value="${2}"/>
+    
+     
+    <celda Col="${col}" Row="${fila}">CONSOLIDADOS RAZONES NO PAGO</celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
+	<jx:set var="fila" value="${fila+2}"/>
+	
+	<!-- <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
+    <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${col+3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
+    
+    <celda Col="${col+3}" Row="${fila}">Fecha Final:</celda> 
+     <celda Col="${col+6}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
+    <estilo startCol="${col+3}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
+    <jx:set var="fila" value="${fila+2}"/ -->>
+    
+	<jx:if test="${colectorId == null}"> 
+	  <celda Col="${col}" Row="${fila}">ZONA</celda>
+      <celda Col="${col+1}" Row="${fila}">RAZON</celda>
+      <celda Col="${col+2}" Row="${fila}">CANTIDAD</celda>
+      <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="10" Recuadro="1"/>
+      <jx:set var="fila" value="${fila+1}"/>
+      <jx:set var="filaIni" value="${fila}"/> 
+    </jx:if>
+    
+    
+    <jx:set var="filaInicial" value="${fila}"/>
+
+    <jx:forEach var="item" items="${bean}" varStatus="status">
+    	
+	    <celda Col="${col}" Row="${fila}">${item[2]}</celda>
+	    <celda Col="${col+1}" Row="${fila}">${item[1]}</celda>
+	    <celda Col="${col+2}" Row="${fila}">${item[0]}</celda>
+	    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
+	    <jx:set var="fila" value="${fila+1}"/>
+	
+	    <jx:if test="${status.last}">      
+	        <jx:set var="fila" value="${fila+1}"/>        
+	    </jx:if>
+    </jx:forEach>
+</document>

@@ -34,10 +34,10 @@ public class UtilXls2Postgres {
 			query = "select a.* into tmp_excluidos from tmp_cartera a where factura_interna in (select factura_interna from cartera_x_departamento);";
             ejecutarQuery(connPostgres, query);
                         
-            /*if(count > 0){
+            if(count > 0){
                 query = "delete from tmp_cartera  where tmp_id in (select tmp_id from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento));";
                 ejecutarQuery(connPostgres, query);   
-            }*/
+            }
             
             query = "update tmp_cartera set departamento = upper(departamento);";
             ejecutarQuery(connPostgres, query);

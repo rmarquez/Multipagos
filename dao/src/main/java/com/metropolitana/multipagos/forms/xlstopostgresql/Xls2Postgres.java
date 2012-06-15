@@ -266,31 +266,6 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			final String dempleador, final Date asignado, final String cuenta,
 			final String concepto) throws Exception {
 		
-		java.lang.System.out.println("Contrato = " + contrato);
-		java.lang.System.out.println("suscriptor = " + suscriptor);
-		java.lang.System.out.println("nit = " + nit);
-		java.lang.System.out.println("direccion = " + direccion);
-		java.lang.System.out.println("barrio = " + barrio);
-		java.lang.System.out.println("factura = " + factura);
-		java.lang.System.out.println("nfiscal = " + nfiscal);
-		java.lang.System.out.println("anio = " + anio);
-		java.lang.System.out.println("mes = " + mes);
-		java.lang.System.out.println("saldo = " + saldo);
-		java.lang.System.out.println("estado = " + estado);
-		java.lang.System.out.println("departamento = " + departamento);
-		java.lang.System.out.println("localidad = " + localidad);
-		java.lang.System.out.println("cupon = " + cupon);
-		java.lang.System.out.println("telefono = " + telefono);
-		java.lang.System.out.println("descuento = " + descuento);
-		java.lang.System.out.println("servicio = " + servicio);
-		java.lang.System.out.println("empleador = " + empleador);
-		java.lang.System.out.println("dempleador = " + dempleador);
-		java.lang.System.out.println("asignado = " + asignado);
-		java.lang.System.out.println("cuenta = " + cuenta);
-		java.lang.System.out.println("concepto = " + concepto);
-		
-		java.lang.System.out.println("*************************************************************");
-		
 		Connection connPostgres = null;
 		String insertQuery;
 

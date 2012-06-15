@@ -17,6 +17,10 @@
         <map:script src="forms/pagosenclaro/flow.js"/>
         <map:script src="forms/carteraxservicio/flow.js"/>
         <map:script src="forms/visitasdiarias/flow.js"/>
+        <map:script src="forms/consolidadovisitas/flow.js"/>
+        <map:script src="forms/detallevisitas/flow.js"/>
+        <map:script src="forms/nopago/flow.js"/>
+        <map:script src="forms/detallenopago/flow.js"/>
     </map:flow>
 
     <map:pipelines>
