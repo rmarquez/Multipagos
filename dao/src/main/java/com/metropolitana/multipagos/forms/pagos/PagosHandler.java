@@ -333,13 +333,13 @@ public class PagosHandler {
             }
             Criteria criterio = new Criteria();
     		if (usrId != null) {
-    			criterio.addEqualTo("usrId", usrId);
+    			criterio.addEqualTo("pagoIdRef.usrId", usrId);
     		}
     		if (fecha != null) {
-    			criterio.addEqualTo("fecha", fecha);
+    			criterio.addEqualTo("pagoIdRef.fecha", fecha);
     		}
-            QueryByCriteria query = new QueryByCriteria(Pagos.class, criterio);
-            query.addOrderBy("usrId", true);            
+            QueryByCriteria query = new QueryByCriteria(DetallePagos.class, criterio);
+            query.addOrderBy("pagoIdRef.usrId", true);            
             query.setStartAtIndex(inicio);
             query.setEndAtIndex(inicio + registrosPorPagina - 1);
             return broker.getCollectionByQuery(query);
@@ -363,7 +363,7 @@ public class PagosHandler {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			QueryByCriteria query = new QueryByCriteria(Pagos.class,
+			QueryByCriteria query = new QueryByCriteria(DetallePagos.class,
 					getCriterio(fecha, usrId));
 			return broker.getCount(query);
 		} catch (Exception e) {
@@ -389,10 +389,10 @@ public class PagosHandler {
 			final Integer usrId) {
 		Criteria criterio = new Criteria();
 		if (usrId != null) {
-			criterio.addEqualTo("usrId", usrId);
+			criterio.addEqualTo("pagoIdRef.usrId", usrId);
 		}
 		if (fecha != null) {
-			criterio.addEqualTo("fecha", fecha);
+			criterio.addEqualTo("pagoIdRef.fecha", fecha);
 		}		
 		return criterio;
 	}

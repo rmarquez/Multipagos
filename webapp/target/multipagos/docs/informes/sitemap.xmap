@@ -21,6 +21,8 @@
         <map:script src="forms/detallevisitas/flow.js"/>
         <map:script src="forms/nopago/flow.js"/>
         <map:script src="forms/detallenopago/flow.js"/>
+        <map:script src="forms/visitasavon/flow.js"/>
+        <map:script src="forms/pagosavon/flow.js"/>
     </map:flow>
 
     <map:pipelines>

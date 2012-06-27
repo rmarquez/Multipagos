@@ -13,7 +13,7 @@
             </fd:datatype>
         </fd:field>
 
-        <!-- <fd:field id="fechaFin">
+        <fd:field id="fechaFin">
             <fd:label>Fecha final (dd/mm/yyyy):</fd:label>
             <fd:help>Escriba la fecha en la cual desea listar las visitas</fd:help>
             <fd:datatype base="date">
@@ -23,7 +23,7 @@
                     </fd:patterns>
                 </fd:convertor>
             </fd:datatype>
-        </fd:field> -->
+        </fd:field>
         
         
         <fd:submit id="listar">

@@ -20,6 +20,10 @@
                         <th>No</th>
                         <th>fecha</th>
                         <th>Supervisor</th>
+                        <th>Aviso Cobro</th>
+                        <th>Servicio</th>
+                        <th>Suscriptor</th>
+                        <th>Colector</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -28,8 +32,12 @@
                         <tr>
 
                            <td><jx:formatNumber value="${status.count + first}"/></td>
-                           <td align="right"><formatoFecha fecha="${status.current.fecha}" patron="dd/MMM/yyyy"/></td>
-                           <td>${status.current.usrIdRef.usrFullName}</td>
+                           <td align="right"><formatoFecha fecha="${status.current.visitaIdRef.fecha}" patron="dd/MMM/yyyy"/></td>
+                           <td>${status.current.visitaIdRef.usrIdRef.usrFullName}</td>
+                           <td>${status.current.avisoCobro}</td>
+                           <td>${status.current.servicioIdRef.servicioNombre}</td>
+                           <td>${status.current.carteraIdRef.suscriptor}</td>
+                           <td>${status.current.colectorIdRef.primerNombre}  ${status.current.colectorIdRef.primerApellido}</td>
                              <td>
                              	<link href="/multipagos/visitas/edit?visitaId=${status.current.visitaId}">Editar</link>
                                	<link href="borrar.list?visitaId=${status.current.visitaId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                                                              

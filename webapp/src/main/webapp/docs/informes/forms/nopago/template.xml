@@ -16,7 +16,7 @@
                     <fi:label>Criterios para listar las gestiones</fi:label>
                     <fi:items>
                         <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
-                        <!-- <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget> -->
+                        <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="listar"/>

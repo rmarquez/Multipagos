@@ -17,14 +17,14 @@
     <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
 	<jx:set var="fila" value="${fila+2}"/>
 	
-	<!-- <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
+	<celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
     <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
     <estilo startCol="${col}" startRow="${fila}" endCol="${col+3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
     
     <celda Col="${col+3}" Row="${fila}">Fecha Final:</celda> 
      <celda Col="${col+6}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
     <estilo startCol="${col+3}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
-    <jx:set var="fila" value="${fila+2}"/ -->>
+    <jx:set var="fila" value="${fila+2}"/>
     
 	<jx:if test="${colectorId == null}"> 
 	  <celda Col="${col}" Row="${fila}">ZONA</celda>

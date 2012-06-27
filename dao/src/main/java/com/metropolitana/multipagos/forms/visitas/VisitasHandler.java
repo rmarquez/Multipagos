@@ -155,22 +155,6 @@ public class VisitasHandler {
 		Iterator iterDetalle = bean.getDetalleVisitasList().iterator();
 		while (iterDetalle.hasNext()) {
 			DetalleVisitas det = (DetalleVisitas) iterDetalle.next();
-			System.out.println("visitaId =" + det.getVisitaId());
-			System.out.println("carteraId =" + det.getCarteraId());
-			System.out.println("simboloId =" + det.getSimboloId());
-			System.out.println("colectorId =" + det.getColectorId());
-			System.out.println("localidadId =" + det.getLocalidadId());
-			System.out.println("servicioId =" + det.getServicioId());
-			System.out.println("numero contraro =" + det.getNumeroContrato());
-			System.out.println("fecha visita =" + det.getFechaVisita());
-			System.out.println("aviso cobro =" + det.getAvisoCobro());
-			System.out.println("hora registro =" + det.getHoraRegistro());
-			System.out.println("f programacion cobro =" + det.getFprogCobro());
-			System.out.println("observaciones =" + det.getObservaciones());
-			
-			
-			
-			
 			det.setCarteraIdRef(CarteraXDepartamentoHandler.retrieve(
 					det.getCarteraId(), broker));
 			det.setSimboloIdRef(SimboloHandler.retrieve(
@@ -289,7 +273,7 @@ public class VisitasHandler {
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			return getResultadosXPagina(
-					Visitas.class,
+					DetalleVisitas.class,
 					getCriterio(fecha, usrId), null, pagina,
 					registrosXPagina, broker);
 		} catch (Exception e) {
@@ -338,7 +322,7 @@ public class VisitasHandler {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
-			QueryByCriteria query = new QueryByCriteria(Visitas.class,
+			QueryByCriteria query = new QueryByCriteria(DetalleVisitas.class,
 					getCriterio(fecha, usrId));
 			return broker.getCount(query);
 		} catch (Exception e) {
@@ -366,10 +350,10 @@ public class VisitasHandler {
 			final Integer usrId) {
 		Criteria criterio = new Criteria();
 		if (fecha != null) {
-			criterio.addEqualTo("fecha", fecha);
+			criterio.addEqualTo("visitaIdRef.fecha", fecha);
 		}
 		if (usrId != null) {
-			criterio.addEqualTo("usrId", usrId);
+			criterio.addEqualTo("visitaIdRef.usrId", usrId);
 		}
 		
 		return criterio;

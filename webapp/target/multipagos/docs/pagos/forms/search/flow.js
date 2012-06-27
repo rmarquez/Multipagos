@@ -16,16 +16,15 @@ function pagosList() {
 	var pagina = Integer.valueOf(cocoon.request.pagina);
 	var fecha = null;
 	if (cocoon.request.getParameter("fecha") != null){
-		var fecha = handlerUtil.strToDate(cocoon.request.getParameter("fecha"));
+		fecha = handlerUtil.strToDate(cocoon.request.getParameter("fecha"));
 	}
-	if (cocoon.request.getParameter("usrId") == "null" && cocoon.request.getParameter("usrId") == '') {
-    	var usrId = Integer.valueOf(cocoon.request.getParameter("usrId"));
-	} else {
-		var usrId = null
-	}
-	//var filtrar = cocoon.request.getParameter("filtrar");
-	// Esto es necesario porque el servlet esta regresando una cadena
-	// con el contenido null no un valor.
+	var usrId = null;
+	if (cocoon.request.getParameter("usrId") != "null" && cocoon.request.getParameter("usrId") != '') {
+    	usrId = Integer.valueOf(cocoon.request.getParameter("usrId"));
+	} 
+	if (usrId == "null") {
+		usrId = null;
+    }
 	
 	var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
 	var bean = handler.getResultadosXPagina(fecha, usrId, pagina, cocoon.session.registrosPorPagina);

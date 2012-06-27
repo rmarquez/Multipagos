@@ -9,25 +9,26 @@
     <columnas No="2" Unit="100"/>
     <columnas No="3" Unit="100"/>
     <columnas No="4" Unit="100"/>
-    <columnas No="5" Unit="100"/>
+    <columnas No="5" Unit="120"/>
+    <columnas No="6" Unit="100"/>
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${5}"/>
+    <jx:set var="colFin" value="${6}"/>
     
      
     <celda Col="${col}" Row="${fila}">CONSOLIDADOS DE VISITAS AVON</celda>
     <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
 	<jx:set var="fila" value="${fila+2}"/>
 	
-	<!-- <celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
+	<celda Col="${col}" Row="${fila}">Fecha de Inicio:</celda> 
     <celda Col="${col+3}" Row="${fila}"><formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></celda>
     <estilo startCol="${col}" startRow="${fila}" endCol="${col+3}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
     
-    <celda Col="${col+3}" Row="${fila}">Fecha Final:</celda> 
+    <celda Col="${col+4}" Row="${fila}">Fecha Final:</celda> 
      <celda Col="${col+6}" Row="${fila}"><formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></celda>
-    <estilo startCol="${col+3}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
-    <jx:set var="fila" value="${fila+2}"/ -->>
+    <estilo startCol="${col+4}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="6" VAlign="4" Bold="1" Recuadro="1"/>
+    <jx:set var="fila" value="${fila+2}"/>
     
 	<jx:if test="${colectorId == null}"> 
 	  <celda Col="${col}" Row="${fila}">FECHA</celda>
@@ -36,6 +37,7 @@
       <celda Col="${col+3}" Row="${fila}">LOCALIZADAS</celda>
 	  <celda Col="${col+4}" Row="${fila}">NO LOCALIZADAS</celda>
       <celda Col="${col+5}" Row="${fila}">MONTO RECUPERADO</celda>
+      <celda Col="${col+6}" Row="${fila}">CANTIDAD PAGOS</celda>
       <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="10" Recuadro="1"/>
       <jx:set var="fila" value="${fila+1}"/>
       <jx:set var="filaIni" value="${fila}"/> 
@@ -48,10 +50,11 @@
     	
 	    <celda Col="${col}" Row="${fila}">${item[1]}</celda>
 	    <celda Col="${col+1}" Row="${fila}">${item[0]}</celda>
-	    <celda Col="${col+2}" Row="${fila}">${item[2]}</celda>
+	    <celda Col="${col+2}" Row="${fila}">${item[2]-item[5]}</celda>
 	    <celda Col="${col+3}" Row="${fila}">${item[3]}</celda>
-	    <celda Col="${col+4}" Row="${fila}">${item[2]-item[3]}</celda>
+	    <celda Col="${col+4}" Row="${fila}">${(item[2]-item[5])-item[3]}</celda>
 	    <celda Col="${col+5}" Row="${fila}">${item[4]}</celda>
+	    <celda Col="${col+6}" Row="${fila}">${item[5]}</celda>
 	    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
 	    <jx:set var="fila" value="${fila+1}"/>
 	

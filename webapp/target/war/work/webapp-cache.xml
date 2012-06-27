@@ -163,6 +163,11 @@
           <string>docs/informes/forms/carteraxservicio/flow.js</string>
           <string>docs/informes/forms/carteraxservicio/template.xml</string>
           <string>docs/informes/forms/carteraxservicio/results.xls.xml</string>
+          <string>docs/informes/forms/pagosavon/definition.xml</string>
+          <string>docs/informes/forms/pagosavon/results.xml</string>
+          <string>docs/informes/forms/pagosavon/flow.js</string>
+          <string>docs/informes/forms/pagosavon/template.xml</string>
+          <string>docs/informes/forms/pagosavon/results.xls.xml</string>
           <string>docs/informes/forms/nopago/definition.xml</string>
           <string>docs/informes/forms/nopago/results.xml</string>
           <string>docs/informes/forms/nopago/flow.js</string>
@@ -198,6 +203,11 @@
           <string>docs/informes/forms/visitasxcolector/flow.js</string>
           <string>docs/informes/forms/visitasxcolector/template.xml</string>
           <string>docs/informes/forms/visitasxcolector/results.xls.xml</string>
+          <string>docs/informes/forms/visitasavon/definition.xml</string>
+          <string>docs/informes/forms/visitasavon/results.xml</string>
+          <string>docs/informes/forms/visitasavon/flow.js</string>
+          <string>docs/informes/forms/visitasavon/template.xml</string>
+          <string>docs/informes/forms/visitasavon/results.xls.xml</string>
           <string>docs/informes/forms/promesasdepago/definition.xml</string>
           <string>docs/informes/forms/promesasdepago/results.xml</string>
           <string>docs/informes/forms/promesasdepago/flow.js</string>

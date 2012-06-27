@@ -10,11 +10,11 @@
         <s1 title="Consolidados Razones NO pago">
             <table border="1">
                 <thead>
-                    <!-- <tr>
+                    <tr>
                         <th align="left" colspan="3">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
                         <th align="left" colspan="3">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
                         <tr><td colspan="6"/></tr>
-                    </tr> -->
+                    </tr>
                     <tr>
                         <th>ZONA</th>
                         <th>RAZON</th>

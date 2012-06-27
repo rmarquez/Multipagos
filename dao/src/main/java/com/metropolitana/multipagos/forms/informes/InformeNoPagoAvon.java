@@ -12,7 +12,7 @@ import com.metropolitana.multipagos.forms.xlstopostgresql.UtilXls2Postgres;
 
 public class InformeNoPagoAvon extends UtilXls2Postgres {
 	
-	public List getConsolidadosNoPago(Date fechaIni)
+	public List getConsolidadosNoPago(Date fechaIni, Date fechaFin)
 			throws Exception {
 		Connection connPostgres = null;
 		String query;
@@ -35,14 +35,14 @@ public class InformeNoPagoAvon extends UtilXls2Postgres {
 			query = " select count(s.simbolo_nombre), s.simbolo_nombre, c.zona "+
 					" from detalle_gestion d inner join cartera_avon c on c.cavon_id=d.cavon_id "+
 					" inner join simbolo_avon s on s.simbolo_id=d.simbolo_id "+
-					" where s.simbolo_numero in ('11','12','13','14','15','16') "+
-					" and fecha_gestion = ? "+
+					" where s.simbolo_numero not in ('27','28','29','210','211','212', '36', '37') "+
+					" and fecha_gestion >= ? and fecha_gestion <= ?"+
 					" group by s.simbolo_nombre, c.zona;";
 			psOrigen = connPostgres.prepareStatement(query);
             java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIni));
             psOrigen.setDate(1,fecha);
-            //java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
-            //psOrigen.setDate(2,fechaF);
+            java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
+            psOrigen.setDate(2,fechaF);
             rs = psOrigen.executeQuery();
             while(rs.next()){
                 
@@ -57,7 +57,7 @@ public class InformeNoPagoAvon extends UtilXls2Postgres {
 			} 
 	}
 	
-	public List getDetallesNoPago(Date fechaIni)
+	public List getDetallesNoPago(Date fechaIni, Date fechaFin)
 			throws Exception {
 		Connection connPostgres = null;
 		String query;
@@ -81,12 +81,12 @@ public class InformeNoPagoAvon extends UtilXls2Postgres {
 					" from detalle_gestion d inner join cartera_avon c on c.cavon_id=d.cavon_id "+
 					" inner join simbolo_avon s on s.simbolo_id=d.simbolo_id "+
 					" where s.simbolo_numero in ('11','12','13','14','15','16') "+
-					" and fecha_gestion = ?;";
+					" and fecha_gestion >= ? and fecha_gestion <= ?;";
 			psOrigen = connPostgres.prepareStatement(query);
             java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIni));
             psOrigen.setDate(1,fecha);
-            //java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
-            //psOrigen.setDate(2,fechaF);
+            java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
+            psOrigen.setDate(2,fechaF);
             rs = psOrigen.executeQuery();;
             while(rs.next()){
                 

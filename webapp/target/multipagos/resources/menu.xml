@@ -58,6 +58,8 @@
         <div dojoType="PopupMenu2" widgetId="informeMenu">
               <jx:if test="${bean.getResources().contains('informes')}">
                   <div dojoType="MenuItem2" caption="enitel" submenuId="enitel3"/>
+              </jx:if>
+              <jx:if test="${bean.getResources().contains('iavon')}">
             		<div dojoType="MenuItem2" caption="avon" submenuId="avon3"/>
               </jx:if>
         </div>
@@ -83,12 +85,16 @@
           <div dojoType="PopupMenu2" widgetId="avon3">
             	<div dojoType="MenuItem2" caption="Consolidados Visitas Avon"
                          onClick="parent.window.location='/multipagos/informes/consolidadovisitas'"/>
-                <div dojoType="MenuItem2" caption="Detalles Visitas Avon"
+                <div dojoType="MenuItem2" caption="Detalle Visitas AVON NO UBICADOS"
                          onClick="parent.window.location='/multipagos/informes/detallevisitas'"/>
                 <div dojoType="MenuItem2" caption="Consolidados Razones No Pago"
                          onClick="parent.window.location='/multipagos/informes/nopago'"/>
                 <div dojoType="MenuItem2" caption="Detalles Razones No Pago"
                          onClick="parent.window.location='/multipagos/informes/detallenopago'"/>
+                <div dojoType="MenuItem2" caption="Visitas Avon"
+                         onClick="parent.window.location='/multipagos/informes/visitasavon'"/>
+                <div dojoType="MenuItem2" caption="Pagos Avon"
+                         onClick="parent.window.location='/multipagos/informes/pagosavon'"/>
           </div>
         
         <!-- Menu Catalogo -->
@@ -294,7 +300,7 @@
         		<div dojoType="MenuBarItem2" caption="Catalogo" submenuId="catalogoMenu"></div>
         </jx:if>
         <div dojoType="MenuBarItem2" caption="Control de cobros" submenuId="controCobroMenu"></div>
-        <jx:if test="${bean.getResources().contains('informes')}">
+        <jx:if test="${bean.getResources().contains('informes') || bean.getResources().contains('iavon')}">
         		<div dojoType="MenuBarItem2" caption="Informes" submenuId="informeMenu"></div>
         </jx:if>
         <div dojoType="MenuBarItem2" caption="Administración" submenuId="administracionMenu"></div>

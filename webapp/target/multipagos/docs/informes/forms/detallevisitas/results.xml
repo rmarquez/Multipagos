@@ -7,14 +7,14 @@
         <title>Detalle de Visitas Avon</title>
     </header>
     <body>
-        <s1 title="Detalle de Visitas Avon">
+        <s1 title="Detalle Visitas AVON NO UBICADOS">
             <table border="1">
                 <thead>
-                    <!-- <tr>
+                    <tr>
                         <th align="left" colspan="3">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
                         <th align="left" colspan="3">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
                         <tr><td colspan="6"/></tr>
-                    </tr> -->
+                    </tr>
                     <tr>
                         <th>CODIGO</th>
                         <th>CONSEJERO</th>

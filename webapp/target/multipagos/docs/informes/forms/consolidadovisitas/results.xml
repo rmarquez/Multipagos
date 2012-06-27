@@ -10,11 +10,11 @@
         <s1 title="Consolidados de Visitas Avon">
             <table border="1">
                 <thead>
-                    <!-- <tr>
-                        <th align="left" colspan="3">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                    <tr>
+                        <th align="left" colspan="4">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
                         <th align="left" colspan="3">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
-                        <tr><td colspan="6"/></tr>
-                    </tr> -->
+                        <tr><td colspan="7"/></tr>
+                    </tr>
                     <tr>
                         <th>FECHA</th>
                         <th>ZONA</th>
@@ -22,6 +22,7 @@
                         <th>LOCALIZADAS</th>
 						<th>NO LOCALIZADAS</th>
                         <th>MONTO RECUPERADO</th>
+                        <th>CANTIDAD PAGOS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,13 +32,14 @@
                         <tr>
                         	<td align="right">${item[1]}</td>
                             <td align="right">${item[0]}</td>
-                            <td align="right">${item[2]}</td>
+                            <td align="right">${item[2]-item[5]}</td>
 	                        <td align="right">${item[3]}</td>
-                            <td align="right">${item[2]-item[3]}</td>
+                            <td align="right">${(item[2]-item[5])-item[3]}</td>
                             <td align="right">${item[4]}</td>
+                            <td align="right">${item[5]}</td>
                         </tr>                        
                         <jx:if test="${status.last}">
-                            <tr><td colspan="6"></td></tr>
+                            <tr><td colspan="7"></td></tr>
                         </jx:if>
                     </jx:forEach>
                 </tbody>

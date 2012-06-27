@@ -20,6 +20,11 @@
                         <th>No</th>
                         <th>fecha</th>
                         <th>Supervisor</th>
+                        <th>Contrato</th>
+                        <th>Factura Interna</th>
+                        <th>Suscriptor</th>
+                        <th>Colector</th>
+                        <th>Monto Pagado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -28,8 +33,13 @@
                         <tr>
 
                            <td><jx:formatNumber value="${status.count + first}"/></td>
-                           <td align="right"><formatoFecha fecha="${status.current.fecha}" patron="dd/MMM/yyyy"/></td>
-                           <td>${status.current.usrIdRef.usrFullName}</td>
+                           <td align="right"><formatoFecha fecha="${status.current.pagoIdRef.fecha}" patron="dd/MMM/yyyy"/></td>
+                           <td>${status.current.pagoIdRef.usrIdRef.usrFullName}</td>
+                           <td>${status.current.numeroContrato}</td>
+                           <td>${status.current.facturaInterna}</td>
+                           <td>${status.current.carteraIdRef.suscriptor}</td>
+                           <td>${status.current.colectorIdRef.primerNombre}  ${status.current.colectorIdRef.primerApellido}</td>
+                           <td>${status.current.montoPago}</td>
                              <td>
                                <link href="/multipagos/pagos/edit?pagoId=${status.current.pagoId}">Editar</link>
                                <link href="borrar.list?pagoId=${status.current.pagoId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                               

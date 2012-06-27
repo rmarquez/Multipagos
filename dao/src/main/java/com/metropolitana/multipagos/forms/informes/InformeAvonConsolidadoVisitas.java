@@ -33,21 +33,21 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
 			query = "drop table tmp_consolidado;";
             ejecutarQuery(connPostgres, query); 
             
-            query = " select c.zona, a.fecha_gestion as fecha, ( "+ 
-					" select case when s.simbolo_numero in ('21','22','23','24','25','26') then 1 "+
-					" else 0 "+
-					" end "+
-					" from detalle_gestion d inner join simbolo_avon s on s.simbolo_id=d.simbolo_id "+
-					" inner join cartera_avon c2 on c2.cavon_id=d.cavon_id "+
-					" where s.simbolo_numero=s2.simbolo_numero "+
-					" group by s.simbolo_numero "+
-					" ) as localizados, 0 as monto "+
-					" into tmp_consolidado "+
-					" from detalle_gestion a inner join cartera_avon c on c.cavon_id=a.cavon_id "+
-					" inner join simbolo_avon s2 on s2.simbolo_id=a.simbolo_id "+
-					" union all "+
-					" select c.zona as zona, a.fecha_pago as fecha, 1 as localizados, a.monto_pago as monto "+
-					" from detalle_avon_pagos a inner join cartera_avon c on c.cavon_id=a.cavon_id;";
+            query = " select c.zona, a.fecha_gestion as fecha, ("+ 
+            		" select case when s.simbolo_numero not in ('27','28','29','210','211','212', '36', '37') then 1"+ 
+            		" else 0 "+																	     
+            		" end "+
+            		" from detalle_gestion d inner join simbolo_avon s on s.simbolo_id=d.simbolo_id "+
+            		" inner join cartera_avon c2 on c2.cavon_id=d.cavon_id"+ 
+            		" where s.simbolo_numero=s2.simbolo_numero"+
+            		" group by s.simbolo_numero"+
+            		" ) as localizados,0 as pagos, 0 as monto "+
+            		" into tmp_consolidado"+
+            		" from detalle_gestion a inner join cartera_avon c on c.cavon_id=a.cavon_id "+
+            		" inner join simbolo_avon s2 on s2.simbolo_id=a.simbolo_id "+
+            		" union all "+ 
+            		" select c.zona as zona, a.fecha_pago as fecha, 0 as localizados, 1 as pagos, a.monto_pago as monto "+
+            		" from detalle_avon_pagos a inner join cartera_avon c on c.cavon_id=a.cavon_id;";
 			ejecutarQuery(connPostgres, query); 
 
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
 	
 	
 	
-	public List getConsolidadosVisitas(Date fechaIni)
+	public List getConsolidadosVisitas(Date fechaIni, Date fechaFin)
 			throws Exception {
 		Connection connPostgres = null;
 		String query;
@@ -84,20 +84,20 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 			 
-            query = " select distinct on (zona) zona, fecha, count(zona), sum(localizados), sum(monto) "+
+            query = " select distinct on (zona) zona, fecha, count(zona), sum(localizados), sum(monto), sum(pagos) "+
             		" from tmp_consolidado "+
-            		" where fecha = ?"+
+            		" where fecha >= ? and fecha <= ?"+
             		" group by zona, fecha;";
             psOrigen = connPostgres.prepareStatement(query);
             java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIni));
             psOrigen.setDate(1,fecha);
-            //java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
-            //psOrigen.setDate(2,fechaF);
-            rs = psOrigen.executeQuery();;
+            java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
+            psOrigen.setDate(2,fechaF);
+            rs = psOrigen.executeQuery();
             while(rs.next()){
                 
     			Object[] fila = { rs.getObject(1), rs.getObject(2),
-    					rs.getObject(3), rs.getObject(4), rs.getObject(5)};              
+    					rs.getObject(3), rs.getObject(4), rs.getObject(5), rs.getObject(6)};              
 
                 lista.add(fila);
                     
@@ -108,7 +108,7 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
 			} 
 	}
 	
-	public List getDetallesVisitas(Date fechaIni)
+	public List getDetallesVisitas(Date fechaIni, Date fechaFin)
 			throws Exception {
 		Connection connPostgres = null;
 		String query;
@@ -132,12 +132,12 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
 					" from detalle_gestion d inner join cartera_avon c on c.cavon_id=d.cavon_id "+
 					" inner join simbolo_avon s on s.simbolo_id=d.simbolo_id "+
 					" where s.simbolo_numero in ('27','28','29','210','211','212','36','37') "+
-					" and fecha_gestion = ?;";
+					" and fecha_gestion >= ? and fecha_gestion <= ?;";
 			psOrigen = connPostgres.prepareStatement(query);
             java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIni));
             psOrigen.setDate(1,fecha);
-            //java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
-            //psOrigen.setDate(2,fechaF);
+            java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
+            psOrigen.setDate(2,fechaF);
             rs = psOrigen.executeQuery();;
             while(rs.next()){
                 
