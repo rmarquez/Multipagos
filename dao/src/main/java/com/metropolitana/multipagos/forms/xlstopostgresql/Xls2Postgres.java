@@ -27,6 +27,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * @author rmarquez
  * 
@@ -65,7 +67,6 @@ public class Xls2Postgres extends UtilXls2Postgres {
         String concepto = "";
         String saldo = "";
         Date asignado = new Date();
-
 		try {
 			// Se abre el fichero Excel
 			Workbook workbook = Workbook.getWorkbook(new File("/tmp/multipagos.xls"));
@@ -156,8 +157,11 @@ public class Xls2Postgres extends UtilXls2Postgres {
 					cupon, telefono, descuento, servicio, empleador,
 					dempleador, asignado, cuenta, concepto);
 			}
+            
             borrarRegistrosBasura();
             borrarExcel();
+            
+			
 		} catch (Exception ex) {
 			System.out.println("Error!");
 			ex.printStackTrace();
@@ -267,7 +271,7 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			final String concepto) throws Exception {
 		
 		Connection connPostgres = null;
-		String insertQuery;
+		String query;
 
 		try {
 			// Parámetros de conexión con Postgres
@@ -282,12 +286,17 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 			// Limpiamos la tabla tmp_cartera antes de insertar los datos
-			insertQuery = "INSERT INTO tmp_cartera(contrato, suscriptor, nit, direccion, barrio, factura_interna, numero_fiscal, anio, mes, saldo, estado, departamento, localidad, cupon, telefono, descuento, servicio, empleador, direccion_empleador, f_asignado, cuenta, concepto_diferido) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			ejecutarInsertQuery(connPostgres, insertQuery, contrato,
+			query = "INSERT INTO tmp_cartera(contrato, suscriptor, nit, direccion, barrio, factura_interna, numero_fiscal, anio, mes, saldo, estado, departamento, localidad, cupon, telefono, descuento, servicio, empleador, direccion_empleador, f_asignado, cuenta, concepto_diferido) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			ejecutarInsertQuery(connPostgres, query, contrato,
 					suscriptor, nit, direccion, Util.sinAcentos(barrio), factura, nfiscal, anio,
 					mes, saldo, estado, Util.sinAcentos(departamento), Util.sinAcentos(localidad), cupon,
 					telefono, descuento, servicio, empleador, dempleador,
 					Util.fechaDias(asignado, 1), cuenta, concepto);
+			
+			//query = "select count (*) from tmp_cartera;";
+			//int registros = countQuery(connPostgres, query);
+			
+			//return registros;
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -406,6 +415,7 @@ public class Xls2Postgres extends UtilXls2Postgres {
                  System.out.println("El archivo " + sFichero + " no se ha podido borrar");
 
  }
+	
 
 	
 }

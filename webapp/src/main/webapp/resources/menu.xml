@@ -95,6 +95,8 @@
                          onClick="parent.window.location='/multipagos/informes/visitasavon'"/>
                 <div dojoType="MenuItem2" caption="Pagos Avon"
                          onClick="parent.window.location='/multipagos/informes/pagosavon'"/>
+                <div dojoType="MenuItem2" caption="Promesas de Pago Avon"
+                         onClick="parent.window.location='/multipagos/informes/promesasavon'"/>
           </div>
         
         <!-- Menu Catalogo -->

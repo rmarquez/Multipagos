@@ -173,7 +173,7 @@ public class ContadorVisitasPagos {
 						meta = Integer.valueOf(600);
 						nombre = "Equipo 5";
 					}
-					if((Integer)detalle[0] == 7){
+					if((Integer)detalle[0] == 25){
 						meta = Integer.valueOf(600);
 						nombre = "Equipo 4";
 					}
