@@ -1,5 +1,5 @@
 //==============================================================================
-//===   departamento.java                        Build:2577
+//===   departamento.java                        Build:2600
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -103,6 +103,20 @@ public class Departamento implements java.io.Serializable
    {
       carteraAvon.setDepartamentoIdRef(this);
       carteraAvonList.add( carteraAvon );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignacionClaroList = new ArrayList();
+
+   public Collection getAsignacionClaroList() { return asignacionClaroList;}
+
+   public void setAsignacionClaroList(Collection c) { this.asignacionClaroList = c;}
+
+   public void addAsignacionClaro( AsignacionClaro asignacionClaro )
+   {
+      asignacionClaro.setDepartamentoIdRef(this);
+      asignacionClaroList.add( asignacionClaro );
    }
 }
 

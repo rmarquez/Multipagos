@@ -47,7 +47,7 @@
 		                        <tbody>
 					                  <jx:forEach var="item2" items="${usr}" varStatus="status">
 					                        <tr>
-					                        	<jx:if test="${(item2[0]) &lt; 12 }">
+					                        	<jx:if test="${(item2[0]) &lt; 12 || (item2[0]) == 25}">
 						                           <td align="right"><blue>${item2[1]}</blue></td>
 						                           <td><blue>${item2[3]}</blue></td>
 						                           <td><blue>${item2[4]}</blue></td>

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   servicio.java                        Build:2568
+//===   servicio.java                        Build:2600
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -103,6 +103,20 @@ public class Servicio implements java.io.Serializable
    {
       detallePagos.setServicioIdRef(this);
       detallePagosList.add( detallePagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignacionClaroList = new ArrayList();
+
+   public Collection getAsignacionClaroList() { return asignacionClaroList;}
+
+   public void setAsignacionClaroList(Collection c) { this.asignacionClaroList = c;}
+
+   public void addAsignacionClaro( AsignacionClaro asignacionClaro )
+   {
+      asignacionClaro.setServicioIdRef(this);
+      asignacionClaroList.add( asignacionClaro );
    }
 }
 

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   localidad.java                        Build:2583
+//===   localidad.java                        Build:2600
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -169,6 +169,20 @@ public class Localidad implements java.io.Serializable
    {
       detalleAvonPagos.setLocalidadIdRef(this);
       detalleAvonPagosList.add( detalleAvonPagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignacionClaroList = new ArrayList();
+
+   public Collection getAsignacionClaroList() { return asignacionClaroList;}
+
+   public void setAsignacionClaroList(Collection c) { this.asignacionClaroList = c;}
+
+   public void addAsignacionClaro( AsignacionClaro asignacionClaro )
+   {
+      asignacionClaro.setLocalidadIdRef(this);
+      asignacionClaroList.add( asignacionClaro );
    }
 
    //---------------------------------------------------------------------------

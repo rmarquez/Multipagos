@@ -9,17 +9,20 @@
     </header>
     <body>
         <s1 title="Visitas Pendientes">
-            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Criterios para listar las vistas pendientes</fi:label>
                     <fi:items>
-                    	<ft:widget id="servicioId"/>
+                    	<!-- <ft:widget id="servicioId"/>
+                    	<ft:widget id="aAsignacion"/> -->
                     	<ft:widget id="asignacionAnio"/>
                     	<!-- <ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget> -->
                         <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                         <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                         <ft:widget id="departamentoId"/>
+                        <ft:widget id="localidadId"/>
+                        <ft:widget id="barrioId"/>
                         
                     </fi:items>
                 </fi:group>

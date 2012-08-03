@@ -21,6 +21,7 @@ import org.apache.ojb.broker.query.ReportQueryByCriteria;
 import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.Pagos;
+import com.metropolitana.multipagos.AsignacionClaro;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
 import com.metropolitana.multipagos.forms.departamentos.DepartamentosHandler;
 import com.metropolitana.multipagos.forms.estado_corte.EstadoCorteHandler;
@@ -203,12 +204,39 @@ public class CarteraXDepartamentoHandler {
 			if (servicioId != null) {
 				criterio.addEqualTo("servicioId", servicioId);
 			}
-			ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
+			//ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
+			ReportQueryByCriteria query = new ReportQueryByCriteria(AsignacionClaro.class, criterio);
 			query.setAttributes(new String[] { "fechaIngreso"});
 			query.addGroupBy(new String[] { "fechaIngreso"});
 			
 			query.addOrderByAscending("fechaIngreso");
 			return IteratorUtils.toList(broker.getReportQueryIteratorByQuery(query));
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	public Collection getAAsignacion() throws Exception {
+		try {
+			return getAAsignacion(new Criteria());
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	private Collection getAAsignacion(final Criteria criterio) throws Exception {
+		PersistenceBroker broker = null;
+
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			QueryByCriteria query = new QueryByCriteria(AsignacionClaro.class,
+					criterio);
+			query.addOrderBy("anioAsignacion", true);
+			return broker.getCollectionByQuery(query);
 		} catch (Exception e) {
 			throw e;
 		} finally {

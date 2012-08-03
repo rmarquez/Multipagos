@@ -1,5 +1,5 @@
 //==============================================================================
-//===   estado_corte.java                        Build:2525
+//===   estado_corte.java                        Build:2600
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -61,6 +61,20 @@ public class EstadoCorte implements java.io.Serializable
    {
       carteraXDepartamento.setEstadoIdRef(this);
       carteraXDepartamentoList.add( carteraXDepartamento );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection asignacionClaroList = new ArrayList();
+
+   public Collection getAsignacionClaroList() { return asignacionClaroList;}
+
+   public void setAsignacionClaroList(Collection c) { this.asignacionClaroList = c;}
+
+   public void addAsignacionClaro( AsignacionClaro asignacionClaro )
+   {
+      asignacionClaro.setEstadoIdRef(this);
+      asignacionClaroList.add( asignacionClaro );
    }
 }
 

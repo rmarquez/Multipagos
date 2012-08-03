@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2584</attrib>
-		<attrib name="serial">1095270</attrib>
+		<attrib name="build">2600</attrib>
+		<attrib name="serial">1106825</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -419,7 +419,7 @@ COMMIT;</attrib>
 				<type>
 					<attribs>
 						<attrib name="name">float8</attrib>
-						<attrib name="ddEquiv"/>
+						<attrib name="ddEquiv">Double</attrib>
 						<attrib name="id">389</attrib>
 					</attribs>
 					<domain>
@@ -435,7 +435,28 @@ COMMIT;</attrib>
 							</header>
 						</list>
 					</domain>
-					<aliases/>
+					<aliases>
+						<alias>
+							<attribs>
+								<attrib name="name">DoublePrecision</attrib>
+								<attrib name="ddEquiv">Double</attrib>
+								<attrib name="id">1097711</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
+					</aliases>
 				</type>
 				<type>
 					<attribs>
@@ -905,6 +926,27 @@ COMMIT;</attrib>
 						<attrib name="name">long</attrib>
 						<attrib name="ddEquiv">Long</attrib>
 						<attrib name="id">1091574</attrib>
+					</attribs>
+					<domain>
+						<attribs>
+							<attrib name="minValue"/>
+							<attrib name="outRange">false</attrib>
+							<attrib name="maxValue"/>
+							<attrib name="type">none</attrib>
+						</attribs>
+						<list>
+							<header>
+								<elem>value</elem>
+							</header>
+						</list>
+					</domain>
+					<aliases/>
+				</type>
+				<type>
+					<attribs>
+						<attrib name="name">float</attrib>
+						<attrib name="ddEquiv">Float</attrib>
+						<attrib name="id">1100068</attrib>
 					</attribs>
 					<domain>
 						<attribs>
@@ -18777,6 +18819,861 @@ GO</attrib>
 						</p>
 					</docs>
 				</sequence>
+				<sequence>
+					<attribs>
+						<attrib name="name">asignacion_claro_tmp_id_seq</attrib>
+						<attrib name="increment">1</attrib>
+						<attrib name="cache">1</attrib>
+						<attrib name="cycle">false</attrib>
+						<attrib name="start">1</attrib>
+						<attrib name="minValue">1</attrib>
+						<attrib name="maxValue">2147483647</attrib>
+						<attrib name="order">false</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Secuencia para manejar el consecutivo de los registros de los usuarios del sistema.</t>
+						</p>
+					</docs>
+				</sequence>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">asignacion_claro</attrib>
+						<attrib name="id">1103644</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339">nextval('asignacion_claro_tmp_id_seq')</attrib>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cartera_id</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103645</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">2747</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">true</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">contrato</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103646</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">suscriptor</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103647</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">nit</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103648</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103649</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">true</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">barrio_id</attrib>
+							<attrib name="refField">982717</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103650</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">982710</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">true</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">factura_interna</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103651</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">true</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">numero_fiscal</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103652</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">anio</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103653</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990702</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">mes</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103654</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">990703</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">saldo</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103655</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">141727</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">true</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">estado_id</attrib>
+							<attrib name="refField">981238</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103656</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">981231</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">true</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">departamento_id</attrib>
+							<attrib name="refField">981654</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103657</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">981647</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">true</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">localidad_id</attrib>
+							<attrib name="refField">982077</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103658</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">982069</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cupon</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103659</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">932</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">telefono</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103660</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">909936</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">descuento</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103661</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">987856</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">true</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">servicio_id</attrib>
+							<attrib name="refField">988332</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103662</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">c</attrib>
+							<attrib name="refTable">988325</attrib>
+							<attrib name="type">0</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103663</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">781234</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">direccion_empleador</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103664</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">113121</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">fecha_ingreso</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103667</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">386</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">cuenta</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103668</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">883601</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">concepto_diferido</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103669</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1437</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">anio_asignacion</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103729</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1100068</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">mes_asignacion</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1103733</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1100068</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
 			</folder>
 			<notes>
 				<attribs>

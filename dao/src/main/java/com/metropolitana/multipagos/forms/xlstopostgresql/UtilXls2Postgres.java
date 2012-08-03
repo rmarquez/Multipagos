@@ -44,6 +44,9 @@ public class UtilXls2Postgres {
 			query = "select count (factura_interna) from tmp_cartera where factura_interna in (select factura_interna from cartera_x_departamento); ";
 			int count = countQuery(connPostgres, query);
 			
+			query = "select a.*, date_part('year', f_asignado) as anio_asignacion, date_part('month', f_asignado) as mes_asignacion into tmp_asignacion_claro from tmp_cartera a;";
+			ejecutarQuery(connPostgres, query);
+			
 			query = "select a.* into tmp_excluidos from tmp_cartera a where factura_interna in (select factura_interna from cartera_x_departamento);";
             ejecutarQuery(connPostgres, query);
 
@@ -80,7 +83,7 @@ public class UtilXls2Postgres {
 			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
-                        
+			           
             query = "insert into cartera_x_departamento ( "+
 					"contrato, suscriptor, nit, direccion, barrio_id, factura_interna, numero_fiscal, anio, mes, saldo, estado_id, departamento_id, "+
 					"localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, fecha_ingreso, cuenta, concepto_diferido, "+
@@ -89,6 +92,39 @@ public class UtilXls2Postgres {
 					"a.departamento_id, a.localidad_id, a.cupon, a.telefono, 0 as descuento, a.servicio_id, a.empleador, a.direccion_empleador, "+
 					"a.f_asignado as fecha_ingreso,a.cuenta, a.concepto_diferido, a.es_diferido "+
 			"from 	tmp_con_dpts_lcldds_barrios_3 a; ";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select a.* ,date_part('year', fecha_ingreso) as anio_asignacion, date_part('month', fecha_ingreso) as mes_asignacion into tmp_asignacion_claro_2 " +
+			"from cartera_x_departamento a where factura_interna in (select factura_interna from tmp_asignacion_claro);";
+			ejecutarQuery(connPostgres, query);
+
+			query = "update tmp_asignacion_claro_2 set anio_asignacion=( " +
+			"select anio_asignacion from tmp_asignacion_claro " +
+			"where factura_interna in (select factura_interna from tmp_asignacion_claro_2) " +
+			"group by anio_asignacion order by anio_asignacion);";
+			ejecutarQuery(connPostgres, query);
+
+			query = "update tmp_asignacion_claro_2 set mes_asignacion=( " +
+			"select mes_asignacion from tmp_asignacion_claro " +
+			"where factura_interna in (select factura_interna from tmp_asignacion_claro_2) " +
+			"group by mes_asignacion order by mes_asignacion);";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "insert into asignacion_claro (" +
+					"contrato, suscriptor, nit, direccion, barrio_id, factura_interna, numero_fiscal, anio, mes, saldo, estado_id, departamento_id, "+
+					"localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, fecha_ingreso, cuenta, concepto_diferido, "+
+					"anio_asignacion, mes_asignacion) "+
+			"select a.contrato,	a.suscriptor, a.nit, a.direccion, a.barrio_id, a.factura_interna, a.numero_fiscal, a.anio, a.mes, a.saldo, a.estado_id, "+
+					"a.departamento_id, a.localidad_id, a.cupon, a.telefono, 0 as descuento, a.servicio_id, a.empleador, a.direccion_empleador, "+
+					"b.f_asignado,a.cuenta, a.concepto_diferido, a.anio_asignacion, a.mes_asignacion " +
+					"from 	tmp_asignacion_claro_2 a "+
+			"inner join tmp_asignacion_claro b on a.factura_interna = b.factura_interna;";
+		    ejecutarQuery(connPostgres, query);
+
+			query = "drop table tmp_asignacion_claro;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_asignacion_claro_2;";
             ejecutarQuery(connPostgres, query);
             
             query = "select count (*) from tmp_con_dpts_lcldds_barrios_3; ";
