@@ -175,6 +175,37 @@ public class Util {
         return formatter.format(numero);
     }
     
+    public static String getMes(String mesN) {
+    	int numero = Integer.parseInt(mesN);
+    	String mes ="";
+    	if(numero==1){
+    		mes ="Enero";
+    	} else if (numero==2){
+    		mes ="Febrero";
+    	} else if (numero==3){
+    		mes ="Marzo";
+    	} else if (numero==4){
+    		mes ="Abril";
+    	} else if (numero==5){
+    		mes ="Mayo";
+    	} else if (numero==6){
+    		mes ="Junio";
+    	} else if (numero==7){
+    		mes ="Julio";
+    	} else if (numero==8){
+    		mes ="Agosto";
+    	} else if (numero==9){
+    		mes ="Septiembre";
+    	} else if (numero==10){
+    		mes ="Octubre";
+    	} else if (numero==11){
+    		mes ="Noviembre";
+    	}else if (numero==12){
+    		mes ="Diciembre";
+    	}
+        return mes;
+    }
+    
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
     private static final DecimalFormat df = new DecimalFormat();
 

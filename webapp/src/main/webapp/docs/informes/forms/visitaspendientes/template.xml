@@ -28,6 +28,7 @@
                 </fi:group>
                 <ft:widget id="listar"/>
                 <ft:widget id="excel"/>
+                <ft:widget id="aviso"/>
             </ft:form-template>
         </s1>
     </body>

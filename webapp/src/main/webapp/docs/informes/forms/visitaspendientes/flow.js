@@ -7,6 +7,7 @@ function visitaspendientesform(form) {
         form.showForm("visitaspendientes-form-display");
         
         var handler = new Packages.com.metropolitana.multipagos.forms.informes.InformeVisitasPendientes();
+        var util = Packages.com.metropolitana.multipagos.forms.Util();
         var fecha = form.getChild("asignacionAnio").getValue();
         var fechaIni = form.getChild("fechaIni").getValue();
         var fechaFin = form.getChild("fechaFin").getValue();
@@ -20,8 +21,11 @@ function visitaspendientesform(form) {
 		if (form.submitId == "excel") {
 			URL = "forms/visitaspendientes/results.xls";
 		}
+		if (form.submitId == "aviso") {
+			URL = "forms/visitaspendientes/imprimir.pdf";
+		}
         cocoon.sendPageAndWait(URL,
-            { "bean":bean, "fecha":fecha, "fechaIni":fechaIni, "fechaFin":fechaFin, "departamentoId":departamentoId, "localidadId":localidadId, "barrioId":barrioId});
+            { "bean":bean, "fecha":fecha, "fechaIni":fechaIni, "fechaFin":fechaFin, "departamentoId":departamentoId, "localidadId":localidadId, "barrioId":barrioId, "util": util});
     }
 }
 

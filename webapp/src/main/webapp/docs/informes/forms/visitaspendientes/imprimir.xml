@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <!-- Importamos las macros definidas por el programador -->
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <pagina margin-left="0.75" margin-top="1.25">
+        <!-- <table border="0">
+            <tbody>
+                <tr>
+                    <th font-size="15" width="8.0" align="center">
+                        MULTIPAGOS<br/>
+                        COMPROBANTE DE ARQUEO</th>
+                </tr>
+            </tbody>
+        </table>
+        <br space-before-optimum="25"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td width="0.8"><b>Fecha:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="2"><formatoFecha fecha="${bean.pagoFecha}" patron="d 'de' MMM 'de' yyyy"/></td>
+                    <td width="0.8"><b>Supervisor:</b></td>
+                    <td border-bottom="0" width="2.0" end-indent="3.5">${bean.usrIdRef.usrFullName}</td>
+                    <td width="0.8"><b>Colector:</b></td>
+                    <td border-bottom="0" width="3.0" end-indent="5.5">${colector.getPrimerNombre()} ${colector.getPrimerApellido()}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        <br space-before-optimum="20"/> -->
+        <!--  <table border="0">
+            <tbody>
+                <tr><th font-size="10" width="8.0" align="center">DETALLE RECIBOS</th></tr>
+            </tbody>
+        </table>
+       <table border="1">
+            <tbody>
+                <tr>
+                	<th font-size="10" width="1.0" align="center">Localidad</th>
+	                <th font-size="10" width="1.0" align="center">Contrato</th>
+	                <th font-size="10" width="2.0" align="center">Cliente</th>
+	                <th font-size="10" width="1.0" align="center">Monto</th>
+	                <th font-size="10" width="0.5" align="center">Mes</th>
+	                <th font-size="10" width="0.5" align="center">Año</th>
+	                <th font-size="10" width="1.0" align="center">Factura</th>
+	                <th font-size="10" width="1.0" align="center">Recibo</th>
+                </tr>
+            </tbody>
+        </table> -->
+        <jx:forEach var="item" items="${bean}">
+        <jx:set var="mes" value="${util.getMes(item[7])}"/> 
+        <fo:external-graphic src="url('/images/Logo_final.png')"/>
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <th width="3.0">AVISO DE COBRO</th>
+	                    <td width="0.5"><b>No</b></td>
+		                <td border-bottom="0" width="1.0" end-indent="3.5">XXXXXX</td>
+		                <td width="0.5"><b>C$ </b></td>
+		                <td border-bottom="0" width="3.0" end-indent="3.5">${item[12]}</td>
+	                </tr>
+	            </tbody>
+	        </table>
+	        <br space-before-optimum="10"/>
+	        <table border="0">
+	            <tbody>
+	                <tr>
+	                    <th font-size="12" width="8.0" align="center">
+	                        INFORMACION DEL CLIENTE</th>
+	                </tr>
+	            </tbody>
+	        </table>
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <td width="1.5"><b>Nombre:</b></td>
+	                    <td border-bottom="0" width="5.0" end-indent="2">${item[2]}</td>
+	                </tr>
+	                <tr>
+	                    <td width="1.5"><b>Direccion:</b></td>
+	                    <td border-bottom="0" width="7.0" end-indent="3.5">${item[9]}</td>
+	                </tr>
+	            </tbody>
+        	</table>
+	        <table border="0">
+	            <tbody> 
+		                <tr>
+		                    <td width="1.5"><b>Departamento:</b></td>
+		                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[3]}</td>
+		                    <td width="1.5"><b>Telefono:</b></td>
+		                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[10]}</td>
+		                </tr>
+			                
+	            </tbody>
+	        </table>
+	        <table border="0">
+	            <tbody>
+	                <tr>
+	                    <td width="1.5"><b>Contrato:</b></td>
+	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[1]}</td>
+	                    <td width="1.5"><b>Barrio:</b></td>
+	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[11]}</td>
+	                </tr>
+	            </tbody>
+        	</table>
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <td width="3.0"><b>Mensualidades Vencidas:</b></td>
+	                    <td border-bottom="0" width="5.0" end-indent="2">${mes} del ${item[6]}</td>
+	                </tr>
+	                
+	            </tbody>
+        	</table>
+        	<br space-before-optimum="3"/>
+        	<table border="0">
+            <tbody>
+                <tr>
+                    <td font-size="8" width="8.0" align="left">
+                        Estimado cliente en nuestro registro es en deber a Claro TV en el monto antes descrito, por medio del presente cordialmente le <br/>
+                        solicitamos pague en el menor tiempo posible para evitar que su historial crediticio se vea afectado ante el sistema financiero <br/>
+                        nacional. Si usted ya pago desestime el presente aviso de cobro. Si tiene consultas por favor llamar al 2266-8719 o 121</td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <td align="left" width="5.5"><br/><br/><br/><br/></td>
+                  <td font-size="10" align="center" width="2.0"><br/><br/>______________________________<br/>RECIBIDO POR<br/></td>
+                </tr>
+            </tbody>
+        </table>
+        	<br space-before-optimum="10"/>
+        </jx:forEach>
+        
+        <!-- <br space-before-optimum="20"/>
+        <table border="1">
+            <tbody>
+                <tr>
+	                <th font-size="10" width="2.6" align="center">Total Recibo</th>
+	                <th font-size="10" width="2.7" align="center">Total General</th>
+	                <th font-size="10" width="2.7" align="center" border="2">Diferencia</th>
+                </tr>
+            </tbody>
+        </table>
+        <table border="1">
+            <tbody>
+                    <tr>
+                        <td align="center" width="2.6"><formatoNumero numero="${bean.totalRecibo}" ceroIfNull="false"/></td>
+                        <td align="center" width="2.7"><formatoNumero numero="${bean.totalGeneral}" ceroIfNull="false"/></td>
+                        <th align="center" width="2.7" border="2"><formatoNumero numero="${bean.diferencia}" ceroIfNull="false"/></th>                            
+                    </tr>
+            </tbody>
+        </table>
+
+        <br space-before-optimum="40"/>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Entregue Conforme<br/>${colector.getPrimerNombre()} ${colector.getPrimerApellido()}<br/></td>
+                  <td align="center" width="4.0"><br/><br/>______________________________<br/>Recibi Conforme<br/>${bean.usrIdRef.usrFullName}<br/></td>
+                </tr>
+            </tbody>          
+           
+                    
+        </table>
+        <br space-before-optimum="16"/> -->
+    </pagina>    
+</document>

@@ -101,5 +101,9 @@
             <fd:help>Excel</fd:help>
             <fd:hint>Excel</fd:hint>
         </fd:submit>
+        <fd:submit id="aviso">
+            <fd:label>Aviso Cobro</fd:label>
+            <fd:help>Boton para generar los avisos de cobro en formato pdf</fd:help>
+        </fd:submit>
     </fd:widgets>
 </fd:form>
