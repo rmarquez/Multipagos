@@ -57,7 +57,7 @@ public class InformePagosXDepartamento {
 			criterio.addLessOrEqualThan("fechaPago", fechaFin);
 		}
 		if (departamentoId != null) {
-			criterio.addEqualTo("carteraIdRef.departamentoId", departamentoId);
+			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
 		}
 		if (colectorId != null) {
 			criterio.addEqualTo("colectorId", colectorId);

@@ -167,6 +167,216 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			ex.printStackTrace();
 		}
 	}
+	
+public void leerDatos(Boolean esFactura) throws Exception {
+		
+		// Limpiamos la tabla donde insertaremos los registros.
+		limpiarTabla();
+		
+		// Inicializamos los valores
+		String contrato = "";
+        String factura = ""; 
+        
+		try {
+			// Se abre el fichero Excel
+			Workbook workbook = Workbook.getWorkbook(new File("/tmp/datos.xls"));
+			// Se obtiene la primera hoja
+			Sheet sheet = workbook.getSheet(0);
+
+			int filas = sheet.getRows();
+			// Se leen las filas
+            for (int j = 0; j < filas; j++) {
+            	// Se leen las columnas				
+					for (int i = 0; i < 1; i++) {
+					// Se obtiene la celda i-esimay
+					Cell cell = sheet.getCell(i,j);
+
+					if (esFactura.booleanValue()== true){
+						if (cell.getColumn() == 0) {
+							factura = cell.getContents();
+						}
+					} else {
+						if (cell.getColumn() == 0) {
+							contrato = cell.getContents();						
+						}
+					}
+				}
+			
+				if (esFactura.booleanValue()== true){
+					insertFacturaTabla(factura);
+				} else {
+					insertContratoTabla(contrato);
+				}
+			}
+            
+            
+            borrarExcelDatos();
+            
+			
+		} catch (Exception ex) {
+			System.out.println("Error!");
+			ex.printStackTrace();
+		}
+	}
+
+	private void insertContratoTabla(final String contrato) throws Exception {
+		
+		Connection connPostgres = null;
+		String query;
+	
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			// Limpiamos la tabla tmp_cartera antes de insertar los datos
+			query = "INSERT INTO tmp_datos(contrato) VALUES (?)";
+			ejecutarInsertContrato(connPostgres, query, contrato );
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null) connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+private void insertFacturaTabla(final String factura) throws Exception {
+		
+		Connection connPostgres = null;
+		String query;
+	
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			// Limpiamos la tabla tmp_cartera antes de insertar los datos
+			query = "INSERT INTO tmp_datos(factura_interna) VALUES (?)";
+			ejecutarInsertContrato(connPostgres, query, factura );
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null) connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+public static List getDatosDPendientes(Boolean esFactura)
+		throws Exception {
+        
+	Connection connPostgres = null;
+	String selectQuery;
+            PreparedStatement psOrigen = null;	
+	ResultSet rs = null;
+	try {
+		
+		List<Object[]> lista = new ArrayList<Object[]>();
+		
+        try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("No se encuentra el Driver: "
+					+ e.getMessage());
+		}
+		String username = "dev";
+		String password = "multipagos";
+		String url = "jdbc:postgresql://localhost:5432/multipagos";
+		connPostgres = DriverManager.getConnection(url, username, password);
+		
+		if (esFactura.booleanValue()== true){
+			selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE,  " +
+			"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((CARTERA_X_DEPARTAMENTO A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " + 
+			"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID  " +
+			"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID  " +
+			"WHERE A0.FACTURA_INTERNA IN (SELECT FACTURA_INTERNA FROM TMP_DATOS);";
+			
+		} else {
+			selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " + 
+			"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((CARTERA_X_DEPARTAMENTO A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " + 
+			"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " + 
+			"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID " + 
+			"WHERE A0.CONTRATO IN (SELECT CONTRATO FROM TMP_DATOS);";
+		}
+		psOrigen = connPostgres.prepareStatement(selectQuery);
+        rs = psOrigen.executeQuery();
+               
+        while(rs.next()){
+            
+		Object[] fila = { rs.getObject(1), rs.getObject(2),
+				rs.getObject(3), rs.getObject(4), rs.getObject(5),
+				rs.getObject(6), rs.getObject(7), rs.getObject(8),
+				rs.getObject(9), rs.getObject(10), rs.getObject(11),
+				rs.getObject(12), rs.getObject(13)};              
+
+        lista.add(fila);
+            
+        }
+         
+		return lista;
+	} catch (Exception e) {
+		throw e;
+	} 
+}
+
+	private void ejecutarInsertContrato(Connection connPostgres,
+			String insertQuery, final String contrato) throws Exception {
+
+		PreparedStatement psOrigen = null;
+
+		try {
+			psOrigen = connPostgres.prepareStatement(insertQuery);
+
+			psOrigen.setString(1, contrato.toString());
+
+			psOrigen.executeUpdate();
+
+			psOrigen.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void ejecutarInsertFactura(Connection connPostgres,
+			String insertQuery, final String factura) throws Exception {
+
+		PreparedStatement psOrigen = null;
+
+		try {
+			psOrigen = connPostgres.prepareStatement(insertQuery);
+
+			psOrigen.setString(1, factura.toString());
+
+			psOrigen.executeUpdate();
+
+			psOrigen.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Metodo que limpia la tabla tmp_cartera para poder insertar los registros.
@@ -197,6 +407,10 @@ public class Xls2Postgres extends UtilXls2Postgres {
 			// Borramos la tabla temporal tmp_excluidos
 			deleteQuery = "drop table tmp_excluidos;";
             ejecutarQuery(connPostgres, deleteQuery); 
+            
+            // Borramos la tabla temporal tmp_datos
+ 			deleteQuery = "delete from tmp_datos;";
+             ejecutarQuery(connPostgres, deleteQuery);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -414,7 +628,17 @@ public class Xls2Postgres extends UtilXls2Postgres {
          else
                  System.out.println("El archivo " + sFichero + " no se ha podido borrar");
 
- }
+	}
+	
+	private void borrarExcelDatos() {         
+        String sFichero = "/tmp/datos.xls";
+        File archivo = new File(sFichero);         
+        if (archivo.delete())
+                System.out.println("El archivo " + sFichero + " ha sido borrado correctamente");
+        else
+                System.out.println("El archivo " + sFichero + " no se ha podido borrar");
+
+	}
 	
 
 	

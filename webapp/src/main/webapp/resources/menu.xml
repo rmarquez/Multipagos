@@ -33,6 +33,8 @@
                         onClick="parent.window.location='/multipagos/altadbavon/create'"/>
             <div dojoType="MenuItem2" caption="Cartera pagos Claro"
                         onClick="parent.window.location='/multipagos/carteraclaro/create'"/>
+            <div dojoType="MenuItem2" caption="Datos Clientes pendientes"
+                        onClick="parent.window.location='/multipagos/datosclientes/create'"/>
         </div>
         
          

@@ -868,6 +868,7 @@
 		<field-descriptor name="conceptoDiferido" default-fetch="true" column="CONCEPTO_DIFERIDO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="anioAsignacion" nullable="false" default-fetch="true" column="ANIO_ASIGNACION" jdbc-type="FLOAT"/>
 		<field-descriptor name="mesAsignacion" nullable="false" default-fetch="true" column="MES_ASIGNACION" jdbc-type="FLOAT"/>
+		<field-descriptor name="numAsignacion" default-fetch="true" column="NUM_ASIGNACION" jdbc-type="INTEGER"/>
 		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.Barrio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>
@@ -883,5 +884,10 @@
 		<reference-descriptor name="servicioIdRef" class-ref="com.metropolitana.multipagos.Servicio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="servicioId"/>
 		</reference-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.TmpDatos" table="TMP_DATOS">
+		<field-descriptor name="tmpDatos" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="tmp_datos_tmp_datos_seq" column="TMP_DATOS" jdbc-type="INTEGER"/>
+		<field-descriptor name="contrato" default-fetch="true" column="CONTRATO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="facturaInterna" default-fetch="true" column="FACTURA_INTERNA" jdbc-type="VARCHAR"/>
 	</class-descriptor>
 </descriptor-repository>

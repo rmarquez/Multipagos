@@ -1,5 +1,5 @@
 //==============================================================================
-//===   asignacion_claro.java                        Build:2600
+//===   asignacion_claro.java                        Build:2602
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -43,6 +43,7 @@ public class AsignacionClaro implements java.io.Serializable
    private String     conceptoDiferido;
    private Float      anioAsignacion;
    private Float      mesAsignacion;
+   private Integer    numAsignacion;
 
    //---------------------------------------------------------------------------
 
@@ -267,6 +268,15 @@ public class AsignacionClaro implements java.io.Serializable
    public void setMesAsignacion(Float mesAsignacion)
    {
       this.mesAsignacion = mesAsignacion;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getNumAsignacion() { return numAsignacion; }
+
+   public void setNumAsignacion(Integer numAsignacion)
+   {
+      this.numAsignacion = numAsignacion;
    }
 
    //---------------------------------------------------------------------------

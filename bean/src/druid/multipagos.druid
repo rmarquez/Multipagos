@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">2600</attrib>
-		<attrib name="serial">1106825</attrib>
+		<attrib name="build">2602</attrib>
+		<attrib name="serial">1107513</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -194,21 +194,21 @@ COMMIT;</attrib>
 				</castor>
 				<ojb>
 					<referenceDescriptor>Y</referenceDescriptor>
-					<sequence-manager>NextVal</sequence-manager>
 					<output>/tmp/multipagos/ojb/java</output>
+					<sequence-manager>NextVal</sequence-manager>
 					<useDateConvertor>Y</useDateConvertor>
 					<defaultconnection>Y</defaultconnection>
 					<collectionDescriptor>Y</collectionDescriptor>
-					<username>postgres</username>
 					<Package>com.metropolitana.multipagos</Package>
+					<username>postgres</username>
 				</ojb>
 			</GenericGenModule>
 			<DocsGenModule>
 				<pdf>
 					<pageSize>1</pageSize>
 					<output>/tmp/multipagos/docs/modelo.pdf</output>
-					<thumbnails>128</thumbnails>
 					<language>es</language>
+					<thumbnails>128</thumbnails>
 				</pdf>
 				<html>
 					<output>/tmp/multipagos/docs</output>
@@ -225,21 +225,6 @@ COMMIT;</attrib>
 					<output/>
 				</xml>
 			</DatadictGenModule>
-			<SqlGenModule>
-				<hsqldbSql>
-					<output/>
-				</hsqldbSql>
-				<stdSql>
-					<output/>
-				</stdSql>
-				<oraSql>
-					<output/>
-				</oraSql>
-				<pgSql>
-					<output>/tmp/multipagos/sql/crear_db.sql</output>
-					<genIndexes>Y</genIndexes>
-				</pgSql>
-			</SqlGenModule>
 			<CodeGenModule>
 				<java>
 					<namePrefix/>
@@ -255,10 +240,25 @@ COMMIT;</attrib>
 					<getter>Y</getter>
 					<package>com.metropolitana.multipagos</package>
 					<genConsts>N</genConsts>
-					<dirtyCheck>N</dirtyCheck>
 					<useJdo>Y</useJdo>
+					<dirtyCheck>N</dirtyCheck>
 				</java>
 			</CodeGenModule>
+			<SqlGenModule>
+				<stdSql>
+					<output/>
+				</stdSql>
+				<hsqldbSql>
+					<output/>
+				</hsqldbSql>
+				<oraSql>
+					<output/>
+				</oraSql>
+				<pgSql>
+					<output>/tmp/multipagos/sql/crear_db.sql</output>
+					<genIndexes>Y</genIndexes>
+				</pgSql>
+			</SqlGenModule>
 		</modsConfig>
 		<modsUsage>
 			<module name="DocsGenModule.html"/>
@@ -2962,8 +2962,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('auth_user_usr_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -2997,8 +2997,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3032,8 +3032,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3067,8 +3067,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3102,8 +3102,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3137,8 +3137,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3172,8 +3172,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3207,8 +3207,8 @@ INSERT INTO auth_user(usr_login,usr_full_name,usr_password,usr_enable,usr_cargo)
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3463,8 +3463,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('auth_role_rol_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3498,8 +3498,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3533,8 +3533,8 @@ INSERT INTO auth_role(rol_name,rol_enable) VALUES ('Empresa Informe','t');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3799,8 +3799,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('auth_resource_res_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3834,8 +3834,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3869,8 +3869,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -3904,8 +3904,8 @@ INSERT INTO auth_resource(res_key,res_name,res_enable) values('emp_informe','Emp
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'t'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4141,8 +4141,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4176,8 +4176,8 @@ INSERT INTO auth_user_role VALUES(1,1);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4486,8 +4486,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4521,8 +4521,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4699,8 +4699,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('estado_corte_estado_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4729,8 +4729,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4759,8 +4759,8 @@ insert into auth_permission values(16,13);</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4878,8 +4878,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('departamento_departamento_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4908,8 +4908,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -4938,8 +4938,8 @@ INSERT INTO departamento VALUES(7,'ESTELI');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5362,8 +5362,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('localidad_localidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5392,8 +5392,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5422,8 +5422,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5452,8 +5452,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5565,8 +5565,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('barrio_barrio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5595,8 +5595,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5625,8 +5625,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5655,8 +5655,8 @@ INSERT INTO localidad VALUES (315,1, 'XILOA');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5800,8 +5800,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('simbolo_simbolo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5830,8 +5830,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5860,8 +5860,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -5890,8 +5890,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6121,8 +6121,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6156,8 +6156,8 @@ INSERT INTO simbolo VALUES (33, 33, 'TELEFONO FUERA DE SERVICIO');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6276,8 +6276,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('servicio_servicio_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6306,8 +6306,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6336,8 +6336,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6449,8 +6449,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('banco_banco_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6479,8 +6479,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6509,8 +6509,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6622,8 +6622,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('cuentas_cuenta_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6652,8 +6652,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6682,8 +6682,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6712,8 +6712,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6742,8 +6742,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6772,8 +6772,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6885,8 +6885,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('prueba_prueba_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6915,8 +6915,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -6945,8 +6945,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7058,8 +7058,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('cantidad_monedas_cantidad_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7088,8 +7088,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7118,8 +7118,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7148,8 +7148,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7178,8 +7178,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7291,8 +7291,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('asignar_barrio_asignarb_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7321,8 +7321,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7351,8 +7351,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7381,8 +7381,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7411,8 +7411,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7524,8 +7524,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7554,8 +7554,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7667,8 +7667,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('asignar_colector_asignarc_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7697,8 +7697,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7727,8 +7727,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7840,8 +7840,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7870,8 +7870,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -7983,8 +7983,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('asignar_visitas_asignarv_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8013,8 +8013,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8043,8 +8043,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8078,8 +8078,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8108,8 +8108,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8138,8 +8138,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8168,8 +8168,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8203,8 +8203,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8238,8 +8238,8 @@ INSERT INTO servicio VALUES(3,'MOVIL');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8610,8 +8610,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('simbolo_avon_simbolo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8640,8 +8640,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8670,8 +8670,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8700,8 +8700,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8837,8 +8837,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('colector_colector_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8867,8 +8867,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8897,8 +8897,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8927,8 +8927,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8957,8 +8957,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -8987,8 +8987,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9017,8 +9017,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9047,8 +9047,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9184,8 +9184,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('cartera_x_departamento_cartera_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9214,8 +9214,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9244,8 +9244,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9274,8 +9274,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9304,8 +9304,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9334,8 +9334,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9364,8 +9364,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9394,8 +9394,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9424,8 +9424,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9454,8 +9454,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9484,8 +9484,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9514,8 +9514,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9544,8 +9544,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9574,8 +9574,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9604,8 +9604,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9634,8 +9634,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9664,8 +9664,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9694,8 +9694,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9724,8 +9724,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9754,8 +9754,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9784,8 +9784,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9814,8 +9814,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9844,8 +9844,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9874,8 +9874,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9904,8 +9904,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9934,8 +9934,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -9964,8 +9964,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10077,8 +10077,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('visitas_visita_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10107,8 +10107,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10137,8 +10137,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10167,8 +10167,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10280,8 +10280,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10310,8 +10310,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10340,8 +10340,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10370,8 +10370,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10400,8 +10400,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10430,8 +10430,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10460,8 +10460,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10490,8 +10490,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10520,8 +10520,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10550,8 +10550,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10580,8 +10580,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10610,8 +10610,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10640,8 +10640,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10753,8 +10753,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('pagos_pago_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10783,8 +10783,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10813,8 +10813,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10843,8 +10843,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10873,8 +10873,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10903,8 +10903,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -10933,8 +10933,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11046,8 +11046,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11076,8 +11076,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11106,8 +11106,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11136,8 +11136,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11166,8 +11166,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11196,8 +11196,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11226,8 +11226,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11256,8 +11256,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11286,8 +11286,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11316,8 +11316,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11346,8 +11346,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11376,8 +11376,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11406,8 +11406,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11436,8 +11436,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11466,8 +11466,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11496,8 +11496,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11526,8 +11526,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11556,8 +11556,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11586,8 +11586,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11699,8 +11699,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('arqueo_pagos_arqueo_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11729,8 +11729,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11759,8 +11759,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11789,8 +11789,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11819,8 +11819,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11849,8 +11849,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11879,8 +11879,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11909,8 +11909,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11939,8 +11939,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11969,8 +11969,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -11999,8 +11999,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12029,8 +12029,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12059,8 +12059,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12089,8 +12089,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12119,8 +12119,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12149,8 +12149,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12262,8 +12262,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12292,8 +12292,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12322,8 +12322,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12352,8 +12352,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12465,8 +12465,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12495,8 +12495,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12525,8 +12525,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12555,8 +12555,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12668,8 +12668,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12698,8 +12698,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12728,8 +12728,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12758,8 +12758,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12788,8 +12788,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12818,8 +12818,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12848,8 +12848,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12878,8 +12878,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -12991,8 +12991,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13021,8 +13021,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13051,8 +13051,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13081,8 +13081,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13111,8 +13111,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13141,8 +13141,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13171,8 +13171,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13201,8 +13201,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13386,8 +13386,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('cartera_avon_cavon_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13416,8 +13416,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13446,8 +13446,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13476,8 +13476,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13506,8 +13506,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13536,8 +13536,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13566,8 +13566,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13596,8 +13596,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13626,8 +13626,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13656,8 +13656,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13686,8 +13686,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13716,8 +13716,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13746,8 +13746,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13776,8 +13776,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13806,8 +13806,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13836,8 +13836,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13866,8 +13866,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13896,8 +13896,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13926,8 +13926,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13956,8 +13956,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -13986,8 +13986,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339">'f'</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14117,8 +14117,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('gestion_avon_gestion_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14147,8 +14147,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14177,8 +14177,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14308,8 +14308,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14338,8 +14338,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14368,8 +14368,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14398,8 +14398,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14428,8 +14428,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14458,8 +14458,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14488,8 +14488,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14518,8 +14518,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14548,8 +14548,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14578,8 +14578,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14608,8 +14608,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14638,8 +14638,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14751,8 +14751,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('avon_pagos_pago_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14781,8 +14781,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14811,8 +14811,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14841,8 +14841,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14871,8 +14871,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -14984,8 +14984,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15014,8 +15014,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15044,8 +15044,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15074,8 +15074,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15104,8 +15104,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15134,8 +15134,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15164,8 +15164,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15194,8 +15194,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15224,8 +15224,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15254,8 +15254,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15284,8 +15284,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15314,8 +15314,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15344,8 +15344,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15374,8 +15374,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15404,8 +15404,8 @@ INSERT INTO simbolo_avon VALUES (25, 37, 'NUMERO TELEFONO INCORRECTO');
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15676,8 +15676,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15711,8 +15711,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">true</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15947,8 +15947,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('logs_logs_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -15982,8 +15982,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16017,8 +16017,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16052,8 +16052,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16087,8 +16087,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16229,8 +16229,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('tmp_cartera_tmp_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16259,8 +16259,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16289,8 +16289,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16319,8 +16319,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16349,8 +16349,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16379,8 +16379,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16409,8 +16409,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16439,8 +16439,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16469,8 +16469,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16499,8 +16499,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16529,8 +16529,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16559,8 +16559,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16589,8 +16589,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16619,8 +16619,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16649,8 +16649,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16679,8 +16679,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16709,8 +16709,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16739,8 +16739,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16769,8 +16769,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16799,8 +16799,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16829,8 +16829,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16942,8 +16942,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -16972,8 +16972,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17002,8 +17002,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17032,8 +17032,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17062,8 +17062,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17092,8 +17092,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17122,8 +17122,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17152,8 +17152,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17182,8 +17182,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17212,8 +17212,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17242,8 +17242,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17272,8 +17272,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17302,8 +17302,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17332,8 +17332,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17362,8 +17362,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17392,8 +17392,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17422,8 +17422,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17452,8 +17452,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17482,8 +17482,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17512,8 +17512,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17542,8 +17542,8 @@ INSERT INTO tipo_documento_logs VALUES(17,'Asignacion Colectores');</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17718,8 +17718,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('tmp_carteraclaro_tmp_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17748,8 +17748,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17778,8 +17778,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17808,8 +17808,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17838,8 +17838,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17868,8 +17868,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17898,8 +17898,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17928,8 +17928,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17958,8 +17958,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -17988,8 +17988,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18018,8 +18018,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18048,8 +18048,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18078,8 +18078,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18108,8 +18108,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18239,8 +18239,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339">nextval('tmp_cartera_avon_tmp_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18269,8 +18269,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18299,8 +18299,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18329,8 +18329,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18359,8 +18359,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18389,8 +18389,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18419,8 +18419,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18449,8 +18449,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18479,8 +18479,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18509,8 +18509,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18539,8 +18539,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18569,8 +18569,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18599,8 +18599,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18629,8 +18629,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18659,8 +18659,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18689,8 +18689,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18719,8 +18719,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18749,8 +18749,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18779,8 +18779,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18841,10 +18841,6 @@ GO</attrib>
 					<vars>
 						<list>
 							<header>
-								<elem>name</elem>
-								<elem>type</elem>
-								<elem>value</elem>
-								<elem>descr</elem>
 								<elem>name</elem>
 								<elem>type</elem>
 								<elem>value</elem>
@@ -18932,8 +18928,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">true</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">true</attrib>
 								<attrib name="339">nextval('asignacion_claro_tmp_id_seq')</attrib>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18942,9 +18938,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cartera_id</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cartera_id</attrib>
 							<attrib name="id">1103645</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -18962,8 +18958,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -18972,9 +18968,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">contrato</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">contrato</attrib>
 							<attrib name="id">1103646</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -18992,8 +18988,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19002,9 +18998,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">suscriptor</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">suscriptor</attrib>
 							<attrib name="id">1103647</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19022,8 +19018,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19032,9 +19028,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">nit</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">nit</attrib>
 							<attrib name="id">1103648</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19052,8 +19048,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19062,9 +19058,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion</attrib>
 							<attrib name="id">1103649</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19082,8 +19078,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19092,9 +19088,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">barrio_id</attrib>
-							<attrib name="refField">982717</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">982717</attrib>
+							<attrib name="name">barrio_id</attrib>
 							<attrib name="id">1103650</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -19112,8 +19108,8 @@ GO</attrib>
 								<attrib name="31784">true</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19122,9 +19118,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">factura_interna</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">factura_interna</attrib>
 							<attrib name="id">1103651</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19142,8 +19138,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19152,9 +19148,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">numero_fiscal</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">numero_fiscal</attrib>
 							<attrib name="id">1103652</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19172,8 +19168,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19182,9 +19178,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">anio</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">anio</attrib>
 							<attrib name="id">1103653</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19202,8 +19198,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19212,9 +19208,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">mes</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">mes</attrib>
 							<attrib name="id">1103654</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19232,8 +19228,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19242,9 +19238,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">saldo</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">saldo</attrib>
 							<attrib name="id">1103655</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19262,8 +19258,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19272,9 +19268,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">estado_id</attrib>
-							<attrib name="refField">981238</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">981238</attrib>
+							<attrib name="name">estado_id</attrib>
 							<attrib name="id">1103656</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19292,8 +19288,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19302,9 +19298,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">departamento_id</attrib>
-							<attrib name="refField">981654</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">981654</attrib>
+							<attrib name="name">departamento_id</attrib>
 							<attrib name="id">1103657</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -19322,8 +19318,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19332,9 +19328,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">localidad_id</attrib>
-							<attrib name="refField">982077</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">982077</attrib>
+							<attrib name="name">localidad_id</attrib>
 							<attrib name="id">1103658</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -19352,8 +19348,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19362,9 +19358,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cupon</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cupon</attrib>
 							<attrib name="id">1103659</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19382,8 +19378,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19392,9 +19388,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">telefono</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">telefono</attrib>
 							<attrib name="id">1103660</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19412,8 +19408,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19422,9 +19418,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">descuento</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">descuento</attrib>
 							<attrib name="id">1103661</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19442,8 +19438,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19452,9 +19448,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">servicio_id</attrib>
-							<attrib name="refField">988332</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">988332</attrib>
+							<attrib name="name">servicio_id</attrib>
 							<attrib name="id">1103662</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">c</attrib>
@@ -19472,8 +19468,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19482,9 +19478,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">empleador</attrib>
 							<attrib name="id">1103663</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19502,8 +19498,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19512,9 +19508,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">direccion_empleador</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">direccion_empleador</attrib>
 							<attrib name="id">1103664</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19532,8 +19528,8 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">true</attrib>
 								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
 								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
 								<attrib name="339"/>
 								<attrib name="338">false</attrib>
 								<attrib name="5923">false</attrib>
@@ -19542,9 +19538,9 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">fecha_ingreso</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">fecha_ingreso</attrib>
 							<attrib name="id">1103667</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
@@ -19562,6 +19558,66 @@ GO</attrib>
 								<attrib name="31784">false</attrib>
 								<attrib name="17">false</attrib>
 								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">cuenta</attrib>
+							<attrib name="id">1103668</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">883601</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">concepto_diferido</attrib>
+							<attrib name="id">1103669</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1437</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
 								<attrib name="139029">false</attrib>
 								<attrib name="15">false</attrib>
 								<attrib name="339"/>
@@ -19572,14 +19628,44 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">cuenta</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
-							<attrib name="id">1103668</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">anio_asignacion</attrib>
+							<attrib name="id">1103729</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
-							<attrib name="type">883601</attrib>
+							<attrib name="type">1100068</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="matchType">s</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">mes_asignacion</attrib>
+							<attrib name="id">1103733</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">1100068</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
@@ -19602,78 +19688,213 @@ GO</attrib>
 						</fieldAttribs>
 						<attribs>
 							<attrib name="comment"/>
-							<attrib name="name">concepto_diferido</attrib>
-							<attrib name="refField">0</attrib>
 							<attrib name="matchType">s</attrib>
-							<attrib name="id">1103669</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="name">num_asignacion</attrib>
+							<attrib name="id">1106915</attrib>
 							<attrib name="onDelete">n</attrib>
 							<attrib name="onUpdate">n</attrib>
 							<attrib name="refTable">0</attrib>
-							<attrib name="type">1437</attrib>
-						</attribs>
-						<modsConfig/>
-					</field>
-					<field>
-						<fieldAttribs>
-							<attribs>
-								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
-								<attrib name="31786">false</attrib>
-								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
-								<attrib name="139029">false</attrib>
-								<attrib name="339"/>
-								<attrib name="338">false</attrib>
-								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
-							</attribs>
-						</fieldAttribs>
-						<attribs>
-							<attrib name="comment"/>
-							<attrib name="name">anio_asignacion</attrib>
-							<attrib name="refField">0</attrib>
-							<attrib name="matchType">s</attrib>
-							<attrib name="id">1103729</attrib>
-							<attrib name="onDelete">n</attrib>
-							<attrib name="onUpdate">n</attrib>
-							<attrib name="refTable">0</attrib>
-							<attrib name="type">1100068</attrib>
-						</attribs>
-						<modsConfig/>
-					</field>
-					<field>
-						<fieldAttribs>
-							<attribs>
-								<attrib name="25984">false</attrib>
-								<attrib name="5342">false</attrib>
-								<attrib name="31786">false</attrib>
-								<attrib name="31784">false</attrib>
-								<attrib name="17">true</attrib>
-								<attrib name="16">false</attrib>
-								<attrib name="15">false</attrib>
-								<attrib name="139029">false</attrib>
-								<attrib name="339"/>
-								<attrib name="338">false</attrib>
-								<attrib name="5923">false</attrib>
-								<attrib name="6390">false</attrib>
-							</attribs>
-						</fieldAttribs>
-						<attribs>
-							<attrib name="comment"/>
-							<attrib name="name">mes_asignacion</attrib>
-							<attrib name="refField">0</attrib>
-							<attrib name="matchType">s</attrib>
-							<attrib name="id">1103733</attrib>
-							<attrib name="onDelete">n</attrib>
-							<attrib name="onUpdate">n</attrib>
-							<attrib name="refTable">0</attrib>
-							<attrib name="type">1100068</attrib>
+							<attrib name="type">2747</attrib>
 						</attribs>
 						<modsConfig/>
 					</field>
 				</table>
+				<table>
+					<vars>
+						<list>
+							<header>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+								<elem>name</elem>
+								<elem>type</elem>
+								<elem>value</elem>
+								<elem>descr</elem>
+							</header>
+						</list>
+					</vars>
+					<triggers/>
+					<rules/>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">tmp_datos</attrib>
+						<attrib name="id">1106849</attrib>
+						<attrib name="schema"/>
+						<attrib name="tempPK"/>
+						<attrib name="tempFK"/>
+						<attrib name="tempOther"/>
+						<attrib name="sqlCommands"/>
+					</attribs>
+					<modsConfig>
+						<SqlGenModule>
+							<pgSql>
+								<idx type="l">
+									<list>
+										<header>
+											<elem type="i">id</elem>
+											<elem type="s">index</elem>
+											<elem type="s">name</elem>
+											<elem type="s">access</elem>
+											<elem type="s">where</elem>
+										</header>
+										<row>
+											<elem>31784</elem>
+											<elem>Index 1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>5342</elem>
+											<elem>Index 2</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>6390</elem>
+											<elem>Index 3</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>25984</elem>
+											<elem>Index 4</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>31786</elem>
+											<elem>Index 5</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+										<row>
+											<elem>139029</elem>
+											<elem>Udx1</elem>
+											<elem/>
+											<elem>default</elem>
+											<elem/>
+										</row>
+									</list>
+								</idx>
+							</pgSql>
+						</SqlGenModule>
+					</modsConfig>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">true</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">true</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339">nextval('tmp_datos_tmp_datos_seq')</attrib>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">tmp_datos</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1106850</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">2747</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">contrato</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1106851</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">833635</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+					<field>
+						<fieldAttribs>
+							<attribs>
+								<attrib name="25984">false</attrib>
+								<attrib name="5342">false</attrib>
+								<attrib name="31786">false</attrib>
+								<attrib name="31784">false</attrib>
+								<attrib name="17">false</attrib>
+								<attrib name="16">false</attrib>
+								<attrib name="15">false</attrib>
+								<attrib name="139029">false</attrib>
+								<attrib name="339"/>
+								<attrib name="338">false</attrib>
+								<attrib name="5923">false</attrib>
+								<attrib name="6390">false</attrib>
+							</attribs>
+						</fieldAttribs>
+						<attribs>
+							<attrib name="comment"/>
+							<attrib name="name">factura_interna</attrib>
+							<attrib name="refField">0</attrib>
+							<attrib name="matchType">s</attrib>
+							<attrib name="id">1106856</attrib>
+							<attrib name="onDelete">n</attrib>
+							<attrib name="onUpdate">n</attrib>
+							<attrib name="refTable">0</attrib>
+							<attrib name="type">444518</attrib>
+						</attribs>
+						<modsConfig/>
+					</field>
+				</table>
+				<sequence>
+					<attribs>
+						<attrib name="name">tmp_datos_tmp_datos_seq</attrib>
+						<attrib name="increment">1</attrib>
+						<attrib name="cache">1</attrib>
+						<attrib name="start">1</attrib>
+						<attrib name="cycle">false</attrib>
+						<attrib name="minValue">1</attrib>
+						<attrib name="maxValue">2147483647</attrib>
+						<attrib name="order">false</attrib>
+					</attribs>
+					<modsConfig/>
+					<docs>
+						<p>
+							<t>Secuencia para manejar el consecutivo de los registros de los usuarios del sistema.</t>
+						</p>
+					</docs>
+				</sequence>
 			</folder>
 			<notes>
 				<attribs>

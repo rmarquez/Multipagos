@@ -14,8 +14,8 @@
                     <fi:styling type="fieldset" layout="columns"/>
                     <fi:label>Criterios para listar las vistas pendientes</fi:label>
                     <fi:items>
-                    	<!-- <ft:widget id="servicioId"/>
-                    	<ft:widget id="aAsignacion"/> -->
+                    	<!-- <ft:widget id="servicioId"/> -->
+                    	<ft:widget id="numAsignacion"/>
                     	<ft:widget id="asignacionAnio"/>
                     	<!-- <ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget> -->
                         <ft:widget id="fechaIni"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>

@@ -195,14 +195,14 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 
-	public static List getAnioAsignacion(final Integer servicioId) throws Exception {
+	public static List getAnioAsignacion(final Integer numAsignacion) throws Exception {
 		
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			Criteria criterio = new Criteria();
-			if (servicioId != null) {
-				criterio.addEqualTo("servicioId", servicioId);
+			if (numAsignacion != null) {
+				criterio.addEqualTo("numAsignacion", numAsignacion);
 			}
 			//ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
 			ReportQueryByCriteria query = new ReportQueryByCriteria(AsignacionClaro.class, criterio);

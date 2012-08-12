@@ -14,10 +14,103 @@ public class UtilXls2Postgres {
 	
 	public void procesoSql() throws Exception {
             sqlExcluidos();
+            Integer numero = getNumAsignacion();
+            System.out.println("NUMERO ASIGNACION = " +numero);
+            if(numero != null){
+            	insertValor(numero+1);
+            } else {
+            	insertValor(1);
+            }
             prepararDLocalidad();
             prepararBarrios();
             prepararEstados();
             
+	}
+	
+	public static Integer getNumAsignacion()
+			throws Exception {
+            
+		Connection connPostgres = null;
+		String query;
+        PreparedStatement psOrigen = null;	
+		ResultSet rs = null;
+		int max = 0;
+		try {
+			
+            try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			
+			query = "select num_asignacion from asignacion_claro order by cartera_id desc limit 1 ";
+				
+			psOrigen = connPostgres.prepareStatement(query);
+			
+            rs = psOrigen.executeQuery();
+            
+            while(rs.next()) {  
+            	max = rs.getInt(1);
+            }
+             
+			return max;
+		} catch (Exception e) {
+			throw e;
+		} 
+	}
+	
+private void insertValor(final Integer numero) throws Exception {
+		
+		Connection connPostgres = null;
+		String query;
+	
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			// Limpiamos la tabla tmp_cartera antes de insertar los datos
+			query = "update tmp_asignacion_claro set num_asignacion=? where num_asignacion is null;";
+			ejecutarInsertValor(connPostgres, query, numero );
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null) connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void ejecutarInsertValor(Connection connPostgres,
+			String insertQuery, final Integer numero) throws Exception {
+		PreparedStatement psOrigen = null;
+
+		try {
+			psOrigen = connPostgres.prepareStatement(insertQuery);
+
+			psOrigen.setInt(1, numero);
+
+			psOrigen.executeUpdate();
+
+			psOrigen.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
     	
@@ -45,6 +138,9 @@ public class UtilXls2Postgres {
 			int count = countQuery(connPostgres, query);
 			
 			query = "select a.*, date_part('year', f_asignado) as anio_asignacion, date_part('month', f_asignado) as mes_asignacion into tmp_asignacion_claro from tmp_cartera a;";
+			ejecutarQuery(connPostgres, query);
+			
+			query = "alter table tmp_asignacion_claro add column num_asignacion int4;";
 			ejecutarQuery(connPostgres, query);
 			
 			query = "select a.* into tmp_excluidos from tmp_cartera a where factura_interna in (select factura_interna from cartera_x_departamento);";
@@ -113,10 +209,10 @@ public class UtilXls2Postgres {
 			query = "insert into asignacion_claro (" +
 					"contrato, suscriptor, nit, direccion, barrio_id, factura_interna, numero_fiscal, anio, mes, saldo, estado_id, departamento_id, "+
 					"localidad_id, cupon, telefono, descuento, servicio_id, empleador, direccion_empleador, fecha_ingreso, cuenta, concepto_diferido, "+
-					"anio_asignacion, mes_asignacion) "+
+					"anio_asignacion, mes_asignacion, num_asignacion) "+
 			"select a.contrato,	a.suscriptor, a.nit, a.direccion, a.barrio_id, a.factura_interna, a.numero_fiscal, a.anio, a.mes, a.saldo, a.estado_id, "+
 					"a.departamento_id, a.localidad_id, a.cupon, a.telefono, 0 as descuento, a.servicio_id, a.empleador, a.direccion_empleador, "+
-					"b.f_asignado,a.cuenta, a.concepto_diferido, a.anio_asignacion, a.mes_asignacion " +
+					"b.f_asignado,a.cuenta, a.concepto_diferido, a.anio_asignacion, a.mes_asignacion, b.num_asignacion " +
 					"from 	tmp_asignacion_claro_2 a "+
 			"inner join tmp_asignacion_claro b on a.factura_interna = b.factura_interna;";
 		    ejecutarQuery(connPostgres, query);

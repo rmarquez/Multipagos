@@ -27,6 +27,17 @@
             </fd:datatype>
         </fd:field>
         
+        <fd:field id="numAsignacion" required="true">
+        	<fd:label>Asignacion Numero:</fd:label>
+			<fd:datatype base="integer"/>
+			<fd:selection-list src="cocoon:/numAsignacion.combo" cache="none" />
+			<fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarNum(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+        
         <fd:field id="departamentoId">
         	<fd:label>Departamento:</fd:label>
 			<fd:datatype base="integer"/>

@@ -14,7 +14,8 @@ import java.text.SimpleDateFormat;
 public class InformeVisitasPendientes {
 
 	public static List getVisitasPendientes(Date fechaIngreso, Date fechaIni,
-			Date fechaFin, Integer departamentoId, Integer localidadId, Integer barrioId)
+			Date fechaFin, Integer departamentoId, Integer localidadId, Integer barrioId
+			, Integer numAsignacion)
 			throws Exception {
             
 		Connection connPostgres = null;
@@ -45,41 +46,41 @@ public class InformeVisitasPendientes {
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO " +
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?)  AND A0.DEPARTAMENTO_ID = ?";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)  AND A0.DEPARTAMENTO_ID = ?";
 			} else if (departamentoId == null && localidadId != null && barrioId == null) {
 				selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " +
 				"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " +
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?) AND A0.LOCALIDAD_ID = ?";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?) AND A0.LOCALIDAD_ID = ?";
 			} else if (departamentoId == null && localidadId == null && barrioId != null) {
 				selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " +
 				"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " +
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?) AND A0.BARRIO_ID = ?";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?) AND A0.BARRIO_ID = ?";
 			} else if (departamentoId != null && localidadId != null && barrioId == null) {
 				selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " +
 				"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " +
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ?";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ?";
 			} else if (departamentoId != null && localidadId != null && barrioId != null) {
 				selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " +
 				"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " +
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ? AND A0.BARRIO_ID = ?";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ? AND A0.BARRIO_ID = ?";
 			} else {
 				selectQuery = "SELECT DISTINCT ON (A0.CONTRATO) A0.CONTRATO,A0.FACTURA_INTERNA,A0.SUSCRIPTOR,A1.DEPARTAMENTO_NOMBRE,A2.LOCALIDAD_NOMBRE, " +
 				"A3.SERVICIO_NOMBRE,A0.ANIO,A0.MES,A0.FECHA_INGRESO,A0.DIRECCION, A0.TELEFONO, B1.BARRIO_NOMBRE, A0.SALDO FROM ((asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) " +
 				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID " +
 				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
 				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
-				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ?)";
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?) ) AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION =?)";
 			}
 				
             psOrigen = connPostgres.prepareStatement(selectQuery);
@@ -92,25 +93,25 @@ public class InformeVisitasPendientes {
             java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
             psOrigen.setDate(3,fechaF);
             psOrigen.setDate(4,fecha);
-            //psOrigen.setInt(6, servicioId);
+            psOrigen.setInt(5, numAsignacion);
             
             if(departamentoId != null && localidadId == null && barrioId == null){
-            	psOrigen.setInt(5, departamentoId);
+            	psOrigen.setInt(6, departamentoId);
             } 
             if(departamentoId == null && localidadId != null && barrioId == null){
-            	psOrigen.setInt(5, localidadId);
+            	psOrigen.setInt(6, localidadId);
             }
             if(departamentoId == null && localidadId == null && barrioId != null){
-            	psOrigen.setInt(5, barrioId);
+            	psOrigen.setInt(6, barrioId);
             }
             if(departamentoId != null && localidadId != null && barrioId == null){
-            	psOrigen.setInt(5, departamentoId);
-            	psOrigen.setInt(6, localidadId);
+            	psOrigen.setInt(6, departamentoId);
+            	psOrigen.setInt(7, localidadId);
             }
             if(departamentoId != null && localidadId != null && barrioId != null){
-            	psOrigen.setInt(5, departamentoId);
-            	psOrigen.setInt(6, localidadId);
-            	psOrigen.setInt(7, barrioId);
+            	psOrigen.setInt(6, departamentoId);
+            	psOrigen.setInt(7, localidadId);
+            	psOrigen.setInt(8, barrioId);
             }
             
     

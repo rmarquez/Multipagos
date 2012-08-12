@@ -24,10 +24,10 @@ function servicioCombo() {
 
 function asignacionAnioCombo() {
     if (autorizar("cata")) {
-		var servicioId = !isNaN(parseInt(cocoon.request.servicioId)) ? parseInt(cocoon.request.servicioId): null;
+		var numAsignacion = !isNaN(parseInt(cocoon.request.numAsignacion)) ? parseInt(cocoon.request.numAsignacion): null;
         var handler = new Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler();
         var util = Packages.com.metropolitana.multipagos.forms.Util();
-       	var bean = handler.getAnioAsignacion(servicioId);
+       	var bean = handler.getAnioAsignacion(numAsignacion);
         cocoon.sendPage("asignacionAnioCombo-data", {"bean": bean, "util": util});
     }
 }
@@ -39,6 +39,14 @@ function asignacionAnioCombo() {
         cocoon.sendPage("aAsignacionCombo-data", {"bean": bean});
     }
 }*/
+
+function numAsignacionCombo() {
+    if (autorizar("cata")) {
+		var handler = new Packages.com.metropolitana.multipagos.forms.informes.InformesUtil();
+        var bean = handler.getNumAsignacion();
+        cocoon.sendPage("numAsignacionCombo-data", {"bean": bean});
+    }
+}
 
 function localidadCombo() {
     if (autorizar("cata")) {

@@ -52,7 +52,7 @@
         </table> -->
         <jx:forEach var="item" items="${bean}">
         <jx:set var="mes" value="${util.getMes(item[7])}"/> 
-        <fo:external-graphic src="url('/images/Logo_final.png')"/>
+        <!-- <fo:external-graphic src="url('/images/Logo_final.png')"/> -->
         	<table border="0">
 	            <tbody>
 	                <tr>
@@ -100,7 +100,7 @@
 	            <tbody>
 	                <tr>
 	                    <td width="1.5"><b>Contrato:</b></td>
-	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[1]}</td>
+	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[0]}</td>
 	                    <td width="1.5"><b>Barrio:</b></td>
 	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[11]}</td>
 	                </tr>
