@@ -12,18 +12,21 @@ import java.util.logging.Logger;
 
 public class UtilXls2Postgres {
 	
-	public void procesoSql() throws Exception {
+	public int procesoSql() throws Exception {
             sqlExcluidos();
             Integer numero = getNumAsignacion();
             System.out.println("NUMERO ASIGNACION = " +numero);
             if(numero != null){
-            	insertValor(numero+1);
+            	numero = numero+1;
             } else {
-            	insertValor(1);
+            	numero = 1;
             }
+            insertValor(numero);
             prepararDLocalidad();
             prepararBarrios();
             prepararEstados();
+            
+            return numero;
             
 	}
 	

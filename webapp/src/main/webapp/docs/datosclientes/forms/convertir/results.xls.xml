@@ -5,18 +5,32 @@
     <title>clientes Pendientes</title>
 
     <columnas No="0" Unit="70"/>
-    <columnas No="1" Unit="100"/>
-    <columnas No="2" Unit="300"/>
-    <columnas No="3" Unit="100"/>
-    <columnas No="4" Unit="100"/>
-    <columnas No="5" Unit="70"/>
-    <columnas No="6" Unit="50"/>
+    <columnas No="1" Unit="250"/>
+    <columnas No="2" Unit="100"/>
+    <columnas No="3" Unit="300"/>
+    <columnas No="4" Unit="120"/>
+    <columnas No="5" Unit="100"/>
+    <columnas No="6" Unit="80"/>
     <columnas No="7" Unit="50"/>
-    <columnas No="8" Unit="100"/>
+    <columnas No="8" Unit="50"/>
+    <columnas No="9" Unit="80"/>
+    <columnas No="10" Unit="150"/>
+    <columnas No="11" Unit="200"/>
+    <columnas No="12" Unit="100"/>
+    <columnas No="13" Unit="100"/>
+    <columnas No="14" Unit="100"/>
+    <columnas No="15" Unit="80"/>
+    <columnas No="16" Unit="80"/>
+    <columnas No="17" Unit="150"/>
+    <columnas No="18" Unit="200"/>
+    <columnas No="19" Unit="100"/>
+    <columnas No="20" Unit="120"/>
+    <columnas No="21" Unit="120"/>
+    
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${8}"/>
+    <jx:set var="colFin" value="${21}"/>
     
     
     <celda Col="${col}" Row="${fila}">DATOS CLIENTES PENDIENTES</celda>
@@ -26,14 +40,27 @@
     <jx:if test="${colectorId == null}"> 
         <jx:set var="fila" value="${fila+2}"/>
         <celda Col="${col}" Row="${fila}">CONTRATO</celda>
-        <celda Col="${col+1}" Row="${fila}">FACTURA INTERNA</celda>
-        <celda Col="${col+2}" Row="${fila}">SUSCRIPTOR</celda>
-        <celda Col="${col+3}" Row="${fila}">DEPARTAMENTO</celda>
-        <celda Col="${col+4}" Row="${fila}">LOCALIDAD</celda>
-        <celda Col="${col+5}" Row="${fila}">SERVICIO</celda>
-        <celda Col="${col+6}" Row="${fila}">AÑO</celda>
-        <celda Col="${col+7}" Row="${fila}">MES</celda>
-        <celda Col="${col+8}" Row="${fila}">F.ASIGNADO</celda>        
+        <celda Col="${col+1}" Row="${fila}">SUSCRIPTOR</celda>
+        <celda Col="${col+2}" Row="${fila}">NIT</celda>
+        <celda Col="${col+3}" Row="${fila}">DIRECCION</celda>
+        <celda Col="${col+4}" Row="${fila}">BARRIO</celda>
+        <celda Col="${col+5}" Row="${fila}">FACTURA INTERNA</celda>
+        <celda Col="${col+6}" Row="${fila}">NUMERO FISCAL</celda>
+        <celda Col="${col+7}" Row="${fila}">AÑO</celda>
+        <celda Col="${col+8}" Row="${fila}">MES</celda>
+        <celda Col="${col+9}" Row="${fila}">SALDO</celda>
+        <celda Col="${col+10}" Row="${fila}">ESTADO</celda>
+        <celda Col="${col+11}" Row="${fila}">DEPARTAMENTO</celda>
+        <celda Col="${col+12}" Row="${fila}">LOCALIDAD</celda>
+        <celda Col="${col+13}" Row="${fila}">CUPON</celda>
+        <celda Col="${col+14}" Row="${fila}">TELEFONO</celda>
+        <celda Col="${col+15}" Row="${fila}">DESCUENTO</celda>
+        <celda Col="${col+16}" Row="${fila}">SERVICIO</celda>
+        <celda Col="${col+17}" Row="${fila}">EMPLEADOR</celda>
+        <celda Col="${col+18}" Row="${fila}">DIRECCION EMPLEADOR</celda>
+        <celda Col="${col+19}" Row="${fila}">F.ASIGNADO</celda>
+        <celda Col="${col+20}" Row="${fila}">CUENTA</celda>
+        <celda Col="${col+21}" Row="${fila}">CONCEPTO DIFERIDO</celda>     
         <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
         <jx:set var="fila" value="${fila+1}"/>
         <jx:set var="filaIni" value="${fila}"/> 
@@ -41,13 +68,13 @@
     
         
 
-    <jx:set var="departamento" value=""/>
+    <!-- <jx:set var="departamento" value=""/> -->
       
 
     <jx:set var="filaInicial" value="${fila}"/>
 
     <jx:forEach var="item" items="${bean}" varStatus="status">
-    <jx:if test="departamento != item[4]}">    	
+    <!-- <jx:if test="departamento != item[4]}">    	
 	   <jx:if test="${colectorId != null}">     
 	        <celda Col="${col}" Row="${fila}">Departamento: ${item[3]} </celda>
 	        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="16" Recuadro="1"/>        
@@ -69,7 +96,8 @@
          </jx:if>
  </jx:if>
     
-    <jx:set var="departamento" value="${item[4]}"/>
+    <jx:set var="departamento" value="${item[4]}"/> -->
+    
     <celda Col="${col}" Row="${fila}">${item[0]}</celda>
     <celda Col="${col+1}" Row="${fila}">${item[1]}</celda>
     <celda Col="${col+2}" Row="${fila}">${item[2]}</celda>
@@ -78,7 +106,40 @@
     <celda Col="${col+5}" Row="${fila}">${item[5]}</celda>
     <celda Col="${col+6}" Row="${fila}">${item[6]}</celda>
     <celda Col="${col+7}" Row="${fila}">${item[7]}</celda>
-    <celda Col="${col+8}" Row="${fila}"><formatoFecha fecha="${item[8]}" patron="dd/MMM/yyyy"/></celda>
+    <celda Col="${col+8}" Row="${fila}">${item[8]}</celda>
+    <celda Col="${col+9}" Row="${fila}">${item[9]}</celda>
+    <celda Col="${col+10}" Row="${fila}">${item[10]}</celda>
+    <celda Col="${col+11}" Row="${fila}">${item[11]}</celda>
+    <celda Col="${col+12}" Row="${fila}">${item[12]}</celda>
+    <celda Col="${col+13}" Row="${fila}">${item[13]}</celda>
+    <celda Col="${col+14}" Row="${fila}">${item[14]}</celda>
+    <celda Col="${col+15}" Row="${fila}">${item[15]}</celda>
+    <celda Col="${col+16}" Row="${fila}">${item[16]}</celda>
+    <jx:if test="${item[17] != null}"> 
+    	<celda Col="${col+17}" Row="${fila}">${item[17]}</celda>
+     </jx:if>
+     <jx:if test="${item[17] == null}"> 
+    	<celda Col="${col+17}" Row="${fila}"> -- </celda>
+     </jx:if>
+    <jx:if test="${item[18] != null}"> 
+    	<celda Col="${col+18}" Row="${fila}">${item[18]}</celda>
+     </jx:if>
+     <jx:if test="${item[18] == null}"> 
+    	<celda Col="${col+18}" Row="${fila}"> -- </celda>
+     </jx:if>
+    <celda Col="${col+19}" Row="${fila}"><formatoFecha fecha="${item[19]}" patron="dd/MMM/yyyy"/></celda>
+    <jx:if test="${item[20] != null}"> 
+    	<celda Col="${col+20}" Row="${fila}">${item[20]}</celda>
+     </jx:if>
+     <jx:if test="${item[20] == null}"> 
+    	<celda Col="${col+20}" Row="${fila}"> -- </celda>
+     </jx:if>
+    <jx:if test="${item[21] != null}"> 
+    	<celda Col="${col+21}" Row="${fila}">${item[21]}</celda>
+     </jx:if>
+     <jx:if test="${item[21] == null}"> 
+    	<celda Col="${col+21}" Row="${fila}"> -- </celda>
+     </jx:if>
         <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
     <jx:set var="fila" value="${fila+1}"/>
 
