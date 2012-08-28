@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document menu="true"
-  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
-  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
-  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
-  <!-- Import the macros that define CForms template elements -->
-  <jx:import  uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
     <header>
         <title>Base de datos actualizada</title>
     </header>
     <body>
         <s1 title="Base de datos actualizada">
-            <p>Se agregaron <b>${cantidad}</b> nuevos registros, <b>${excluidos}</b> fueron excluidos porque ya existen en nuestra base de datos </p>
+            <p>Asignacion # <b>${asignacion}</b> ,se agregaron <b>${cantidad}</b> nuevos registros, <b>${excluidos}</b> fueron excluidos porque ya existen en nuestra base de datos </p>
             <p>Para un total de <b>${cantidad + excluidos}</b> registros. </p>
         </s1>
     </body>

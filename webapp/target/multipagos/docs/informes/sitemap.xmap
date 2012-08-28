@@ -23,6 +23,7 @@
         <map:script src="forms/detallenopago/flow.js"/>
         <map:script src="forms/visitasavon/flow.js"/>
         <map:script src="forms/pagosavon/flow.js"/>
+        <map:script src="forms/promesasavon/flow.js"/>
     </map:flow>
 
     <map:pipelines>

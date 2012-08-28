@@ -1,6 +1,10 @@
 package com.metropolitana.multipagos.forms.informes;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -67,7 +71,7 @@ public class InformePagosXDepartamento {
 		ReportQueryByCriteria query = new ReportQueryByCriteria(
 				DetallePagos.class, criterio);
 		query.setAttributes(new String[] { "pagoId",
-				"carteraIdRef.departamentoIdRef.departamentoNombre",
+				"localidadIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
 				"carteraIdRef.cupon", "montoPago", "anio",
@@ -75,7 +79,7 @@ public class InformePagosXDepartamento {
 				"servicioIdRef.servicioNombre", "carteraIdRef.cuenta", "0.00" });
 
 		query.addGroupBy(new String[] { "pagoId",
-				"carteraIdRef.departamentoIdRef.departamentoNombre",
+				"localidadIdRef.departamentoIdRef.departamentoNombre",
 				"localidadIdRef.localidadNombre", "numeroContrato",
 				"carteraIdRef.facturaInterna", "carteraIdRef.numeroFiscal",
 				"carteraIdRef.cupon", "montoPago", "anio",
@@ -86,9 +90,5 @@ public class InformePagosXDepartamento {
 		query.addOrderBy("fechaPago", true);
 		return query;
 	}
-	
-	
-	
-	
 
 }

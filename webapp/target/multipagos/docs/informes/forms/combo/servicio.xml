@@ -2,7 +2,7 @@
 <fd:selection-list xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
 				   xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
     <fd:item value="">
-        <fd:label>${labelNullItem}</fd:label>
+        <fd:label>-- Servicio --</fd:label>
     </fd:item>
     <jx:forEach var="item" items="${bean}">
         <fd:item value="${item.servicioId}">

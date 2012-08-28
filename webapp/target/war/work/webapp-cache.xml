@@ -136,6 +136,15 @@
           <string>stylesheets/multipagos-ticket2fo.xsl</string>
           <string>stylesheets/multipagos-pagina2xls.xsl</string>
           <string>not-found.xml</string>
+          <string>docs/datosclientes/sitemap.xmap</string>
+          <string>docs/datosclientes/forms/convertir/bind.xml</string>
+          <string>docs/datosclientes/forms/convertir/definition.xml</string>
+          <string>docs/datosclientes/forms/convertir/results.xml</string>
+          <string>docs/datosclientes/forms/convertir/flow.js</string>
+          <string>docs/datosclientes/forms/convertir/results.xls.xml</string>
+          <string>docs/datosclientes/forms/create/definition.xml</string>
+          <string>docs/datosclientes/forms/create/flow.js</string>
+          <string>docs/datosclientes/forms/create/template.xml</string>
           <string>docs/localidad/sitemap.xmap</string>
           <string>docs/localidad/forms/util/flow.js</string>
           <string>docs/localidad/forms/search/bind.xml</string>
@@ -159,6 +168,11 @@
           <string>docs/informes/forms/pagosxdepartamento/flow.js</string>
           <string>docs/informes/forms/pagosxdepartamento/template.xml</string>
           <string>docs/informes/forms/pagosxdepartamento/results.xls.xml</string>
+          <string>docs/informes/forms/promesasavon/definition.xml</string>
+          <string>docs/informes/forms/promesasavon/results.xml</string>
+          <string>docs/informes/forms/promesasavon/flow.js</string>
+          <string>docs/informes/forms/promesasavon/template.xml</string>
+          <string>docs/informes/forms/promesasavon/results.xls.xml</string>
           <string>docs/informes/forms/carteraxservicio/definition.xml</string>
           <string>docs/informes/forms/carteraxservicio/flow.js</string>
           <string>docs/informes/forms/carteraxservicio/template.xml</string>
@@ -173,11 +187,16 @@
           <string>docs/informes/forms/nopago/flow.js</string>
           <string>docs/informes/forms/nopago/template.xml</string>
           <string>docs/informes/forms/nopago/results.xls.xml</string>
+          <string>docs/informes/forms/combo/localidad.xml</string>
           <string>docs/informes/forms/combo/servicio.xml</string>
           <string>docs/informes/forms/combo/flow.js</string>
           <string>docs/informes/forms/combo/departamentos.xml</string>
+          <string>docs/informes/forms/combo/departamentosAsignacion.xml</string>
+          <string>docs/informes/forms/combo/barrio.xml</string>
+          <string>docs/informes/forms/combo/numAsignacion.xml</string>
           <string>docs/informes/forms/combo/asignacionAnio.xml</string>
           <string>docs/informes/forms/combo/colector.xml</string>
+          <string>docs/informes/forms/combo/aAsignacion.xml</string>
           <string>docs/informes/forms/detallevisitas/definition.xml</string>
           <string>docs/informes/forms/detallevisitas/results.xml</string>
           <string>docs/informes/forms/detallevisitas/flow.js</string>
@@ -219,6 +238,7 @@
           <string>docs/informes/forms/detallenopago/template.xml</string>
           <string>docs/informes/forms/detallenopago/results.xls.xml</string>
           <string>docs/informes/forms/visitaspendientes/definition.xml</string>
+          <string>docs/informes/forms/visitaspendientes/imprimir.xml</string>
           <string>docs/informes/forms/visitaspendientes/results.xml</string>
           <string>docs/informes/forms/visitaspendientes/flow.js</string>
           <string>docs/informes/forms/visitaspendientes/template.xml</string>
