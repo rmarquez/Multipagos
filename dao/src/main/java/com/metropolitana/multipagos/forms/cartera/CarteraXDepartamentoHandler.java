@@ -334,7 +334,6 @@ public class CarteraXDepartamentoHandler {
 			}
 		}
 	}
-
 	
 	public static CarteraXDepartamento getMesSaldoMora(final String contrato,
 			final String facturaInterna, final String numeroFiscal, PersistenceBroker pb) {

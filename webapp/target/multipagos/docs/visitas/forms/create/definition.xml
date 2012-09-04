@@ -78,7 +78,7 @@
 					<fd:datatype base="integer" />
 				</fd:field>
 				
-				<fd:field id="fechaVisita">
+				<fd:field id="fechaVisita" required="true">
 		            <fd:label>Fecha Visita</fd:label>
 		            <fd:datatype base="date">
 						<fd:convertor type="formatting" variant="date">

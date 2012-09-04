@@ -16,6 +16,7 @@ import org.apache.ojb.broker.query.Query;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
+import com.metropolitana.multipagos.CarteraXDepartamento;
 import com.metropolitana.multipagos.DetalleVisitas;
 import com.metropolitana.multipagos.Visitas;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
@@ -435,6 +436,48 @@ public class VisitasHandler {
             }
             
             return null;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
+	
+	public static boolean getContratoXFecha(final String numeroContrato, final Date fechaVisita) throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (numeroContrato != null && fechaVisita != null) {
+				criterio.addEqualTo("numeroContrato", numeroContrato);
+				criterio.addEqualTo("fechaVisita", fechaVisita);
+			}
+			List lst = getContratoXFechaList(criterio);
+            if (lst.isEmpty()) {
+                return Boolean.FALSE.booleanValue();
+            } else {
+                return Boolean.TRUE.booleanValue();
+            }
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+		
+	}
+	
+	private static List getContratoXFechaList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(DetalleVisitas.class, criterio);
+            query.addOrderBy("numeroContrato", true);
+            return (List)broker.getCollectionByQuery(query);
         } catch (Exception e) {
             throw e;
         } finally {
