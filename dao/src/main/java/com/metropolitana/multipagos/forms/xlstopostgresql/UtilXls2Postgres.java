@@ -949,6 +949,9 @@ private void insertValor(final Integer numero) throws Exception {
             query = "update tmp_cartera set departamento = 'MATAGALPA' where departamento like '%MATA%';";
             ejecutarQuery(connPostgres, query);
             
+            query = "update tmp_cartera set departamento = 'JINOTEGA' where departamento like '%JINOTEGA%';";
+            ejecutarQuery(connPostgres, query);
+            
             query = "insert into departamento (departamento_nombre) " +
             "(select distinct departamento as departamento_nombre from tmp_cartera "+
             "where upper(departamento) not in ( select upper(departamento_nombre) from departamento ) order by 1);";
@@ -1068,6 +1071,9 @@ private void insertValor(final Integer numero) throws Exception {
             
             query = "update tmp_con_dpts set localidad = 'LA TRINIDAD' where localidad like '%LA TIRNIDAD%';";
             ejecutarQuery(connPostgres, query);	
+            
+            query = "update tmp_con_dpts set localidad = 'JINOTEGA' where localidad like '%JINOTEGA%';";
+            ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp__;";
             ejecutarQuery(connPostgres, query);

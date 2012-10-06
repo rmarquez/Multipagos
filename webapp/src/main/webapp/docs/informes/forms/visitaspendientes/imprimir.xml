@@ -6,52 +6,10 @@
     <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
     <pagina margin-left="0.75" margin-top="1.25">
-        <!-- <table border="0">
-            <tbody>
-                <tr>
-                    <th font-size="15" width="8.0" align="center">
-                        MULTIPAGOS<br/>
-                        COMPROBANTE DE ARQUEO</th>
-                </tr>
-            </tbody>
-        </table>
-        <br space-before-optimum="25"/>
-        <table border="0">
-            <tbody>
-                <tr>
-                    <td width="0.8"><b>Fecha:</b></td>
-                    <td border-bottom="0" width="2.0" end-indent="2"><formatoFecha fecha="${bean.pagoFecha}" patron="d 'de' MMM 'de' yyyy"/></td>
-                    <td width="0.8"><b>Supervisor:</b></td>
-                    <td border-bottom="0" width="2.0" end-indent="3.5">${bean.usrIdRef.usrFullName}</td>
-                    <td width="0.8"><b>Colector:</b></td>
-                    <td border-bottom="0" width="3.0" end-indent="5.5">${colector.getPrimerNombre()} ${colector.getPrimerApellido()}</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        
-        <br space-before-optimum="20"/> -->
-        <!--  <table border="0">
-            <tbody>
-                <tr><th font-size="10" width="8.0" align="center">DETALLE RECIBOS</th></tr>
-            </tbody>
-        </table>
-       <table border="1">
-            <tbody>
-                <tr>
-                	<th font-size="10" width="1.0" align="center">Localidad</th>
-	                <th font-size="10" width="1.0" align="center">Contrato</th>
-	                <th font-size="10" width="2.0" align="center">Cliente</th>
-	                <th font-size="10" width="1.0" align="center">Monto</th>
-	                <th font-size="10" width="0.5" align="center">Mes</th>
-	                <th font-size="10" width="0.5" align="center">Año</th>
-	                <th font-size="10" width="1.0" align="center">Factura</th>
-	                <th font-size="10" width="1.0" align="center">Recibo</th>
-                </tr>
-            </tbody>
-        </table> -->
         <jx:forEach var="item" items="${bean}">
-        <jx:set var="mes" value="${util.getMes(item[7])}"/> 
+        
+        <jx:set var="mes" value="${util.getMes(item[0])}"/> 
+        <jx:set var="saldo" value="${util.getMontoPendiente(item[0])}"/> 
         <!-- <fo:external-graphic src="url('/images/Logo_final.png')"/> -->
         	<table border="0">
 	            <tbody>
@@ -60,7 +18,7 @@
 	                    <td width="0.5"><b>No</b></td>
 		                <td border-bottom="0" width="1.0" end-indent="3.5">XXXXXX</td>
 		                <td width="0.5"><b>C$ </b></td>
-		                <td border-bottom="0" width="3.0" end-indent="3.5">${item[12]}</td>
+		                <td border-bottom="0" width="3.0" end-indent="3.5">${saldo}</td>
 	                </tr>
 	            </tbody>
 	        </table>
@@ -88,8 +46,8 @@
 	        <table border="0">
 	            <tbody> 
 		                <tr>
-		                    <td width="1.5"><b>Departamento:</b></td>
-		                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[3]}</td>
+		                	<td width="1.5"><b>Barrio:</b></td>
+	                    	<td border-bottom="0" width="3.0" end-indent="3.5">${item[11]}</td>
 		                    <td width="1.5"><b>Telefono:</b></td>
 		                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[10]}</td>
 		                </tr>
@@ -99,10 +57,10 @@
 	        <table border="0">
 	            <tbody>
 	                <tr>
+	                    <td width="1.5"><b>Departamento:</b></td>
+	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[3]}</td>
 	                    <td width="1.5"><b>Contrato:</b></td>
 	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[0]}</td>
-	                    <td width="1.5"><b>Barrio:</b></td>
-	                    <td border-bottom="0" width="3.0" end-indent="3.5">${item[11]}</td>
 	                </tr>
 	            </tbody>
         	</table>
@@ -110,7 +68,7 @@
 	            <tbody>
 	                <tr>
 	                    <td width="3.0"><b>Mensualidades Vencidas:</b></td>
-	                    <td border-bottom="0" width="5.0" end-indent="2">${mes} del ${item[6]}</td>
+	                    <td border-bottom="0" width="4.0" end-indent="2">${mes}</td>
 	                </tr>
 	                
 	            </tbody>
@@ -131,7 +89,7 @@
             <tbody>
                 <tr>
                   <td align="left" width="5.5"><br/><br/><br/><br/></td>
-                  <td font-size="10" align="center" width="2.0"><br/><br/>______________________________<br/>RECIBIDO POR<br/></td>
+                  <td font-size="10" align="center" width="2.0"><br/><br/>__________________________________________<br/>RECIBIDO POR<br/></td>
                 </tr>
             </tbody>
         </table>

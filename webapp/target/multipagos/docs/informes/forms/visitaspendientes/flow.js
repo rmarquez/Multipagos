@@ -8,6 +8,7 @@ function visitaspendientesform(form) {
         
         var handler = new Packages.com.metropolitana.multipagos.forms.informes.InformeVisitasPendientes();
         var util = Packages.com.metropolitana.multipagos.forms.Util();
+        var informeUtil = Packages.com.metropolitana.multipagos.forms.informes.InformesUtil();
         var fecha = form.getChild("asignacionAnio").getValue();
         var fechaIni = form.getChild("fechaIni").getValue();
         var fechaFin = form.getChild("fechaFin").getValue();

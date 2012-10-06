@@ -28,15 +28,8 @@ public class InformeArqueoDiario {
 				for (Iterator iterDetalle = broker
 						.getReportQueryIteratorByQuery(queryArqueoCantidad((Integer)arqueo[0])); iterDetalle.hasNext();) {
 					Object[] cantidad = (Object[]) iterDetalle.next();
-					
-					
-					
-					
 	                
 				}
-				
-				
-				
 				
                 lista.add(arqueo);
 			}

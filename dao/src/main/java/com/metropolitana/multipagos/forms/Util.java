@@ -9,14 +9,17 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Locale;
 
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.QueryByCriteria;
+import org.apache.ojb.broker.PersistenceBroker;
 
 import com.metropolitana.multipagos.AuthUser;
 import com.metropolitana.multipagos.TasaFija;
+import com.metropolitana.multipagos.forms.informes.InformesUtil;
 
 // RSJ 20120424 
 import java.sql.*;
@@ -175,35 +178,88 @@ public class Util {
         return formatter.format(numero);
     }
     
-    public static String getMes(String mesN) {
-    	int numero = Integer.parseInt(mesN);
-    	String mes ="";
-    	if(numero==1){
-    		mes ="Enero";
-    	} else if (numero==2){
-    		mes ="Febrero";
-    	} else if (numero==3){
-    		mes ="Marzo";
-    	} else if (numero==4){
-    		mes ="Abril";
-    	} else if (numero==5){
-    		mes ="Mayo";
-    	} else if (numero==6){
-    		mes ="Junio";
-    	} else if (numero==7){
-    		mes ="Julio";
-    	} else if (numero==8){
-    		mes ="Agosto";
-    	} else if (numero==9){
-    		mes ="Septiembre";
-    	} else if (numero==10){
-    		mes ="Octubre";
-    	} else if (numero==11){
-    		mes ="Noviembre";
-    	}else if (numero==12){
-    		mes ="Diciembre";
-    	}
-        return mes;
+    public static String getMes(String contrato) throws Exception {
+    	PersistenceBroker broker = null;
+    	String cadena ="";
+             
+        try {
+	    	
+        String mes1 ="";
+        String mes2 ="";
+        String mes3 ="";
+        String mes4 ="";
+        String mes5 ="";
+        String mes6 ="";
+        String mes7 ="";
+        String mes8 ="";
+        String mes9 ="";
+        String mes10 ="";
+        String mes11 ="";
+        String mes12 ="";  	
+            for ( Iterator iter = InformesUtil.getMesesXContrato(contrato).listIterator(); iter.hasNext(); ) {
+                
+              //  while (iter.hasNext()) {
+                Object[] meses = (Object[]) iter.next();
+                 int numero = Integer.parseInt((String)meses[0]);
+                 //System.out.println("Numero = "+numero);
+                    if(numero==1){
+                           mes1 ="Ene"+(String)meses[1]+",";
+                    } else if (numero==2){
+                           mes2 ="Feb"+(String)meses[1]+",";
+                    } else if (numero==3){
+                           mes3 ="Marz"+(String)meses[1]+",";
+                    } else if (numero==4){
+                           mes4 ="Abr"+(String)meses[1]+",";
+                    } else if (numero==5){
+                           mes5 ="May"+(String)meses[1]+",";
+                    } else if (numero==6){
+                           mes6 ="Jun"+(String)meses[1]+",";
+                    } else if (numero==7){
+                           mes7 ="Jul"+(String)meses[1]+",";
+                    } else if (numero==8){
+                           mes8 ="Agos"+(String)meses[1]+",";
+                    } else if (numero==9){
+                           mes9 ="Sept"+(String)meses[1]+",";
+                    } else if (numero==10){
+                           mes10 ="Oct"+(String)meses[1]+",";
+                    } else if (numero==11){
+                           mes11 ="Nov"+(String)meses[1]+",";
+                    }else if (numero==12){
+                           mes12 ="Dic"+(String)meses[1];
+                    }
+                 
+                 cadena=mes1+mes2+mes3+mes4+mes5+mes6+mes7+mes8+mes9+mes10+mes11+mes12+"...";
+                }
+	        return cadena;
+    	} catch (Exception e) {
+                throw e;
+        } finally {
+                if (broker != null && !broker.isClosed()) {
+                        broker.close();
+                }
+        }
+    }
+    
+    public static BigDecimal getMontoPendiente(String contrato) throws Exception {
+    	PersistenceBroker broker = null;
+    	BigDecimal monto = BigDecimal.ZERO;
+             
+        try {
+	    	
+       	
+            for ( Iterator iter = InformesUtil.getSaldoPendienteXContrato(contrato).listIterator(); iter.hasNext(); ) {
+                Object[] saldo = (Object[]) iter.next();
+                 monto=(BigDecimal)saldo[0];
+                   
+                }
+	        return monto;
+    	} catch (Exception e) {
+                throw e;
+        } finally {
+                if (broker != null && !broker.isClosed()) {
+                        broker.close();
+                }
+        }
     }
     
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
