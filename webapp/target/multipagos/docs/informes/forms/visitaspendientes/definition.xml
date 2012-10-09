@@ -83,7 +83,7 @@
 			</fd:on-value-changed>					
 		</fd:field>	-->
 		
-		<fd:field id="asignacionAnio">
+		<fd:field id="asignacionAnio" required="true">
 			<fd:label>Fecha Asignacion</fd:label>
 			<fd:datatype base="date">
 				<fd:convertor>

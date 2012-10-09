@@ -83,6 +83,10 @@
 			<foreignkey field-ref="resId"/>
 		</reference-descriptor>
 	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.Empresa" table="EMPRESA">
+		<field-descriptor name="empId" primarykey="true" nullable="false" default-fetch="true" column="EMP_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="empSerial" default-fetch="true" column="EMP_SERIAL" jdbc-type="INTEGER"/>
+	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.EstadoCorte" table="ESTADO_CORTE">
 		<field-descriptor name="estadoId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="estado_corte_estado_id_seq" column="ESTADO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="estadoNombre" nullable="false" default-fetch="true" column="ESTADO_NOMBRE" jdbc-type="VARCHAR"/>
@@ -240,11 +244,6 @@
 		<reference-descriptor name="bancoIdRef" class-ref="com.metropolitana.multipagos.Banco" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="bancoId"/>
 		</reference-descriptor>
-	</class-descriptor>
-	<class-descriptor class="com.metropolitana.multipagos.Prueba" table="PRUEBA">
-		<field-descriptor name="pruebaId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="prueba_prueba_id_seq" column="PRUEBA_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="pruebaNombre1" nullable="false" default-fetch="true" column="PRUEBA_NOMBRE1" jdbc-type="VARCHAR"/>
-		<field-descriptor name="pruebaNombre2" nullable="false" default-fetch="true" column="PRUEBA_NOMBRE2" jdbc-type="INTEGER"/>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.CantidadMonedas" table="CANTIDAD_MONEDAS">
 		<field-descriptor name="cantidadId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="cantidad_monedas_cantidad_id_seq" column="CANTIDAD_ID" jdbc-type="INTEGER"/>

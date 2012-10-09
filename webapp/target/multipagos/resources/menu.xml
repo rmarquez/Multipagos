@@ -27,6 +27,8 @@
             <div dojoType="MenuItem2" caption="Registro de Logs"
                         onClick="parent.window.location='/multipagos/logs/search'"/>            
             </jx:if>
+            <div dojoType="MenuItem2" caption="Empresa"
+                     onClick="parent.window.location='/multipagos/empresa/edit'"/>
             <div dojoType="MenuItem2" caption="Subir Base de datos"
                         onClick="parent.window.location='/multipagos/altadb/create'"/>
             <div dojoType="MenuItem2" caption="Subir Base de datos Avon"

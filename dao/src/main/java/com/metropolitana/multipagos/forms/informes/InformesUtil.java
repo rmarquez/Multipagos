@@ -35,7 +35,7 @@ public class InformesUtil {
 			connPostgres = DriverManager.getConnection(url, username, password);
 			
 			
-			query = "select distinct num_asignacion from asignacion_claro ";
+			query = "select distinct num_asignacion from asignacion_claro order by num_asignacion";
 			
 			psOrigen = connPostgres.prepareStatement(query);
 			

@@ -648,4 +648,86 @@ public class Util {
 			return false;
 		}		
 	}
+	
+	public int getNumeroSerie() throws Exception {
+        Integer numero = getSerial();
+        System.out.println("NUMERO SERIE = " +numero);
+        if(numero != null){
+        	numero = numero+1;
+        } else {
+        	numero = 1;
+        }
+        setSerial(numero);
+        
+        return numero;
+        
+	}
+	
+	private static Integer getSerial()
+			throws Exception {
+            
+		Connection connPostgres = null;
+		String query;
+        PreparedStatement psOrigen = null;	
+		ResultSet rs = null;
+		int max = 0;
+		try {
+			
+            try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			
+			query = "select emp_serial from empresa;";
+				
+			psOrigen = connPostgres.prepareStatement(query);
+			
+            rs = psOrigen.executeQuery();
+            
+            while(rs.next()) {  
+            	max = rs.getInt(1);
+            }
+             
+			return max;
+		} catch (Exception e) {
+			throw e;
+		} 
+	}
+	
+	private void setSerial(final Integer nSerial)
+			throws Exception {
+            
+		Connection connPostgres = null;
+		String query;
+        PreparedStatement psOrigen = null;	
+		try {
+			
+            try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			
+			query = "update empresa set emp_serial=?";
+				
+			psOrigen = connPostgres.prepareStatement(query);
+			psOrigen.setInt(1, nSerial);
+            psOrigen.executeUpdate();
+            psOrigen.close();
+            
+		} catch (Exception e) {
+			throw e;
+		} 
+	}
 }

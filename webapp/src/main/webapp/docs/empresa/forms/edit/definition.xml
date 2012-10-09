@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+		 xmlns:i18n="http://apache.org/cocoon/i18n/2.1">
+    <fd:widgets>
+        <fd:field id="tab-state">
+            <fd:datatype base="string"/>
+        </fd:field>
+
+        <fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages>
+
+        <fd:field id="emp_serial">
+            <fd:label>Numero Consecutivo:</fd:label>
+            <fd:help>Numero Consecutivo que sera utilizado en los avisos de cobros.</fd:help>
+            <fd:datatype base="integer"/>
+        </fd:field>
+
+        <fd:submit id="guardar">
+            <fd:label>Guardar Cambios</fd:label>
+        </fd:submit>
+      </fd:widgets>
+</fd:form>

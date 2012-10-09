@@ -16,7 +16,6 @@ function createform(form) {
 	var handlerUser = new Auth_userHandler();
 	var usuario = handlerUser.retrieve(usrId);
 	var editarDb = usuario.getUsrEditdb();
-java.lang.System.out.println("Editar = " + editarDb);
 	if(editarDb.equals(Boolean.TRUE)){
 	
         form.showForm("create-form-display");

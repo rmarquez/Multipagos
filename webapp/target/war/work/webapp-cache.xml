@@ -80,6 +80,7 @@
           <string>resources/images/.directory</string>
           <string>resources/images/.xvpics/logo.gif</string>
           <string>resources/images/fu.jpg</string>
+          <string>resources/images/multipagos.jpg</string>
           <string>resources/images/form_left.jpg</string>
           <string>resources/images/powered.gif</string>
           <string>resources/images/fi.jpg</string>
@@ -88,7 +89,9 @@
           <string>resources/images/fi2.jpg</string>
           <string>resources/images/fs.jpg</string>
           <string>resources/images/fiu.jpg</string>
+          <string>resources/images/separator2.gif</string>
           <string>resources/images/separator.gif</string>
+          <string>resources/images/claro.gif</string>
           <string>resources/images/c2.gif</string>
           <string>resources/images/u2_izq.jpg</string>
           <string>resources/images/u_f.jpg</string>
@@ -99,8 +102,10 @@
           <string>resources/images/u_izq.jpg</string>
           <string>resources/images/c1.gif</string>
           <string>resources/images/u_der.jpg</string>
+          <string>resources/images/Logo_final_aprobado_100807.png</string>
           <string>resources/images/kcmdf2.png</string>
           <string>resources/images/dot.gif</string>
+          <string>resources/images/claro2.gif</string>
           <string>resources/images/barra_gris.jpg</string>
           <string>resources/images/menu/mini_a_right.gif</string>
           <string>resources/images/menu/fonsmail.gif</string>
@@ -116,7 +121,9 @@
           <string>resources/images/line.gif</string>
           <string>resources/images/spacer.gif</string>
           <string>resources/images/Logo_final.png</string>
+          <string>resources/images/logo_final.gif</string>
           <string>resources/images/cocoon.gif</string>
+          <string>resources/images/claro3.jpg</string>
           <string>resources/images/iu.jpg</string>
           <string>resources/images/logo_multipagos.png</string>
           <string>translations/FormsMessages_es.xml</string>
@@ -126,6 +133,7 @@
           <string>translations/mensajes.xml</string>
           <string>translations/mensajes_es_NI.xml</string>
           <string>stylesheets/multipagosusers.xslt</string>
+          <string>stylesheets/multipagos-aviso2fo.xsl</string>
           <string>stylesheets/multipagos-pagina2sxw.xsl</string>
           <string>stylesheets/multipagos-pagina2fo.xsl</string>
           <string>stylesheets/multipagos.xslt</string>
@@ -133,6 +141,7 @@
           <string>stylesheets/system/status2document.xslt</string>
           <string>stylesheets/piel.xslt</string>
           <string>stylesheets/forms/forms-samples-styling.xsl</string>
+          <string>stylesheets/ags-pagina2fo.xsl</string>
           <string>stylesheets/multipagos-ticket2fo.xsl</string>
           <string>stylesheets/multipagos-pagina2xls.xsl</string>
           <string>not-found.xml</string>
@@ -498,6 +507,11 @@
           <string>docs/simbolo/forms/create/definition.xml</string>
           <string>docs/simbolo/forms/create/flow.js</string>
           <string>docs/simbolo/forms/create/template.xml</string>
+          <string>docs/empresa/sitemap.xmap</string>
+          <string>docs/empresa/forms/edit/bind.xml</string>
+          <string>docs/empresa/forms/edit/definition.xml</string>
+          <string>docs/empresa/forms/edit/flow.js</string>
+          <string>docs/empresa/forms/edit/template.xml</string>
           <string>docs/pagos/sitemap.xmap</string>
           <string>docs/pagos/forms/util/flow.js</string>
           <string>docs/pagos/forms/cliente/bind.xml</string>

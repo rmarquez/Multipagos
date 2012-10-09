@@ -77,12 +77,22 @@
             </map:match>
             
             <!-- Documentos en formato PDF -->
+            
+           <map:match pattern="**.pdf">
+                <map:generate type="jx" src="{1}.xml"/>
+	        <map:transform src="context://stylesheets/multipagos-aviso2fo.xsl">
+	          <map:parameter name="baseUrl" value="http://localhost:{request:serverPort}{request:contextPath}"/>
+	        </map:transform>
+	        <map:transform type="xinclude"/>
+	        <map:serialize type="fo2pdf"/>
+	      </map:match>
+           <!--  
              <map:match pattern="**.pdf">
                 <map:generate type="jx" src="{1}.xml"/>
-                <map:transform src="context://stylesheets/multipagos-pagina2fo.xsl"/>
+                <map:transform src="context://stylesheets/multipagos-aviso2fo.xsl"/>
                 <map:serialize type="fo2pdf"/>
             </map:match>
-            <!-- Documentos en formato EXCEL -->
+            Documentos en formato EXCEL -->
             <map:match pattern="**.xls">
                 <map:generate type="jx" src="{1}.xls.xml"/>
                 <map:transform src="context://stylesheets/multipagos-pagina2xls.xsl"/>
