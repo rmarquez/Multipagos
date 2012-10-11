@@ -75,6 +75,23 @@ function alSeleccionarLocalidad(event) {
     }
 }
 
+function alSeleccionarBarrio(event) {
+	var barrioId = event.source.value;
+    var numeroPendientes = event.source.parent.getChild("numeroPendientes"); 
+    var fecha = event.source.parent.getChild("asignacionAnio").getValue();
+    var fechaIni = event.source.parent.getChild("fechaIni").getValue();
+    var fechaFin = event.source.parent.getChild("fechaFin").getValue();
+    var departamentoId = event.source.parent.getChild("departamentoId").getValue();
+    var localidadId = event.source.parent.getChild("localidadId").getValue();
+    var numAsignacion = event.source.parent.getChild("numAsignacion").getValue();
+    var handler = new Packages.com.metropolitana.multipagos.forms.informes.InformeVisitasPendientes();
+    numeroPendientes.setValue(null);
+    if (barrioId != null) {
+    	var pedientes = handler.contarPendientes(fecha, fechaIni, fechaFin, departamentoId, localidadId, barrioId, numAsignacion);
+    	numeroPendientes.setValue(pedientes);
+	 } 
+}
+
 function alSeleccionarFecha(event) {
 	var asignacionAnio = event.source.value;
     var departamentoId = event.source.parent.getChild("departamentoId");  

@@ -133,13 +133,13 @@ public class InformesUtil {
 				
 				query = "select distinct a.barrio_id, b.barrio_nombre "+
 						"from asignacion_claro a inner join barrio b on b.barrio_id=a.barrio_id "+
-						"where a.localidad_id= ?";
+						"where a.localidad_id= ? order by b.barrio_nombre";
 				
 				psOrigen = connPostgres.prepareStatement(query);
 				psOrigen.setInt(1,localidadId);
 			} else {
 				query = "select distinct a.barrio_id, b.barrio_nombre "+
-						"from asignacion_claro a inner join barrio b on b.barrio_id=a.barrio_id ";
+						"from asignacion_claro a inner join barrio b on b.barrio_id=a.barrio_id order by b.barrio_nombre";
 				
 				psOrigen = connPostgres.prepareStatement(query);
 			}
@@ -161,7 +161,6 @@ public class InformesUtil {
 	
 	public static List getDepartamentoXAsignacion(Date fechaIngreso)
 			throws Exception {
-            
 		Connection connPostgres = null;
 		String query;
         PreparedStatement psOrigen = null;	
@@ -183,16 +182,16 @@ public class InformesUtil {
 			
 			if(fechaIngreso != null){
 				
-				query = "select distinct a.departamento_id, b.departamento_nombre "+
-						"from asignacion_claro a inner join departamento b on b.departamento_id=a.departamento_id "+
-						"where a.fecha_ingreso= ?";
+				query = "select distinct on(c.departamento_id) c.departamento_id, d.departamento_nombre "+
+						"from departamento d inner join asignacion_claro c on d.departamento_id=c.departamento_id "+
+						"where c.fecha_ingreso= ?";
 				
 				psOrigen = connPostgres.prepareStatement(query);
 				java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIngreso));
 	            psOrigen.setDate(1,fecha);
 			} else {
-				query = "select distinct a.departamento_id, b.departamento_nombre "+
-						"from asignacion_claro a inner join departamento b on b.departamento_id=a.departamento_id ";
+				query = "select distinct on(c.departamento_id) c.departamento_id, d.departamento_nombre "+
+						"from departamento d inner join asignacion_claro c on d.departamento_id=c.departamento_id ";
 				
 				psOrigen = connPostgres.prepareStatement(query);
 			}

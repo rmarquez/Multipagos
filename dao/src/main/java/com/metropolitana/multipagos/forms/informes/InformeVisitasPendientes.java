@@ -141,6 +141,63 @@ public class InformeVisitasPendientes {
 		return formatter.format(asignado);
 	}
 	 
-	
-
+	public static Integer contarPendientes(Date fechaIngreso, Date fechaIni,
+			Date fechaFin, Integer departamentoId, Integer localidadId, Integer barrioId
+			, Integer numAsignacion)
+			throws Exception {
+            
+		Connection connPostgres = null;
+		String selectQuery;
+        PreparedStatement psOrigen = null;	
+		ResultSet rs = null;
+		int max = 0;
+		try {
+			
+			List<Object[]> lista = new ArrayList<Object[]>();
+			
+            try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+			
+			selectQuery = "SELECT count(*) from ("+
+				"SELECT DISTINCT A0.CONTRATO FROM (("+
+				"asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) "+
+				"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID "+
+				"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
+				"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 "+
+				"INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
+				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?)) "+
+				"AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ? "+
+				"AND A0.BARRIO_ID = ?) as parametros;";
+			psOrigen = connPostgres.prepareStatement(selectQuery);
+			
+			java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIngreso));
+            psOrigen.setDate(1,fecha);
+            java.sql.Date fechaI = java.sql.Date.valueOf(getFechaSQL(fechaIni));
+            psOrigen.setDate(2,fechaI);
+            java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
+            psOrigen.setDate(3,fechaF);
+            psOrigen.setDate(4,fecha);
+            psOrigen.setInt(5, numAsignacion);
+            psOrigen.setInt(6, departamentoId);
+        	psOrigen.setInt(7, localidadId);
+        	psOrigen.setInt(8, barrioId);
+			
+            rs = psOrigen.executeQuery();
+            while(rs.next()) {
+             max = rs.getInt(1);
+            }
+	             
+            return max;
+		} catch (Exception e) {
+			throw e;
+		} 
+	}
 }

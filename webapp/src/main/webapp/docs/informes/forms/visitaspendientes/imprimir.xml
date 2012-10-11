@@ -57,6 +57,8 @@
 	        <table border="0">
 	            <tbody>
 	                <tr>
+	                	<td font-size="8" width="1.5"><b>Servicio:</b></td>
+	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[6]}</td>
 	                    <td font-size="8" width="1.5"><b>Departamento:</b></td>
 	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[3]}</td>
 	                    <td font-size="8" width="1.5"><b>Contrato:</b></td>
@@ -80,7 +82,7 @@
                     <td font-size="8" width="10" align="left">
                         Estimado cliente en nuestro registro es en deber a Claro TV en el monto antes descrito, por medio del presente cordialmente le solicitamos pague<br/>
                         en el menor tiempo posible para evitar que su historial crediticio se vea afectado ante el sistema financiero nacional. Si usted ya pago desestime<br/>
-                        el presente aviso de cobro. Si tiene consultas por favor llamar al 2266-8719 o 121</td>
+                        el presente aviso de cobro. Si tiene consultas por favor llamar al 121 o 2266-8279 ext 108, 120, 124</td>
                 </tr>
                
             </tbody>

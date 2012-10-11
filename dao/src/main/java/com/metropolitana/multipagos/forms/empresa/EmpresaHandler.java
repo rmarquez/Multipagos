@@ -90,7 +90,7 @@ public class EmpresaHandler {
      *            Empresa existente o nueva.
      * @throws Exception
      */
-    public static void setBeanEmpresa(Empresa beanEmpresa, Integer usrId) throws Exception {
+    public static void setBeanEmpresa(Empresa beanEmpresa) throws Exception {
         PersistenceBroker broker = null;
 
         try {
@@ -117,5 +117,13 @@ public class EmpresaHandler {
                 broker.close();
             }
         }
+    }
+    
+    public static Integer getSerial() throws Exception {
+        Empresa e = getBeanEmpresa(true);
+        if (e != null) {
+            return e.getEmpSerial();
+        }
+        return null; // error
     }
 }

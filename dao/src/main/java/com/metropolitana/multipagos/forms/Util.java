@@ -18,11 +18,16 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.PersistenceBroker;
 
 import com.metropolitana.multipagos.AuthUser;
+import com.metropolitana.multipagos.CarteraXDepartamento;
+import com.metropolitana.multipagos.Empresa;
 import com.metropolitana.multipagos.TasaFija;
+import com.metropolitana.multipagos.forms.empresa.EmpresaHandler;
 import com.metropolitana.multipagos.forms.informes.InformesUtil;
 
 // RSJ 20120424 
 import java.sql.*;
+import org.apache.ojb.broker.PersistenceBrokerFactory;
+import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 
 public class Util {
@@ -240,7 +245,37 @@ public class Util {
         }
     }
     
-    public static BigDecimal getMontoPendiente(String contrato) throws Exception {
+     public static BigDecimal getMontoPendiente(String contrato) throws Exception {
+            PersistenceBroker broker = null;
+            try {
+               broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+               Criteria criterio = new Criteria();
+               if (contrato !=null) {
+                   criterio.addEqualTo("contrato", contrato);
+               }
+               criterio.addEqualTo("pagado", false);
+               ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
+               query.setAttributes(new String[]{"sum(saldo)"});
+               Iterator iter = broker.getReportQueryIteratorByQuery(query);
+               BigDecimal saldo = BigDecimal.ZERO;
+               if (iter.hasNext()) {
+                   Object[] item = (Object[])iter.next();
+                   if (item[0] != null) {
+                       saldo = saldo.add((BigDecimal)item[0]);
+                   }
+               }
+               return saldo;
+
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                if (broker != null && !broker.isClosed()) {
+                    broker.close();
+                }
+            }
+       }
+     
+    /*public static BigDecimal getMontoPendiente(String contrato) throws Exception {
     	PersistenceBroker broker = null;
     	BigDecimal monto = BigDecimal.ZERO;
              
@@ -260,7 +295,7 @@ public class Util {
                         broker.close();
                 }
         }
-    }
+    }*/
     
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
     private static final DecimalFormat df = new DecimalFormat();
@@ -650,8 +685,8 @@ public class Util {
 	}
 	
 	public int getNumeroSerie() throws Exception {
-        Integer numero = getSerial();
-        System.out.println("NUMERO SERIE = " +numero);
+        Integer numero = EmpresaHandler.getSerial();
+        //System.out.println("NUMERO SERIE = " +numero);
         if(numero != null){
         	numero = numero+1;
         } else {
@@ -663,71 +698,40 @@ public class Util {
         
 	}
 	
-	private static Integer getSerial()
-			throws Exception {
-            
-		Connection connPostgres = null;
-		String query;
-        PreparedStatement psOrigen = null;	
-		ResultSet rs = null;
-		int max = 0;
-		try {
-			
-            try {
-				Class.forName("org.postgresql.Driver");
-			} catch (ClassNotFoundException e) {
-				System.out.println("No se encuentra el Driver: "
-						+ e.getMessage());
-			}
-			String username = "dev";
-			String password = "multipagos";
-			String url = "jdbc:postgresql://localhost:5432/multipagos";
-			connPostgres = DriverManager.getConnection(url, username, password);
-			
-			query = "select emp_serial from empresa;";
-				
-			psOrigen = connPostgres.prepareStatement(query);
-			
-            rs = psOrigen.executeQuery();
-            
-            while(rs.next()) {  
-            	max = rs.getInt(1);
-            }
-             
-			return max;
-		} catch (Exception e) {
-			throw e;
-		} 
-	}
+       private void setSerial(Integer numero) throws Exception  {
+            Empresa e = EmpresaHandler.getBeanEmpresa(true);
+            e.setEmpSerial(numero);
+            EmpresaHandler.setBeanEmpresa(e);
+        }
 	
-	private void setSerial(final Integer nSerial)
-			throws Exception {
-            
-		Connection connPostgres = null;
-		String query;
-        PreparedStatement psOrigen = null;	
-		try {
-			
-            try {
-				Class.forName("org.postgresql.Driver");
-			} catch (ClassNotFoundException e) {
-				System.out.println("No se encuentra el Driver: "
-						+ e.getMessage());
-			}
-			String username = "dev";
-			String password = "multipagos";
-			String url = "jdbc:postgresql://localhost:5432/multipagos";
-			connPostgres = DriverManager.getConnection(url, username, password);
-			
-			query = "update empresa set emp_serial=?";
-				
-			psOrigen = connPostgres.prepareStatement(query);
-			psOrigen.setInt(1, nSerial);
-            psOrigen.executeUpdate();
-            psOrigen.close();
-            
-		} catch (Exception e) {
-			throw e;
-		} 
-	}
+//	private void setSerial(final Integer nSerial)
+//			throws Exception {
+//            
+//		Connection connPostgres = null;
+//		String query;
+//        PreparedStatement psOrigen = null;	
+//		try {
+//			
+//            try {
+//				Class.forName("org.postgresql.Driver");
+//			} catch (ClassNotFoundException e) {
+//				System.out.println("No se encuentra el Driver: "
+//						+ e.getMessage());
+//			}
+//			String username = "dev";
+//			String password = "multipagos";
+//			String url = "jdbc:postgresql://localhost:5432/multipagos";
+//			connPostgres = DriverManager.getConnection(url, username, password);
+//			
+//			query = "update empresa set emp_serial=?";
+//				
+//			psOrigen = connPostgres.prepareStatement(query);
+//			psOrigen.setInt(1, nSerial);
+//            psOrigen.executeUpdate();
+//            psOrigen.close();
+//            
+//		} catch (Exception e) {
+//			throw e;
+//		} 
+//	}
 }

@@ -23,7 +23,7 @@
                         <ft:widget id="departamentoId"/>
                         <ft:widget id="localidadId"/>
                         <ft:widget id="barrioId"/>
-                        
+                        <ft:widget id="numeroPendientes"/>
                     </fi:items>
                 </fi:group>
                 <ft:widget id="listar"/>

@@ -64,24 +64,17 @@
         	<fd:label>Barrio</fd:label>
 			<fd:datatype base="integer"/>
 			<fd:selection-list src="cocoon:/barrio.combo" cache="request" />
-		</fd:field>
-		
-		<!-- <fd:field id="aAsignacion">
-        	<fd:label>Ano Asignacion:</fd:label>
-			<fd:datatype base="decimal"/>
-			<fd:selection-list src="cocoon:/aAsignacion.combo" cache="none" />
-		</fd:field> 
-		
-		<fd:field id="servicioId" required="true">
-			<fd:label>Servicio</fd:label>
-			<fd:datatype base="integer" />
-			<fd:selection-list src="cocoon:/servicio.combo"	cache="none"/>
 			<fd:on-value-changed>
 				<fd:javascript>
-					alSeleccionarServicio(event);
+					alSeleccionarBarrio(event);
 				</fd:javascript>
-			</fd:on-value-changed>					
-		</fd:field>	-->
+			</fd:on-value-changed>
+		</fd:field>
+		
+		<fd:field id="numeroPendientes" state="output">
+        	<fd:label>Clientes Pendientes</fd:label>
+			<fd:datatype base="integer"/>
+		</fd:field>
 		
 		<fd:field id="asignacionAnio" required="true">
 			<fd:label>Fecha Asignacion</fd:label>
