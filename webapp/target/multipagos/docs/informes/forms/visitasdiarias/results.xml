@@ -4,7 +4,7 @@
     <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
     <header>
-        <title>Reporte de Visitas Diarias</title>
+        <title>Reporte de Gestiones Diarias</title>
     </header>
     <body>
         <s1 title="Reporte de Visitas Diarias">
@@ -23,7 +23,7 @@
 						<th>ACCION</th>
                         <th>RESULTADO</th>
                         <th>CAUSA</th>
-                        <th>FECHA VISITA</th>
+                        <th>GESTION VISITA</th>
                         <th>C_RESULTADO</th>
                         <th>C_CAUSA</th>
                         <th>DEPARTAMENTO</th>

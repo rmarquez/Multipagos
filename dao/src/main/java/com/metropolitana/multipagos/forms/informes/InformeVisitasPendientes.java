@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import java.text.Format;
@@ -166,6 +167,17 @@ public class InformeVisitasPendientes {
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
 			
+			/*selectQuery = "select distinct A0.CONTRATO into tmp_count FROM (("+ 
+			"asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) "+
+			"INNER JOIN LOCALIDAD A2 ON A0.LOCALIDAD_ID=A2.LOCALIDAD_ID) INNER JOIN SERVICIO A3 ON A0.SERVICIO_ID=A3.SERVICIO_ID "+
+			"INNER JOIN BARRIO B1 ON A0.BARRIO_ID=B1.BARRIO_ID "+
+			"WHERE ((A0.CONTRATO NOT IN (SELECT B0.NUMERO_CONTRATO FROM DETALLE_VISITAS B0 "+
+			"INNER JOIN asignacion_claro B1 ON B0.NUMERO_CONTRATO=B1.CONTRATO "+
+			"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?)) "+
+			"AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ? "+
+			"AND A0.BARRIO_ID = ? ";*/
+			
+			
 			selectQuery = "SELECT count(*) from ("+
 				"SELECT DISTINCT A0.CONTRATO FROM (("+
 				"asignacion_claro A0 INNER JOIN DEPARTAMENTO A1 ON A0.DEPARTAMENTO_ID=A1.DEPARTAMENTO_ID) "+
@@ -176,6 +188,7 @@ public class InformeVisitasPendientes {
 				"WHERE (((B1.FECHA_INGRESO = ?)) AND B0.FECHA_VISITA >= ?) AND B0.FECHA_VISITA <= ?)) "+
 				"AND A0.FECHA_INGRESO = ? AND A0.NUM_ASIGNACION = ?)AND A0.DEPARTAMENTO_ID = ? AND A0.LOCALIDAD_ID = ? "+
 				"AND A0.BARRIO_ID = ?) as parametros;";
+			
 			psOrigen = connPostgres.prepareStatement(selectQuery);
 			
 			java.sql.Date fecha = java.sql.Date.valueOf(getFechaSQL(fechaIngreso));
@@ -191,13 +204,84 @@ public class InformeVisitasPendientes {
         	psOrigen.setInt(8, barrioId);
 			
             rs = psOrigen.executeQuery();
-            while(rs.next()) {
+            
+            rs.next();
+            int count = rs.getInt(1);
+            
+            rs.close();
+			psOrigen.close();
+			
+            return count;
+            
+            
+          /*  while(rs.next()) {
              max = rs.getInt(1);
             }
 	             
-            return max;
+            return max;*/
 		} catch (Exception e) {
 			throw e;
 		} 
 	}
+	
+	/**
+	public String verificarFacturasPendiente(Integer cliente) throws Exception {
+         PersistenceBroker broker = null;
+         try {
+             broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+
+            Criteria criterio1 = new Criteria();
+            // cliente a buscar
+            criterio1.addEqualTo("cliId", cliente);
+            ReportQueryByCriteria subQuery = new ReportQueryByCriteria(Factura.class, criterio1);
+            subQuery.setAttributes(new String[] { "ventaId" });
+            //Indicamos que filtre solo las facturas creadas
+            Criteria criterioHaving = new Criteria();
+            criterioHaving.addEqualTo("max(facturaEstadoList.facEstadoId)", FacEstadoHandler.FACEST_ELABORADA);
+            subQuery.setHavingCriteria(criterioHaving);
+            subQuery.addGroupBy(new String[] { "ventaId" });
+
+            Criteria criterio = new Criteria();
+            criterio.addIn("ventaId", subQuery);
+            criterio.addEqualTo("tipofId", TipoFacturaHandler.TIPOFAC_CREDITO);
+            ReportQueryByCriteria query = new ReportQueryByCriteria(Factura.class, criterio);
+            query.setAttributes(new String[] {"COUNT(*)"});
+            //Recorrer el array que retorna la consultaFormulario para subir base de datos Banpro --> de 6 a 8 horas (necesitamos la base con el numero unico)
+Simbologia Banpro --> 3 horas
+Formulario de visitas banpro --> 8 horas (en este formulario se ingresaran los descuentos y los plazos ?)
+
+Reportes de sistema
+-Promesas de pago  --> 3 horas
+-Estado de gestion --> 3 horas
+    -Fue gestionado resultado
+    -No fue gestionado porque
+
+-Informe de mensual consolide gestiones y pagos, considerados irrecuperables. --> 4 horas 
+
+
+-Pantalla consulta que muestre historial de gestion --> 6 horas (esto es un formulario).
+
+- Proceso para reducir montos cuando el cliente ha pagado --> 6 horas
+            Iterator iter = broker.getReportQueryIteratorByQuery(query);
+            if (iter.hasNext()) {
+                Object val = ((Object[]) iter.next())[0];
+                if (val != null) {
+                    Long cantidad = (Long) val;
+                    if (cantidad.longValue()  > 0){
+                        String msg = "¡Este cliente, tiene " + cantidad + " facturas pendientes de pagar!";
+                        return  msg;
+                    }
+                }
+            }
+            return null;
+
+         } catch (Exception e) {
+             throw e;
+         } finally {
+             if (broker != null && !broker.isClosed()) {
+                 broker.close();
+             }
+         }
+    }
+	 */
 }

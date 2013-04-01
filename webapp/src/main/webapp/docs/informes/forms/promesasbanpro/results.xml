@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Promesas de Pago</title>
+    </header>
+    <body>
+        <s1 title="Promesas de Pago">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th align="left" colspan="6">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="6">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="12"/></tr>
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+	                        <th>FECHA ARREGLO</th>
+	                        <th>NOMBRE</th>
+	                        <th>PRODUCTO</th>
+	                        <th>TARJETA</th>
+	                        <th>CUENTA</th>
+							<th>DEUDA CORDOBAS</th>
+	                        <th>DEUDA DOLARES</th>
+	                        <th>TOTAL DEUDA DOLARES</th>
+	                        <th>DESCUENTO</th>
+	                        <th>PLAZO (MESES)</th>
+	                        <th>CUOTA</th>
+	                        <th>FECHA CUOTA</th>
+	                    </tr>
+                     
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+	                    
+                        <tr>                            
+                            <td align="right"><formatoFecha fecha="${item[0]}" patron="dd/MMM/yyyy"/></td>
+	                        <td align="right">${item[1]}</td>
+	                        <td align="right">${item[2]}</td>
+	                        <td align="right">${item[3]}</td>
+	                        <td align="right">${item[4]}</td>
+	                        <td align="right"><formatoNumero numero="${item[5]}"/></td>
+	                        <td align="right"><formatoNumero numero="${item[6]}"/></td>
+	                        <td align="right"><formatoNumero numero="${item[7]}"/></td>
+	                        <td align="right">${item[8]}</td>
+	                        <td align="right">${item[9]}</td>
+	                        <td align="right">${item[10]}</td>
+                            <td align="right"><formatoFecha fecha="${item[11]}" patron="dd/MMM/yyyy"/></td>
+                        </tr>                        
+                        <jx:if test="${status.last}">
+                            <tr>
+                                <tr><td colspan="12"/></tr>
+                            </tr>
+                        </jx:if>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

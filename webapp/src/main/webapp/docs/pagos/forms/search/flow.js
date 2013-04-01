@@ -6,8 +6,9 @@ function searchform(form) {
         var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
         var fecha = form.getChild("fecha").getValue();
         var usrId = form.getChild("usrId").getValue();
+        var contrato = form.getChild("contrato").getValue();
         // Parámetros para mostrar la primer página.
-        cocoon.sendPage("pagos.list?fecha="+fecha+"&usrId="+usrId+"&pagina=1");
+        cocoon.sendPage("pagos.list?fecha="+fecha+"&usrId="+usrId+"&contrato="+contrato+"&pagina=1");
     }
 }
 
@@ -25,10 +26,13 @@ function pagosList() {
 	if (usrId == "null") {
 		usrId = null;
     }
-	
+	var contrato = cocoon.request.getParameter("contrato");
+	if (contrato == "null") {
+		contrato = null;
+	}
 	var handler = new Packages.com.metropolitana.multipagos.forms.pagos.PagosHandler();
-	var bean = handler.getResultadosXPagina(fecha, usrId, pagina, cocoon.session.registrosPorPagina);
-	cocoon.sendPage("forms/search/results.jx", {"bean":bean, "fecha":fecha, "pagina":pagina, "handler":handler, "usrId":usrId});
+	var bean = handler.getResultadosXPagina(fecha, usrId, contrato, pagina, cocoon.session.registrosPorPagina);
+	cocoon.sendPage("forms/search/results.jx", {"bean":bean, "fecha":fecha, "pagina":pagina, "handler":handler, "usrId":usrId, "contrato":contrato});
 }
 
 function borrarList() {
@@ -42,7 +46,11 @@ function borrarList() {
 	} else {
 		var usrId = null
 	}
+	var contrato = cocoon.request.getParameter("contrato");
+	if (contrato == "null") {
+		contrato = null;
+	}
 	handler.revertirPagos(pagoId, auth_getUserID());
 	handler.remove(pagoId, auth_getUserID());
-	cocoon.sendPage("pagos.list?fecha="+fecha+"&usrId="+usrId+"&pagina="+Integer.valueOf(cocoon.request.pagina));
+	cocoon.sendPage("pagos.list?fecha="+fecha+"&usrId="+usrId+"&contrato="+contrato+"&pagina="+Integer.valueOf(cocoon.request.pagina));
 }

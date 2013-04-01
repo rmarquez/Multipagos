@@ -6,7 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -436,7 +439,7 @@ private void insertValor(final Integer numero) throws Exception {
             query = "select	b.localidad_id, a.* "+
         	"into	tmp_con_dpts_lcldds "+
         	"from 	tmp_con_dpts a "+
-        	"left 	outer join localidad b on a.departamento_id = b.departamento_id and upper(rtrim(ltrim(a.localidad))) = upper(rtrim(ltrim(b.localidad_nombre))) "+
+        	"left 	outer join localidad b on a.departamento_id = b.departamento_id and upper(trim(ltrim(a.localidad))) = upper(trim(ltrim(b.localidad_nombre))) "+
         	"ORDER BY 1;"; 
             ejecutarQuery(connPostgres, query);
             
@@ -530,7 +533,7 @@ private void insertValor(final Integer numero) throws Exception {
             query = "select	b.barrio_id, a.* "+
         	"into	tmp_con_dpts_lcldds_barrios "+
         	"from 	tmp_con_dpts_lcldds a "+
-        	"left 	outer join barrio b on  a.localidad_id = b.localidad_id and upper(rtrim(ltrim(a.barrio))) = upper(rtrim(ltrim(b.barrio_nombre))) "+
+        	"left 	outer join barrio b on  a.localidad_id = b.localidad_id and upper(trim(ltrim(a.barrio))) = upper(trim(ltrim(b.barrio_nombre))) "+
         	"ORDER BY 1;"; 
             ejecutarQuery(connPostgres, query);
             
@@ -589,8 +592,6 @@ private void insertValor(final Integer numero) throws Exception {
 
             query = "select * into tmp_con_dpts_lcldds_barrios from tmp_con_dpts_lcldds_barrios_2;";
             ejecutarQuery(connPostgres, query);
-            
-            
            
             query = "insert into cartera_avon ( "+
 					"barrio_id, localidad_id, departamento_id, codigo, consejero, cedula, direccion, telefono, zona, factura, saldo, mes, anio, agencia, campania, fecha_baja, fecha_factura, fecha_asignado )"+	
@@ -755,7 +756,7 @@ private void insertValor(final Integer numero) throws Exception {
 			query = "select	b.departamento_id, a.* " +
 			"into	tmp_claro_dpts " +
 			"from 	tmp_carteraclaro a " +
-			"left 	outer join departamento b on upper(rtrim(ltrim(a.departamento))) = upper(rtrim(ltrim(b.departamento_nombre))) "+
+			"left 	outer join departamento b on upper(rtrim(ltrim(a.departamento))) = upper(rtrim(ltrim(b.departamento_nombre)ltrim)ltrim) "+
 			"ORDER BY 1;";
 			ejecutarQuery(connPostgres, query);			
 			
@@ -806,8 +807,6 @@ private void insertValor(final Integer numero) throws Exception {
 			String password = "multipagos";
 			String url = "jdbc:postgresql://localhost:5432/multipagos";
 			connPostgres = DriverManager.getConnection(url, username, password);
-
-			//corregirClaroDep();
 			
 			query = "select a.* into tmp_claro_dpts_2 from cartera_x_departamento a where factura_interna in (select factura_interna from tmp_carteraclaro) and pagado_claro=false and pagado=false;";
 			ejecutarQuery(connPostgres, query);
@@ -823,8 +822,6 @@ private void insertValor(final Integer numero) throws Exception {
 			
 			query = "drop table tmp_claro_dpts_2;";
 			ejecutarQuery(connPostgres, query);
-			
-				
 			
             return cantidad;
 
@@ -963,7 +960,7 @@ private void insertValor(final Integer numero) throws Exception {
             query = "select	b.departamento_id, a.* "+
         	"into tmp_con_dpts " +
         	"from tmp_cartera a " +
-        	"left outer join departamento b on upper(rtrim(ltrim(a.departamento))) = upper(rtrim(ltrim(b.departamento_nombre))) " +
+        	"left outer join departamento b on upper(trim(ltrim(a.departamento))) = upper(trim(ltrim(b.departamento_nombre))) " +
         	"ORDER BY 1;";
             ejecutarQuery(connPostgres, query);
             
@@ -1078,19 +1075,27 @@ private void insertValor(final Integer numero) throws Exception {
             query = "drop table tmp__;";
             ejecutarQuery(connPostgres, query);
                         
-            query = "select departamento_id, localidad as localidad_nombre	" +
+            query = "select departamento_id, localidad as localidad_nombre, factura_interna	" +
         	"into	tmp__ " +
         	"from 	tmp_con_dpts " + 
         	"order 	by 2;";
             ejecutarQuery(connPostgres, query);
             
+            query = "select distinct on (a.factura_interna) a.factura_interna, a.departamento_id, a.localidad_nombre " +
+            "into tmp__2 "+ 
+            "from tmp__ a order by 1;";
+            ejecutarQuery(connPostgres, query);
+            
             query = "insert into localidad (departamento_id, localidad_nombre) ( " +	
         	"select 	departamento_id, localidad_nombre "+	
-        	"from tmp__ " +
+        	"from tmp__2 " +
         	"where upper(localidad_nombre) not in (select upper(localidad_nombre) from localidad ));";
             ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__2;";
             ejecutarQuery(connPostgres, query);
             
             query = "drop table tmp_con_dpts_lcldds;";
@@ -1099,7 +1104,7 @@ private void insertValor(final Integer numero) throws Exception {
             query = "select	b.localidad_id, a.* "+
         	"into tmp_con_dpts_lcldds "+
         	"from tmp_con_dpts a "+
-        	"left outer join localidad b on upper(rtrim(ltrim(a.localidad))) = upper(rtrim(ltrim(b.localidad_nombre))) "+
+        	"left outer join localidad b on upper(trim(ltrim(a.localidad))) = upper(trim(ltrim(b.localidad_nombre))) "+
         	"ORDER BY 1;"; 
             ejecutarQuery(connPostgres, query);
             
@@ -1252,8 +1257,8 @@ private void insertValor(final Integer numero) throws Exception {
            query = "select	a.factura_interna, a.departamento_id, a.localidad_id, a.barrio_id, e.servicio_id, f.estado_id, substr(descuento,1,2) as descuento "+
         	"into 	tmp_p1 "+
         	"from 	tmp_con_dpts_lcldds_barrios a "+ 
-        	"left 	outer join servicio e on rtrim(ltrim(a.servicio)) = rtrim(ltrim(e.servicio_nombre)) "+
-        	"left 	outer join estado_corte f on rtrim(ltrim(a.estado)) = rtrim(ltrim(f.estado_nombre)) "+
+        	"left 	outer join servicio e on trim(ltrim(a.servicio)) = trim(ltrim(e.servicio_nombre)) "+
+        	"left 	outer join estado_corte f on trim(ltrim(a.estado)) = trim(ltrim(f.estado_nombre)) "+
         	"order 	by a.factura_interna;";
             ejecutarQuery(connPostgres, query);
             
@@ -1326,4 +1331,704 @@ private void insertValor(final Integer numero) throws Exception {
 			}
 		}
 	}
+	
+	
+	public int sqlProcessBanpro() throws Exception {
+		Connection connPostgres = null;
+		String query;
+
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+
+			query = "update tmp_banpro set departamento_c = trim(departamento_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = trim(departamento_t);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set ciudad_c = trim(ciudad_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set ciudad_t = trim(ciudad_t);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set direccion_c = trim(direccion_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set barrio_c = trim(barrio_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set direccion_t = trim(direccion_t);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set ubicacion_ba = trim(ubicacion_ba);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set producto = trim(producto);";
+            ejecutarQuery(connPostgres, query);
+			
+			query = "select count (tarjeta) from tmp_banpro where tarjeta in (select tarjeta from cartera_banpro); ";
+			int count = countQuery(connPostgres, query);
+			
+			query = "select a.* into tmp_excluidos from tmp_banpro a where tarjeta in (select tarjeta from cartera_banpro);";
+            ejecutarQuery(connPostgres, query);
+                        
+            if(count > 0){
+                query = "delete from tmp_banpro  where tmp_id in (select tmp_id from tmp_banpro where tarjeta in (select tarjeta from cartera_banpro));";
+                ejecutarQuery(connPostgres, query);   
+            }
+            
+            query = "update tmp_banpro set departamento_c = upper(departamento_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = upper(departamento_t);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c = 'MANAGUA' where departamento_c like '%MANAGUA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = 'MANAGUA' where departamento_t like '%MANAGUA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c = 'ESTELI' where departamento_c like '%ESTEL%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = 'ESTELI' where departamento_t like '%ESTEL%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c='LEON' where departamento_c like 'LEÓN';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t='LEON' where departamento_t like 'LEÓN';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c = 'MATAGALPA' where departamento_c like '%MATA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = 'MATAGALPA' where departamento_t like '%MATA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c = 'R. AUTONOMA DE ATLANTICO NORTE' where departamento_c like 'REG AUTONOMA ATLANTICO N';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = 'R. AUTONOMA DE ATLANTICO NORTE' where departamento_t like 'REG AUTONOMA ATLANTICO N';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_c = 'R. AUTONOMA DE ATLANTICO SUR' where departamento_c like 'REG AUTONOMA ATLANTICO S';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_banpro set departamento_t = 'R. AUTONOMA DE ATLANTICO SUR' where departamento_t like 'REG AUTONOMA ATLANTICO S';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "insert into b_departamento (b_departamento_nombre) " +
+            "(select distinct departamento_c as departamento_nombre from tmp_banpro "+
+            "where upper(departamento_c) not in ( select upper(b_departamento_nombre) from b_departamento ) order by 1 );";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "insert into b_departamento (b_departamento_nombre) " +
+            "(select distinct departamento_t as departamento_nombre from tmp_banpro "+
+            "where upper(departamento_t) not in ( select upper(b_departamento_nombre) from b_departamento ) order by 1 );";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select	b.b_departamento_id as departamento_id_c, a.* "+
+        	"into	tmp_con_dpts " +
+        	"from 	tmp_banpro a " +
+        	"left 	outer join b_departamento b on upper(trim(trim(a.departamento_c))) = upper(trim(trim(b.b_departamento_nombre))) " +
+        	"ORDER BY 1;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select	b.b_departamento_id as departamento_id_t, a.* "+
+        	"into	tmp_con_dpts_2 " +
+        	"from 	tmp_con_dpts a " +
+        	"left 	outer join b_departamento b on upper(trim(trim(a.departamento_t))) = upper(trim(trim(b.b_departamento_nombre))) " +
+        	"ORDER BY 1;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select distinct on (a.mult_codigo) a.mult_codigo, a.departamento_id_c, a.departamento_id_t, a.cod_cliente, a.cuenta,a.nombre,a.tarjeta,a.producto,a.antiguedad_anios,a.deuda_cor,a.deuda_dol,a.total_deuda_dol,a.empresa_ba,a.ubicacion_ba,a.cedula, a.direccion_c, a.barrio_c, a.departamento_c,a.ciudad_c,a.direccion_t, a.departamento_t,a.ciudad_t,a.telefono_c,a.telefono_t,a.telefono_o,a.cod_fiador,a.nombre_fiador,a.telefono_fiador, fecha_asignado " +
+            "into tmp_con_dpts "+ 
+            "from tmp_con_dpts_2 a";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = upper(ciudad_c);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MANAGUA' where ciudad_c like 'MAN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MANAGUA' where ciudad_c like '.MANA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MANAGUA' where ciudad_c like 'MAA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MANAGUA' where ciudad_c like 'MGUA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'CIUDAD SANDINO' where ciudad_c like '%SANDINO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'CIUDAD DARIO' where ciudad_c like '%DARIO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'CIUDAD DARIO' where ciudad_c like 'CIUDAD DARÍO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'ESTELI' where ciudad_c like 'ESTEL%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'LEON' where ciudad_c like '%LEÓN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'LEON' where ciudad_c like '%LE�N%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'LEON' where ciudad_c like 'LÉON';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'TOTOGALPA' where ciudad_c like '%TOTOGALPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'EL TUMA - LA DALIA' where ciudad_c like '%TUMA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MUY MUY' where ciudad_c like 'MUYMUY';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SEBACO' where ciudad_c like '%SEBACO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SEBACO' where ciudad_c like 'SÉBACO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN RAMON' where ciudad_c like '%SAN RAMON%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'RANCHO GRANDE' where ciudad_c like '%RANCHO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'RENE BARRANTES' where ciudad_c like '%RENE%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN FERNANDO' where ciudad_c like '%SAN FERNANDO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN NICOLAS' where ciudad_c like '%SAN NICOLAS%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN ISIDRO' where ciudad_c like '%SAN ISIDRO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN JOSE DE CUSMAPA' where ciudad_c like 'SAN JOSÉ DE CUSMAPA';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN JUAN DE RIO COCO' where ciudad_c like 'SAN JUAN DEL RIO COCO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'JALAPA' where ciudad_c like '%JALAPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MATAGALPA' where ciudad_c like '%MATA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'LA TRINIDAD' where ciudad_c like '%TRIN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MULUKUKU' where ciudad_c like '%MULU%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'SAN RAFAEL DEL SUR' where ciudad_c like '%RAFAEL DEL SUR%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'MANAGUA' where ciudad_c like 'MAN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'NAGAROTE' where ciudad_c like '%NAGAROTE%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'NINDIRI' where ciudad_c like '%NINDIRI%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'TIPITAPA' where ciudad_c like '%TIPITAPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts set ciudad_c = 'LA TRINIDAD' where ciudad_c like '%LA TIRNIDAD%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+                        
+            query = "select departamento_id_c, ciudad_c as ciudad_c_nombre, mult_codigo	" +
+        	"into	tmp__ " +
+        	"from 	tmp_con_dpts " + 
+        	"order 	by 2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select distinct on (a.mult_codigo) a.mult_codigo, a.departamento_id_c, a.ciudad_c_nombre " +
+            "into tmp__2 "+ 
+            "from tmp__ a order by 1;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "insert into ciudad (ciudad_nombre, departamento_id) ( 	"+
+    		"select 	distinct on (ciudad_c_nombre) ciudad_c_nombre, departamento_id_c  "+	
+    		"from	tmp__2 "+
+    		"where 	upper(ciudad_c_nombre) not in ( select  upper(ciudad_nombre)  from ciudad ));";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select	b.ciudad_id as ciudad_id_c, a.* "+
+        	"into	tmp_con_dpts_lcldds "+
+        	"from 	tmp_con_dpts a "+
+        	"left 	outer join ciudad b on a.departamento_id_c = b.departamento_id and upper(trim(ltrim(a.ciudad_c))) = upper(trim(ltrim(b.ciudad_nombre))) "+
+        	"ORDER BY 2;"; 
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select count (*) from tmp_con_dpts_lcldds where ciudad_id_c is null; ";
+			int count2 = countQuery(connPostgres, query);
+                        
+            if(count2 > 0){
+                  
+	            query = "select ciudad_id, ciudad_nombre "+
+				"into tmp_ciudad "+
+				"from ciudad " +
+				"where ciudad_nombre IN (  select ciudad_c from tmp_con_dpts where tarjeta in(select tarjeta from tmp_con_dpts_lcldds where ciudad_id_c is null)  );";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	b.ciudad_id as ciudad_id_c, a.mult_codigo,a.departamento_id_c,a.departamento_id_t,a.cod_cliente,a.cuenta,a.nombre,a.tarjeta,a.producto,a.antiguedad_anios,a.deuda_cor,a.deuda_dol,a.total_deuda_dol,a.empresa_ba,a.ubicacion_ba,a.cedula,a.direccion_c, a.barrio_c,a.departamento_c,a.ciudad_c,a.direccion_t,a.departamento_t,a.ciudad_t,a.telefono_c,a.telefono_t,a.telefono_o,a.cod_fiador,a.nombre_fiador,a.telefono_fiador, fecha_asignado "+
+			    "into	tmp_con_dpts_lcldds_2 "+
+				"from 	tmp_con_dpts_lcldds a "+
+				"left 	outer join tmp_ciudad b on a.ciudad_c = b.ciudad_nombre "+
+				"where a.ciudad_id_c is null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	a.* into tmp_con_dpts_lcldds_3 from tmp_con_dpts_lcldds a where a.ciudad_id_c is not null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds;";
+	            ejecutarQuery(connPostgres, query);
+					
+	            query = "select	ciudad_id_c, mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado "+
+				"into	tmp_con_dpts_lcldds "+
+				"from 	tmp_con_dpts_lcldds_2 "+
+				"union "+
+				"select	ciudad_id_c, mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado  "+
+				"from 	tmp_con_dpts_lcldds_3;";
+	            ejecutarQuery(connPostgres, query);
+	            
+					
+	            query = "drop table tmp_ciudad;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_2;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_3;";
+	            ejecutarQuery(connPostgres, query);  
+            
+            }
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = upper(ciudad_t);";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MANAGUA' where ciudad_t like 'MAN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MANAGUA' where ciudad_t like '.MANA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MANAGUA' where ciudad_t like 'MAA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MANAGUA' where ciudad_t like 'MGUA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'CIUDAD SANDINO' where ciudad_t like '%SANDINO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'CIUDAD DARIO' where ciudad_t like '%DARIO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'CIUDAD DARIO' where ciudad_t like 'CIUDAD DARÍO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'ESTELI' where ciudad_t like 'ESTEL%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'LEON' where ciudad_t like '%LEÓN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'LEON' where ciudad_t like '%LE�N%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'LEON' where ciudad_t like 'LÉON';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'TOTOGALPA' where ciudad_t like '%TOTOGALPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'EL TUMA - LA DALIA' where ciudad_t like '%TUMA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MUY MUY' where ciudad_t like 'MUYMUY';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SEBACO' where ciudad_t like '%SEBACO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SEBACO' where ciudad_t like 'SÉBACO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN RAMON' where ciudad_t like '%SAN RAMON%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'RANCHO GRANDE' where ciudad_t like '%RANCHO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'RENE BARRANTES' where ciudad_t like '%RENE%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN FERNANDO' where ciudad_t like '%SAN FERNANDO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN NICOLAS' where ciudad_t like '%SAN NICOLAS%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN ISIDRO' where ciudad_t like '%SAN ISIDRO%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN JOSE DE CUSMAPA' where ciudad_t like 'SAN JOSÉ DE CUSMAPA';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN JUAN DE RIO COCO' where ciudad_t like 'SAN JUAN DEL RIO COCO';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'JALAPA' where ciudad_t like '%JALAPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MATAGALPA' where ciudad_t like '%MATA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'LA TRINIDAD' where ciudad_t like '%TRIN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MULUKUKU' where ciudad_t like '%MULU%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'SAN RAFAEL DEL SUR' where ciudad_t like '%RAFAEL DEL SUR%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'MANAGUA' where ciudad_t like 'MAN%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'NAGAROTE' where ciudad_t like '%NAGAROTE%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'NINDIRI' where ciudad_t like '%NINDIRI%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'TIPITAPA' where ciudad_t like '%TIPITAPA%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "update tmp_con_dpts_lcldds set ciudad_t = 'LA TRINIDAD' where ciudad_t like '%LA TIRNIDAD%';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__2;";
+            ejecutarQuery(connPostgres, query);
+                        
+            query = "select departamento_id_t, ciudad_t as ciudad_t_nombre, mult_codigo	" +
+        	"into	tmp__ " +
+        	"from 	tmp_con_dpts " + 
+        	"order 	by 2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select distinct on (a.mult_codigo) a.mult_codigo, a.departamento_id_t, a.ciudad_t_nombre " +
+            "into tmp__2 "+ 
+            "from tmp__ a order by 1;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "insert into ciudad (ciudad_nombre, departamento_id) ( " +	
+        	"select 	distinct on (ciudad_t_nombre) ciudad_t_nombre, departamento_id_t "+	
+        	"from	tmp__2 " +
+        	"where 	upper(ciudad_t_nombre) not in ( select  upper(ciudad_nombre)  from ciudad ));";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds_2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select	b.ciudad_id as ciudad_id_t, a.* "+
+        	"into	tmp_con_dpts_lcldds_2 "+
+        	"from 	tmp_con_dpts_lcldds a "+
+        	"left 	outer join ciudad b on a.departamento_id_t = b.departamento_id and upper(trim(ltrim(a.ciudad_t))) = upper(trim(ltrim(b.ciudad_nombre))) "+
+        	"ORDER BY 2;"; 
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds_3;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select count (*) from tmp_con_dpts_lcldds_2 where ciudad_id_t is null; ";
+			int count3 = countQuery(connPostgres, query);
+                        
+            if(count3 > 0){
+                  
+	            query = "select ciudad_id, ciudad_nombre "+
+				"into tmp_ciudad "+
+				"from ciudad " +
+				"where ciudad_nombre IN ( select ciudad_t from tmp_con_dpts where tarjeta in(	select tarjeta 	from tmp_con_dpts_lcldds_2 where ciudad_id_t is null)  );";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	b.ciudad_id as ciudad_id_t, a.mult_codigo,ciudad_id_c, a.departamento_id_c,a.departamento_id_t,a.cod_cliente,a.cuenta,a.nombre,a.tarjeta,a.producto,a.antiguedad_anios,a.deuda_cor,a.deuda_dol,a.total_deuda_dol,a.empresa_ba,a.ubicacion_ba,a.cedula,a.direccion_c, a.barrio_c,a.departamento_c,a.ciudad_c,a.direccion_t,a.departamento_t,a.ciudad_t,a.telefono_c,a.telefono_t,a.telefono_o,a.cod_fiador,a.nombre_fiador,a.telefono_fiador, fecha_asignado "+
+			    "into	tmp_con_dpts_lcldds "+
+				"from 	tmp_con_dpts_lcldds_2 a "+
+				"left 	outer join tmp_ciudad b on a.ciudad_t = b.ciudad_nombre "+
+				"where a.ciudad_id_t is null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	a.* into tmp_con_dpts_lcldds_3 from tmp_con_dpts_lcldds_2 a where a.ciudad_id_t is not null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            
+	            query = "drop table tmp_con_dpts_lcldds_2;";
+	            ejecutarQuery(connPostgres, query);
+					
+	            query = "select	ciudad_id_c, ciudad_id_t,mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado "+
+				"into	tmp_con_dpts_lcldds_2 "+
+				"from 	tmp_con_dpts_lcldds "+
+				"union "+
+				"select	ciudad_id_c, ciudad_id_t, mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado  "+
+				"from 	tmp_con_dpts_lcldds_3;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_3;";
+	            ejecutarQuery(connPostgres, query); 
+	            
+	            query = "select distinct on (tarjeta) tarjeta,  mult_codigo, cuenta, nombre, cod_cliente, producto, antiguedad_anios, deuda_cor, deuda_dol, total_deuda_dol, "+
+	            "empresa_ba, ubicacion_ba, cedula, direccion_c, barrio_c, departamento_id_c, ciudad_id_c, direccion_t, departamento_id_t, ciudad_id_t, telefono_c, "+
+	            "telefono_t, telefono_o, cod_fiador, nombre_fiador, telefono_fiador, fecha_asignado "+
+	            "into tmp_con_dpts_lcldds from tmp_con_dpts_lcldds_2";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_ciudad;";
+	            ejecutarQuery(connPostgres, query);
+            
+            }
+            
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+                        
+            query = "select ciudad_id_c, barrio_c as barrio_c_nombre, tarjeta	" +
+        	"into	tmp__ " +
+        	"from 	tmp_con_dpts_lcldds_2 " + 
+        	"order 	by 2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select distinct on (a.tarjeta) a.tarjeta, a.ciudad_id_c, a.barrio_c_nombre " +
+            "into tmp__2 "+ 
+            "from tmp__ a order by 1;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "insert into b_barrio (barrio_nombre, ciudad_id) ( 	"+
+    		"select 	distinct on (barrio_c_nombre) barrio_c_nombre, ciudad_id_c  "+	
+    		"from	tmp__2 "+
+    		"where 	upper(barrio_c_nombre) not in ( select  upper(barrio_nombre)  from b_barrio ));";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp__2;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds_3;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select	b.barrio_id as barrio_id_c, a.* "+
+        	"into	tmp_con_dpts_lcldds_3 "+
+        	"from 	tmp_con_dpts_lcldds_2 a "+
+        	"left 	outer join b_barrio b on a.ciudad_id_c = b.ciudad_id and upper(trim(ltrim(a.barrio_c))) = upper(trim(ltrim(b.barrio_nombre))) "+
+        	"ORDER BY 2;"; 
+            ejecutarQuery(connPostgres, query);
+            
+			query = "drop table tmp_con_dpts_lcldds;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select distinct on (tarjeta) tarjeta, mult_codigo,cuenta, nombre, cod_cliente, producto, antiguedad_anios, deuda_cor, deuda_dol, "+
+            "total_deuda_dol,empresa_ba, ubicacion_ba, cedula, direccion_c, barrio_c, barrio_id_c, departamento_id_c, ciudad_id_c, direccion_t, departamento_id_t, "+
+            "ciudad_id_t, telefono_c, telefono_t, telefono_o, cod_fiador, nombre_fiador, telefono_fiador, fecha_asignado  "+
+            "into tmp_con_dpts_lcldds from tmp_con_dpts_lcldds_3";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select count (*) from tmp_con_dpts_lcldds_3 where barrio_id_c is null; ";
+			int count4 = countQuery(connPostgres, query);
+			
+			if(count4 > 0){
+			  
+			    query = "drop table tmp_barrio";
+			    ejecutarQuery(connPostgres, query);
+                
+	            query = "select barrio_id, barrio_nombre "+
+				"into tmp_barrio "+
+				"from b_barrio " +
+				"where barrio_nombre IN ( select barrio_c from tmp_con_dpts where tarjeta in(	select tarjeta 	from tmp_con_dpts_lcldds_3 where barrio_id_c is null)  );";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	b.barrio_id as barrio_id_c, a.mult_codigo,ciudad_id_c, ciudad_id_t, a.departamento_id_c,a.departamento_id_t,a.cod_cliente,a.cuenta,a.nombre,a.tarjeta,a.producto,a.antiguedad_anios,a.deuda_cor,a.deuda_dol,a.total_deuda_dol,a.empresa_ba,a.ubicacion_ba,a.cedula,a.direccion_c, a.barrio_c,a.departamento_c,a.ciudad_c,a.direccion_t,a.departamento_t,a.ciudad_t,a.telefono_c,a.telefono_t,a.telefono_o,a.cod_fiador,a.nombre_fiador,a.telefono_fiador, fecha_asignado "+
+			    "into	tmp_con_dpts_lcldds_4 "+
+				"from 	tmp_con_dpts_lcldds_3 a "+
+				"left 	outer join tmp_barrio b on a.barrio_c = b.barrio_nombre "+
+				"where a.barrio_id_c is null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "select	a.* into tmp_con_dpts_lcldds_5 from tmp_con_dpts_lcldds_3 a where a.barrio_id_c is not null;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_2;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_3;";
+	            ejecutarQuery(connPostgres, query);
+					
+	            query = "select	barrio_id_c, ciudad_id_c, ciudad_id_t,mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado "+
+				"into	tmp_con_dpts_lcldds "+
+				"from 	tmp_con_dpts_lcldds_4 "+
+				"union "+
+				"select	barrio_id_c, ciudad_id_c, ciudad_id_t, mult_codigo,departamento_id_c,departamento_id_t,cod_cliente,cuenta,nombre,tarjeta,producto,antiguedad_anios,deuda_cor,deuda_dol,total_deuda_dol,empresa_ba,ubicacion_ba,cedula,direccion_c, barrio_c,departamento_c,ciudad_c,direccion_t,departamento_t,ciudad_t,telefono_c,telefono_t,telefono_o,cod_fiador,nombre_fiador,telefono_fiador, fecha_asignado  "+
+				"from 	tmp_con_dpts_lcldds_5;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_4;";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_con_dpts_lcldds_5;";
+	            ejecutarQuery(connPostgres, query); 
+	            
+	            query = "select distinct on (tarjeta) tarjeta,  mult_codigo, cuenta, nombre, cod_cliente, producto, antiguedad_anios, deuda_cor, deuda_dol, total_deuda_dol, "+
+	            "empresa_ba, ubicacion_ba, cedula, direccion_c, barrio_c, barrio_id_c, departamento_id_c, ciudad_id_c, direccion_t, departamento_id_t, ciudad_id_t, telefono_c, "+
+	            "telefono_t, telefono_o, cod_fiador, nombre_fiador, telefono_fiador, fecha_asignado "+
+	            "into tmp_con_dpts_lcldds_2 from tmp_con_dpts_lcldds";
+	            ejecutarQuery(connPostgres, query);
+	            
+	            query = "drop table tmp_barrio;";
+	            ejecutarQuery(connPostgres, query);
+            
+            }
+            
+           //********************************************************************
+           query = "insert into cartera_banpro ( "+
+			"cod_cliente, cuenta, nombre, tarjeta, producto, antiguedad_anios, deuda_cor, deuda_dol, total_deuda_dol, empresa_ba, ubicacion_ba, cedula,"+
+			 "direccion_c, barrio_c, departamento_c, ciudad_c, direccion_t, departamento_t, ciudad_t, telefono_c, telefono_t, telefono_o, cod_fiador, "+
+			 "nombre_fiador, telefono_fiador, mult_codigo, fecha_asignado )	"+
+			"select a.cod_cliente, a.cuenta, a.nombre, a.tarjeta, a.producto, a.antiguedad_anios, a.deuda_cor, a.deuda_dol, a.total_deuda_dol, "+
+			"a.empresa_ba, a.ubicacion_ba, a.cedula, a.direccion_c, a.barrio_id_c, a.departamento_id_c, a.ciudad_id_c, a.direccion_t, a.departamento_id_t, "+
+			"a.ciudad_id_t, a.telefono_c, a.telefono_t, a.telefono_o, a.cod_fiador, a.nombre_fiador, a.telefono_fiador, a.mult_codigo, a.fecha_asignado "+
+			"from 	tmp_con_dpts_lcldds_2 a ";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "select count (*) from tmp_con_dpts_lcldds_2; ";
+			int cantidad = countQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds_2; ";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts;";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "drop table tmp_con_dpts_lcldds; ";
+            ejecutarQuery(connPostgres, query);
+            
+           return cantidad;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null)
+					connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	public int contarExcluidosBanpro() throws Exception {
+		Connection connPostgres = null;
+		String query;
+
+		try {
+			// Parámetros de conexión con Postgres
+			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("No se encuentra el Driver: "
+						+ e.getMessage());
+			}
+			String username = "dev";
+			String password = "multipagos";
+			String url = "jdbc:postgresql://localhost:5432/multipagos";
+			connPostgres = DriverManager.getConnection(url, username, password);
+
+			query = "select count(tarjeta) from tmp_excluidos;";
+			int cantidad = countQuery(connPostgres, query);
+			
+            return cantidad;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connPostgres != null)
+					connPostgres.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	
 }

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2583
+//===   auth_user.java                        Build:2656
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -209,6 +209,34 @@ public class AuthUser implements java.io.Serializable
    {
       avonPagos.setUsrIdRef(this);
       avonPagosList.add( avonPagos );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection gestionBanproList = new ArrayList();
+
+   public Collection getGestionBanproList() { return gestionBanproList;}
+
+   public void setGestionBanproList(Collection c) { this.gestionBanproList = c;}
+
+   public void addGestionBanpro( GestionBanpro gestionBanpro )
+   {
+      gestionBanpro.setUsrIdRef(this);
+      gestionBanproList.add( gestionBanpro );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection pendientesClaroList = new ArrayList();
+
+   public Collection getPendientesClaroList() { return pendientesClaroList;}
+
+   public void setPendientesClaroList(Collection c) { this.pendientesClaroList = c;}
+
+   public void addPendientesClaro( PendientesClaro pendientesClaro )
+   {
+      pendientesClaro.setUsrIdRef(this);
+      pendientesClaroList.add( pendientesClaro );
    }
 }
 

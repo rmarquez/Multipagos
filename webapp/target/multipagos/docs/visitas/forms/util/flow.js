@@ -60,10 +60,8 @@ function alSeleccionarContrato(event) {
     var diferido = event.source.parent.getChild("diferido").getValue();
     var handlerCartera = new CarteraXDepartamentoHandler();   
     var handlerVisita = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
- java.lang.System.out.println("** Numero de contratro = " + numContrato);   
 	if(numContrato != null){
 		var cartera = handlerCartera.carteraXContrato(numContrato);
- java.lang.System.out.println("** Bean Cartera = " + cartera);
 		if(cartera != null){
 			carteraId.setValue(cartera.getCarteraId()); 
 			suscriptor.setValue(cartera.getSuscriptor());

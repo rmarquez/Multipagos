@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:selection-list xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+    <fd:item value="">
+        <fd:label>${labelNullItem}</fd:label>
+    </fd:item>
+    <jx:forEach var="item" items="${bean}">
+        <fd:item value="${item.tmpId}">
+            <fd:label>${item.codCliente}</fd:label>
+        </fd:item>
+    </jx:forEach>
+</fd:selection-list>

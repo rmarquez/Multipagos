@@ -27,6 +27,7 @@
             <fb:value id="observaciones" path="observaciones"/>
             <fb:value id="horaRegistro" path="horaRegistro"/>
             <fb:value id="fprogCobro" path="fprogCobro"/>
+            <fb:value id="gestionLlamada" path="gestionLlamada"/>
         </fb:on-bind>
 
         <fb:on-delete-row>

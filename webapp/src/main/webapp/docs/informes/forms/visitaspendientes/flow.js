@@ -14,16 +14,19 @@ function visitaspendientesform(form) {
         var fechaFin = form.getChild("fechaFin").getValue();
         var departamentoId = form.getChild("departamentoId").getValue();
         var localidadId = form.getChild("localidadId").getValue();
-        var barrioId = form.getChild("barrioId").getValue();
+        //var barrioId = form.getChild("barrioId").getValue();
         var numAsignacion = form.getChild("numAsignacion").getValue();
         
-        var bean = handler.getVisitasPendientes(fecha, fechaIni, fechaFin, departamentoId, localidadId, barrioId, numAsignacion);
+        var bean = handler.getVisitasPendientes(fecha, fechaIni, fechaFin, departamentoId, localidadId, null, numAsignacion);
 		var URL = "forms/visitaspendientes/results.jx";
 		if (form.submitId == "excel") {
 			URL = "forms/visitaspendientes/results.xls";
 		}
 		if (form.submitId == "aviso") {
 			URL = "forms/visitaspendientes/imprimir.pdf";
+		}
+		if (form.submitId == "lista") {
+			URL = "forms/visitaspendientes/lista.xls";
 		}
         cocoon.sendPageAndWait(URL,
              {
@@ -33,8 +36,9 @@ function visitaspendientesform(form) {
 			"fechaFin" : fechaFin,
 			"departamentoId" : departamentoId,
 			"localidadId" : localidadId,
-			"barrioId" : barrioId,
-			"util" : util
+			//"barrioId" : barrioId,
+			"util" : util,
+			"numAsignacion"	: numAsignacion
 		});
 	}
 }

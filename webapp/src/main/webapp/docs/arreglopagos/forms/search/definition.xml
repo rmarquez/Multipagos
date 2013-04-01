@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition">
+    <fd:widgets>
+        <fd:field id="criteria">
+            <fd:label>Cod Cliente: </fd:label>
+            <fd:help>Escriba el numero codigo del cliente.</fd:help>
+            <fd:datatype base="string"/>
+            <fd:validation>
+                <fd:length max="50"/>
+            </fd:validation>
+        </fd:field>
+        <fd:submit id="buscar">
+          <fd:label>Buscar</fd:label>
+          <fd:help>Buscar</fd:help>
+          <fd:hint>buscar</fd:hint>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

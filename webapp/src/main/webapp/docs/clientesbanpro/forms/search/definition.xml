@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1">   
+  
+    <fd:widgets>
+    	
+        <fd:field id="codCliente">
+			<fd:label>Codigo Cliente:</fd:label>					
+			<fd:datatype base="string" />
+			<fd:on-value-changed>
+			<fd:javascript>
+				clienteDeuda(event);
+				clientePagos(event);
+				clienteArreglos(event);
+				clienteCuotas(event);
+			</fd:javascript>
+			</fd:on-value-changed>
+		</fd:field>
+		
+		<fd:field id="nombre" state="output">
+			<fd:label>Nombre</fd:label>					
+			<fd:datatype base="string" />
+		</fd:field>
+		
+		<!-- Detalle Deuda -->
+		
+		<fd:repeater id="deuda">
+            <fd:widgets>
+                
+				<fd:field id="producto" state="output">
+					<fd:label>Producto</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="tarjeta" state="output">
+				<fd:label>Tarjeta</fd:label>
+		           <fd:datatype base="string"/>
+		        </fd:field>
+		        
+		        <fd:field id="cuenta" state="output">
+					<fd:label>Cuenta</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+		        
+		        <fd:field id="deudaCor" state="output">
+		            <fd:label>Monto Deuda(C$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="deudaCor &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>
+		        
+		        <fd:field id="deudaDol" state="output">
+		            <fd:label>Monto Deuda(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="deudaDol &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>
+		        
+		        <fd:field id="totalDeudaDol" state="output">
+		            <fd:label>Total Deuda(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="totalDeudaDol &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>	
+		        
+				</fd:widgets>
+			</fd:repeater>		
+			
+			
+			
+			<!-- Detalle Pagos -->
+		
+		<fd:repeater id="pagos">
+            <fd:widgets>
+                
+		        <fd:field id="cuenta" state="output">
+					<fd:label>Cuenta</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="fechaCor" state="output">
+		            <fd:label>Fecha Pago C$</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+				
+		        
+		        <fd:field id="pagoCor" state="output">
+		            <fd:label>Monto Pago(C$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+		        <fd:field id="fechaDol" state="output">
+		            <fd:label>Fecha Pago U$</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+		        
+		        <fd:field id="pagoDol" state="output">
+		            <fd:label>Monto Pago(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+		        <fd:field id="observaciones" state="output">
+					<fd:label>Observaciones </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+
+	        	
+				</fd:widgets>
+			</fd:repeater>	
+			
+			
+			
+			<!-- Detalle Arreglos Pagos -->
+		
+		<fd:repeater id="arreglo">
+            <fd:widgets>
+                
+				<fd:field id="fecha" state="output">
+		            <fd:label>Fecha</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+		        
+		        <fd:field id="deudaTotalUS" state="output">
+		            <fd:label>Deuda Total(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:javascript>
+		            var subTotal = java.math.BigDecimal.ZERO;
+		            var detalle = form.getChild("deuda");
+		                 for (var i = 0; i &lt; detalle.size; i++) {
+		                    var row = detalle.getRow(i);
+		                      var totalDeudaDol = row.getChild("totalDeudaDol").getValue();
+		                      if (totalDeudaDol != null) {
+		                            subTotal = subTotal.add(totalDeudaDol).setScale(2, java.math.BigDecimal.ROUND_HALF_UP);
+		                    }
+		                }
+		                  return subTotal;
+		            </fd:javascript>
+		        </fd:field>
+        
+	        	<fd:field id="pagoTotalUS" state="output">
+		            <fd:label>Pago Total(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            
+		        </fd:field>
+                
+		        <fd:calculatedfield id="saldoUS" state="output">
+		            <fd:label>Saldo Pendiente(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:value eval="Round(NVL(deudaTotalUS, 0) - NVL(pagoTotalUS, 0), 2)"/>
+		        </fd:calculatedfield>
+				        
+		        <fd:field id="descuento" state="output">
+		            <fd:label>Monto descuento(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+		        <fd:field id="plazo" state="output">
+					<fd:label>Plazo</fd:label>
+					<fd:help>Plazo en Cantidad de meses.</fd:help>				
+					<fd:datatype base="string" />
+				</fd:field>
+						
+				<fd:field id="cuota" state="output">
+		            <fd:label>Cuota (U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+
+	        	
+				</fd:widgets>
+			</fd:repeater>	
+			
+			<!-- Detalle Pagos -->
+		
+		<fd:repeater id="cuotas">
+            <fd:widgets>
+                
+				<fd:field id="fechaCuota" state="output">
+		            <fd:label>Fecha Cuota</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+				
+		        
+		        <fd:field id="montoCuota" state="output">
+		            <fd:label>Monto Cuota U$</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+		        <fd:field id="fechaPago" state="output">
+		            <fd:label>Fecha Pago U$</fd:label>
+		            <fd:datatype base="date">
+						<fd:convertor type="formatting" variant="date">
+							<fd:patterns>
+								<fd:pattern>dd/MM/yyyy</fd:pattern>
+							</fd:patterns>
+						</fd:convertor>
+					</fd:datatype>			
+		        </fd:field>
+		        
+		        <fd:field id="montoPago" state="output">
+		            <fd:label>Monto Pago(U$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+	        	
+				</fd:widgets>
+			</fd:repeater>
+				
+         
+        <fd:submit id="salir">
+          <fd:label>Salir</fd:label>
+        </fd:submit>
+    </fd:widgets>
+</fd:form>

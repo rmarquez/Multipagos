@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+    <header>
+        <title>Cuentas</title>
+    </header>
+    <body>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(codCliente)}"/>
+        <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
+        <s1 title="Lista de cuentas">
+            <hrefPaginacion cadena="arreglo.list?codCliente=${codCliente}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Cod Cliente</th>
+                        <th>Plazo</th>
+                        <th>Cuota</th>
+                        <th>Fecha Arreglo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <jx:forEach items="${bean}" varStatus="status">
+                        <tr>
+                            <td><jx:formatNumber value="${status.count}"/></td>
+                            <td>${status.current.nombre}</td>
+                            <td>${status.current.codCliente}</td>
+                            <td>${status.current.plazo}</td>
+                            <td>${status.current.cuota}</td>
+                            <td align="right"><formatoFecha fecha="${status.current.fecha}" patron="dd/MMM/yyyy"/></td>
+                            <td>
+                               <link href="/multipagos/arreglopagos/view?arregloId=${status.current.arregloId}">Ver</link>
+                             </td>
+                        </tr>
+                    </jx:forEach>
+                </tbody>
+            </table>            
+            <hrefPaginacion cadena="arreglo.list?codCliente=${codCliente}" pagina="${pagina}" registrosPorPagina="${cocoon.session.registrosPorPagina}" cantidadRegistros="${cantidadRegistros}"/>
+        </s1>       
+    </body>
+     <link href="/multipagos/arreglopagos/search">Volver</link>
+</document>

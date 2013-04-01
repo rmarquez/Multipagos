@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+<!-- Importamos las macros definidas por el programador -->
+<jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Base de datos corregida</title>
+    </header>
+    <body>
+        <s1 title="Base de datos corregida">
+            <p>se corrigieron <b>${cantidad}</b> registros en nuestra base de datos </p>
+        </s1>
+    </body>
+</document>

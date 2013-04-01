@@ -240,26 +240,6 @@ public void leerExcel() throws Exception {
 			final String campania, final Date fbaja, final Date ffactura, final Date asignado)
 			throws Exception {
 		
-		java.lang.System.out.println("codigo = " + codigo);
-		java.lang.System.out.println("consejero = " + consejero);
-		java.lang.System.out.println("cedula = " + cedula);
-		java.lang.System.out.println("direccion = " + direccion);
-		java.lang.System.out.println("departamento = " + departamento);
-		java.lang.System.out.println("municipio = " + localidad);
-		java.lang.System.out.println("barrio = " + barrio);
-		java.lang.System.out.println("telefono = " + telefono);
-		java.lang.System.out.println("zona = " + zona);
-		java.lang.System.out.println("saldo = " + saldo);
-		java.lang.System.out.println("mes = " + mes);
-		java.lang.System.out.println("anio = " + anio);
-		java.lang.System.out.println("agencia = " + agencia);
-		java.lang.System.out.println("campania = " + campania);
-		java.lang.System.out.println("fbaja = " + fbaja);
-		java.lang.System.out.println("ffactura = " + ffactura);
-		java.lang.System.out.println("asignado = " + asignado);
-		
-		java.lang.System.out.println("*************************************************************");
-		
 		Connection connPostgres = null;
 		String insertQuery;
 

@@ -17,6 +17,7 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
 import com.metropolitana.multipagos.DetalleGestion;
+import com.metropolitana.multipagos.DetalleVisitas;
 import com.metropolitana.multipagos.GestionAvon;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.cartera.CarteraAvonHandler;
@@ -418,6 +419,56 @@ public class GestionHandler {
             }
             
             return null;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (broker != null && !broker.isClosed()) {
+                broker.close();
+            }
+        }
+    }
+	
+	public static boolean getCodigoXFecha(final Boolean gestionLlamada,
+			final String codigo, final Date fechaGestion)
+			throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (gestionLlamada != null ){
+				criterio.addEqualTo("gestionLlamada", gestionLlamada);
+			} else {
+				criterio.addEqualTo("gestionLlamada", false);
+			}
+			if (codigo != null && fechaGestion != null) {
+				criterio.addEqualTo("codigo", codigo);
+				criterio.addEqualTo("fechaGestion", fechaGestion);
+				
+			}
+			List lst = getCodigoXFechaList(criterio);
+			if (lst.isEmpty()) {
+				return Boolean.FALSE.booleanValue();
+			} else {
+				return Boolean.TRUE.booleanValue();
+			}
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+
+	}
+	
+	private static List getCodigoXFechaList(Criteria criterio) throws Exception {
+        PersistenceBroker broker = null;
+
+        try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            QueryByCriteria query = new QueryByCriteria(DetalleGestion.class, criterio);
+            query.addOrderBy("codigo", true);
+            return (List)broker.getCollectionByQuery(query);
         } catch (Exception e) {
             throw e;
         } finally {

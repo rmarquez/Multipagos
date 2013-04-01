@@ -1,5 +1,5 @@
 //==============================================================================
-//===   empresa.java                        Build:2170
+//===   empresa.java                        Build:2180
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -20,6 +20,7 @@ public class Empresa implements java.io.Serializable
 
    private Integer    empId;
    private Integer    empSerial;
+   private Integer    empMcodigo;
 
    //---------------------------------------------------------------------------
 
@@ -37,6 +38,15 @@ public class Empresa implements java.io.Serializable
    public void setEmpSerial(Integer empSerial)
    {
       this.empSerial = empSerial;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Integer getEmpMcodigo() { return empMcodigo; }
+
+   public void setEmpMcodigo(Integer empMcodigo)
+   {
+      this.empMcodigo = empMcodigo;
    }
 }
 

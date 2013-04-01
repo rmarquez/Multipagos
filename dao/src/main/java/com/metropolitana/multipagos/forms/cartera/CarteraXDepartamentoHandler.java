@@ -1,6 +1,11 @@
 package com.metropolitana.multipagos.forms.cartera;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -19,7 +24,6 @@ import org.apache.ojb.broker.query.QueryByIdentity;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 import com.metropolitana.multipagos.CarteraXDepartamento;
-import com.metropolitana.multipagos.Localidad;
 import com.metropolitana.multipagos.Pagos;
 import com.metropolitana.multipagos.AsignacionClaro;
 import com.metropolitana.multipagos.forms.barrio.BarrioHandler;
@@ -306,8 +310,75 @@ public class CarteraXDepartamentoHandler {
 		}
 	}
 	
+	private static CarteraXDepartamento carteraXSuscriptor(final String suscriptor, final PersistenceBroker broker) {
+		CarteraXDepartamento criterio = new CarteraXDepartamento();
+		criterio.setSuscriptor(suscriptor);
+		Query query = new QueryByCriteria(criterio);
+		return (CarteraXDepartamento) broker.getObjectByQuery(query);
+	}
+	
+	public static CarteraXDepartamento carteraXSuscriptor(final String suscriptor)
+			throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			return carteraXSuscriptor(suscriptor, broker);
+		
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	public Collection getDatosClienteList(final String suscriptor,
+			final String contrato, final String facturaInterna)
+			throws Exception {
+
+		PersistenceBroker broker = null;
+		try {
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			Criteria criterio = new Criteria();
+			if (suscriptor != null) {
+				criterio.addLike("upper(suscriptor)", "*"
+						+ suscriptor.toString()
+								.toUpperCase(Locale.getDefault()) + "*");
+			}
+			if (contrato != null) {
+				criterio.addLike("upper(contrato)", "*"
+						+ contrato.toString().toUpperCase(Locale.getDefault())
+						+ "*");
+			}
+			if (facturaInterna != null) {
+				criterio.addLike(
+						"upper(facturaInterna)",
+						"*"
+								+ facturaInterna.toString().toUpperCase(
+										Locale.getDefault()) + "*");
+			}
+			ReportQueryByCriteria query = new ReportQueryByCriteria(
+					CarteraXDepartamento.class, criterio);
+			query.setAttributes(new String[] { "carteraId", "contrato",
+					"suscriptor", "facturaInterna", "mes", "anio", "saldo",
+					"pagado", "pagadoClaro", "fechaIngreso" });
+			query.addOrderByAscending("suscriptor");
+			return IteratorUtils.toList(broker
+					.getReportQueryIteratorByQuery(query));
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	
+	
+	
 	private static CarteraXDepartamento carteraXContrato(final String contrato, final PersistenceBroker broker) {
-		System.out.println("+++ llega contraro = " + contrato);
 		CarteraXDepartamento criterio = new CarteraXDepartamento();
 		criterio.setContrato(contrato);
 		Query query = new QueryByCriteria(criterio);

@@ -66,6 +66,8 @@
           <string>resources/autenticacion/flow.js</string>
           <string>resources/autenticacion/template.xml</string>
           <string>resources/datosapp.xml</string>
+          <string>resources/jquery/jquery-ui.js</string>
+          <string>resources/jquery/jquery-1.8.3.js</string>
           <string>resources/menu.xml</string>
           <string>resources/styles/multipagos.css</string>
           <string>resources/flow/auth.js</string>
@@ -191,6 +193,11 @@
           <string>docs/informes/forms/pagosavon/flow.js</string>
           <string>docs/informes/forms/pagosavon/template.xml</string>
           <string>docs/informes/forms/pagosavon/results.xls.xml</string>
+          <string>docs/informes/forms/estadogestion/definition.xml</string>
+          <string>docs/informes/forms/estadogestion/results.xml</string>
+          <string>docs/informes/forms/estadogestion/flow.js</string>
+          <string>docs/informes/forms/estadogestion/template.xml</string>
+          <string>docs/informes/forms/estadogestion/results.xls.xml</string>
           <string>docs/informes/forms/nopago/definition.xml</string>
           <string>docs/informes/forms/nopago/results.xml</string>
           <string>docs/informes/forms/nopago/flow.js</string>
@@ -205,6 +212,7 @@
           <string>docs/informes/forms/combo/numAsignacion.xml</string>
           <string>docs/informes/forms/combo/asignacionAnio.xml</string>
           <string>docs/informes/forms/combo/colector.xml</string>
+          <string>docs/informes/forms/combo/simboloBanpro.xml</string>
           <string>docs/informes/forms/combo/aAsignacion.xml</string>
           <string>docs/informes/forms/detallevisitas/definition.xml</string>
           <string>docs/informes/forms/detallevisitas/results.xml</string>
@@ -231,6 +239,11 @@
           <string>docs/informes/forms/visitasxcolector/flow.js</string>
           <string>docs/informes/forms/visitasxcolector/template.xml</string>
           <string>docs/informes/forms/visitasxcolector/results.xls.xml</string>
+          <string>docs/informes/forms/promesasbanpro/definition.xml</string>
+          <string>docs/informes/forms/promesasbanpro/results.xml</string>
+          <string>docs/informes/forms/promesasbanpro/flow.js</string>
+          <string>docs/informes/forms/promesasbanpro/template.xml</string>
+          <string>docs/informes/forms/promesasbanpro/results.xls.xml</string>
           <string>docs/informes/forms/visitasavon/definition.xml</string>
           <string>docs/informes/forms/visitasavon/results.xml</string>
           <string>docs/informes/forms/visitasavon/flow.js</string>
@@ -252,6 +265,7 @@
           <string>docs/informes/forms/visitaspendientes/flow.js</string>
           <string>docs/informes/forms/visitaspendientes/template.xml</string>
           <string>docs/informes/forms/visitaspendientes/results.xls.xml</string>
+          <string>docs/informes/forms/visitaspendientes/lista.xls.xml</string>
           <string>docs/informes/forms/arqueoxdia/definition.xml</string>
           <string>docs/informes/forms/arqueoxdia/flow.js</string>
           <string>docs/informes/forms/arqueoxdia/template.xml</string>
@@ -303,6 +317,14 @@
           <string>docs/estado/forms/create/definition.xml</string>
           <string>docs/estado/forms/create/flow.js</string>
           <string>docs/estado/forms/create/template.xml</string>
+          <string>docs/corregirgestion/sitemap.xmap</string>
+          <string>docs/corregirgestion/forms/migrar/bind.xml</string>
+          <string>docs/corregirgestion/forms/migrar/definition.xml</string>
+          <string>docs/corregirgestion/forms/migrar/results.xml</string>
+          <string>docs/corregirgestion/forms/migrar/flow.js</string>
+          <string>docs/corregirgestion/forms/create/definition.xml</string>
+          <string>docs/corregirgestion/forms/create/flow.js</string>
+          <string>docs/corregirgestion/forms/create/template.xml</string>
           <string>docs/arqueo/sitemap.xmap</string>
           <string>docs/arqueo/forms/util/flow.js</string>
           <string>docs/arqueo/forms/search/bind.xml</string>
@@ -342,6 +364,27 @@
           <string>docs/roles/forms/create/definition.xml</string>
           <string>docs/roles/forms/create/flow.js</string>
           <string>docs/roles/forms/create/template.xml</string>
+          <string>docs/clientesbanpro/sitemap.xmap</string>
+          <string>docs/clientesbanpro/forms/search/definition.xml</string>
+          <string>docs/clientesbanpro/forms/search/flow.js</string>
+          <string>docs/clientesbanpro/forms/search/template.xml</string>
+          <string>docs/clientesclaro/sitemap.xmap</string>
+          <string>docs/clientesclaro/forms/search/definition.xml</string>
+          <string>docs/clientesclaro/forms/search/flow.js</string>
+          <string>docs/clientesclaro/forms/search/template.xml</string>
+          <string>docs/gestionbanpro/sitemap.xmap</string>
+          <string>docs/gestionbanpro/forms/util/flow.js</string>
+          <string>docs/gestionbanpro/forms/combo/departamento.xml</string>
+          <string>docs/gestionbanpro/forms/combo/flow.js</string>
+          <string>docs/gestionbanpro/forms/combo/supervisor.xml</string>
+          <string>docs/gestionbanpro/forms/combo/ciudadcasa.xml</string>
+          <string>docs/gestionbanpro/forms/combo/colector.xml</string>
+          <string>docs/gestionbanpro/forms/combo/simbolo.xml</string>
+          <string>docs/gestionbanpro/forms/combo/cartera.xml</string>
+          <string>docs/gestionbanpro/forms/create/bind.xml</string>
+          <string>docs/gestionbanpro/forms/create/definition.xml</string>
+          <string>docs/gestionbanpro/forms/create/flow.js</string>
+          <string>docs/gestionbanpro/forms/create/template.xml</string>
           <string>docs/carteraclaro/sitemap.xmap</string>
           <string>docs/carteraclaro/forms/migrar/bind.xml</string>
           <string>docs/carteraclaro/forms/migrar/definition.xml</string>
@@ -350,6 +393,14 @@
           <string>docs/carteraclaro/forms/create/definition.xml</string>
           <string>docs/carteraclaro/forms/create/flow.js</string>
           <string>docs/carteraclaro/forms/create/template.xml</string>
+          <string>docs/avisoclaro/sitemap.xmap</string>
+          <string>docs/avisoclaro/forms/migrar/bind.xml</string>
+          <string>docs/avisoclaro/forms/migrar/definition.xml</string>
+          <string>docs/avisoclaro/forms/migrar/results.xml</string>
+          <string>docs/avisoclaro/forms/migrar/flow.js</string>
+          <string>docs/avisoclaro/forms/create/definition.xml</string>
+          <string>docs/avisoclaro/forms/create/flow.js</string>
+          <string>docs/avisoclaro/forms/create/template.xml</string>
           <string>docs/asignarvisitas/sitemap.xmap</string>
           <string>docs/asignarvisitas/forms/combo/servicio.xml</string>
           <string>docs/asignarvisitas/forms/combo/flow.js</string>
@@ -512,6 +563,14 @@
           <string>docs/empresa/forms/edit/definition.xml</string>
           <string>docs/empresa/forms/edit/flow.js</string>
           <string>docs/empresa/forms/edit/template.xml</string>
+          <string>docs/pagosbanpro/sitemap.xmap</string>
+          <string>docs/pagosbanpro/forms/migrar/bind.xml</string>
+          <string>docs/pagosbanpro/forms/migrar/definition.xml</string>
+          <string>docs/pagosbanpro/forms/migrar/results.xml</string>
+          <string>docs/pagosbanpro/forms/migrar/flow.js</string>
+          <string>docs/pagosbanpro/forms/create/definition.xml</string>
+          <string>docs/pagosbanpro/forms/create/flow.js</string>
+          <string>docs/pagosbanpro/forms/create/template.xml</string>
           <string>docs/pagos/sitemap.xmap</string>
           <string>docs/pagos/forms/util/flow.js</string>
           <string>docs/pagos/forms/cliente/bind.xml</string>
@@ -569,6 +628,14 @@
           <string>docs/datos/forms/search/definition.xml</string>
           <string>docs/datos/forms/search/results.xml</string>
           <string>docs/datos/forms/search/flow.js</string>
+          <string>docs/altadbbanpro/sitemap.xmap</string>
+          <string>docs/altadbbanpro/forms/migrar/bind.xml</string>
+          <string>docs/altadbbanpro/forms/migrar/definition.xml</string>
+          <string>docs/altadbbanpro/forms/migrar/results.xml</string>
+          <string>docs/altadbbanpro/forms/migrar/flow.js</string>
+          <string>docs/altadbbanpro/forms/create/definition.xml</string>
+          <string>docs/altadbbanpro/forms/create/flow.js</string>
+          <string>docs/altadbbanpro/forms/create/template.xml</string>
           <string>docs/avonpagos/sitemap.xmap</string>
           <string>docs/avonpagos/forms/util/flow.js</string>
           <string>docs/avonpagos/forms/combo/localidad.xml</string>
@@ -632,6 +699,23 @@
           <string>docs/cambiarestado/forms/search/definition.xml</string>
           <string>docs/cambiarestado/forms/search/results.xml</string>
           <string>docs/cambiarestado/forms/search/flow.js</string>
+          <string>docs/arreglopagos/sitemap.xmap</string>
+          <string>docs/arreglopagos/forms/util/flow.js</string>
+          <string>docs/arreglopagos/forms/search/bind.xml</string>
+          <string>docs/arreglopagos/forms/search/definition.xml</string>
+          <string>docs/arreglopagos/forms/search/results.xml</string>
+          <string>docs/arreglopagos/forms/search/flow.js</string>
+          <string>docs/arreglopagos/forms/search/template.xml</string>
+          <string>docs/arreglopagos/forms/combo/flow.js</string>
+          <string>docs/arreglopagos/forms/combo/cartera.xml</string>
+          <string>docs/arreglopagos/forms/view/bind.xml</string>
+          <string>docs/arreglopagos/forms/view/definition.xml</string>
+          <string>docs/arreglopagos/forms/view/flow.js</string>
+          <string>docs/arreglopagos/forms/view/template.xml</string>
+          <string>docs/arreglopagos/forms/create/bind.xml</string>
+          <string>docs/arreglopagos/forms/create/definition.xml</string>
+          <string>docs/arreglopagos/forms/create/flow.js</string>
+          <string>docs/arreglopagos/forms/create/template.xml</string>
           <string>docs/pago/sitemap.xmap</string>
           <string>docs/pago/forms/util/flow.js</string>
           <string>docs/pago/forms/combo/localidad.xml</string>

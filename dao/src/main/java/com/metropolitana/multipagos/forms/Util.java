@@ -1,5 +1,6 @@
 package com.metropolitana.multipagos.forms;
 
+import com.metropolitana.multipagos.*;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -17,15 +18,12 @@ import org.apache.ojb.broker.query.Criteria;
 import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.PersistenceBroker;
 
-import com.metropolitana.multipagos.AuthUser;
-import com.metropolitana.multipagos.CarteraXDepartamento;
-import com.metropolitana.multipagos.Empresa;
-import com.metropolitana.multipagos.TasaFija;
 import com.metropolitana.multipagos.forms.empresa.EmpresaHandler;
 import com.metropolitana.multipagos.forms.informes.InformesUtil;
 
 // RSJ 20120424 
 import java.sql.*;
+import java.text.*;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
@@ -74,6 +72,13 @@ public class Util {
         calendar.setTime(fecha);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         calendar.add(Calendar.MONTH, 1);
+        return calendar.getTime();
+    }
+    
+    public static Date otroMes(final Date fecha, final int incremento) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.MONTH, incremento);
         return calendar.getTime();
     }
     /**
@@ -182,31 +187,48 @@ public class Util {
         NumberFormat formatter = new DecimalFormat(strPatron);
         return formatter.format(numero);
     }
-    
-    public static String getMes(String contrato) throws Exception {
+
+	/*public static Date stringToDate(final String fecha) throws ParseException {
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("dd/MM/yyyy");
+		Date date = (Date) formatter.parse(fecha);
+		return date;
+	} */
+	
+	public static Date stringToDate(String date) {
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		String s1 = date;
+		Date d;
+		String s2 = null;
+		try {
+			d = df.parse(s1);
+			s2 = (new SimpleDateFormat("dd/MM/yyyy")).format(d);
+
+		} catch (ParseException ex) {
+		
+		}
+		return null;
+	}
+        
+    public static String getMes(String contrato, Integer numAsignacion) throws Exception {
     	PersistenceBroker broker = null;
+    	//System.out.println("++++++ Num Asignacion = " + numAsignacion);
     	String cadena ="";
-             
         try {
-	    	
-        String mes1 ="";
-        String mes2 ="";
-        String mes3 ="";
-        String mes4 ="";
-        String mes5 ="";
-        String mes6 ="";
-        String mes7 ="";
-        String mes8 ="";
-        String mes9 ="";
-        String mes10 ="";
-        String mes11 ="";
-        String mes12 ="";  	
-            for ( Iterator iter = InformesUtil.getMesesXContrato(contrato).listIterator(); iter.hasNext(); ) {
-                
-              //  while (iter.hasNext()) {
+	        String mes1 ="";
+	        String mes2 ="";
+	        String mes3 ="";
+	        String mes4 ="";
+	        String mes5 ="";
+	        String mes6 ="";
+	        String mes7 ="";
+	        String mes8 ="";
+	        String mes9 ="";
+	        String mes10 ="";
+	        String mes11 ="";
+	        String mes12 ="";  	
+            for ( Iterator iter = InformesUtil.getMesesXContrato(contrato, numAsignacion).listIterator(); iter.hasNext(); ) {
                 Object[] meses = (Object[]) iter.next();
                  int numero = Integer.parseInt((String)meses[0]);
-                 //System.out.println("Numero = "+numero);
                     if(numero==1){
                            mes1 ="Ene"+(String)meses[1]+",";
                     } else if (numero==2){
@@ -232,7 +254,6 @@ public class Util {
                     }else if (numero==12){
                            mes12 ="Dic"+(String)meses[1];
                     }
-                 
                  cadena=mes1+mes2+mes3+mes4+mes5+mes6+mes7+mes8+mes9+mes10+mes11+mes12+"...";
                 }
 	        return cadena;
@@ -245,7 +266,7 @@ public class Util {
         }
     }
     
-     public static BigDecimal getMontoPendiente(String contrato) throws Exception {
+     public static BigDecimal getMontoPendiente(String contrato, Integer numLote) throws Exception {
             PersistenceBroker broker = null;
             try {
                broker = PersistenceBrokerFactory.defaultPersistenceBroker();
@@ -253,8 +274,8 @@ public class Util {
                if (contrato !=null) {
                    criterio.addEqualTo("contrato", contrato);
                }
-               criterio.addEqualTo("pagado", false);
-               ReportQueryByCriteria query = new ReportQueryByCriteria(CarteraXDepartamento.class, criterio);
+               criterio.addEqualTo("numLote", numLote);
+               ReportQueryByCriteria query = new ReportQueryByCriteria(PendientesClaro.class, criterio);
                query.setAttributes(new String[]{"sum(saldo)"});
                Iterator iter = broker.getReportQueryIteratorByQuery(query);
                BigDecimal saldo = BigDecimal.ZERO;
@@ -274,28 +295,6 @@ public class Util {
                 }
             }
        }
-     
-    /*public static BigDecimal getMontoPendiente(String contrato) throws Exception {
-    	PersistenceBroker broker = null;
-    	BigDecimal monto = BigDecimal.ZERO;
-             
-        try {
-	    	
-       	
-            for ( Iterator iter = InformesUtil.getSaldoPendienteXContrato(contrato).listIterator(); iter.hasNext(); ) {
-                Object[] saldo = (Object[]) iter.next();
-                 monto=(BigDecimal)saldo[0];
-                   
-                }
-	        return monto;
-    	} catch (Exception e) {
-                throw e;
-        } finally {
-                if (broker != null && !broker.isClosed()) {
-                        broker.close();
-                }
-        }
-    }*/
     
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
     private static final DecimalFormat df = new DecimalFormat();
@@ -586,6 +585,12 @@ public class Util {
         }
         return Integer.valueOf(numero);
     }
+    
+    public static String integerToString(int i) {
+        return Integer.toString(i);
+    }
+    
+    
 
     /**
      * Escapar las comillas dobles contenidas en el parámetro
@@ -698,40 +703,34 @@ public class Util {
         
 	}
 	
-       private void setSerial(Integer numero) throws Exception  {
-            Empresa e = EmpresaHandler.getBeanEmpresa(true);
-            e.setEmpSerial(numero);
-            EmpresaHandler.setBeanEmpresa(e);
-        }
+   private void setSerial(Integer numero) throws Exception  {
+        Empresa e = EmpresaHandler.getBeanEmpresa(true);
+        e.setEmpSerial(numero);
+        EmpresaHandler.setBeanEmpresa(e);
+    }
+   
+   public static int getEmpMcodigo() throws Exception {
+       Integer numero = EmpresaHandler.getMcodigo();
+       if(numero != null){
+       	numero = numero+1;
+       } else {
+       	numero = 1;
+       }
+       setMcodigo(numero);
+       
+       return numero;
+       
+	}
 	
-//	private void setSerial(final Integer nSerial)
-//			throws Exception {
-//            
-//		Connection connPostgres = null;
-//		String query;
-//        PreparedStatement psOrigen = null;	
-//		try {
-//			
-//            try {
-//				Class.forName("org.postgresql.Driver");
-//			} catch (ClassNotFoundException e) {
-//				System.out.println("No se encuentra el Driver: "
-//						+ e.getMessage());
-//			}
-//			String username = "dev";
-//			String password = "multipagos";
-//			String url = "jdbc:postgresql://localhost:5432/multipagos";
-//			connPostgres = DriverManager.getConnection(url, username, password);
-//			
-//			query = "update empresa set emp_serial=?";
-//				
-//			psOrigen = connPostgres.prepareStatement(query);
-//			psOrigen.setInt(1, nSerial);
-//            psOrigen.executeUpdate();
-//            psOrigen.close();
-//            
-//		} catch (Exception e) {
-//			throw e;
-//		} 
-//	}
+  private static void setMcodigo(Integer numero) throws Exception  {
+       Empresa e = EmpresaHandler.getBeanEmpresa(true);
+       e.setEmpMcodigo(numero);
+       EmpresaHandler.setBeanEmpresa(e);
+   }
+	
+	public static BigDecimal calcularCuota(BigDecimal saldo,
+			BigDecimal descuento, BigDecimal plazo) {
+		return (saldo.subtract(descuento)).divide(plazo);
+	}
+  
 }

@@ -5,10 +5,10 @@
           <!-- Import the macros that define CForms template elements -->
           <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
     <header>
-        <title>Reporte de Visitas Avon</title>
+        <title>Reporte de Pagos Avon</title>
     </header>
     <body>
-        <s1 title="Reporte de Visitas Avon">
+        <s1 title="Reporte de Pagos Avon">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
             <ft:continuation-id/>
                 <fi:group>

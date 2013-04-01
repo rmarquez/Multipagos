@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+  <header>
+    <title>Busqueda Clientes Banpro</title>
+  </header>
+  <body>
+  <s1 title="Detalle del Cliente">
+  <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+  <ft:continuation-id/>
+  <!-- <ft:widget id="autorizado"><fi:styling type="hidden"/></ft:widget>
+  <ft:widget id="mensajes de error"/> -->
+  <fi:group>  
+  <fi:label>Datos Cliente</fi:label>  
+  <fi:styling type="fieldset" layout="row"/>  
+	  <fi:items>
+	        <ft:widget id="codCliente"/>
+	        <ft:widget id="nombre"/>
+	  </fi:items>
+  </fi:group>  
+  
+  <!-- Encabezado -->
+  <fi:group>
+    <fi:styling layout="row"/>
+    <fi:items>
+    <fi:group>
+    
+    <fi:group>
+       <fi:styling type="tabs" layout="columns"/>
+       <fi:label>Seleccione una pestaña:</fi:label>
+       <fi:items>
+     <fi:group>
+     
+     <fi:label>Detalle Deuda</fi:label>
+     <fi:styling layout="columns"/>
+     <fi:items>
+      <fi:group>
+         <fi:styling layout="columns"/>
+         <fi:items>
+	     <ft:repeater id="deuda">
+	       <div>
+	         <table>
+	           <thead>
+	             <tr>
+	               <th><ft:repeater-widget-label widget-id="producto"/></th>
+	               <th><ft:repeater-widget-label widget-id="tarjeta"/></th>
+	               <th><ft:repeater-widget-label widget-id="cuenta"/></th>
+	               <th><ft:repeater-widget-label widget-id="deudaCor"/></th>
+	               <th><ft:repeater-widget-label widget-id="deudaDol"/></th>
+	               <th><ft:repeater-widget-label widget-id="totalDeudaDol"/></th>
+	             </tr>
+	           </thead>
+	           <tbody>
+	             <ft:repeater-rows>
+	               <tr>
+	                 <td><ft:widget id="producto"/></td>
+	                 <td><ft:widget id="tarjeta"/></td>
+	                 <td><ft:widget id="cuenta"/></td>
+	                 <td><ft:widget id="deudaCor"/></td>
+	                 <td><ft:widget id="deudaDol"/></td>
+	                 <td><ft:widget id="totalDeudaDol"/></td>
+	               </tr>
+	             </ft:repeater-rows> 	                         
+	           </tbody>
+	         </table>
+	       </div>
+	     </ft:repeater>
+	     </fi:items>
+          </fi:group>
+        </fi:items>
+      </fi:group>
+           
+      <!-- Primer Pestaña -->
+      <fi:group>
+        <fi:label>Detalle Pagos</fi:label>
+        <fi:styling layout="columns"/>
+        <fi:items>
+         <fi:group>
+            <fi:styling layout="columns"/>
+            <fi:items>
+              <ft:repeater id="pagos">
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><ft:repeater-widget-label widget-id="cuenta"/></th>
+                        <th><ft:repeater-widget-label widget-id="fechaCor"/></th>
+                        <th><ft:repeater-widget-label widget-id="pagoCor"/></th>
+                        <th><ft:repeater-widget-label widget-id="fechaDol"/></th>
+                        <th><ft:repeater-widget-label widget-id="pagoDol"/></th>
+                        <th><ft:repeater-widget-label widget-id="observaciones"/></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ft:repeater-rows>
+                        <tr>
+                          <td><ft:widget id="cuenta"/></td>
+                          <td><ft:widget id="fechaCor"/></td>
+                          <td><ft:widget id="pagoCor"/></td>
+                          <td><ft:widget id="fechaDol"/></td>
+                          <td><ft:widget id="pagoDol"/></td>
+                          <td><ft:widget id="observaciones"/></td>
+                        </tr>
+                      </ft:repeater-rows>
+                    </tbody>
+                  </table>
+                </div>
+              </ft:repeater>
+            </fi:items>
+          </fi:group>
+        </fi:items>
+      </fi:group>
+            
+     <!-- Segunda Pestaña -->
+     <fi:group>
+       <fi:label>Arreglos Pagos</fi:label>
+       <fi:styling layout="columns"/>
+       <fi:items>
+        <fi:group>
+           <fi:styling layout="columns"/>
+           <fi:items>
+             <ft:repeater id="arreglo">
+               <div>
+                 <table>
+                   <thead>
+                     <tr>
+                       <th><ft:repeater-widget-label widget-id="fecha"/></th>
+                        <th><ft:repeater-widget-label widget-id="deudaTotalUS"/></th>
+                        <th><ft:repeater-widget-label widget-id="pagoTotalUS"/></th>
+                        <th><ft:repeater-widget-label widget-id="saldoUS"/></th>
+                        <th><ft:repeater-widget-label widget-id="descuento"/></th>
+                        <th><ft:repeater-widget-label widget-id="plazo"/></th>
+                        <th><ft:repeater-widget-label widget-id="cuota"/></th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <ft:repeater-rows>
+                       <tr>
+                         <td><ft:widget id="fecha"/></td>
+                         <td><ft:widget id="deudaTotalUS"/></td>
+                         <td><ft:widget id="pagoTotalUS"/></td>
+                         <td><ft:widget id="saldoUS"/></td>
+                         <td><ft:widget id="descuento"/></td>
+                         <td><ft:widget id="plazo"/></td>
+                         <td><ft:widget id="cuota"/></td>
+                       </tr>
+                     </ft:repeater-rows>
+                   </tbody>
+                 </table>
+               </div>
+             </ft:repeater>
+           </fi:items>
+         </fi:group>
+       </fi:items>
+     </fi:group>
+     
+     <!-- Primer Pestaña -->
+      <fi:group>
+        <fi:label>Historial Cuotas</fi:label>
+        <fi:styling layout="columns"/>
+        <fi:items>
+         <fi:group>
+            <fi:styling layout="columns"/>
+            <fi:items>
+              <ft:repeater id="cuotas">
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><ft:repeater-widget-label widget-id="fechaCuota"/></th>
+                        <th><ft:repeater-widget-label widget-id="montoCuota"/></th>
+                        <th><ft:repeater-widget-label widget-id="montoPago"/></th>
+                        <th><ft:repeater-widget-label widget-id="fechaPago"/></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ft:repeater-rows>
+                        <tr>
+                          <td><ft:widget id="fechaCuota"/></td>
+                          <td><ft:widget id="montoCuota"/></td>
+                          <td><ft:widget id="montoPago"/></td>
+                          <td><ft:widget id="fechaPago"/></td>
+                        </tr>
+                      </ft:repeater-rows>
+                    </tbody>
+                  </table>
+                </div>
+              </ft:repeater>
+            </fi:items>
+          </fi:group>
+        </fi:items>
+      </fi:group>
+            
+           
+       </fi:items>
+     </fi:group> 
+</fi:group>        
+                   
+   </fi:items>     
+     
+   </fi:group>    					
+   
+   <ft:widget id="salir"/> 
+  </ft:form-template>
+ </s1>
+ </body>
+</document>

@@ -1,6 +1,12 @@
 package com.metropolitana.multipagos.forms;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,6 +45,8 @@ public class ContadorVisitasPagos {
 		return cantidad;
 	}
 	
+	
+	
 	public static Integer getCantidadPagos(Integer departamentoId, Integer usrId) {
 		
 		PersistenceBroker broker = null;
@@ -58,6 +66,8 @@ public class ContadorVisitasPagos {
 		broker.close();
 		return cantidad;
 	}
+	
+	
 
 	public static List getControlDiario() throws Exception {
 		PersistenceBroker broker = null;

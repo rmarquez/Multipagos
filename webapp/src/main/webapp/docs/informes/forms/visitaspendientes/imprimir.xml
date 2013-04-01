@@ -8,8 +8,8 @@
     <pagina margin-left="0.75" margin-top="1">
         <jx:forEach var="item" items="${bean}">
         <jx:set var="serie" value="${util.getNumeroSerie()}"/> 
-        <jx:set var="mes" value="${util.getMes(item[0])}"/> 
-        <jx:set var="saldo" value="${util.getMontoPendiente(item[0])}"/> 
+        <jx:set var="mes" value="${util.getMes(item[0], numAsignacion)}"/> 
+        <jx:set var="saldo" value="${util.getMontoPendiente(item[0], numAsignacion)}"/> 
         <logos/>
         	<table border="0">
 	            <tbody>
@@ -57,9 +57,7 @@
 	        <table border="0">
 	            <tbody>
 	                <tr>
-	                	<td font-size="8" width="1.5"><b>Servicio:</b></td>
-	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[6]}</td>
-	                    <td font-size="8" width="1.5"><b>Departamento:</b></td>
+	                	<td font-size="8" width="1.5"><b>Departamento:</b></td>
 	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[3]}</td>
 	                    <td font-size="8" width="1.5"><b>Contrato:</b></td>
 	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[0]}</td>
@@ -69,8 +67,10 @@
         	<table border="0">
 	            <tbody>
 	                <tr>
-	                    <td font-size="8" width="3.0"><b>Mensualidades Vencidas:</b></td>
-	                    <td font-size="8" border-bottom="0" width="4.0" end-indent="2">${mes}</td>
+	                    <td font-size="8" width="1.5"><b>Mensualidades Vencidas:</b></td>
+	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="2">${mes}</td>
+	                    <td font-size="8" width="1.5"><b>Servicio:</b></td>
+	                    <td font-size="8" border-bottom="0" width="3.0" end-indent="3.5">${item[5]}</td>
 	                </tr>
 	                
 	            </tbody>

@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE jdo SYSTEM "file:/javax/jdo/jdo.dtd">
+
+<jdo>
+	<package name="com.metropolitana.multipagos">
+		<class name="AuthUser" identity-type="datastore">
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="usrLogin" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_LOGIN"/>
+			</field>
+			<field name="usrFullName" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_FULL_NAME"/>
+			</field>
+			<field name="usrPassword" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_PASSWORD"/>
+			</field>
+			<field name="usrEnable" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ENABLE"/>
+			</field>
+			<field name="usrEmail" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_EMAIL"/>
+			</field>
+			<field name="usrCargo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_CARGO"/>
+			</field>
+			<field name="usrEditdb" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_EDITDB"/>
+			</field>
+		</class>
+		<class name="AuthRole" identity-type="datastore">
+			<field name="rolId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ROL_ID"/>
+			</field>
+			<field name="rolName" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ROL_NAME"/>
+			</field>
+			<field name="rolEnable" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ROL_ENABLE"/>
+			</field>
+		</class>
+		<class name="AuthResource" identity-type="datastore">
+			<field name="resId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RES_ID"/>
+			</field>
+			<field name="resKey" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RES_KEY"/>
+			</field>
+			<field name="resName" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RES_NAME"/>
+			</field>
+			<field name="resEnable" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RES_ENABLE"/>
+			</field>
+		</class>
+		<class name="AuthUserRole" identity-type="datastore">
+			<field name="rolId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ROL_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+		</class>
+		<class name="AuthPermission" identity-type="datastore">
+			<field name="rolId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ROL_ID"/>
+			</field>
+			<field name="resId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RES_ID"/>
+			</field>
+		</class>
+		<class name="EstadoCorte" identity-type="datastore">
+			<field name="estadoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO_ID"/>
+			</field>
+			<field name="estadoNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Departamento" identity-type="datastore">
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="departamentoNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Localidad" identity-type="datastore">
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="localidadNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Barrio" identity-type="datastore">
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Simbolo" identity-type="datastore">
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="simboloNumero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NUMERO"/>
+			</field>
+			<field name="simboloNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="TasaFija" identity-type="datastore">
+			<field name="tasaFecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TASA_FECHA"/>
+			</field>
+			<field name="tasaCambioMes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TASA_CAMBIO_MES"/>
+			</field>
+		</class>
+		<class name="Servicio" identity-type="datastore">
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="servicioNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Banco" identity-type="datastore">
+			<field name="bancoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BANCO_ID"/>
+			</field>
+			<field name="bancoNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BANCO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Cuentas" identity-type="datastore">
+			<field name="cuentaId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA_ID"/>
+			</field>
+			<field name="bancoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BANCO_ID"/>
+			</field>
+			<field name="cuentaEmpresa" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA_EMPRESA"/>
+			</field>
+			<field name="cuentaMoneda" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA_MONEDA"/>
+			</field>
+			<field name="numeroCuenta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_CUENTA"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="CantidadMonedas" identity-type="datastore">
+			<field name="cantidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_ID"/>
+			</field>
+			<field name="cantidadNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_NOMBRE"/>
+			</field>
+			<field name="cantidadValor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_VALOR"/>
+			</field>
+			<field name="dolares" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DOLARES"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="AsignarBarrio" identity-type="datastore">
+			<field name="asignarbId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ASIGNARB_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="DetalleBarrios" identity-type="datastore">
+			<field name="asignarbId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ASIGNARB_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+		</class>
+		<class name="AsignarColector" identity-type="datastore">
+			<field name="asignarcId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ASIGNARC_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="DetalleColectores" identity-type="datastore">
+			<field name="asignarcId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ASIGNARC_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+		</class>
+		<class name="AsignarVisitas" identity-type="datastore">
+			<field name="asignarvId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ASIGNARV_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="fechaIni" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_INI"/>
+			</field>
+			<field name="fechaFin" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_FIN"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+		</class>
+		<class name="SimboloAvon" identity-type="datastore">
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="simboloNumero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NUMERO"/>
+			</field>
+			<field name="simboloNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Colector" identity-type="datastore">
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="colectorNumero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_NUMERO"/>
+			</field>
+			<field name="primerNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PRIMER_NOMBRE"/>
+			</field>
+			<field name="segundoNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SEGUNDO_NOMBRE"/>
+			</field>
+			<field name="primerApellido" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PRIMER_APELLIDO"/>
+			</field>
+			<field name="segundoApellido" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SEGUNDO_APELLIDO"/>
+			</field>
+			<field name="cedula" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CEDULA"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="CarteraXDepartamento" identity-type="datastore">
+			<field name="carteraId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CARTERA_ID"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="suscriptor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SUSCRIPTOR"/>
+			</field>
+			<field name="nit" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NIT"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="estadoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO_ID"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="cupon" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUPON"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="descuento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DESCUENTO"/>
+			</field>
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="empleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPLEADOR"/>
+			</field>
+			<field name="direccionEmpleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_EMPLEADOR"/>
+			</field>
+			<field name="pagado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGADO"/>
+			</field>
+			<field name="fechaPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_PAGO"/>
+			</field>
+			<field name="fechaIngreso" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_INGRESO"/>
+			</field>
+			<field name="cuenta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA"/>
+			</field>
+			<field name="conceptoDiferido" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONCEPTO_DIFERIDO"/>
+			</field>
+			<field name="esDiferido" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ES_DIFERIDO"/>
+			</field>
+			<field name="pagadoClaro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGADO_CLARO"/>
+			</field>
+		</class>
+		<class name="Visitas" identity-type="datastore">
+			<field name="visitaId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="VISITA_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+			<field name="cantidadVisitas" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_VISITAS"/>
+			</field>
+		</class>
+		<class name="DetalleVisitas" identity-type="datastore">
+			<field name="visitaId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="VISITA_ID"/>
+			</field>
+			<field name="carteraId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CARTERA_ID"/>
+			</field>
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="observaciones" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="OBSERVACIONES"/>
+			</field>
+			<field name="numeroContrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_CONTRATO"/>
+			</field>
+			<field name="fechaVisita" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_VISITA"/>
+			</field>
+			<field name="avisoCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="AVISO_COBRO"/>
+			</field>
+			<field name="horaRegistro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="HORA_REGISTRO"/>
+			</field>
+			<field name="fprogCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FPROG_COBRO"/>
+			</field>
+		</class>
+		<class name="Pagos" identity-type="datastore">
+			<field name="pagoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGO_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+			<field name="montoTotal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_TOTAL"/>
+			</field>
+			<field name="montoTotalUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_TOTAL_US"/>
+			</field>
+			<field name="cantidadPagos" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_PAGOS"/>
+			</field>
+			<field name="cantidadPagosUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_PAGOS_US"/>
+			</field>
+		</class>
+		<class name="DetallePagos" identity-type="datastore">
+			<field name="pagoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGO_ID"/>
+			</field>
+			<field name="carteraId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CARTERA_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="numeroContrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_CONTRATO"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="cupon" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUPON"/>
+			</field>
+			<field name="montoPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_PAGO"/>
+			</field>
+			<field name="fechaPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_PAGO"/>
+			</field>
+			<field name="recibo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RECIBO"/>
+			</field>
+			<field name="horaRegistro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="HORA_REGISTRO"/>
+			</field>
+			<field name="observaciones" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="OBSERVACIONES"/>
+			</field>
+			<field name="salgoPagar" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALGO_PAGAR"/>
+			</field>
+			<field name="porContrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="POR_CONTRATO"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+		</class>
+		<class name="ArqueoPagos" identity-type="datastore">
+			<field name="arqueoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ARQUEO_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="pagoFecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGO_FECHA"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="totalCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_CS"/>
+			</field>
+			<field name="totalUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_US"/>
+			</field>
+			<field name="conversionUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONVERSION_US"/>
+			</field>
+			<field name="totalCkCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_CK_CS"/>
+			</field>
+			<field name="totalCkUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_CK_US"/>
+			</field>
+			<field name="conversionCkUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONVERSION_CK_US"/>
+			</field>
+			<field name="totalDpCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_DP_CS"/>
+			</field>
+			<field name="totalDpUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_DP_US"/>
+			</field>
+			<field name="conversionDpUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONVERSION_DP_US"/>
+			</field>
+			<field name="totalRecibo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_RECIBO"/>
+			</field>
+			<field name="totalGeneral" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_GENERAL"/>
+			</field>
+			<field name="diferencia" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIFERENCIA"/>
+			</field>
+		</class>
+		<class name="ArqueoCantidad" identity-type="datastore">
+			<field name="arqueoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ARQUEO_ID"/>
+			</field>
+			<field name="cantidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_ID"/>
+			</field>
+			<field name="cantidad" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD"/>
+			</field>
+			<field name="total" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL"/>
+			</field>
+		</class>
+		<class name="ArqueoCantidadUs" identity-type="datastore">
+			<field name="arqueoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ARQUEO_ID"/>
+			</field>
+			<field name="cantidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_ID"/>
+			</field>
+			<field name="cantidad" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD"/>
+			</field>
+			<field name="total" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL"/>
+			</field>
+		</class>
+		<class name="ArqueoCheque" identity-type="datastore">
+			<field name="arqueoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ARQUEO_ID"/>
+			</field>
+			<field name="bancoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BANCO_ID"/>
+			</field>
+			<field name="numeroCheque" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_CHEQUE"/>
+			</field>
+			<field name="beneficiario" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BENEFICIARIO"/>
+			</field>
+			<field name="montoCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_CS"/>
+			</field>
+			<field name="montoUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_US"/>
+			</field>
+			<field name="conversion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONVERSION"/>
+			</field>
+			<field name="dolares" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DOLARES"/>
+			</field>
+		</class>
+		<class name="ArqueoDeposito" identity-type="datastore">
+			<field name="arqueoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ARQUEO_ID"/>
+			</field>
+			<field name="referencia" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="REFERENCIA"/>
+			</field>
+			<field name="cuentaCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA_CS"/>
+			</field>
+			<field name="cuentaUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA_US"/>
+			</field>
+			<field name="montoCs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_CS"/>
+			</field>
+			<field name="montoUs" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_US"/>
+			</field>
+			<field name="conversion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONVERSION"/>
+			</field>
+			<field name="dolares" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DOLARES"/>
+			</field>
+		</class>
+		<class name="CarteraAvon" identity-type="datastore">
+			<field name="cavonId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CAVON_ID"/>
+			</field>
+			<field name="codigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CODIGO"/>
+			</field>
+			<field name="consejero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONSEJERO"/>
+			</field>
+			<field name="cedula" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CEDULA"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="zona" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ZONA"/>
+			</field>
+			<field name="factura" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="agencia" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="AGENCIA"/>
+			</field>
+			<field name="campania" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CAMPANIA"/>
+			</field>
+			<field name="fechaPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_PAGO"/>
+			</field>
+			<field name="fechaAsignado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_ASIGNADO"/>
+			</field>
+			<field name="fechaBaja" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_BAJA"/>
+			</field>
+			<field name="fechaFactura" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_FACTURA"/>
+			</field>
+			<field name="pagado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGADO"/>
+			</field>
+		</class>
+		<class name="GestionAvon" identity-type="datastore">
+			<field name="gestionId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="GESTION_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+		</class>
+		<class name="DetalleGestion" identity-type="datastore">
+			<field name="gestionId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="GESTION_ID"/>
+			</field>
+			<field name="cavonId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CAVON_ID"/>
+			</field>
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="observaciones" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="OBSERVACIONES"/>
+			</field>
+			<field name="codigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CODIGO"/>
+			</field>
+			<field name="fechaGestion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_GESTION"/>
+			</field>
+			<field name="avisoCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="AVISO_COBRO"/>
+			</field>
+			<field name="horaRegistro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="HORA_REGISTRO"/>
+			</field>
+			<field name="fprogCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FPROG_COBRO"/>
+			</field>
+		</class>
+		<class name="AvonPagos" identity-type="datastore">
+			<field name="pagoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGO_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+			<field name="montoTotal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_TOTAL"/>
+			</field>
+			<field name="cantidadPagos" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CANTIDAD_PAGOS"/>
+			</field>
+		</class>
+		<class name="DetalleAvonPagos" identity-type="datastore">
+			<field name="pagoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PAGO_ID"/>
+			</field>
+			<field name="cavonId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CAVON_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="codigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CODIGO"/>
+			</field>
+			<field name="factura" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA"/>
+			</field>
+			<field name="montoPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MONTO_PAGO"/>
+			</field>
+			<field name="fechaPago" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_PAGO"/>
+			</field>
+			<field name="recibo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="RECIBO"/>
+			</field>
+			<field name="horaRegistro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="HORA_REGISTRO"/>
+			</field>
+			<field name="observaciones" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="OBSERVACIONES"/>
+			</field>
+			<field name="salgoPagar" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALGO_PAGAR"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+		</class>
+		<class name="TipoDocumentoLogs" identity-type="datastore">
+			<field name="tipodLogId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TIPOD_LOG_ID"/>
+			</field>
+			<field name="tipodLogNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TIPOD_LOG_NOMBRE"/>
+			</field>
+		</class>
+		<class name="Logs" identity-type="datastore">
+			<field name="logsId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOGS_ID"/>
+			</field>
+			<field name="logsReferencia" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOGS_REFERENCIA"/>
+			</field>
+			<field name="logsFecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOGS_FECHA"/>
+			</field>
+			<field name="tipodLogId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TIPOD_LOG_ID"/>
+			</field>
+			<field name="logsDescripcion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOGS_DESCRIPCION"/>
+			</field>
+		</class>
+		<class name="TmpCartera" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="suscriptor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SUSCRIPTOR"/>
+			</field>
+			<field name="nit" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NIT"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="barrio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="estado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO"/>
+			</field>
+			<field name="departamento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO"/>
+			</field>
+			<field name="localidad" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD"/>
+			</field>
+			<field name="cupon" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUPON"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="descuento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DESCUENTO"/>
+			</field>
+			<field name="servicio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO"/>
+			</field>
+			<field name="empleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPLEADOR"/>
+			</field>
+			<field name="direccionEmpleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_EMPLEADOR"/>
+			</field>
+			<field name="fAsignado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="F_ASIGNADO"/>
+			</field>
+		</class>
+		<class name="TmpVistaDuplicados" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="suscriptor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SUSCRIPTOR"/>
+			</field>
+			<field name="nit" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NIT"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="barrio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="estado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO"/>
+			</field>
+			<field name="departamento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO"/>
+			</field>
+			<field name="localidad" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD"/>
+			</field>
+			<field name="cupon" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUPON"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="descuento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DESCUENTO"/>
+			</field>
+			<field name="servicio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO"/>
+			</field>
+			<field name="empleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPLEADOR"/>
+			</field>
+			<field name="direccionEmpleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_EMPLEADOR"/>
+			</field>
+			<field name="fAsignado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="F_ASIGNADO"/>
+			</field>
+		</class>
+		<class name="TmpCarteraclaro" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="suscriptor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SUSCRIPTOR"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="barrio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="estado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO"/>
+			</field>
+			<field name="departamento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO"/>
+			</field>
+			<field name="servicio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO"/>
+			</field>
+			<field name="fAsignado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="F_ASIGNADO"/>
+			</field>
+		</class>
+		<class name="TmpCarteraAvon" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="codigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CODIGO"/>
+			</field>
+			<field name="consejero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONSEJERO"/>
+			</field>
+			<field name="cedula" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CEDULA"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="departamento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO"/>
+			</field>
+			<field name="localidad" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD"/>
+			</field>
+			<field name="barrio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="zona" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ZONA"/>
+			</field>
+			<field name="factura" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="agencia" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="AGENCIA"/>
+			</field>
+			<field name="campania" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CAMPANIA"/>
+			</field>
+			<field name="fechaAsignado" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_ASIGNADO"/>
+			</field>
+			<field name="fechaBaja" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_BAJA"/>
+			</field>
+			<field name="fechaFactura" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_FACTURA"/>
+			</field>
+		</class>
+		<class name="AsignacionClaro" identity-type="datastore">
+			<field name="carteraId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CARTERA_ID"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="suscriptor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SUSCRIPTOR"/>
+			</field>
+			<field name="nit" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NIT"/>
+			</field>
+			<field name="direccion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION"/>
+			</field>
+			<field name="barrioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="BARRIO_ID"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+			<field name="numeroFiscal" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUMERO_FISCAL"/>
+			</field>
+			<field name="anio" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO"/>
+			</field>
+			<field name="mes" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES"/>
+			</field>
+			<field name="saldo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SALDO"/>
+			</field>
+			<field name="estadoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ESTADO_ID"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="localidadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="LOCALIDAD_ID"/>
+			</field>
+			<field name="cupon" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUPON"/>
+			</field>
+			<field name="telefono" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO"/>
+			</field>
+			<field name="descuento" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DESCUENTO"/>
+			</field>
+			<field name="servicioId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SERVICIO_ID"/>
+			</field>
+			<field name="empleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPLEADOR"/>
+			</field>
+			<field name="direccionEmpleador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_EMPLEADOR"/>
+			</field>
+			<field name="fechaIngreso" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_INGRESO"/>
+			</field>
+			<field name="cuenta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA"/>
+			</field>
+			<field name="conceptoDiferido" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONCEPTO_DIFERIDO"/>
+			</field>
+			<field name="anioAsignacion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANIO_ASIGNACION"/>
+			</field>
+			<field name="mesAsignacion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MES_ASIGNACION"/>
+			</field>
+			<field name="numAsignacion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NUM_ASIGNACION"/>
+			</field>
+		</class>
+		<class name="TmpDatos" identity-type="datastore">
+			<field name="tmpDatos" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_DATOS"/>
+			</field>
+			<field name="contrato" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CONTRATO"/>
+			</field>
+			<field name="facturaInterna" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FACTURA_INTERNA"/>
+			</field>
+		</class>
+		<class name="TmpBanpro" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="codCliente" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COD_CLIENTE"/>
+			</field>
+			<field name="cuenta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA"/>
+			</field>
+			<field name="nombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NOMBRE"/>
+			</field>
+			<field name="tarjeta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TARJETA"/>
+			</field>
+			<field name="producto" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PRODUCTO"/>
+			</field>
+			<field name="antiguedadAnios" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANTIGUEDAD_ANIOS"/>
+			</field>
+			<field name="deudaCor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEUDA_COR"/>
+			</field>
+			<field name="deudaDol" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEUDA_DOL"/>
+			</field>
+			<field name="totalDeudaDol" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_DEUDA_DOL"/>
+			</field>
+			<field name="empresaBa" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPRESA_BA"/>
+			</field>
+			<field name="ubicacionBa" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="UBICACION_BA"/>
+			</field>
+			<field name="cedula" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CEDULA"/>
+			</field>
+			<field name="direccionC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_C"/>
+			</field>
+			<field name="departamentoC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_C"/>
+			</field>
+			<field name="ciudadC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_C"/>
+			</field>
+			<field name="direccionT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_T"/>
+			</field>
+			<field name="departamentoT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_T"/>
+			</field>
+			<field name="ciudadT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_T"/>
+			</field>
+			<field name="telefonoC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_C"/>
+			</field>
+			<field name="telefonoT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_T"/>
+			</field>
+			<field name="telefonoO" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_O"/>
+			</field>
+			<field name="codFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COD_FIADOR"/>
+			</field>
+			<field name="nombreFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NOMBRE_FIADOR"/>
+			</field>
+			<field name="telefonoFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_FIADOR"/>
+			</field>
+			<field name="multCodigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MULT_CODIGO"/>
+			</field>
+		</class>
+		<class name="CarteraBanpro" identity-type="datastore">
+			<field name="tmpId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TMP_ID"/>
+			</field>
+			<field name="codCliente" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COD_CLIENTE"/>
+			</field>
+			<field name="cuenta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CUENTA"/>
+			</field>
+			<field name="nombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NOMBRE"/>
+			</field>
+			<field name="tarjeta" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TARJETA"/>
+			</field>
+			<field name="producto" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="PRODUCTO"/>
+			</field>
+			<field name="antiguedadAnios" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="ANTIGUEDAD_ANIOS"/>
+			</field>
+			<field name="deudaCor" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEUDA_COR"/>
+			</field>
+			<field name="deudaDol" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEUDA_DOL"/>
+			</field>
+			<field name="totalDeudaDol" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TOTAL_DEUDA_DOL"/>
+			</field>
+			<field name="empresaBa" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="EMPRESA_BA"/>
+			</field>
+			<field name="ubicacionBa" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="UBICACION_BA"/>
+			</field>
+			<field name="cedula" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CEDULA"/>
+			</field>
+			<field name="direccionC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_C"/>
+			</field>
+			<field name="departamentoC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_C"/>
+			</field>
+			<field name="ciudadC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_C"/>
+			</field>
+			<field name="direccionT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DIRECCION_T"/>
+			</field>
+			<field name="departamentoT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_T"/>
+			</field>
+			<field name="ciudadT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_T"/>
+			</field>
+			<field name="telefonoC" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_C"/>
+			</field>
+			<field name="telefonoT" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_T"/>
+			</field>
+			<field name="telefonoO" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_O"/>
+			</field>
+			<field name="codFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COD_FIADOR"/>
+			</field>
+			<field name="nombreFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="NOMBRE_FIADOR"/>
+			</field>
+			<field name="telefonoFiador" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="TELEFONO_FIADOR"/>
+			</field>
+			<field name="multCodigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="MULT_CODIGO"/>
+			</field>
+		</class>
+		<class name="BDepartamento" identity-type="datastore">
+			<field name="bDepartamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="B_DEPARTAMENTO_ID"/>
+			</field>
+			<field name="bDepartamentoNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="B_DEPARTAMENTO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="Ciudad" identity-type="datastore">
+			<field name="ciudadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_ID"/>
+			</field>
+			<field name="departamentoId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="DEPARTAMENTO_ID"/>
+			</field>
+			<field name="ciudadNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="SimboloBanpro" identity-type="datastore">
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="simboloNumero" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NUMERO"/>
+			</field>
+			<field name="simboloNombre" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_NOMBRE"/>
+			</field>
+			<field name="inactivo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="INACTIVO"/>
+			</field>
+		</class>
+		<class name="GestionBanpro" identity-type="datastore">
+			<field name="gestionId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="GESTION_ID"/>
+			</field>
+			<field name="usrId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="USR_ID"/>
+			</field>
+			<field name="fecha" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA"/>
+			</field>
+		</class>
+		<class name="DetalleGBanpro" identity-type="datastore">
+			<field name="gestionId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="GESTION_ID"/>
+			</field>
+			<field name="cbanproId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CBANPRO_ID"/>
+			</field>
+			<field name="simboloId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="SIMBOLO_ID"/>
+			</field>
+			<field name="colectorId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="COLECTOR_ID"/>
+			</field>
+			<field name="ciudadId" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CIUDAD_ID"/>
+			</field>
+			<field name="observaciones" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="OBSERVACIONES"/>
+			</field>
+			<field name="codigo" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="CODIGO"/>
+			</field>
+			<field name="fechaGestion" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FECHA_GESTION"/>
+			</field>
+			<field name="avisoCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="AVISO_COBRO"/>
+			</field>
+			<field name="horaRegistro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="HORA_REGISTRO"/>
+			</field>
+			<field name="fprogCobro" persistence-modifier="persistent">
+				<extension vendor-name="ojb" key="column" value="FPROG_COBRO"/>
+			</field>
+		</class>
+	</package>
+</jdo>

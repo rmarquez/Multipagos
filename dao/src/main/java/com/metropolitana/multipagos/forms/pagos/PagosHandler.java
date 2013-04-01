@@ -305,14 +305,14 @@ public class PagosHandler {
 	 */
 	@SuppressWarnings("unchecked")
 	public final Collection<Pagos> getResultadosXPagina(
-			final Date fecha, final Integer usrId,
+			final Date fecha, final Integer usrId, final String contrato,
 			final int pagina, final int registrosXPagina)
 			throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			//return Util.getResultadosXPagina(Pagos.class, getCriterio(fecha, usrId), null, pagina,registrosXPagina, broker);
-			return getResultadosXPagina(fecha, usrId, pagina,registrosXPagina, broker);
+			return getResultadosXPagina(fecha, usrId, contrato, pagina,registrosXPagina, broker);
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -324,7 +324,7 @@ public class PagosHandler {
 	
 	@SuppressWarnings("unchecked")
     public static final Collection getResultadosXPagina(final Date fecha, final Integer usrId,
-            final int pagina, final int registrosPorPagina,
+            final String contrato, final int pagina, final int registrosPorPagina,
             final PersistenceBroker broker) throws Exception {
         if (pagina >= 1  && registrosPorPagina >= 1) {
             int inicio = 1;
@@ -337,6 +337,9 @@ public class PagosHandler {
     		}
     		if (fecha != null) {
     			criterio.addEqualTo("pagoIdRef.fecha", fecha);
+    		}
+    		if (contrato != null) {
+    			criterio.addEqualTo("numeroContrato", contrato);
     		}
             QueryByCriteria query = new QueryByCriteria(DetallePagos.class, criterio);
             query.addOrderBy("pagoIdRef.usrId", true);            
@@ -359,12 +362,12 @@ public class PagosHandler {
 	 *             resultados.
 	 */
 	public final int getContador(final Date fecha,
-			final Integer usrId) throws Exception {
+			final Integer usrId, final String contrato) throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			QueryByCriteria query = new QueryByCriteria(DetallePagos.class,
-					getCriterio(fecha, usrId));
+					getCriterio(fecha, usrId, contrato));
 			return broker.getCount(query);
 		} catch (Exception e) {
 			throw e;
@@ -386,14 +389,17 @@ public class PagosHandler {
 	 * @return Criteria Criterio para la búsqueda.
 	 */
 	public static final Criteria getCriterio(final Date fecha,
-			final Integer usrId) {
+			final Integer usrId, final String contrato) {
 		Criteria criterio = new Criteria();
 		if (usrId != null) {
 			criterio.addEqualTo("pagoIdRef.usrId", usrId);
 		}
 		if (fecha != null) {
 			criterio.addEqualTo("pagoIdRef.fecha", fecha);
-		}		
+		}
+		if (contrato != null) {
+			criterio.addEqualTo("numeroContrato", contrato);
+		}
 		return criterio;
 	}
 

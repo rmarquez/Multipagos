@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_visitas.java                        Build:2566
+//===   detalle_visitas.java                        Build:2647
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -31,6 +31,7 @@ public class DetalleVisitas implements java.io.Serializable
    private Integer    avisoCobro;
    private String     horaRegistro;
    private Date       fprogCobro;
+   private Boolean    gestionLlamada;
 
    //---------------------------------------------------------------------------
 
@@ -147,6 +148,15 @@ public class DetalleVisitas implements java.io.Serializable
    public void setFprogCobro(Date fprogCobro)
    {
       this.fprogCobro = fprogCobro;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getGestionLlamada() { return gestionLlamada; }
+
+   public void setGestionLlamada(Boolean gestionLlamada)
+   {
+      this.gestionLlamada = gestionLlamada;
    }
 
    //---------------------------------------------------------------------------

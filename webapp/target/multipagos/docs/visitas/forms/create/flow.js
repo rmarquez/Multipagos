@@ -1,5 +1,6 @@
 importClass(Packages.java.lang.Integer);
 importClass(Packages.java.math.BigDecimal);
+importClass(Packages.java.lang.Boolean);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
 importClass(Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler);
@@ -18,7 +19,11 @@ function createform(form) {
 	    var handlerBean = new Packages.com.metropolitana.multipagos.forms.visitas.VisitasHandler();
 		form.getChild("usrId").setValue(usuario.getUsrId());
 		form.getChild("fecha").setValue(new Packages.java.util.Date());
-		
+		//var detalle = form.getChild("detalle");
+		//for (var i = 0; i<detalle.size; i++) {
+		//    var row = detalle.getRow(i);
+		//    row.getChild("gestionLlamada").setValue(Boolean.FALSE);
+		//}
 		form.showForm("create-form-display");
         
         form.save(bean);
@@ -54,14 +59,26 @@ function validarForm(form) {
 	    }
 	    // Validar si el contrato no fue registrado 2 veces el mismo dia.
 	    var contrato = row.getChild("numContrato").getValue();
+	    var gestionLlamada = row.getChild("gestionLlamada").getValue();
 	    var fechaVisita = row.getChild("fechaVisita").getValue();
-	    if(contrato != null && fechaVisita != null){
-		    	if(handlerVisitas.getContratoXFecha(contrato, fechaVisita)==true) {   
+	    java.lang.System.out.println("gestionLlamada = " + gestionLlamada);
+	    //if(gestionLlamada != null){
+	    	if(contrato != null && fechaVisita != null) {
+	    		if(gestionLlamada.booleanValue()==true){
+			    	if(handlerVisitas.getContratoXFecha(true, contrato, fechaVisita)==true) {   
+			    		var mensajeN = "El contrato " + contrato + " ya fue registrado el dia de hoy, en una llamada, no puede registrarse 2 veces."
+		    			form.getChild("mensajes de error").addMessage(mensajeN);
+		    			return false;  	
+			    	} 
+		    } else {
+		    	if(handlerVisitas.getContratoXFecha(false, contrato, fechaVisita)==true) {   
 		    		var mensajeN = "El contrato " + contrato + " ya fue registrado el dia de hoy, no puede registrarse 2 veces."
 	    			form.getChild("mensajes de error").addMessage(mensajeN);
 	    			return false;  	
 		    	} 
 		    }
+	    	
+    	}
 	    // Validar que el contrato no se repida en el detalle
 	    var c = 1;
 	    for (var l = i + 1 ; l<detalle.size; l++) {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import  uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+
+    <header>
+        <title>Base de pagos actualizada</title>
+    </header>
+    <body>
+        <s1 title="Base de datos actualizada">
+            <p>Se agregaron <b>${cantidad}</b> nuevos registros, a la base de datos de pagos. </p>
+        </s1>
+    </body>
+</document>

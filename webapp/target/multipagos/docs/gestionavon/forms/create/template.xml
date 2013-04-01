@@ -26,6 +26,7 @@
     				  <table>
                           <thead>
                               <tr>
+                                <th><ft:repeater-widget-label widget-id="gestionLlamada"/></th>
                                 <th><ft:repeater-widget-label widget-id="codigo"/></th>
                               	<th><ft:repeater-widget-label widget-id="consejero"/></th>
                               	<th><ft:repeater-widget-label widget-id="localidadId"/></th>
@@ -43,6 +44,7 @@
                           <tbody>  
 								<ft:repeater-rows>
 									<tr>
+										<td><ft:widget id="gestionLlamada"/></td>
 										<td><ft:widget id="codigo"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="consejero"/></td>
 										<td><ft:widget id="localidadId"/></td>	

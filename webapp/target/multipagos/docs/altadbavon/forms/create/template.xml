@@ -28,7 +28,7 @@
 	                        
               <p>Antes de proceder a actualizar la base de datos se debe cumplir con lo siguiente:</p>
               
-				<p>* La extención del archivo debe ser <b>.xsl</b></p>
+				<p>* La extención del archivo debe ser <b>.xls</b></p>
 				<p>* El archivo debe ser renombrado a <b>avon</b></p>
 				<p>* El orden de las columnas del documento debe ser el siguiente: Codigo, Consejero,</p>
 				<p>Cedula, Direccion, Departamento, Localidad(Municipio), Barrio,Telefono, Zona, Factura, Saldo, Mes,</p>

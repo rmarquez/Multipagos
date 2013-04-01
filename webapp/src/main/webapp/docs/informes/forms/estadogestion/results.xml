@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <header>
+        <title>Reporte de Estado de Gestion</title>
+    </header>
+    <body>
+        <s1 title="Reporte de Estado de Gestion">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th align="left" colspan="5">Fecha de Inicio: <formatoFecha fecha="${fechaIni}" patron="dd/MMM/yyyy"/></th>
+                        <th align="left" colspan="6">Fecha Final: <formatoFecha fecha="${fechaFin}" patron="dd/MMM/yyyy"/></th>
+                        <tr><td colspan="11"/></tr>
+                    </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>PRODUCTO</th>
+                        <th>CUENTA</th>
+                        <th>TARJETA</th>
+						<th>CIUDAD CASA</th>
+                        <th>CIUDAD TRABAJO</th>
+                        <th>SIMBOLO</th>
+                        <th>SIMBOLO NOMBRE</th>
+                        <th>OBSERVACIONES</th>
+                        <th>FECHA GESTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<jx:set var="simbolo" value=""/>                  
+ 
+                    <jx:forEach var="item" items="${bean}" varStatus="status">
+                    	<jx:if test="simboloId != item[10]}">
+                         <jx:if test="${!status.first}">
+                            <tr>
+	                           	<th colspan="5">Total Gestiones</th> 
+	                           	<th colspan="6"><jx:formatNumber value="${status.count}"/></th>                             
+                       		</tr>
+                            </jx:if>
+                            <jx:if test="${!status.last}">
+                                <tr><td colspan="11"></td></tr>
+                            </jx:if>
+                            <tr>
+                                <th colspan="11">SIMBOLO: ${item[6]}</th>                                
+                            </tr>
+                            
+                       </jx:if>
+                        <jx:set var="simboloId" value="${item[10]}"/>
+	                    <tr>
+                        	<td align="right">${item[0]}</td>
+                            <td align="right">${item[1]}</td>
+                            <td align="right">${item[2]}</td>
+	                        <td align="right">${item[3]}</td>
+	                        <td align="right">${item[4]}</td>
+                            <td align="right">${item[5]}</td>
+                            <td align="right">${item[6]}</td>
+                            <td align="right">${item[7]}</td>
+                            <td align="right">${item[8]}</td>
+                            <td align="right"><formatoFecha fecha="${item[9]}" patron="dd/MMM/yyyy"/></td>
+                        </tr>                        
+                        <jx:if test="${status.last}">
+                            <tr>
+                             	<th colspan="5">Total Gestiones</th> 
+	                           	<th colspan="6"><jx:formatNumber value="${status.count}"/></th>                            
+                         	</tr>
+                        </jx:if>
+                    </jx:forEach>
+                </tbody>
+            </table>
+        </s1>
+    </body>
+</document>

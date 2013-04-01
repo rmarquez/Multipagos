@@ -45,6 +45,11 @@
             	<fd:booleanfield id="diferido">
 					<fd:label>Diferido</fd:label>
 				</fd:booleanfield>
+				
+				<fd:booleanfield id="gestionLlamada">
+		            <fd:label>Gestion Llamada:</fd:label>
+		            <fd:help>Indique si la gestion se trata de una llamada telefonica</fd:help>
+		        </fd:booleanfield>
             
                 <fd:field id="numContrato">
 					<fd:label>Contrato</fd:label>

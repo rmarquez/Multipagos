@@ -159,6 +159,8 @@ public class Auth_userHandler {
             }
             // Excluir el administrador de la lista
             criterio.addNotEqualTo("usrLogin", "admin");
+            // Excluir el administrador de la lista
+            criterio.addNotEqualTo("usrEnable", false);
             // 3. Define query
             QueryByCriteria query = new QueryByCriteria(AuthUser.class, criterio);
             query.addOrderBy("usrLogin", true);
@@ -314,6 +316,8 @@ public class Auth_userHandler {
 
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			criterio.addNotEqualTo("usrLogin", "admin");
+			criterio.addNotEqualTo("usrEnable", false);
 			QueryByCriteria query = new QueryByCriteria(AuthUser.class,
 					criterio);
 			query.addOrderBy("usrFullName", true);

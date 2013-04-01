@@ -1,5 +1,5 @@
 //==============================================================================
-//===   asignar_visitas.java                        Build:2568
+//===   asignar_visitas.java                        Build:2616
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -22,7 +22,7 @@ public class AsignarVisitas implements java.io.Serializable
    private Integer    usrId;
    private Date       fecha;
    private Integer    colectorId;
-   private Long[]     barrioId;
+   private Integer    barrioId;
    private Integer    servicioId;
    private Date       fechaIni;
    private Date       fechaFin;
@@ -66,20 +66,13 @@ public class AsignarVisitas implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-  // public Integer getBarrioId() { return barrioId; }
+   public Integer getBarrioId() { return barrioId; }
 
-  // public void setBarrioId(Integer barrioId)
-   //{
-    //  this.barrioId = barrioId;
-   //}
-
-   public Long[] getBarrioId() { return barrioId; }
-
-   public void setBarrioId(Long[] barrioId) 
+   public void setBarrioId(Integer barrioId)
    {
-       this.barrioId = barrioId;
-   }   
-  
+      this.barrioId = barrioId;
+   }
+
    //---------------------------------------------------------------------------
 
    public Integer getServicioId() { return servicioId; }

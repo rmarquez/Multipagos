@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="fecha" path="fecha"/>
+    <fb:value id="codCliente" path="codCliente"/>
+    <fb:value id="nombre" path="nombre"/>
+    
+    <fb:repeater id="detalle" parent-path="." row-path="arregloDeudaList">
+        <fb:identity>
+        	<fb:value id="tmpId" path="tmpId"/>
+            <fb:value id="producto" path="producto"/>
+		    <fb:value id="tarjeta" path="tarjeta"/>
+		    <fb:value id="cuenta" path="cuenta"/>
+		    <fb:value id="deudaCor" path="deudaCor"/>
+		    <fb:value id="deudaDol" path="deudaDol"/>
+		    <fb:value id="totalDeudaDol" path="totalDeudaDol"/>
+        </fb:identity>
+
+        <fb:on-bind>
+        	<fb:value id="tmpId" path="tmpId"/>
+            <fb:value id="producto" path="producto"/>
+		    <fb:value id="tarjeta" path="tarjeta"/>
+		    <fb:value id="cuenta" path="cuenta"/>
+		    <fb:value id="deudaCor" path="deudaCor"/>
+		    <fb:value id="deudaDol" path="deudaDol"/>
+		    <fb:value id="totalDeudaDol" path="totalDeudaDol"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArregloDeuda" addmethod="addArregloDeuda"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+    
+    <fb:value id="descuento" path="descuento"/>
+    <fb:value id="plazo" path="plazo"/>
+    <fb:value id="cuota" path="cuota"/>
+    
+    <fb:repeater id="detalleCalendario" parent-path="." row-path="arregloCalendarioList">
+        <fb:identity>
+            <fb:value id="fechaCuota" path="fechaCuota"/>
+        </fb:identity>
+
+        <fb:on-bind>
+            <fb:value id="fechaCuota" path="fechaCuota"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.ArregloCalendario" addmethod="addArregloCalendario"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+    
+    
+</fb:context>

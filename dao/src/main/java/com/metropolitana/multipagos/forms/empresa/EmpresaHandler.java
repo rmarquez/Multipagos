@@ -126,4 +126,12 @@ public class EmpresaHandler {
         }
         return null; // error
     }
+    
+    public static Integer getMcodigo() throws Exception {
+        Empresa e = getBeanEmpresa(true);
+        if (e != null) {
+            return e.getEmpMcodigo();
+        }
+        return null; // error
+    }
 }

@@ -20,6 +20,11 @@
 				cache="none" />			
 		</fd:field>
 		
+		<fd:field id="contrato">
+			<fd:label>Contrato:</fd:label>					
+			<fd:datatype base="string" />
+		</fd:field>
+		
         <fd:submit id="buscar">
             <fd:label>Buscar</fd:label>
         </fd:submit>

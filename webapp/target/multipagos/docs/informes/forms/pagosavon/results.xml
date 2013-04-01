@@ -4,10 +4,10 @@
     <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
     <header>
-        <title>Detalle de Visitas Avon</title>
+        <title>Detalle de Pagos Avon</title>
     </header>
     <body>
-        <s1 title="Detalle de Visitas Avon">
+        <s1 title="Detalle de Pagos Avon">
             <table border="1">
                 <thead>
                     <tr>

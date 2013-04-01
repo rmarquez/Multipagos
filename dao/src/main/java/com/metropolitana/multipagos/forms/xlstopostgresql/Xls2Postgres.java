@@ -150,7 +150,6 @@ public class Xls2Postgres extends UtilXls2Postgres {
 				
 				}
 			
-			
 			// Insertamos los nuevos registros.
 			insertTabla(contrato, suscriptor, nit, direccion, barrio, factura,
 					nfiscal, anio, mes, saldo, estado, departamento, localidad,
@@ -516,11 +515,6 @@ public static List getDatosDPendientes(Boolean esFactura)
 					telefono, descuento, servicio, empleador, dempleador,
 					Util.fechaDias(asignado, 1), cuenta, concepto);
 			
-			//query = "select count (*) from tmp_cartera;";
-			//int registros = countQuery(connPostgres, query);
-			
-			//return registros;
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

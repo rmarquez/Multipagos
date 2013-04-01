@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fd:form xmlns:fd="http://apache.org/cocoon/forms/1.0#definition" 
+         xmlns:i18n="http://apache.org/cocoon/i18n/2.1">   
+  
+    <fd:widgets>
+    	<fd:messages id="mensajes de error">
+            <fd:label>Ocurrieron los siguientes errores</fd:label>
+        </fd:messages>
+        
+		<fd:field id="suscriptor">
+			<fd:label>Nombre Cliente:</fd:label>					
+			<fd:datatype base="string" />
+		</fd:field>
+		
+		<fd:field id="contrato">
+			<fd:label>Contrato:</fd:label>					
+			<fd:datatype base="string" />
+		</fd:field>
+		
+		<fd:field id="factura">
+			<fd:label>factura:</fd:label>					
+			<fd:datatype base="string" />
+		</fd:field>
+		
+		<!-- Detalle Cliente -->
+		
+		<fd:repeater id="dCliente">
+            <fd:widgets>
+                
+				<fd:field id="numContrato" state="output">
+					<fd:label>Contrato</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="nombre" state="output">
+					<fd:label>Nombre</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="facInterna" state="output">
+					<fd:label>Factura</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="mes" state="output">
+					<fd:label>Mes</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+				
+				<fd:field id="anio" state="output">
+					<fd:label>Año</fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>
+		        
+		        <fd:field id="saldo" state="output">
+		            <fd:label>Saldo (C$):</fd:label>
+		            <fd:datatype base="decimal">
+		                <fd:convertor type="formatting" variant="number">
+		                    <fd:patterns>
+		                        <fd:pattern>#,##0.00</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		            <fd:validation>
+			            <fd:assert test="saldo &gt;= 0">
+			              <fd:failmessage><i18n:text>com.metropolitana.multipagos.mayorigualquecero</i18n:text></fd:failmessage>
+			            </fd:assert>
+		      		</fd:validation>
+		        </fd:field>
+		        
+		        <fd:field id="fechaIngreso" state="output">
+		            <fd:label>Fecha Ingreso:</fd:label>
+		            <fd:datatype base="date">
+		                <fd:convertor>
+		                    <fd:patterns>
+		                        <fd:pattern>dd/MM/yyyy</fd:pattern>
+		                    </fd:patterns>
+		                </fd:convertor>
+		            </fd:datatype>
+		        </fd:field>
+		        
+		        <fd:booleanfield id="pagado" state="output">
+					<fd:label>Pagado</fd:label>
+				</fd:booleanfield>
+				
+				<fd:booleanfield id="pagadoClaro" state="output">
+					<fd:label>Pagado Claro</fd:label>
+				</fd:booleanfield>
+		        
+		        
+		        
+				</fd:widgets>
+			</fd:repeater>		
+			
+		<fd:submit id="buscar">
+          <fd:label>Buscar</fd:label>
+        </fd:submit> 
+        <fd:submit id="salir">
+          <fd:label>Salir</fd:label>
+        </fd:submit>
+        
+    </fd:widgets>
+</fd:form>

@@ -14,14 +14,13 @@ function departamentosCombo() {
     }
 }
 
-/*function departamentosXAsignacionCombo() {
+function simboloBanproCombo() {
     if (autorizar("cata")) {
-		var departamentoId = !isNaN(parseInt(cocoon.request.carteraId)) ? parseInt(cocoon.request.carteraId): null;
-        var handler = new Packages.com.metropolitana.multipagos.forms.informes.InformesUtil();
-        var bean = handler.getLocalidadXDepartamento(departamentoId);
-        cocoon.sendPage("localidadCombo-data", {"bean": bean});
+    	var handlerBean = new Packages.com.metropolitana.multipagos.forms.simbolo.SimboloBanproHandler();
+        var bean = handlerBean.simboloXNumeroList();
+        cocoon.sendPage("simboloBanproCombo-data", {"bean": bean});
     }
-}*/
+}
 
 function servicioCombo() {
     if (autorizar("cata")) {

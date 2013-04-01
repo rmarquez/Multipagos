@@ -5,10 +5,10 @@
           <!-- Import the macros that define CForms template elements -->
           <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
 	<header>
-        <title>Control de visitas</title>
+        <title>Control de gestiones</title>
     </header>
     <body>
-        <s1 title="Registro visitas colector">
+        <s1 title="Registro gestion">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
              <ft:continuation-id/>
              <ft:widget id="mensajes de error"/>
@@ -18,7 +18,7 @@
                	</fi:items>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
-                    <fi:label>Actualizar datos de la visita</fi:label>
+                    <fi:label>Actualizar datos de la gestion</fi:label>
                     <fi:items>
                                            
                     <ft:repeater id="detalle">

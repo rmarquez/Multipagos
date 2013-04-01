@@ -22,13 +22,14 @@
                         <ft:widget id="fechaFin"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
                         <ft:widget id="departamentoId"/>
                         <ft:widget id="localidadId"/>
-                        <ft:widget id="barrioId"/>
-                        <ft:widget id="numeroPendientes"/>
+                        <!-- <ft:widget id="barrioId"/>
+                        <ft:widget id="numeroPendientes"/> -->
                     </fi:items>
                 </fi:group>
                 <ft:widget id="listar"/>
                 <ft:widget id="excel"/>
-                <ft:widget id="aviso"/>
+                <!-- <ft:widget id="aviso"/> -->
+                <ft:widget id="lista"/>
             </ft:form-template>
         </s1>
     </body>

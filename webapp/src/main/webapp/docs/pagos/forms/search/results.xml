@@ -7,10 +7,10 @@
         <title>Control de pagos</title>
     </header>
     <body>
-        <jx:set var="cantidadRegistros" value="${handler.getContador(fecha, usrId)}"/>
+        <jx:set var="cantidadRegistros" value="${handler.getContador(fecha, usrId, contrato)}"/>
         <jx:set var="first" value="${cocoon.session.registrosPorPagina * (pagina - 1)}"/>
         <s1 title="Lista de pagos">
-            <hrefPaginacion cadena="pagos.list?fecha=${fecha}&amp;usrId=${usrId}" 
+            <hrefPaginacion cadena="pagos.list?fecha=${fecha}&amp;usrId=${usrId}&amp;contrato=${contrato}" 
             pagina="${pagina}" 
             registrosPorPagina="${cocoon.session.registrosPorPagina}" 
             cantidadRegistros="${cantidadRegistros}"/>
@@ -42,13 +42,13 @@
                            <td>${status.current.montoPago}</td>
                              <td>
                                <link href="/multipagos/pagos/edit?pagoId=${status.current.pagoId}">Editar</link>
-                               <link href="borrar.list?pagoId=${status.current.pagoId}&amp;fecha=${fecha}&amp;usrId=${usrId}s&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                               
+                               <link href="borrar.list?pagoId=${status.current.pagoId}&amp;fecha=${fecha}&amp;usrId=${usrId}&amp;contrato=${contrato}&amp;pagina=${pagina}&amp;registros=${registros}">Borrar</link>                               
                              </td>
                         </tr>
                   </jx:forEach>
                 </tbody>
             </table>
-            <hrefPaginacion cadena="pagos.list?fecha=${fecha}&amp;usrId=${usrId}" 
+            <hrefPaginacion cadena="pagos.list?fecha=${fecha}&amp;usrId=${usrId}&amp;contrato=${contrato}" 
             pagina="${pagina}" 
             registrosPorPagina="${cocoon.session.registrosPorPagina}" 
             cantidadRegistros="${cantidadRegistros}"/>

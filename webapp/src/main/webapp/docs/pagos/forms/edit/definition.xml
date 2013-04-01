@@ -262,8 +262,8 @@
 			</fd:repeater-action>
 
 			<fd:repeater-action id="eliminar" command="delete-rows"	repeater="detalle" select="marcar">
-				<fd:label>Eliminar</fd:label>
-				<fd:hint>Haga click en el botón para eliminar los registros	seleccionados.</fd:hint>
+				<fd:label>Anular</fd:label>
+				<fd:hint>Haga click en el botón para anular los registros	seleccionados.</fd:hint>
 				<fd:on-action>
 	                <fd:javascript>
 	                    revertirPago(event);

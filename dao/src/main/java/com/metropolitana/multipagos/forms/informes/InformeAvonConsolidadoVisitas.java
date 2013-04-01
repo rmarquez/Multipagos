@@ -138,7 +138,7 @@ public class InformeAvonConsolidadoVisitas extends UtilXls2Postgres {
             psOrigen.setDate(1,fecha);
             java.sql.Date fechaF = java.sql.Date.valueOf(getFechaSQL(fechaFin));
             psOrigen.setDate(2,fechaF);
-            rs = psOrigen.executeQuery();;
+            rs = psOrigen.executeQuery();
             while(rs.next()){
                 
     			Object[] fila = { rs.getObject(1), rs.getObject(2),

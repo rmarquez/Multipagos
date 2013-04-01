@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document menu="true"
+  xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+  xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+  xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
+  <!-- Import the macros that define CForms template elements -->
+  <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+    <header>
+        <title>Arreglo de Pago</title>
+    </header>
+    <body>
+        <s1 title="Crear arreglo">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+            <ft:continuation-id/> 
+            <ft:widget id="mensajes de error"/>                
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del arreglo</fi:label>
+                    <fi:items>
+                        <ft:widget id="fecha"/>
+                        <ft:widget id="nombre"/>
+                        <ft:widget id="codCliente"/>
+                         <p class="form-separator-title">Detalle Deuda</p>
+                        <ft:repeater id="detalle">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>
+                                <th><ft:repeater-widget-label widget-id="producto"/></th>
+                              	<th><ft:repeater-widget-label widget-id="tarjeta"/></th>
+                              	<th><ft:repeater-widget-label widget-id="cuenta"/></th>
+                              	<th><ft:repeater-widget-label widget-id="deudaCor"/></th>
+                              	<th><ft:repeater-widget-label widget-id="deudaDol"/></th>
+                              	<th><ft:repeater-widget-label widget-id="totalDeudaDol"/></th>    
+                              	
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+								<ft:repeater-rows>
+									<tr>
+										<td><ft:widget id="producto"/></td>
+										<td><ft:widget id="tarjeta"/></td>
+										<td><ft:widget id="cuenta"/></td>	
+										<td><ft:widget id="deudaCor"/></td>
+										<td><ft:widget id="deudaDol"/></td>
+										<td><ft:widget id="totalDeudaDol"/></td>
+										<td><ft:widget id="tmpId"><fi:styling type="hidden"/></ft:widget></td>																										
+										<td><ft:widget id="pago"><fi:styling type="hidden"/></ft:widget></td>	
+									</tr>
+								</ft:repeater-rows>
+						 </tbody>
+                      </table>
+              		  </div>
+                      	</ft:repeater> 
+                      	<p></p> 
+                      	<ft:widget id="deudaTotalUS"/>
+                      	<ft:widget id="pagoTotalUS"/>
+                      	<tr>
+                          <tw><ft:widget-label id="saldoUS"/></tw>
+                          <tw><diferencian><ft:widget id="saldoUS"/></diferencian></tw>
+                        </tr>
+                      	
+                        <ft:widget id="descuento"/>
+                        <ft:widget id="plazo"/>
+                        <ft:widget id="cuota"/>
+                         <p class="form-separator-title">Calendario de Pagos</p>
+                         
+                        <ft:repeater id="detalleCalendario">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>
+                                <th><ft:repeater-widget-label widget-id="fechaCuota"/></th> 
+                                <th><ft:repeater-widget-label widget-id="marcar"/></th>
+                              	
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+								<ft:repeater-rows>
+									<tr>
+										<td><ft:widget id="fechaCuota"/></td>																										
+										<td><ft:widget id="marcar"/></td>
+									</tr>
+								</ft:repeater-rows>
+								<tr>
+									<td colspan="15" align="right">
+										<ft:widget id="../agregar"/>
+										<ft:widget id="../eliminar"/>
+									</td>
+								</tr>
+						 </tbody>
+                      </table>
+              		  </div>
+                      	</ft:repeater>
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

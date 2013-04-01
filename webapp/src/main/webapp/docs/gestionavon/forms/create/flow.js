@@ -33,6 +33,7 @@ function validarForm(form) {
 	//var cantidadVisitas = form.getChild("cantidadVisitas").getValue();
 	var widgetMensaje = form.getChild("mensajes de error");
 	var handlerSimbolo = new SimboloAvonHandler();
+	var handlerGestion = new Packages.com.metropolitana.multipagos.forms.gestion.GestionHandler();
 	var detalle = form.getChild("detalle");
 	
 	for (var i = 0; i<detalle.size; i++) {
@@ -49,6 +50,45 @@ function validarForm(form) {
 	    			return false;
 	    		}	    		      	
 	    	}
+	    }
+	 // Validar si el codigo no fue registrado 2 veces el mismo dia.
+	    var codigo = row.getChild("codigo").getValue();
+	    var gestionLlamada = row.getChild("gestionLlamada").getValue();
+	    var fechaGestion = row.getChild("fechaGestion").getValue();
+	    //if(gestionLlamada != null){
+	    	if(codigo != null && fechaGestion != null) {
+	    		if(gestionLlamada.booleanValue()==true){
+			    	if(handlerGestion.getCodigoXFecha(true, codigo, fechaGestion)==true) {   
+			    		var mensajeN = "El codigo " + codigo + " ya fue registrado el dia de hoy, en una llamada, no puede registrarse 2 veces."
+		    			form.getChild("mensajes de error").addMessage(mensajeN);
+		    			return false;  	
+			    	} 
+		    } else {
+		    	if(handlerGestion.getCodigoXFecha(false, codigo, fechaGestion)==true) {   
+		    		var mensajeN = "El codigo " + codigo + " ya fue registrado el dia de hoy, no puede registrarse 2 veces."
+	    			form.getChild("mensajes de error").addMessage(mensajeN);
+	    			return false;  	
+		    	} 
+		    }
+	    	
+    	}
+	    // Validar que el contrato no se repida en el detalle
+	    var c = 1;
+	    for (var l = i + 1 ; l<detalle.size; l++) {
+	    	var row2 = detalle.getRow(l);
+	    	var codigo2 = row2.getChild("codigo").getValue();
+			if(codigo.equals(codigo2)) {
+	    	//if (detalle.get(k).equals(detalle.get(l))) {
+				java.lang.System.out.println ("***** Dentro del equals ******* ");
+			    c++;
+			    row2 = null ;
+			}
+	    }
+	    if ( c > 1)	{
+	    	var mensajeN = "El codigo " + codigo + " se repite "  + c + " veces, favor eliminar elementos repetidos"
+			form.getChild("mensajes de error").addMessage(mensajeN);
+			return false; 
+
 	    }
     }
 	

@@ -231,5 +231,31 @@
             </jx:if>
 
      </jx:macro>
+     
+     <!--
+      Coloca enlaces para los numeros de paginas en formulario de busqueda
+      avanzada de talentos.
+    -->
+    <jx:macro name="numerosPaginacion">
+      <jx:parameter name="cantidadPaginas"/>
+      <jx:parameter name="criterio"/>
+      <jx:parameter name="activo"/>
+      <jx:parameter name="inactivo"/>
+      <jx:parameter name="confidencial"/>
+      <jx:set var="cantEnlaces" value="40"/>
+      <jx:set var="cont" value="1"/>
+      <jx:forEach varStatus="item" begin="1" end="${cantidadPaginas}" step="1">
+        <jx:if test="${cantidadPaginas &gt; 1}">
+            <jx:set var="paginaActual" value="#{java.lang.Integer.toString($item/index)}"/>
+            <link href="searchtalentos?criterio=${criterio}&amp;activo=${activo}&amp;inactivo=${inactivo}&amp;confidencial=${confidencial}&amp;cantidadPaginas=${cantidadPaginas}&amp;pagina=${paginaActual}">${paginaActual}</link>
+            <jx:if test="${cantidadPaginas &gt; cantEnlaces}">
+            <jx:if test="${paginaActual == (cantEnlaces * cont)}">
+                <jx:set var="cont" value="${cont+1}"/>
+                <br/>
+            </jx:if>
+        </jx:if>
+        </jx:if>
+      </jx:forEach>
+    </jx:macro>
 
 </jx:template>

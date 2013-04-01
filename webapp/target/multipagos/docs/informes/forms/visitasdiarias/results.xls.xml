@@ -2,7 +2,7 @@
 <document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0">
     <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
 
-    <title>Reporte de Visitas Diarias</title>
+    <title>Reporte de Gestiones Diarias</title>
 
     <columnas No="0" Unit="70"/>
     <columnas No="1" Unit="300"/>
@@ -27,7 +27,7 @@
     <jx:set var="colFin" value="${16}"/>
     
      
-    <celda Col="${col}" Row="${fila}">REPORTE DE VISITAS DIARIAS</celda>
+    <celda Col="${col}" Row="${fila}">REPORTE DE GESTIONES DIARIAS</celda>
     <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="18"/>
 	<jx:set var="fila" value="${fila+2}"/>
 	
@@ -48,7 +48,7 @@
 	  <celda Col="${col+4}" Row="${fila}">ACCION</celda>
       <celda Col="${col+5}" Row="${fila}">RESULTADO</celda>
       <celda Col="${col+6}" Row="${fila}">CAUSA</celda>
-      <celda Col="${col+7}" Row="${fila}">FECHA VISITA</celda>
+      <celda Col="${col+7}" Row="${fila}">GESTION VISITA</celda>
       <celda Col="${col+8}" Row="${fila}">C_RESULTADO</celda>
       <celda Col="${col+9}" Row="${fila}">C_CAUSA</celda>
       <celda Col="${col+10}" Row="${fila}">DEPARTAMENTO</celda>
@@ -79,7 +79,7 @@
 	  <celda Col="${col+4}" Row="${fila}">ACCION</celda>
       <celda Col="${col+5}" Row="${fila}">RESULTADO</celda>
       <celda Col="${col+6}" Row="${fila}">CAUSA</celda>
-      <celda Col="${col+7}" Row="${fila}">FECHA VISITA</celda>
+      <celda Col="${col+7}" Row="${fila}">GESTION VISITA</celda>
       <celda Col="${col+8}" Row="${fila}">C_RESULTADO</celda>
       <celda Col="${col+9}" Row="${fila}">C_CAUSA</celda>
       <celda Col="${col+10}" Row="${fila}">DEPARTAMENTO</celda>
@@ -101,11 +101,26 @@
 	    <celda Col="${col+2}" Row="${fila}">${item[2]}</celda>
 	    <celda Col="${col+3}" Row="${fila}"><formatoNumero numero="${item[3]}"/></celda>
 	    <celda Col="${col+4}" Row="${fila}">Visita de Cobro</celda>
-	    <celda Col="${col+5}" Row="${fila}">${item[4]}</celda>
+	    <jx:if test="${item[4] != null}">
+	    	<celda Col="${col+5}" Row="${fila}">${item[4]}</celda>
+	    </jx:if>
+	    <jx:if test="${item[4]== null}">
+	    	<celda Col="${col+5}" Row="${fila}"><blanco/></celda>
+	    </jx:if>
 	    <celda Col="${col+6}" Row="${fila}">${item[5]}</celda>
 	    <celda Col="${col+7}" Row="${fila}"><formatoFecha fecha="${item[6]}" patron="dd/MMM/yyyy"/></celda>
-	    <celda Col="${col+8}" Row="${fila}">${item[7]}</celda>
-	    <celda Col="${col+9}" Row="${fila}">${item[8]}</celda>
+	    <jx:if test="${item[7] != null}">
+	    	<celda Col="${col+8}" Row="${fila}">${item[7]}</celda>
+	    </jx:if>
+	    <jx:if test="${item[7]== null}">
+	    	<celda Col="${col+8}" Row="${fila}"><blanco/></celda>
+	    </jx:if>
+	    <jx:if test="${item[8] != null}">
+	    	<celda Col="${col+9}" Row="${fila}">${item[9]}</celda>
+	    </jx:if>
+	    <jx:if test="${item[8]== null}">
+	    	<celda Col="${col+9}" Row="${fila}"><blanco/></celda>
+	    </jx:if>
 	    <celda Col="${col+10}" Row="${fila}">${item[9]}</celda>
 		<celda Col="${col+11}" Row="${fila}">${item[10]}</celda>
 	    <celda Col="${col+12}" Row="${fila}">${item[11]}</celda>

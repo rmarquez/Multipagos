@@ -5,10 +5,10 @@
           <!-- Import the macros that define CForms template elements -->
           <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
 	<header>
-        <title>Control de visitas</title>
+        <title>Control de gestiones</title>
     </header>
     <body>
-        <s1 title="Registro visitas colector">
+        <s1 title="Registro gestiones">
             <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
              <ft:continuation-id/>
              <ft:widget id="mensajes de error"/>
@@ -18,7 +18,7 @@
                	</fi:items>
                 <fi:group>
                     <fi:styling type="fieldset" layout="columns"/>
-                    <fi:label>Agregar datos de la visita</fi:label>
+                    <fi:label>Agregar datos de la gestion</fi:label>
                     <fi:items>
                                            
                     <ft:repeater id="detalle">
@@ -27,6 +27,7 @@
                           <thead>
                               <tr>
                                 <th><ft:repeater-widget-label widget-id="diferido"/></th>
+                                <th><ft:repeater-widget-label widget-id="gestionLlamada"/></th>
                               	<th><ft:repeater-widget-label widget-id="numContrato"/></th>
                               	<th><ft:repeater-widget-label widget-id="suscriptor"/></th>
                               	<th><ft:repeater-widget-label widget-id="localidadId"/></th>
@@ -46,6 +47,7 @@
 								<ft:repeater-rows>
 									<tr>
 										<td><ft:widget id="diferido"/></td>
+										<td><ft:widget id="gestionLlamada"/></td>
 										<td><ft:widget id="numContrato"><fi:styling align="right" size="7"/></ft:widget></td>
 										<td><ft:widget id="suscriptor"/></td>
 										<td><ft:widget id="localidadId"/></td>	

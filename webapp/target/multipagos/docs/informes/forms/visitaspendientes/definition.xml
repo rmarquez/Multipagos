@@ -53,14 +53,14 @@
 			<fd:label>Localidad</fd:label>
 			<fd:datatype base="integer" />					
 			<fd:selection-list src="cocoon:/localidad.combo" dynamic="true"/>
-			<fd:on-value-changed>
+			<!-- <fd:on-value-changed>
 				<fd:javascript>
 					alSeleccionarLocalidad(event);
 				</fd:javascript>
-			</fd:on-value-changed>
+			</fd:on-value-changed> -->
 		</fd:field>
 		
-		<fd:field id="barrioId">
+		<!-- <fd:field id="barrioId">
         	<fd:label>Barrio</fd:label>
 			<fd:datatype base="integer"/>
 			<fd:selection-list src="cocoon:/barrio.combo" cache="request" />
@@ -74,7 +74,7 @@
 		<fd:field id="numeroPendientes" state="output">
         	<fd:label>Clientes Pendientes</fd:label>
 			<fd:datatype base="integer"/>
-		</fd:field>
+		</fd:field> -->
 		
 		<fd:field id="asignacionAnio" required="true">
 			<fd:label>Fecha Asignacion</fd:label>
@@ -105,9 +105,13 @@
             <fd:help>Excel</fd:help>
             <fd:hint>Excel</fd:hint>
         </fd:submit>
-        <fd:submit id="aviso">
+        <!-- <fd:submit id="aviso">
             <fd:label>Aviso Cobro</fd:label>
             <fd:help>Boton para generar los avisos de cobro en formato pdf</fd:help>
+        </fd:submit> -->
+        <fd:submit id="lista">
+            <fd:label>Lista Clientes</fd:label>
+            <fd:help>Boton para generar lista de clientes pendientes en excel</fd:help>
         </fd:submit>
     </fd:widgets>
 </fd:form>

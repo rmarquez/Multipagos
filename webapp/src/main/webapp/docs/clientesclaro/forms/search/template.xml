@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+	<header>
+        <title>Clientes Claro</title>
+        
+    </header>
+    <body>
+        <s1 title="Busqueda de clientes">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+             <ft:continuation-id/>
+             <ft:widget id="mensajes de error"/>
+                <fi:items>
+		                <table>	           
+				             <tr>
+				             <tw>
+				                 <ft:widget-label id="contrato"/>
+				                 <ft:widget id="contrato"></ft:widget>
+				             </tw>
+				             <tw>
+				                 <ft:widget-label id="factura"/>
+				                 <ft:widget id="factura"></ft:widget>
+				             </tw>                               
+				             </tr>
+			             </table>
+			             <br/>
+			             <table>
+				             <tr>
+				             <tw>
+				                 <ft:widget-label id="suscriptor"/>
+				                 <ft:widget id="suscriptor"><fi:styling size="35"/></ft:widget>
+				             </tw>
+				             <tw>
+				                 <ft:widget id="buscar"/>
+				             </tw>
+				             </tr>         
+				         </table>
+               	</fi:items>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Datos del Cliente</fi:label>
+                    <fi:items>
+                                           
+                    <ft:repeater id="dCliente">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>
+                                <th><ft:repeater-widget-label widget-id="numContrato"/></th>
+                                <th><ft:repeater-widget-label widget-id="nombre"/></th>
+                              	<th><ft:repeater-widget-label widget-id="facInterna"/></th>
+                              	<th><ft:repeater-widget-label widget-id="mes"/></th>
+                              	<th><ft:repeater-widget-label widget-id="anio"/></th>
+                              	<th><ft:repeater-widget-label widget-id="saldo"/></th>
+                              	<th><ft:repeater-widget-label widget-id="fechaIngreso"/></th>
+                              	<th><ft:repeater-widget-label widget-id="pagado"/></th>                              	
+                              	<th><ft:repeater-widget-label widget-id="pagadoClaro"/></th>
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+								<ft:repeater-rows>
+									<tr>
+										<td><ft:widget id="numContrato"/></td>
+										<td><ft:widget id="nombre"/></td>
+										<td><ft:widget id="facInterna"><fi:styling align="right" size="7"/></ft:widget></td>
+										<td><ft:widget id="mes"/></td>
+										<td><ft:widget id="anio"/></td>	
+										<td><ft:widget id="saldo"/></td>
+										<td><ft:widget id="fechaIngreso"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget></td>
+										<td><ft:widget id="pagado"><fi:styling align="right" size="5"/></ft:widget></td>
+										<td><ft:widget id="pagadoClaro"/></td>																										
+										
+									</tr>
+								</ft:repeater-rows>
+								 </tbody>
+                              </table>
+                		    </div>
+                        </ft:repeater>        										
+                        <br/>                        					
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="salir"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

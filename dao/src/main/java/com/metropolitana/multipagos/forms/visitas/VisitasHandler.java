@@ -445,21 +445,29 @@ public class VisitasHandler {
         }
     }
 	
-	public static boolean getContratoXFecha(final String numeroContrato, final Date fechaVisita) throws Exception {
+	public static boolean getContratoXFecha(final Boolean gestionLlamada,
+			final String numeroContrato, final Date fechaVisita)
+			throws Exception {
 		PersistenceBroker broker = null;
 		try {
 			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
 			Criteria criterio = new Criteria();
+			if (gestionLlamada != null ){
+				criterio.addEqualTo("gestionLlamada", gestionLlamada);
+			} else {
+				criterio.addEqualTo("gestionLlamada", false);
+			}
 			if (numeroContrato != null && fechaVisita != null) {
 				criterio.addEqualTo("numeroContrato", numeroContrato);
 				criterio.addEqualTo("fechaVisita", fechaVisita);
+				
 			}
 			List lst = getContratoXFechaList(criterio);
-            if (lst.isEmpty()) {
-                return Boolean.FALSE.booleanValue();
-            } else {
-                return Boolean.TRUE.booleanValue();
-            }
+			if (lst.isEmpty()) {
+				return Boolean.FALSE.booleanValue();
+			} else {
+				return Boolean.TRUE.booleanValue();
+			}
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -467,7 +475,7 @@ public class VisitasHandler {
 				broker.close();
 			}
 		}
-		
+
 	}
 	
 	private static List getContratoXFechaList(Criteria criterio) throws Exception {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fb:context xmlns:fb="http://apache.org/cocoon/forms/1.0#binding" path="/">
+    <fb:value id="usrId" path="usrId"/>
+    <fb:value id="fecha" path="fecha"/>
+
+	<fb:repeater id="detalle" parent-path="." row-path="detalleGBanproList">
+        <fb:identity>
+            <fb:value id="tmpId" path="tmpId"/>
+            <fb:value id="simboloId" path="simboloId"/>
+            <fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="ciudadCId" path="ciudadCId"/>
+            <fb:value id="departamentoId" path="departamentoId"/>
+        </fb:identity>
+
+        <fb:on-bind>
+            <fb:value id="tmpId" path="tmpId"/>
+            <fb:value id="simboloId" path="simboloId"/>
+            <fb:value id="colectorId" path="colectorId"/>
+            <fb:value id="ciudadCId" path="ciudadCId"/>
+            <fb:value id="departamentoId" path="departamentoId"/>
+            <fb:value id="cuenta" path="cuenta"/>
+            <fb:value id="tarjeta" path="tarjeta"/>
+            <fb:value id="codigo" path="codigo"/>
+            <fb:value id="fechaGestion" path="fechaGestion"/>
+            <fb:value id="avisoCobro" path="avisoCobro"/>
+            <fb:value id="observaciones" path="observaciones"/>
+            <fb:value id="horaRegistro" path="horaRegistro"/>
+            <fb:value id="gestionLlamada" path="gestionLlamada"/>
+        </fb:on-bind>
+
+        <fb:on-delete-row>
+            <fb:delete-node/>
+        </fb:on-delete-row>
+
+        <fb:on-insert-row>
+            <fb:insert-bean classname="com.metropolitana.multipagos.DetalleGBanpro" addmethod="addDetalleGBanpro"/>
+        </fb:on-insert-row>
+    </fb:repeater>
+</fb:context>

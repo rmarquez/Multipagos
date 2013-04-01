@@ -47,6 +47,11 @@
 					</fd:on-value-changed>
                 </fd:field>
                 
+                <fd:booleanfield id="gestionLlamada">
+		            <fd:label>Gestion Llamada:</fd:label>
+		            <fd:help>Indique si la gestion se trata de una llamada telefonica</fd:help>
+		        </fd:booleanfield>
+                
                <fd:field id="cavonId">
 					<fd:datatype base="integer"/>
 				</fd:field>

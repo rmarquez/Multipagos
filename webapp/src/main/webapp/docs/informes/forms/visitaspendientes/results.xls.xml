@@ -13,10 +13,11 @@
     <columnas No="6" Unit="50"/>
     <columnas No="7" Unit="50"/>
     <columnas No="8" Unit="100"/>
+    <columnas No="9" Unit="100"/>
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${8}"/>
+    <jx:set var="colFin" value="${9}"/>
     
     
     <celda Col="${col}" Row="${fila}">VISITAS PENDIENTES</celda>
@@ -42,7 +43,8 @@
         <celda Col="${col+5}" Row="${fila}">SERVICIO</celda>
         <celda Col="${col+6}" Row="${fila}">AÑO</celda>
         <celda Col="${col+7}" Row="${fila}">MES</celda>
-        <celda Col="${col+8}" Row="${fila}">F.ASIGNADO</celda>        
+        <celda Col="${col+8}" Row="${fila}">F.ASIGNADO</celda> 
+        <celda Col="${col+9}" Row="${fila}">NUM ASIGNACION</celda>        
         <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Recuadro="1"/>
         <jx:set var="fila" value="${fila+1}"/>
         <jx:set var="filaIni" value="${fila}"/> 
@@ -72,6 +74,7 @@
         <celda Col="${col+6}" Row="${fila}">AÑO</celda>
         <celda Col="${col+7}" Row="${fila}">MES</celda>
         <celda Col="${col+8}" Row="${fila}">F.ASIGNADO</celda> 
+        <celda Col="${col+9}" Row="${fila}">NUM ASIGNACION</celda> 
         <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="14" Recuadro="1"/>
         <jx:set var="fila" value="${fila+1}"/>
         <jx:set var="filaIni" value="${fila}"/> 
@@ -88,7 +91,8 @@
     <celda Col="${col+6}" Row="${fila}">${item[6]}</celda>
     <celda Col="${col+7}" Row="${fila}">${item[7]}</celda>
     <celda Col="${col+8}" Row="${fila}"><formatoFecha fecha="${item[8]}" patron="dd/MMM/yyyy"/></celda>
-        <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
+    <celda Col="${col+9}" Row="${fila}">${numAsignacion}</celda>
+    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
     <jx:set var="fila" value="${fila+1}"/>
 
     
