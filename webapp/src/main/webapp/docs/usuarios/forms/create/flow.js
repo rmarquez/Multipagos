@@ -1,3 +1,5 @@
+importClass(Packages.org.apache.cocoon.forms.formmodel.WidgetState);
+
 function createform(form) {
     if (autorizar("auth")) {
         form.showForm("create-form-display");
@@ -16,6 +18,17 @@ function createform(form) {
 
         dialogosino("Usuarios", "Usuario procesado con éxito",
                         "¿Desea procesar un nuevo Usuario?","create", "/bienvenidos");
+    }
+}
+
+function alSeleccionarInicio(event) {
+    var usrPinicio = event.source.value;
+    var usrOrden = event.source.parent.getChild("usrOrden");
+    usrOrden.setValue(null);
+    if (usrPinicio.booleanValue()== true) {
+    	usrOrden.setState(WidgetState.ACTIVE);        
+    } else {
+    	usrOrden.setState(WidgetState.INVISIBLE);
     }
 }
 

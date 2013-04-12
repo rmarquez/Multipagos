@@ -156,46 +156,28 @@ public class ContadorVisitasPagos {
 			for (Iterator iter = broker.getReportQueryIteratorByQuery(queryCantidadesSupervisor(Integer.valueOf(1))); iter.hasNext();) {
 				Object[] detalle = (Object[]) iter.next();
 			
-			
+				Integer meta = Integer.valueOf(600);
 				if((Integer)detalle[2] == 1){
 						
 					Integer visitas = getCantidadVisitas((Integer)detalle[2], (Integer)detalle[0]);
 					Integer pagos = getCantidadPagos((Integer)detalle[2], (Integer)detalle[0]);
 					
 					
-					detalle[3] =visitas;
-					detalle[4] =pagos;
+					detalle[5] =visitas;
+					detalle[6] =pagos;
 					
 					Integer total = visitas + pagos;
 					
-					detalle[5] =total;
-					Integer meta = 0;
+					detalle[7] =total;
 					String nombre = "";
-					if((Integer)detalle[0] == 4){
-						meta = Integer.valueOf(600);
-						nombre = "Equipo 1";
-					}
-					if((Integer)detalle[0] == 5){
-						meta = Integer.valueOf(600);
-						nombre = "Equipo 2";
-					}
-					if((Integer)detalle[0] == 6){
-						meta = Integer.valueOf(600);
-						nombre = "Equipo 5";
-					}
-					if((Integer)detalle[0] == 25){
-						meta = Integer.valueOf(600);
-						nombre = "Equipo 4";
-					}
-					if((Integer)detalle[0] == 11){
-						meta = Integer.valueOf(600);
-						nombre = "Equipo 3";
+					if((Integer)detalle[4] != null){
+						nombre = "Equipo " + ((Integer)detalle[4]).toString();
 					}
 					
 					Integer diferencia = (total - meta);
 					detalle[1] = nombre;
-					detalle[6] = meta;
-					detalle[7] =diferencia;
+					detalle[8] = meta;
+					detalle[9] =diferencia;
 					
 	                lista.add(detalle);
 				}
@@ -212,27 +194,31 @@ public class ContadorVisitasPagos {
 		}
 	}
 	
-	private static ReportQueryByCriteria queryCantidadesSupervisor(Integer departamentoId) {
+	private static ReportQueryByCriteria queryCantidadesSupervisor(
+			Integer departamentoId) {
 
-		Criteria criterio = new Criteria();		
-		criterio.addEqualTo("visitaIdRef.usrIdRef.usrEnable", Boolean.TRUE);	
-		if(departamentoId != null){
-		criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
+		Criteria criterio = new Criteria();
+		criterio.addEqualTo("visitaIdRef.usrIdRef.usrEnable", Boolean.TRUE);
+		if (departamentoId != null) {
+			criterio.addEqualTo("localidadIdRef.departamentoId", departamentoId);
 		}
 		ReportQueryByCriteria query = new ReportQueryByCriteria(
 				DetalleVisitas.class, criterio);
 		query.setAttributes(new String[] { "visitaIdRef.usrId",
-										   "visitaIdRef.usrIdRef.usrLogin", 
-										   "localidadIdRef.departamentoId",
-										   "0.00", 
-										   "0.00", 
-										   "0.00", 
-										   "0.00", 
-										   "0.00"});
+				"visitaIdRef.usrIdRef.usrLogin",
+				"localidadIdRef.departamentoId",
+				"visitaIdRef.usrIdRef.usrPinicio",
+				"visitaIdRef.usrIdRef.usrOrden", "0.00", "0.00", "0.00",
+				"0.00", "0.00" });
 
-		query.addGroupBy(new String[] { "visitaIdRef.usrId","visitaIdRef.usrIdRef.usrLogin" , "localidadIdRef.departamentoId"});
+		query.addGroupBy(new String[] { "visitaIdRef.usrId",
+				"visitaIdRef.usrIdRef.usrLogin",
+				"localidadIdRef.departamentoId",
+				"visitaIdRef.usrIdRef.usrPinicio",
+				"visitaIdRef.usrIdRef.usrOrden" });
 
-		query.addOrderBy("visitaIdRef.usrId", true);
+		//query.addOrderBy("visitaIdRef.usrId", true);
+		query.addOrderBy("visitaIdRef.usrIdRef.usrOrden", true);
 		return query;
 	}
 	

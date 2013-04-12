@@ -18,6 +18,8 @@
 		<field-descriptor name="usrEmail" default-fetch="true" column="USR_EMAIL" jdbc-type="VARCHAR"/>
 		<field-descriptor name="usrCargo" nullable="false" default-fetch="true" column="USR_CARGO" jdbc-type="VARCHAR"/>
 		<field-descriptor name="usrEditdb" nullable="false" default-fetch="true" column="USR_EDITDB" jdbc-type="BIT"/>
+		<field-descriptor name="usrPinicio" nullable="false" default-fetch="true" column="USR_PINICIO" jdbc-type="BIT"/>
+		<field-descriptor name="usrOrden" default-fetch="true" column="USR_ORDEN" jdbc-type="INTEGER"/>
 		<collection-descriptor name="authUserRoleList" element-class-ref="com.metropolitana.multipagos.AuthUserRole" auto-update="true" auto-delete="true" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
@@ -89,6 +91,11 @@
 			<foreignkey field-ref="resId"/>
 		</reference-descriptor>
 	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.Empresa" table="EMPRESA">
+		<field-descriptor name="empId" primarykey="true" nullable="false" default-fetch="true" column="EMP_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="empSerial" default-fetch="true" column="EMP_SERIAL" jdbc-type="INTEGER"/>
+		<field-descriptor name="empMcodigo" default-fetch="true" column="EMP_MCODIGO" jdbc-type="INTEGER"/>
+	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.EstadoCorte" table="ESTADO_CORTE">
 		<field-descriptor name="estadoId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="estado_corte_estado_id_seq" column="ESTADO_ID" jdbc-type="INTEGER"/>
 		<field-descriptor name="estadoNombre" nullable="false" default-fetch="true" column="ESTADO_NOMBRE" jdbc-type="VARCHAR"/>
@@ -119,11 +126,6 @@
 		<collection-descriptor name="asignacionClaroList" element-class-ref="com.metropolitana.multipagos.AsignacionClaro" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="departamentoId"/>
 		</collection-descriptor>
-	</class-descriptor>
-	<class-descriptor class="com.metropolitana.multipagos.Empresa" table="EMPRESA">
-		<field-descriptor name="empId" primarykey="true" nullable="false" default-fetch="true" column="EMP_ID" jdbc-type="INTEGER"/>
-		<field-descriptor name="empSerial" default-fetch="true" column="EMP_SERIAL" jdbc-type="INTEGER"/>
-		<field-descriptor name="empMcodigo" default-fetch="true" column="EMP_MCODIGO" jdbc-type="INTEGER"/>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.Localidad" table="LOCALIDAD">
 		<field-descriptor name="localidadId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="localidad_localidad_id_seq" column="LOCALIDAD_ID" jdbc-type="INTEGER"/>

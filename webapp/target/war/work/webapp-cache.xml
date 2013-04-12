@@ -107,7 +107,6 @@
           <string>resources/images/Logo_final_aprobado_100807.png</string>
           <string>resources/images/kcmdf2.png</string>
           <string>resources/images/dot.gif</string>
-          <string>resources/images/claro2.gif</string>
           <string>resources/images/barra_gris.jpg</string>
           <string>resources/images/menu/mini_a_right.gif</string>
           <string>resources/images/menu/fonsmail.gif</string>
@@ -125,9 +124,10 @@
           <string>resources/images/Logo_final.png</string>
           <string>resources/images/logo_final.gif</string>
           <string>resources/images/cocoon.gif</string>
-          <string>resources/images/claro3.jpg</string>
+          <string>resources/images/vmultipagos.jpg</string>
           <string>resources/images/iu.jpg</string>
           <string>resources/images/logo_multipagos.png</string>
+          <string>resources/images/separator3.gif</string>
           <string>translations/FormsMessages_es.xml</string>
           <string>translations/FormsMessages_es_NI.xml</string>
           <string>translations/FormsMessages.xml</string>

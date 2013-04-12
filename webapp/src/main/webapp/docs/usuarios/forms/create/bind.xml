@@ -7,6 +7,8 @@
     <fb:value id="usrEmail" path="usrEmail"/>
     <fb:value id="usrCargo" path="usrCargo"/>
      <fb:value id="usrEditdb" path="usrEditdb"/>
+     <fb:value id="usrPinicio" path="usrPinicio"/>
+     <fb:value id="usrOrden" path="usrOrden"/>
     <fb:repeater id="roles" parent-path="." row-path="authUserRoleList">
         <fb:identity>
             <fb:value path="rolId" id="rolId"/>

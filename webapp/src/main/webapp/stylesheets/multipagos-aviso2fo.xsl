@@ -91,10 +91,19 @@
     </xsl:template>
     
     <xsl:template match="logos">
-	    <fo:block margin-top="0pt" margin-left="110pt">
-	      <fo:external-graphic width="150pt" height="40pt" src="{$baseUrl}/images/multipagos.jpg"/>
+	    <fo:block margin-top="0pt" margin-left="0pt">
+	      <fo:external-graphic width="140pt" height="35pt" src="{$baseUrl}/images/multipagos.jpg"/>
 	      <fo:external-graphic content-width="120pt" content-height="6pt" display-align="before" src="{$baseUrl}/images/separator2.gif"/>
-	      <fo:external-graphic width="30pt" height="30pt" src="{$baseUrl}/images/claro.gif"/>
+	      <fo:external-graphic width="25pt" height="25pt" src="{$baseUrl}/images/claro.gif"/>
+	      <fo:external-graphic content-width="120pt" content-height="6pt" display-align="before" src="{$baseUrl}/images/separator2.gif"/>
+	      <fo:external-graphic width="140pt" height="30pt" src="{$baseUrl}/images/vmultipagos.jpg"/>
+	      <xsl:apply-templates/>
+	    </fo:block>
+	</xsl:template>
+	
+	<xsl:template match="vlogo">
+	    <fo:block margin-top="0pt" margin-left="435pt">
+	      <fo:external-graphic width="140pt" height="30pt" src="{$baseUrl}/images/vmultipagos.jpg"/>
 	      <xsl:apply-templates/>
 	    </fo:block>
 	</xsl:template>

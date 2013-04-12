@@ -22,6 +22,8 @@
                         <ft:widget id="usrEmail"><fi:styling size="40"/></ft:widget>
                         <ft:widget id="usrEnable"><fi:styling checked="checked"/></ft:widget>
                         <ft:widget id="usrEditdb"/>
+                        <ft:widget id="usrPinicio"/>
+                        <ft:widget id="usrOrden"/>
                         <ft:repeater id="roles">
                           <div>
                             <table>

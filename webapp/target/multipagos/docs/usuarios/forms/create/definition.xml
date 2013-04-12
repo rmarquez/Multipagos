@@ -71,6 +71,22 @@
             <fd:label>Editar Base de Datos:</fd:label>
             <fd:help>Indique si el usuario podra subir registros nuevos para la base de datos</fd:help>
         </fd:booleanfield>
+        
+        <fd:booleanfield id="usrPinicio">
+            <fd:label>Incluir en Inicio:</fd:label>
+            <fd:help>Indique si el usuario debe aparecer en los detalles de la pagina de Inicio</fd:help>
+            <fd:on-value-changed>
+				<fd:javascript>
+					alSeleccionarInicio(event);
+				</fd:javascript>
+			</fd:on-value-changed>
+        </fd:booleanfield>
+        
+        <fd:field id="usrOrden" state="invisible">
+        	<fd:label>Orden:</fd:label>
+        	<fd:help>Es el orden en el que debe aparecer en la pagina de inicio ej. 1,2, .. </fd:help>
+			<fd:datatype base="integer"/>
+		</fd:field>
 
        <fd:field id="usrEmail">
             <fd:label>Correo electrónico:</fd:label>
