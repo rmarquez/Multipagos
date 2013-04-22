@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:ft="http://apache.org/cocoon/forms/1.0#template"
+          xmlns:fi="http://apache.org/cocoon/forms/1.0#instance"
+          xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+          <!-- Import the macros that define CForms template elements -->
+          <jx:import uri="resource://org/apache/cocoon/forms/generation/jx-macros.xml"/>
+	<header>
+        <title>Control de pagos Ibw</title>
+    </header>
+    <body>
+        <s1 title="Registro pagos a gestor">
+            <ft:form-template action="#{$cocoon/continuation/id}.continue" method="post" ajax="true">
+             <ft:continuation-id/>
+             <ft:widget id="editar"><fi:styling type="hidden"/></ft:widget>
+             <ft:widget id="mensajes de error"/>
+                <fi:items>
+                	<ft:widget id="usrId"/>
+                	<ft:widget id="fecha"><fi:styling type="date" format="dd/MM/yyyy" size="12"/></ft:widget>
+               	</fi:items>
+                <fi:group>
+                    <fi:styling type="fieldset" layout="columns"/>
+                    <fi:label>Agregar datos del pago</fi:label>
+                    <fi:items>
+                                           
+                    <ft:repeater id="detalle">
+                      <div>
+    				  <table>
+                          <thead>
+                              <tr>
+                              	<th><ft:repeater-widget-label widget-id="codigo"/></th>
+                              	<th><ft:repeater-widget-label widget-id="cliente"/></th>
+                              	<th><ft:repeater-widget-label widget-id="municipioId"/></th>
+                              	<th><ft:repeater-widget-label widget-id="factura"/></th>
+                              	<th><ft:repeater-widget-label widget-id="salgoPagar"/></th>
+                              	<th><ft:repeater-widget-label widget-id="fechaFactura"/></th>
+                              	<th><ft:repeater-widget-label widget-id="mes"/></th>
+                              	<th><ft:repeater-widget-label widget-id="montoPago"/></th>
+                              	<th><ft:repeater-widget-label widget-id="fechaPago"/></th>
+                              	<th><ft:repeater-widget-label widget-id="recibo"/></th>                              	
+                              	<th><ft:repeater-widget-label widget-id="colectorNumero"/></th>
+                              	<th><ft:repeater-widget-label widget-id="colectorNombre"/></th>
+                              	<th><ft:repeater-widget-label widget-id="observaciones"/></th>
+                              	<th><ft:repeater-widget-label widget-id="marcar"/></th>
+                              </tr>			                                
+                          </thead>
+                          <tbody>  
+								<ft:repeater-rows>
+									<tr>
+										<td><ft:widget id="codigo"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="cliente"/></td>
+										<td><ft:widget id="municipioId"/></td>
+										<td><ft:widget id="factura"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="salgoPagar"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="fechaFactura"><fi:styling align="right" size="4"/></ft:widget></td>
+										<td><ft:widget id="mes"><fi:styling align="right" size="2"/></ft:widget></td>
+										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="fechaPago"/></td>
+										<td><ft:widget id="recibo"><fi:styling align="right" size="6"/></ft:widget></td>	
+										<td><ft:widget id="colectorNumero"><fi:styling align="right" size="3"/></ft:widget></td>
+										<td><ft:widget id="colectorNombre"/></td>
+										<td><ft:widget id="observaciones"/></td>
+										<td><ft:widget id="marcar"/></td>
+										<td><ft:widget id="horaRegistro"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="carteraId"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="colectorId"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="contador"><fi:styling type="hidden"/></ft:widget></td>
+										<td><ft:widget id="barrioId"><fi:styling type="hidden"/></ft:widget></td>
+										
+									</tr>
+								</ft:repeater-rows>
+								<tr>
+									<td colspan="17" align="right">
+										<ft:widget id="../agregar"/>
+										<ft:widget id="../eliminar"/>
+									</td>
+								</tr>
+								 </tbody>
+                              </table>
+                		    </div>
+                        </ft:repeater>        										
+                        <ft:widget id="montoTotal"/>
+                        <ft:widget id="cantidadPagos"/>                 
+                        <br/>                        					
+                    </fi:items>
+                </fi:group>
+                <ft:widget id="crear"/>
+            </ft:form-template>
+        </s1>
+    </body>
+</document>

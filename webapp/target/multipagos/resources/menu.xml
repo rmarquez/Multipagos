@@ -45,6 +45,8 @@
              <div dojoType="MenuItem2" caption="Avon"
                      onClick="parent.window.location='/multipagos/altadbavon/create'"/>
              <div dojoType="MenuItem2" caption="Banpro" submenuId="altabanpro"/>
+             <div dojoType="MenuItem2" caption="Ibw"
+                     onClick="parent.window.location='/multipagos/altaibw/create'"/>
          </div>
          
          <div dojoType="PopupMenu2" widgetId="corregirdb">
@@ -291,7 +293,7 @@
          	<div dojoType="MenuItem2" caption="enitel" submenuId="enitel"/>
             <div dojoType="MenuItem2" caption="avon" submenuId="avon"/>
             <div dojoType="MenuItem2" caption="banpro" submenuId="banpro"/> 	  
-         	
+            <div dojoType="MenuItem2" caption="ibw" submenuId="ibw"/>
          </div>
          
          <!-- enitel -->
@@ -318,13 +320,21 @@
 		     </jx:if>
          </div>
          
-         <!-- avon -->
+         <!-- banpro -->
          <div dojoType="PopupMenu2" widgetId="banpro">
          	<jx:if test="${bean.getResources().contains('agregar')}">
 		             <div dojoType="MenuItem2" caption="Crear"
 		                  onClick="parent.window.location='/multipagos/gestionbanpro/create'"/>
                		 <div dojoType="MenuItem2" caption="Buscar Cliente"
 		                  onClick="parent.window.location='/multipagos/clientesbanpro/search'"/>
+		     </jx:if>
+         </div>
+         
+         <!-- ibw -->
+         <div dojoType="PopupMenu2" widgetId="ibw">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/gestionibw/create'"/>
 		     </jx:if>
          </div>
         

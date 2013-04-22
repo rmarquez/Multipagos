@@ -156,6 +156,18 @@
           <string>docs/datosclientes/forms/create/definition.xml</string>
           <string>docs/datosclientes/forms/create/flow.js</string>
           <string>docs/datosclientes/forms/create/template.xml</string>
+          <string>docs/ibwpagos/sitemap.xmap</string>
+          <string>docs/ibwpagos/forms/util/flow.js</string>
+          <string>docs/ibwpagos/forms/combo/flow.js</string>
+          <string>docs/ibwpagos/forms/combo/supervisor.xml</string>
+          <string>docs/ibwpagos/forms/combo/barrio.xml</string>
+          <string>docs/ibwpagos/forms/combo/colector.xml</string>
+          <string>docs/ibwpagos/forms/combo/cartera.xml</string>
+          <string>docs/ibwpagos/forms/combo/municipio.xml</string>
+          <string>docs/ibwpagos/forms/create/bind.xml</string>
+          <string>docs/ibwpagos/forms/create/definition.xml</string>
+          <string>docs/ibwpagos/forms/create/flow.js</string>
+          <string>docs/ibwpagos/forms/create/template.xml</string>
           <string>docs/localidad/sitemap.xmap</string>
           <string>docs/localidad/forms/util/flow.js</string>
           <string>docs/localidad/forms/search/bind.xml</string>

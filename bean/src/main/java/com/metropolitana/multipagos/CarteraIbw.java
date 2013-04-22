@@ -1,5 +1,5 @@
 //==============================================================================
-//===   cartera_ibw.java                        Build:2672
+//===   cartera_ibw.java                        Build:2679
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -241,6 +241,20 @@ public class CarteraIbw implements java.io.Serializable
    {
       detalleGIbw.setCarteraIdRef(this);
       detalleGIbwList.add( detalleGIbw );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleIbwPagosList = new ArrayList();
+
+   public Collection getDetalleIbwPagosList() { return detalleIbwPagosList;}
+
+   public void setDetalleIbwPagosList(Collection c) { this.detalleIbwPagosList = c;}
+
+   public void addDetalleIbwPagos( DetalleIbwPagos detalleIbwPagos )
+   {
+      detalleIbwPagos.setCarteraIdRef(this);
+      detalleIbwPagosList.add( detalleIbwPagos );
    }
 
    //---------------------------------------------------------------------------

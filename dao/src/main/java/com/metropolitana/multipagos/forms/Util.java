@@ -266,6 +266,38 @@ public class Util {
         }
     }
     
+    public static String getMesfecha(final Date fecha) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
+        String mes ="";
+        int numero = Integer.parseInt(dateFormat.format(fecha));
+                    if(numero==1){
+                           mes ="Ene";
+                    } else if (numero==2){
+                           mes ="Feb";
+                    } else if (numero==3){
+                           mes ="Marz";
+                    } else if (numero==4){
+                           mes ="Abr";
+                    } else if (numero==5){
+                           mes ="May";
+                    } else if (numero==6){
+                           mes ="Jun";
+                    } else if (numero==7){
+                           mes ="Jul";
+                    } else if (numero==8){
+                           mes ="Agos";
+                    } else if (numero==9){
+                           mes ="Sept";
+                    } else if (numero==10){
+                           mes ="Oct";
+                    } else if (numero==11){
+                           mes ="Nov";
+                    }else if (numero==12){
+                           mes ="Dic";
+                    }
+        return mes;
+    }
+    
      public static BigDecimal getMontoPendiente(String contrato, Integer numLote) throws Exception {
             PersistenceBroker broker = null;
             try {

@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2675
+//===   auth_user.java                        Build:2679
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -257,6 +257,20 @@ public class AuthUser implements java.io.Serializable
    {
       gestionIbw.setUsrIdRef(this);
       gestionIbwList.add( gestionIbw );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection ibwPagosList = new ArrayList();
+
+   public Collection getIbwPagosList() { return ibwPagosList;}
+
+   public void setIbwPagosList(Collection c) { this.ibwPagosList = c;}
+
+   public void addIbwPagos( IbwPagos ibwPagos )
+   {
+      ibwPagos.setUsrIdRef(this);
+      ibwPagosList.add( ibwPagos );
    }
 
    //---------------------------------------------------------------------------

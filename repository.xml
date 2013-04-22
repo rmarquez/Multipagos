@@ -50,6 +50,9 @@
 		<collection-descriptor name="gestionIbwList" element-class-ref="com.metropolitana.multipagos.GestionIbw" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
+		<collection-descriptor name="ibwPagosList" element-class-ref="com.metropolitana.multipagos.IbwPagos" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="usrId"/>
+		</collection-descriptor>
 		<collection-descriptor name="pendientesClaroList" element-class-ref="com.metropolitana.multipagos.PendientesClaro" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
@@ -389,6 +392,9 @@
 			<inverse-foreignkey field-ref="colectorId"/>
 		</collection-descriptor>
 		<collection-descriptor name="detalleGIbwList" element-class-ref="com.metropolitana.multipagos.DetalleGIbw" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="colectorId"/>
+		</collection-descriptor>
+		<collection-descriptor name="detalleIbwPagosList" element-class-ref="com.metropolitana.multipagos.DetalleIbwPagos" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="colectorId"/>
 		</collection-descriptor>
 	</class-descriptor>
@@ -1201,6 +1207,9 @@
 		<collection-descriptor name="detalleGIbwList" element-class-ref="com.metropolitana.multipagos.DetalleGIbw" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="carteraId"/>
 		</collection-descriptor>
+		<collection-descriptor name="detalleIbwPagosList" element-class-ref="com.metropolitana.multipagos.DetalleIbwPagos" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="carteraId"/>
+		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.IDepartamento" table="I_DEPARTAMENTO">
 		<field-descriptor name="iDepartamentoId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="i_departamento_i_departamento_id_seq" column="I_DEPARTAMENTO_ID" jdbc-type="INTEGER"/>
@@ -1230,6 +1239,9 @@
 		<collection-descriptor name="detalleGIbwList" element-class-ref="com.metropolitana.multipagos.DetalleGIbw" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="municipioId"/>
 		</collection-descriptor>
+		<collection-descriptor name="detalleIbwPagosList" element-class-ref="com.metropolitana.multipagos.DetalleIbwPagos" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="municipioId"/>
+		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.IBarrio" table="I_BARRIO">
 		<field-descriptor name="barrioId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="b_barrio_barrio_id_seq" column="BARRIO_ID" jdbc-type="INTEGER"/>
@@ -1243,6 +1255,9 @@
 			<inverse-foreignkey field-ref="barrioId"/>
 		</collection-descriptor>
 		<collection-descriptor name="detalleGIbwList" element-class-ref="com.metropolitana.multipagos.DetalleGIbw" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="barrioId"/>
+		</collection-descriptor>
+		<collection-descriptor name="detalleIbwPagosList" element-class-ref="com.metropolitana.multipagos.DetalleIbwPagos" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="barrioId"/>
 		</collection-descriptor>
 	</class-descriptor>
@@ -1296,6 +1311,51 @@
 		</reference-descriptor>
 		<reference-descriptor name="simboloIdRef" class-ref="com.metropolitana.multipagos.SimboloIbw" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="simboloId"/>
+		</reference-descriptor>
+		<reference-descriptor name="colectorIdRef" class-ref="com.metropolitana.multipagos.Colector" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="colectorId"/>
+		</reference-descriptor>
+		<reference-descriptor name="municipioIdRef" class-ref="com.metropolitana.multipagos.Municipio" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="municipioId"/>
+		</reference-descriptor>
+		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.IBarrio" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="barrioId"/>
+		</reference-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.IbwPagos" table="IBW_PAGOS">
+		<field-descriptor name="pagoId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="ibw_pagos_pago_id_seq" column="PAGO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="usrId" nullable="false" default-fetch="true" column="USR_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="fecha" nullable="false" default-fetch="true" column="FECHA" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="montoTotal" nullable="false" default-fetch="true" column="MONTO_TOTAL" jdbc-type="NUMERIC"/>
+		<field-descriptor name="cantidadPagos" nullable="false" default-fetch="true" column="CANTIDAD_PAGOS" jdbc-type="INTEGER"/>
+		<reference-descriptor name="usrIdRef" class-ref="com.metropolitana.multipagos.AuthUser" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="usrId"/>
+		</reference-descriptor>
+		<collection-descriptor name="detalleIbwPagosList" element-class-ref="com.metropolitana.multipagos.DetalleIbwPagos" auto-update="true" auto-delete="true" proxy="true">
+			<inverse-foreignkey field-ref="pagoId"/>
+		</collection-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.DetalleIbwPagos" table="DETALLE_IBW_PAGOS">
+		<field-descriptor name="pagoId" primarykey="true" nullable="false" default-fetch="true" column="PAGO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="carteraId" primarykey="true" nullable="false" default-fetch="true" column="CARTERA_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="colectorId" primarykey="true" nullable="false" default-fetch="true" column="COLECTOR_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="municipioId" primarykey="true" nullable="false" default-fetch="true" column="MUNICIPIO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="barrioId" primarykey="true" default-fetch="true" column="BARRIO_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="codigo" default-fetch="true" column="CODIGO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="factura" default-fetch="true" column="FACTURA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="montoPago" nullable="false" default-fetch="true" column="MONTO_PAGO" jdbc-type="NUMERIC"/>
+		<field-descriptor name="fechaPago" nullable="false" default-fetch="true" column="FECHA_PAGO" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="recibo" nullable="false" default-fetch="true" column="RECIBO" jdbc-type="INTEGER"/>
+		<field-descriptor name="horaRegistro" nullable="false" default-fetch="true" column="HORA_REGISTRO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="observaciones" default-fetch="true" column="OBSERVACIONES" jdbc-type="VARCHAR"/>
+		<field-descriptor name="salgoPagar" default-fetch="true" column="SALGO_PAGAR" jdbc-type="NUMERIC"/>
+		<field-descriptor name="fechaFactura" default-fetch="true" column="FECHA_FACTURA" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="mes" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
+		<reference-descriptor name="pagoIdRef" class-ref="com.metropolitana.multipagos.IbwPagos" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="pagoId"/>
+		</reference-descriptor>
+		<reference-descriptor name="carteraIdRef" class-ref="com.metropolitana.multipagos.CarteraIbw" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="carteraId"/>
 		</reference-descriptor>
 		<reference-descriptor name="colectorIdRef" class-ref="com.metropolitana.multipagos.Colector" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="colectorId"/>

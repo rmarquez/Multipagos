@@ -1,5 +1,5 @@
 //==============================================================================
-//===   municipio.java                        Build:2672
+//===   municipio.java                        Build:2679
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -99,6 +99,20 @@ public class Municipio implements java.io.Serializable
    {
       detalleGIbw.setMunicipioIdRef(this);
       detalleGIbwList.add( detalleGIbw );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleIbwPagosList = new ArrayList();
+
+   public Collection getDetalleIbwPagosList() { return detalleIbwPagosList;}
+
+   public void setDetalleIbwPagosList(Collection c) { this.detalleIbwPagosList = c;}
+
+   public void addDetalleIbwPagos( DetalleIbwPagos detalleIbwPagos )
+   {
+      detalleIbwPagos.setMunicipioIdRef(this);
+      detalleIbwPagosList.add( detalleIbwPagos );
    }
 
    //---------------------------------------------------------------------------

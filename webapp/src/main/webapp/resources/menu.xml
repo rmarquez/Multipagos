@@ -342,6 +342,7 @@
          <div dojoType="PopupMenu2" widgetId="pagos">
          	<div dojoType="MenuItem2" caption="enitel" submenuId="enitel2"/>
             <div dojoType="MenuItem2" caption="avon" submenuId="avon2"/>
+            <div dojoType="MenuItem2" caption="ibw" submenuId="ibw2"/>
          	
          </div>
          
@@ -364,6 +365,14 @@
          	<jx:if test="${bean.getResources().contains('agregar')}">
 		             <div dojoType="MenuItem2" caption="Crear"
 		                  onClick="parent.window.location='/multipagos/avonpagos/create'"/>
+		     </jx:if>
+         </div>
+         
+         <!-- avon -->
+         <div dojoType="PopupMenu2" widgetId="ibw2">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/ibwpagos/create'"/>
 		     </jx:if>
          </div>
          

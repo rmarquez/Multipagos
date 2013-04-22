@@ -1,5 +1,5 @@
 //==============================================================================
-//===   i_barrio.java                        Build:2672
+//===   i_barrio.java                        Build:2680
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -85,6 +85,20 @@ public class IBarrio implements java.io.Serializable
    {
       detalleGIbw.setBarrioIdRef(this);
       detalleGIbwList.add( detalleGIbw );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection detalleIbwPagosList = new ArrayList();
+
+   public Collection getDetalleIbwPagosList() { return detalleIbwPagosList;}
+
+   public void setDetalleIbwPagosList(Collection c) { this.detalleIbwPagosList = c;}
+
+   public void addDetalleIbwPagos( DetalleIbwPagos detalleIbwPagos )
+   {
+      detalleIbwPagos.setBarrioIdRef(this);
+      detalleIbwPagosList.add( detalleIbwPagos );
    }
 
    //---------------------------------------------------------------------------
