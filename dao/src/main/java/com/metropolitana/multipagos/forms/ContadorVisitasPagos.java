@@ -157,7 +157,7 @@ public class ContadorVisitasPagos {
 				Object[] detalle = (Object[]) iter.next();
 			
 				Integer meta = Integer.valueOf(600);
-				if((Integer)detalle[2] == 1){
+				//if((Integer)detalle[2] == 1){
 						
 					Integer visitas = getCantidadVisitas((Integer)detalle[2], (Integer)detalle[0]);
 					Integer pagos = getCantidadPagos((Integer)detalle[2], (Integer)detalle[0]);
@@ -170,7 +170,7 @@ public class ContadorVisitasPagos {
 					
 					detalle[7] =total;
 					String nombre = "";
-					if((Integer)detalle[4] != null){
+					if(((Integer)detalle[4]) != null){
 						nombre = "Equipo " + ((Integer)detalle[4]).toString();
 					}
 					
@@ -180,7 +180,7 @@ public class ContadorVisitasPagos {
 					detalle[9] =diferencia;
 					
 	                lista.add(detalle);
-				}
+				//}
 				
 				
 			}

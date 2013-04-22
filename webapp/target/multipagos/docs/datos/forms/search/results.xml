@@ -47,8 +47,8 @@
 		                        <tbody>
 					                  <jx:forEach var="item2" items="${usr}" varStatus="status">
 					                        <tr>
-					                        	<!-- <jx:if test="${(item2[0]) &lt; 12 || (item2[0]) == 25}"> -->
-					                        	<jx:if test="${(item2[3]) == true}">
+					                        	<!-- <jx:if test="${(item2[0]) &lt; 12 || (item2[0]) == 25}">-->
+					                        	<jx:if test="${(item2[3])==true}"> 
 						                           <td align="right"><blue>${item2[1]}</blue></td>
 						                           <td><blue>${item2[5]}</blue></td>
 						                           <td><blue>${item2[6]}</blue></td>
@@ -60,7 +60,7 @@
 						                       		<jx:if test="${(item2[9]) &gt; 0 || (item2[9]) == 0}">
 						                           		<td><diferenciap>${item2[9]}</diferenciap></td>
 						                       		</jx:if> 
-					                       		</jx:if> 	                       
+					                       	<!--  -->		</jx:if>                        
 					                        </tr>				                        
 					                  </jx:forEach>
 					                </tbody>

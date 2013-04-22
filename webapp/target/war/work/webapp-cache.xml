@@ -484,6 +484,19 @@
           <string>docs/visitas/forms/create/definition.xml</string>
           <string>docs/visitas/forms/create/flow.js</string>
           <string>docs/visitas/forms/create/template.xml</string>
+          <string>docs/gestionibw/sitemap.xmap</string>
+          <string>docs/gestionibw/forms/util/flow.js</string>
+          <string>docs/gestionibw/forms/combo/flow.js</string>
+          <string>docs/gestionibw/forms/combo/supervisor.xml</string>
+          <string>docs/gestionibw/forms/combo/barrio.xml</string>
+          <string>docs/gestionibw/forms/combo/colector.xml</string>
+          <string>docs/gestionibw/forms/combo/simbolo.xml</string>
+          <string>docs/gestionibw/forms/combo/cartera.xml</string>
+          <string>docs/gestionibw/forms/combo/municipio.xml</string>
+          <string>docs/gestionibw/forms/create/bind.xml</string>
+          <string>docs/gestionibw/forms/create/definition.xml</string>
+          <string>docs/gestionibw/forms/create/flow.js</string>
+          <string>docs/gestionibw/forms/create/template.xml</string>
           <string>docs/cantidades/sitemap.xmap</string>
           <string>docs/cantidades/forms/search/bind.xml</string>
           <string>docs/cantidades/forms/search/definition.xml</string>
@@ -599,6 +612,14 @@
           <string>docs/pagos/forms/create/definition.xml</string>
           <string>docs/pagos/forms/create/flow.js</string>
           <string>docs/pagos/forms/create/template.xml</string>
+          <string>docs/altaibw/sitemap.xmap</string>
+          <string>docs/altaibw/forms/migrar/bind.xml</string>
+          <string>docs/altaibw/forms/migrar/definition.xml</string>
+          <string>docs/altaibw/forms/migrar/results.xml</string>
+          <string>docs/altaibw/forms/migrar/flow.js</string>
+          <string>docs/altaibw/forms/create/definition.xml</string>
+          <string>docs/altaibw/forms/create/flow.js</string>
+          <string>docs/altaibw/forms/create/template.xml</string>
           <string>docs/suggestions/flow.js</string>
           <string>docs/altadbavon/sitemap.xmap</string>
           <string>docs/altadbavon/forms/migrar/bind.xml</string>

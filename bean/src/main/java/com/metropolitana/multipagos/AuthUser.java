@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2657
+//===   auth_user.java                        Build:2675
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -205,6 +205,20 @@ public class AuthUser implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   private Collection gestionBanproList = new ArrayList();
+
+   public Collection getGestionBanproList() { return gestionBanproList;}
+
+   public void setGestionBanproList(Collection c) { this.gestionBanproList = c;}
+
+   public void addGestionBanpro( GestionBanpro gestionBanpro )
+   {
+      gestionBanpro.setUsrIdRef(this);
+      gestionBanproList.add( gestionBanpro );
+   }
+
+   //---------------------------------------------------------------------------
+
    private Collection gestionAvonList = new ArrayList();
 
    public Collection getGestionAvonList() { return gestionAvonList;}
@@ -233,16 +247,16 @@ public class AuthUser implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   private Collection gestionBanproList = new ArrayList();
+   private Collection gestionIbwList = new ArrayList();
 
-   public Collection getGestionBanproList() { return gestionBanproList;}
+   public Collection getGestionIbwList() { return gestionIbwList;}
 
-   public void setGestionBanproList(Collection c) { this.gestionBanproList = c;}
+   public void setGestionIbwList(Collection c) { this.gestionIbwList = c;}
 
-   public void addGestionBanpro( GestionBanpro gestionBanpro )
+   public void addGestionIbw( GestionIbw gestionIbw )
    {
-      gestionBanpro.setUsrIdRef(this);
-      gestionBanproList.add( gestionBanpro );
+      gestionIbw.setUsrIdRef(this);
+      gestionIbwList.add( gestionIbw );
    }
 
    //---------------------------------------------------------------------------

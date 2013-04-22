@@ -1,5 +1,5 @@
 //==============================================================================
-//===   colector.java                        Build:2616
+//===   colector.java                        Build:2672
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -185,6 +185,20 @@ public class Colector implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
+   private Collection detalleGBanproList = new ArrayList();
+
+   public Collection getDetalleGBanproList() { return detalleGBanproList;}
+
+   public void setDetalleGBanproList(Collection c) { this.detalleGBanproList = c;}
+
+   public void addDetalleGBanpro( DetalleGBanpro detalleGBanpro )
+   {
+      detalleGBanpro.setColectorIdRef(this);
+      detalleGBanproList.add( detalleGBanpro );
+   }
+
+   //---------------------------------------------------------------------------
+
    private Collection detalleGestionList = new ArrayList();
 
    public Collection getDetalleGestionList() { return detalleGestionList;}
@@ -213,16 +227,16 @@ public class Colector implements java.io.Serializable
 
    //---------------------------------------------------------------------------
 
-   private Collection detalleGBanproList = new ArrayList();
+   private Collection detalleGIbwList = new ArrayList();
 
-   public Collection getDetalleGBanproList() { return detalleGBanproList;}
+   public Collection getDetalleGIbwList() { return detalleGIbwList;}
 
-   public void setDetalleGBanproList(Collection c) { this.detalleGBanproList = c;}
+   public void setDetalleGIbwList(Collection c) { this.detalleGIbwList = c;}
 
-   public void addDetalleGBanpro( DetalleGBanpro detalleGBanpro )
+   public void addDetalleGIbw( DetalleGIbw detalleGIbw )
    {
-      detalleGBanpro.setColectorIdRef(this);
-      detalleGBanproList.add( detalleGBanpro );
+      detalleGIbw.setColectorIdRef(this);
+      detalleGIbwList.add( detalleGIbw );
    }
 }
 

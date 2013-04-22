@@ -17,15 +17,12 @@ import org.apache.ojb.broker.query.QueryByCriteria;
 import org.apache.ojb.broker.query.QueryByIdentity;
 
 import com.metropolitana.multipagos.DetalleGestion;
-import com.metropolitana.multipagos.DetalleVisitas;
 import com.metropolitana.multipagos.GestionAvon;
 import com.metropolitana.multipagos.forms.auth_user.Auth_userHandler;
 import com.metropolitana.multipagos.forms.cartera.CarteraAvonHandler;
-import com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler;
 import com.metropolitana.multipagos.forms.colector.ColectorHandler;
-import com.metropolitana.multipagos.forms.logs.LogsHandler;
 import com.metropolitana.multipagos.forms.simbolo.SimboloAvonHandler;
-import com.metropolitana.multipagos.forms.simbolo.SimboloHandler;
+import com.metropolitana.multipagos.forms.simbolo.SimboloIbwHandler;
 import org.apache.ojb.broker.query.ReportQueryByCriteria;
 
 public class GestionHandler {
