@@ -102,11 +102,15 @@
         <div dojoType="PopupMenu2" widgetId="informeMenu">
               <jx:if test="${bean.getResources().contains('informes')}">
                   <div dojoType="MenuItem2" caption="enitel" submenuId="enitel3"/>
+                  <div dojoType="MenuItem2" caption="banpro" submenuId="banpro3"/>
               </jx:if>
               <jx:if test="${bean.getResources().contains('iavon')}">
             		<div dojoType="MenuItem2" caption="avon" submenuId="avon3"/>
               </jx:if>
-              <div dojoType="MenuItem2" caption="banpro" submenuId="banpro3"/>
+              
+              <jx:if test="${bean.getResources().contains('ibwinformes')}">
+            		<div dojoType="MenuItem2" caption="ibw" submenuId="ibw3"/>
+              </jx:if>
         </div>
         
           <div dojoType="PopupMenu2" widgetId="enitel3">
@@ -149,6 +153,15 @@
                          onClick="parent.window.location='/multipagos/informes/promesasbanpro'"/>
                 <div dojoType="MenuItem2" caption="Estado Gestion"
                          onClick="parent.window.location='/multipagos/informes/estadogestion'"/>
+          </div>
+          
+          <div dojoType="PopupMenu2" widgetId="ibw3">
+            	<div dojoType="MenuItem2" caption="Gestion Diaria"
+                         onClick="parent.window.location='/multipagos/informes/visitasdibw'"/>
+                <div dojoType="MenuItem2" caption="Consolidado Pagos"
+                         onClick="parent.window.location='/multipagos/informes/consolidadoibw'"/>
+                <div dojoType="MenuItem2" caption="Detalle Pagos"
+                         onClick="parent.window.location='/multipagos/informes/detallepagosibw'"/>
           </div>
         
         <!-- Menu Catalogo -->
@@ -342,6 +355,7 @@
          <div dojoType="PopupMenu2" widgetId="pagos">
          	<div dojoType="MenuItem2" caption="enitel" submenuId="enitel2"/>
             <div dojoType="MenuItem2" caption="avon" submenuId="avon2"/>
+            <div dojoType="MenuItem2" caption="ibw" submenuId="ibw2"/>
          	
          </div>
          
@@ -364,6 +378,14 @@
          	<jx:if test="${bean.getResources().contains('agregar')}">
 		             <div dojoType="MenuItem2" caption="Crear"
 		                  onClick="parent.window.location='/multipagos/avonpagos/create'"/>
+		     </jx:if>
+         </div>
+         
+         <!-- avon -->
+         <div dojoType="PopupMenu2" widgetId="ibw2">
+         	<jx:if test="${bean.getResources().contains('agregar')}">
+		             <div dojoType="MenuItem2" caption="Crear"
+		                  onClick="parent.window.location='/multipagos/ibwpagos/create'"/>
 		     </jx:if>
          </div>
          
@@ -391,7 +413,8 @@
         		<div dojoType="MenuBarItem2" caption="Catalogo" submenuId="catalogoMenu"></div>
         </jx:if>
         <div dojoType="MenuBarItem2" caption="Control de cobros" submenuId="controCobroMenu"></div>
-        <jx:if test="${bean.getResources().contains('informes') || bean.getResources().contains('iavon')}">
+        
+        <jx:if test="${bean.getResources().contains('informes') || bean.getResources().contains('iavon') || bean.getResources().contains('ibwinformes')}">
         		<div dojoType="MenuBarItem2" caption="Informes" submenuId="informeMenu"></div>
         </jx:if>
         <div dojoType="MenuBarItem2" caption="Avisos Cobros" submenuId="avisoMenu"></div>

@@ -21,10 +21,11 @@
     <columnas No="14" Unit="130"/>
     <columnas No="15" Unit="100"/>
     <columnas No="16" Unit="100"/>
+    <columnas No="17" Unit="300"/>
 
     <jx:set var="fila" value="${1}"/>
     <jx:set var="col" value="${0}"/>
-    <jx:set var="colFin" value="${16}"/>
+    <jx:set var="colFin" value="${17}"/>
     
      
     <celda Col="${col}" Row="${fila}">REPORTE DE GESTIONES DIARIAS</celda>
@@ -58,6 +59,7 @@
       <celda Col="${col+14}" Row="${fila}">COLECTOR</celda>
       <celda Col="${col+15}" Row="${fila}">SERVICIO</celda>
       <celda Col="${col+16}" Row="${fila}">HORA REGISTRO</celda>
+      <celda Col="${col+17}" Row="${fila}">OBSERVACIONES</celda>
       <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="10" Recuadro="1"/>
       <jx:set var="fila" value="${fila+1}"/>
       <jx:set var="filaIni" value="${fila}"/> 
@@ -89,6 +91,7 @@
       <!--<celda Col="${col+14}" Row="${fila}">COLECTOR</celda>-->
       <celda Col="${col+15}" Row="${fila}">SERVICIO</celda>
       <celda Col="${col+16}" Row="${fila}">HORA REGISTRO</celda>
+      <celda Col="${col+17}" Row="${fila}">OBSERVACIONES</celda>
       <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Bold="1" Unit="10" Recuadro="1"/>
       <jx:set var="fila" value="${fila+1}"/>
       <jx:set var="filaIni" value="${fila}"/> 
@@ -116,7 +119,7 @@
 	    	<celda Col="${col+8}" Row="${fila}"><blanco/></celda>
 	    </jx:if>
 	    <jx:if test="${item[8] != null}">
-	    	<celda Col="${col+9}" Row="${fila}">${item[9]}</celda>
+	    	<celda Col="${col+9}" Row="${fila}">${item[8]}</celda>
 	    </jx:if>
 	    <jx:if test="${item[8]== null}">
 	    	<celda Col="${col+9}" Row="${fila}"><blanco/></celda>
@@ -130,6 +133,12 @@
 	    </jx:if>
 	    <celda Col="${col+15}" Row="${fila}">${item[15]}</celda>
 	    <celda Col="${col+16}" Row="${fila}">${item[16]}</celda>
+	    <jx:if test="${item[18] != null}">
+	    	<celda Col="${col+17}" Row="${fila}">${item[18]}</celda>
+	    </jx:if>
+	    <jx:if test="${item[18]== null}">
+	    	<celda Col="${col+17}" Row="${fila}"><blanco/></celda>
+	    </jx:if>
 	    <estilo startCol="${col}" startRow="${fila}" endCol="${colFin}" endRow="${fila}" HAlign="64" VAlign="4" Recuadro="1"/>    
 	    <jx:set var="fila" value="${fila+1}"/>
 	

@@ -38,7 +38,7 @@ public class InformeVisitasDiarias {
 			
 			selectQuery = " select  h.contrato, h.suscriptor, count(h.contrato), h.saldo, g.d_visita_rst, e.simbolo_nombre "+
             ",a.fecha_visita,f.c_visita_rst, f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,upper(c.usr_full_name) "+
-            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id "+
+            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id, a.observaciones "+
             "from detalle_visitas  a "+
 		    "left outer join visitas   b on a.visita_id       = b.visita_id "+
 		    "left outer join auth_user c on b.usr_id          = c.usr_id "+
@@ -53,13 +53,13 @@ public class InformeVisitasDiarias {
 		    "where a.fecha_visita >= ? and a.fecha_visita <= ? and h.departamento_id = ?"+
 		    "group by h.contrato, h.suscriptor,h.saldo, g.d_visita_rst, e.simbolo_nombre, a.fecha_visita,f.c_visita_rst, "+ 
 		    "f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,c.usr_full_name, a.colector_id, "+
-		    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id "+
+		    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id, a.observaciones "+
 		    "order by a.fecha_visita,  h.contrato;";
 			
 			} else if(departamentoId == null && colectorId != null) {
 				selectQuery = " select  h.contrato, h.suscriptor, count(h.contrato), h.saldo, g.d_visita_rst, e.simbolo_nombre "+
 	            ",a.fecha_visita,f.c_visita_rst, f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,upper(c.usr_full_name) "+
-	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id "+
+	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id, a.observaciones "+
 	            "from detalle_visitas  a "+
 			    "left outer join visitas   b on a.visita_id       = b.visita_id "+
 			    "left outer join auth_user c on b.usr_id          = c.usr_id "+
@@ -74,12 +74,12 @@ public class InformeVisitasDiarias {
 			    "where a.fecha_visita >= ? and a.fecha_visita <= ? and a.colector_id = ?"+
 			    "group by h.contrato, h.suscriptor,h.saldo, g.d_visita_rst, e.simbolo_nombre, a.fecha_visita,f.c_visita_rst, "+ 
 			    "f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,c.usr_full_name, a.colector_id, "+
-			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id "+
+			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id, a.observaciones "+
 			    "order by a.fecha_visita,  h.contrato;";
 			} else if(departamentoId == null && colectorId == null) {
 				selectQuery = " select  h.contrato, h.suscriptor, count(h.contrato), h.saldo, g.d_visita_rst, e.simbolo_nombre "+
 	            ",a.fecha_visita,f.c_visita_rst, f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,upper(c.usr_full_name) "+
-	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id "+
+	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id, a.observaciones "+
 	            "from detalle_visitas  a "+
 			    "left outer join visitas   b on a.visita_id       = b.visita_id "+
 			    "left outer join auth_user c on b.usr_id          = c.usr_id "+
@@ -94,12 +94,12 @@ public class InformeVisitasDiarias {
 			    "where a.fecha_visita >= ? and a.fecha_visita <= ?"+
 			    "group by h.contrato, h.suscriptor,h.saldo, g.d_visita_rst, e.simbolo_nombre, a.fecha_visita,f.c_visita_rst, "+ 
 			    "f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,c.usr_full_name, a.colector_id, "+
-			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id "+
+			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id, a.observaciones "+
 			    "order by a.fecha_visita,  h.contrato;";
 			} else {
 				selectQuery = " select  h.contrato, h.suscriptor, count(h.contrato), h.saldo, g.d_visita_rst, e.simbolo_nombre "+
 	            ",a.fecha_visita,f.c_visita_rst, f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,upper(c.usr_full_name) "+
-	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id "+
+	            ",a.colector_id, (upper(d.primer_nombre) || ' '  || upper(d.primer_apellido)),i.servicio_nombre, a.hora_registro,h.departamento_id, a.observaciones "+
 	            "from detalle_visitas  a "+
 			    "left outer join visitas   b on a.visita_id       = b.visita_id "+
 			    "left outer join auth_user c on b.usr_id          = c.usr_id "+
@@ -114,7 +114,7 @@ public class InformeVisitasDiarias {
 			    "where a.fecha_visita >= ? and a.fecha_visita <= ? and h.departamento_id = ? and a.colector_id = ?"+
 			    "group by h.contrato, h.suscriptor,h.saldo, g.d_visita_rst, e.simbolo_nombre, a.fecha_visita,f.c_visita_rst, "+ 
 			    "f.c_causa_rst, j.departamento_nombre,k.localidad_nombre, a.aviso_cobro,c.usr_full_name, a.colector_id, "+
-			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id "+
+			    "d.primer_nombre, d.primer_apellido, i.servicio_nombre, a.hora_registro, h.departamento_id, a.observaciones "+
 			    "order by a.fecha_visita,  h.contrato;";
 			}
 				
@@ -149,7 +149,8 @@ public class InformeVisitasDiarias {
 					rs.getObject(6), rs.getObject(7), rs.getObject(8),
 					rs.getObject(9), rs.getObject(10), rs.getObject(11),
 					rs.getObject(12), rs.getObject(13), rs.getObject(14), 
-					rs.getObject(15), rs.getObject(16), rs.getObject(17)};              
+					rs.getObject(15), rs.getObject(16), rs.getObject(17), 
+					rs.getObject(18), rs.getObject(19)};              
 
             lista.add(fila);
                 

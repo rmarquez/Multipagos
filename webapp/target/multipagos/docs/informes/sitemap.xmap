@@ -26,6 +26,9 @@
         <map:script src="forms/promesasavon/flow.js"/>
         <map:script src="forms/promesasbanpro/flow.js"/>
         <map:script src="forms/estadogestion/flow.js"/>
+        <map:script src="forms/visitasdibw/flow.js"/>
+        <map:script src="forms/consolidadoibw/flow.js"/>
+        <map:script src="forms/detallepagosibw/flow.js"/>
     </map:flow>
 
     <map:pipelines>

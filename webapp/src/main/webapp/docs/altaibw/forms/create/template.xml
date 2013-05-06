@@ -31,7 +31,7 @@
 				<p>* La extención del archivo debe ser <b>.xls</b></p>
 				<p>* El archivo debe ser renombrado a <b>ibw</b></p>
 				<p>* El orden de las columnas del documento debe ser el siguiente: nombre, apellido, departamento, municipio, barrio, direccion,</p>
-				<p> telCasa, celular, telTrabajo, numCliente, numFactura, serie, fechaFactura, fechaVence, saldofactura, tecnologia, saldoTotal,</p>
+				<p> telCasa, celular, telTrabajo, numCliente, numFactura, serie, fechaFactura, fechaVence, saldofactura, tecnologia, saldoTotal</p>
 				<p>* El documento no debe de llavar titulos solo los valores.</p>	
 	        
           </ft:form-template>

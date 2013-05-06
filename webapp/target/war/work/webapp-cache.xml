@@ -225,6 +225,7 @@
           <string>docs/informes/forms/combo/asignacionAnio.xml</string>
           <string>docs/informes/forms/combo/colector.xml</string>
           <string>docs/informes/forms/combo/simboloBanpro.xml</string>
+          <string>docs/informes/forms/combo/departamentoIbw.xml</string>
           <string>docs/informes/forms/combo/aAsignacion.xml</string>
           <string>docs/informes/forms/detallevisitas/definition.xml</string>
           <string>docs/informes/forms/detallevisitas/results.xml</string>
@@ -246,6 +247,16 @@
           <string>docs/informes/forms/pagosenclaro/flow.js</string>
           <string>docs/informes/forms/pagosenclaro/template.xml</string>
           <string>docs/informes/forms/pagosenclaro/results.xls.xml</string>
+          <string>docs/informes/forms/consolidadoibw/definition.xml</string>
+          <string>docs/informes/forms/consolidadoibw/results.xml</string>
+          <string>docs/informes/forms/consolidadoibw/flow.js</string>
+          <string>docs/informes/forms/consolidadoibw/template.xml</string>
+          <string>docs/informes/forms/consolidadoibw/results.xls.xml</string>
+          <string>docs/informes/forms/visitasdibw/definition.xml</string>
+          <string>docs/informes/forms/visitasdibw/results.xml</string>
+          <string>docs/informes/forms/visitasdibw/flow.js</string>
+          <string>docs/informes/forms/visitasdibw/template.xml</string>
+          <string>docs/informes/forms/visitasdibw/results.xls.xml</string>
           <string>docs/informes/forms/visitasxcolector/definition.xml</string>
           <string>docs/informes/forms/visitasxcolector/results.xml</string>
           <string>docs/informes/forms/visitasxcolector/flow.js</string>
@@ -281,6 +292,11 @@
           <string>docs/informes/forms/arqueoxdia/definition.xml</string>
           <string>docs/informes/forms/arqueoxdia/flow.js</string>
           <string>docs/informes/forms/arqueoxdia/template.xml</string>
+          <string>docs/informes/forms/detallepagosibw/definition.xml</string>
+          <string>docs/informes/forms/detallepagosibw/results.xml</string>
+          <string>docs/informes/forms/detallepagosibw/flow.js</string>
+          <string>docs/informes/forms/detallepagosibw/template.xml</string>
+          <string>docs/informes/forms/detallepagosibw/results.xls.xml</string>
           <string>docs/depurar/sitemap.xmap</string>
           <string>docs/depurar/forms/search/bind.xml</string>
           <string>docs/depurar/forms/search/definition.xml</string>

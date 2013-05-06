@@ -14,6 +14,14 @@ function departamentosCombo() {
     }
 }
 
+function departamentoIbwCombo() {
+    if (autorizar("cata")) {
+        var handler = new Packages.com.metropolitana.multipagos.forms.departamentos.IDepartamentosHandler();
+        var bean = handler.getList();
+        cocoon.sendPage("departamentoIbwCombo-data", {"bean": bean});
+    }
+}
+
 function simboloBanproCombo() {
     if (autorizar("cata")) {
     	var handlerBean = new Packages.com.metropolitana.multipagos.forms.simbolo.SimboloBanproHandler();
