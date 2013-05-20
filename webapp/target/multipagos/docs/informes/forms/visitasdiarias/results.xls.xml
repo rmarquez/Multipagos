@@ -119,7 +119,7 @@
 	    	<celda Col="${col+8}" Row="${fila}"><blanco/></celda>
 	    </jx:if>
 	    <jx:if test="${item[8] != null}">
-	    	<celda Col="${col+9}" Row="${fila}">${item[9]}</celda>
+	    	<celda Col="${col+9}" Row="${fila}">${item[8]}</celda>
 	    </jx:if>
 	    <jx:if test="${item[8]== null}">
 	    	<celda Col="${col+9}" Row="${fila}"><blanco/></celda>

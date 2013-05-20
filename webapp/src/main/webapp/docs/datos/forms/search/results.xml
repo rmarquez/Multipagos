@@ -9,9 +9,9 @@
         <title>Inicio</title>
     </header>
     <body>
-    	
+    	 <jx:if test="${permisos.getResources().contains('informes')}">   
         
-        <p>La cantidad de visitas y pagos para el dia de <diferencian><formatoFecha fecha="${fecha}" patron="dd/MMM/yyyy"/> a las ${hora} </diferencian>es:</p>            
+        <p>La cantidad de visitas y pagos para Claro, el dia de <diferencian><formatoFecha fecha="${fecha}" patron="dd/MMM/yyyy"/> a las ${hora} </diferencian>es:</p>            
         
         
         <jx:set var="visitas" value="${handler.getCantidadVisitas(null, null)}"/>
@@ -79,7 +79,80 @@
                     </tr>
                 </thead>
                 
-            </table>           
-         
+            </table>
+            
+       </jx:if>      
+      <jx:if test="${permisos.getResources().contains('ibwinformes')}">      
+            
+            <p>La cantidad de visitas y pagos para IBW, el dia de <diferencian><formatoFecha fecha="${fecha}" patron="dd/MMM/yyyy"/> a las ${hora} </diferencian>es:</p>            
+        
+        
+        <jx:set var="visitasIbw" value="${handlerIbw.getCantidadVisitas(null, null)}"/>
+        <jx:set var="pagosIbw" value="${handlerIbw.getCantidadPagos(null, null)}"/>
+        
+            <table border="1">
+                <thead>
+                    <tr>                        
+                        <th>Departamento</th>
+                        <th>Visitas</th>
+                        <th>Pagos</th>
+                        <th>Total</th>
+                        <th>Meta</th>
+                        <th>Diferencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <jx:forEach var="itemIbw" items="${beanIbw}" varStatus="status">
+                        <tr>
+                           <td align="left">${itemIbw[1]}</td>
+                           <td>${itemIbw[2]}</td>
+                           <td>${itemIbw[3]}</td>
+                           <td>${itemIbw[4]}</td> 
+                           <td>${itemIbw[5]}</td> 
+                           <jx:if test="${(itemIbw[6]) &lt; 0 }">
+                           		<td><diferencian>${itemIbw[6]}</diferencian></td>
+                       		</jx:if>
+                       		<jx:if test="${(itemIbw[6]) &gt; 0 || (itemIbw[6]) == 0}">
+                           		<td><diferenciap>${itemIbw[6]}</diferenciap></td>
+                       		</jx:if>                        
+                        </tr>
+                        <jx:if test="${(itemIbw[0]) == 1}">
+		                        <tbody>
+					                  <jx:forEach var="itemIbw2" items="${usrIbw}" varStatus="status">
+					                        <tr>
+					                        	<!-- <jx:if test="${(item2[0]) &lt; 12 || (item2[0]) == 25}">-->
+					                        	<jx:if test="${(itemIbw2[3])==true}"> 
+						                           <td align="right"><blue>${itemIbw2[1]}</blue></td>
+						                           <td><blue>${itemIbw2[5]}</blue></td>
+						                           <td><blue>${itemIbw2[6]}</blue></td>
+						                           <td><blue>${itemIbw2[7]}</blue></td> 
+						                           <td><blue>${itemIbw2[8]}</blue></td> 
+						                           <jx:if test="${(itemIbw2[9]) &lt; 0 }">
+						                           		<td><diferencian>${itemIbw2[9]}</diferencian></td>
+						                       		</jx:if>
+						                       		<jx:if test="${(itemIbw2[9]) &gt; 0 || (itemIbw2[9]) == 0}">
+						                           		<td><diferenciap>${itemIbw2[9]}</diferenciap></td>
+						                       		</jx:if> 
+					                       	<!--  -->		</jx:if>                        
+					                        </tr>				                        
+					                  </jx:forEach>
+					                </tbody>
+				                
+				           </jx:if>     
+	                  </jx:forEach>
+	                </tbody>
+                
+                
+               <thead>                    
+                    <tr>
+                    	<th>Totales: </th>
+                        <th>${visitasIbw}</th>
+                        <th>${pagosIbw}</th>
+                        <th>${visitasIbw+pagosIbw}</th>
+                    </tr>
+                </thead>
+                
+            </table>         
+        </jx:if>  
     </body>
 </document>
