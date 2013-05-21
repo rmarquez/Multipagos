@@ -1,4 +1,4 @@
-0     INFO  [btpool0-1] BOOT - -- boot log messages -->
+0     INFO  [btpool0-8] BOOT - -- boot log messages -->
 [BOOT] INFO: Loading OJB's properties: jar:file:/home/rmarquez/.m2/repository/com/metropolitana/multipagos/dao/1.0-SNAPSHOT/dao-1.0-SNAPSHOT.jar!/OJB.properties
 [BOOT] INFO: Found logging properties file: OJB-logging.properties
 [BOOT] INFO: Logging: Found logger class 'org.apache.ojb.broker.util.logging.Log4jLoggerImpl

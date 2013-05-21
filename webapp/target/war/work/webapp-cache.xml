@@ -372,6 +372,14 @@
           <string>docs/barrio/forms/create/flow.js</string>
           <string>docs/barrio/forms/create/definition.xml</string>
           <string>docs/barrio/forms/create/bind.xml</string>
+          <string>docs/avisoibw/sitemap.xmap</string>
+          <string>docs/avisoibw/forms/migrar/results.xml</string>
+          <string>docs/avisoibw/forms/migrar/flow.js</string>
+          <string>docs/avisoibw/forms/migrar/definition.xml</string>
+          <string>docs/avisoibw/forms/migrar/bind.xml</string>
+          <string>docs/avisoibw/forms/create/template.xml</string>
+          <string>docs/avisoibw/forms/create/flow.js</string>
+          <string>docs/avisoibw/forms/create/definition.xml</string>
           <string>docs/avisoclaro/sitemap.xmap</string>
           <string>docs/avisoclaro/forms/migrar/results.xml</string>
           <string>docs/avisoclaro/forms/migrar/flow.js</string>

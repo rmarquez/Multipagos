@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document xmlns:jx="http://apache.org/cocoon/templates/jx/1.0" menu="true">
+
+    <!-- Importamos las macros definidas por el programador -->
+    <jx:import uri="context://resources/jxmacros/jxgenerales.xml"/>
+
+    <pagina margin-left="0.75" margin-top="1">
+        
+        
+        
+        <jx:forEach var="item" items="${bean}">
+        
+        
+        <jx:set var="serie" value="${util.getNumeroSerie()}"/> 
+        <jx:set var="mes" value="${util.getMes(item[0], item[13])}"/> 
+        <jx:set var="saldo" value="${util.getMontoPendiente(item[0], item[13])}"/> 
+        <logos/>
+        
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <th font-size="7" width="2.0">AVISO DE COBRO</th>
+	                    <td font-size="7" width="0.5"><b>No</b></td>
+		                <td font-size="7" border-bottom="0" width="1.0" end-indent="3.5">${serie}</td>
+		                <td font-size="7" width="0.5"><b>C$ </b></td>
+		                <td font-size="7" border-right="1" width="1.5" end-indent="3.5">${saldo}</td>
+		                <td font-size="7" width="0.1" border-right="1"></td>
+		                <td font-size="7" width="0.1"></td>
+	                </tr>
+	            </tbody>
+	        </table>
+	        <br space-before-optimum="6"/>
+	        <table border="0">
+	            <tbody>
+	                <tr>
+	                    <th font-size="7" width="5.5" align="center">INFORMACION DEL CLIENTE</th>
+	                    <td font-size="7" width="0.1"></td>
+		                <td font-size="7" width="0.1"></td>
+	                    <td font-size="7" width="2.3"><b>  ${item[2]}</b></td>
+	                </tr>
+	            </tbody>
+	        </table>
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <td font-size="7" width="1.0"><b>Nombre:</b></td>
+	                    <td font-size="7" border-right="1" width="4.5" end-indent="2">${item[2]}</td>
+	                    <td font-size="7" width="0.1" border-right="1"></td>
+		                <td font-size="7" width="0.1"></td>
+		                <td font-size="7" width="2.3"><b><b>C$ </b> ${saldo}</b></td>
+	                </tr>
+	                
+	                <tr>
+	                    <td font-size="7" width="1.0"><b>Direccion:</b></td>
+	                    <td font-size="7" border-right="0" width="4.5" end-indent="3.5">${item[9]}</td>
+	                    <td font-size="7" width="0.1"></td>
+		                <td font-size="7" width="0.1"></td>
+		                <td font-size="7" width="2.3"><b>  ${item[0]}</b></td>
+	                </tr>
+	            </tbody>
+        	</table>
+	        <table border="0">
+	            <tbody> 
+		                <tr>
+		                	<td font-size="7" width="1.0"><b>Barrio:</b></td>
+	                    	<td font-size="7" border-bottom="0" width="2.0" end-indent="3.5">${item[11]}</td>
+		                    <td font-size="7" width="1.0"><b>Telefono:</b></td>
+		                    <td font-size="7" border-right="1" width="1.5" end-indent="3.5">${item[10]}</td>
+		                    <td font-size="7" width="0.1" border-right="1"></td>
+		                    <td font-size="7" width="0.1"></td>
+		                    <td font-size="7" width="2.3"><b>${mes}</b></td>
+		                </tr>
+			                
+	            </tbody>
+	        </table>
+	        <table border="0">
+	            <tbody>
+	                <tr>
+	                	<td font-size="7" width="1.0"><b>Departamento:</b></td>
+	                    <td font-size="7" border-bottom="0" width="2.0" end-indent="3.5">${item[3]}</td>
+	                    <td font-size="7" width="1.0"><b>Contrato:</b></td>
+	                    <td font-size="7" border-right="0" width="1.5" end-indent="3.5">${item[0]}</td>
+	                    <td font-size="7" width="0.1"></td>
+		                <td font-size="7" width="0.1"></td>
+	                    <td font-size="7" width="2.3"><b>  ${item[5]}</b></td>
+	                </tr>
+	            </tbody>
+        	</table>
+        	<table border="0">
+	            <tbody>
+	                <tr>
+	                    <td font-size="7" width="1.2"><b>Mensualidades Vencidas:</b></td>
+	                    <td font-size="7" border-bottom="0" width="2.0" end-indent="2">${mes}</td>
+	                    <td font-size="7" width="0.7"><b>Servicio:</b></td>
+	                    <td font-size="7" border-right="1" width="1.6" end-indent="3.0">${item[5]}</td>
+	                    <td font-size="7" width="0.1" border-right="1"></td>
+		                <td font-size="7" width="0.1"></td>
+	                    <td font-size="7" width="2.3"><b>  ${item[3]}</b></td>
+	                </tr>
+	                
+	            </tbody>
+        	</table>
+        	<br space-before-optimum="3"/>
+        	<table border="0">
+            <tbody>
+                <tr>
+                    <td font-size="7.5" width="5.5" align="left">
+                        Estimado cliente en nuestro registro es en deber a Claro TV en el monto antes descrito, por medio del presente<br/>
+                         cordialmente le solicitamos pague en el menor tiempo posible para evitar que su historial crediticio se vea<br/></td>
+                    <td font-size="7" width="0.1"></td>
+		            <td font-size="7" width="0.1"></td>
+                    <td font-size="7" width="2.3"><b>  ${item[9]}</b></td>
+                </tr>
+                <tr>
+                    <td font-size="7.5" width="5.5" align="left" border-right="1">
+                         afectado ante el sistema financiero nacional. Si usted ya pago desestime el presente aviso de cobro. Si tiene<br/>
+                         consultas por favor llamar al 121 o 2266-8279 ext 108, 120, 124</td>
+                    <td font-size="7" width="0.1" border-right="1"></td>
+		            <td font-size="7" width="0.1"></td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <table border="0">
+            <tbody>
+                <tr>
+                  <td align="left" width="3.5"><br/><br/></td>
+                  <td font-size="7" align="center" width="2.0"><br/><br/>_____________________________________<br/>RECIBIDO POR<br/></td>
+                  <td font-size="7" width="0.1"></td>
+                  <td font-size="7" width="0.1"></td>
+                  <td font-size="7" width="2.3"><b>No</b> ${serie}</td>
+                </tr>
+               </tbody> 
+        </table>
+        <table border="0">
+            <tbody>
+        		<tr>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"></td>
+                	<td border-top="2" width="0.2"></td>
+                	<td border-top="0" width="0.2"><br/><br/></td>
+               	</tr>
+            </tbody>
+           </table>
+        <table border="0">
+            <tbody>
+        		<tr>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+                	<td border-bottom="2" width="0.2"></td>
+                	<td border-bottom="0" width="0.2"></td>
+               	</tr>
+            </tbody>
+           </table>
+        </jx:forEach>
+        
+       
+         
+    </pagina>    
+</document>
