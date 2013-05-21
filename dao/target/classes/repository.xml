@@ -75,6 +75,9 @@
 		<collection-descriptor name="pendientesClaroList" element-class-ref="com.metropolitana.multipagos.PendientesClaro" auto-update="false" auto-delete="false" proxy="true">
 			<inverse-foreignkey field-ref="usrId"/>
 		</collection-descriptor>
+		<collection-descriptor name="pendientesIbwList" element-class-ref="com.metropolitana.multipagos.PendientesIbw" auto-update="false" auto-delete="false" proxy="true">
+			<inverse-foreignkey field-ref="usrId"/>
+		</collection-descriptor>
 	</class-descriptor>
 	<class-descriptor class="com.metropolitana.multipagos.AuthRole" table="AUTH_ROLE">
 		<field-descriptor name="rolId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="auth_role_rol_id_seq" column="ROL_ID" jdbc-type="INTEGER"/>
@@ -1382,7 +1385,7 @@
 		<reference-descriptor name="municipioIdRef" class-ref="com.metropolitana.multipagos.Municipio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="municipioId"/>
 		</reference-descriptor>
-		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.Barrio" auto-update="false" auto-delete="false" proxy="true">
+		<reference-descriptor name="barrioIdRef" class-ref="com.metropolitana.multipagos.IBarrio" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="barrioId"/>
 		</reference-descriptor>
 	</class-descriptor>
@@ -1404,7 +1407,28 @@
 		<field-descriptor name="movil1" default-fetch="true" column="MOVIL1" jdbc-type="VARCHAR"/>
 		<field-descriptor name="movil2" default-fetch="true" column="MOVIL2" jdbc-type="VARCHAR"/>
 		<field-descriptor name="fechaInstalacion" default-fetch="true" column="FECHA_INSTALACION" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
-		<field-descriptor name="canal" nullable="false" default-fetch="true" column="CANAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="canal" default-fetch="true" column="CANAL" jdbc-type="VARCHAR"/>
+		<field-descriptor name="numLote" nullable="false" default-fetch="true" column="NUM_LOTE" jdbc-type="INTEGER"/>
+		<field-descriptor name="usrId" nullable="false" default-fetch="true" column="USR_ID" jdbc-type="INTEGER"/>
+		<reference-descriptor name="usrIdRef" class-ref="com.metropolitana.multipagos.AuthUser" auto-update="false" auto-delete="false" proxy="true">
+			<foreignkey field-ref="usrId"/>
+		</reference-descriptor>
+	</class-descriptor>
+	<class-descriptor class="com.metropolitana.multipagos.PendientesIbw" table="PENDIENTES_IBW">
+		<field-descriptor name="pendienteId" primarykey="true" nullable="false" default-fetch="true" autoincrement="true" sequence-name="pendientes_ibw_pendiente_id_seq" column="PENDIENTE_ID" jdbc-type="INTEGER"/>
+		<field-descriptor name="nombre" nullable="false" default-fetch="true" column="NOMBRE" jdbc-type="VARCHAR"/>
+		<field-descriptor name="apellido" nullable="false" default-fetch="true" column="APELLIDO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="departamento" default-fetch="true" column="DEPARTAMENTO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="municipio" default-fetch="true" column="MUNICIPIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="barrio" default-fetch="true" column="BARRIO" jdbc-type="VARCHAR"/>
+		<field-descriptor name="direccion" default-fetch="true" column="DIRECCION" jdbc-type="VARCHAR"/>
+		<field-descriptor name="codCliente" nullable="false" default-fetch="true" column="COD_CLIENTE" jdbc-type="VARCHAR"/>
+		<field-descriptor name="facturaIbw" nullable="false" default-fetch="true" column="FACTURA_IBW" jdbc-type="VARCHAR"/>
+		<field-descriptor name="fechaFactura" nullable="false" default-fetch="true" column="FECHA_FACTURA" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="fechaVence" nullable="false" default-fetch="true" column="FECHA_VENCE" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
+		<field-descriptor name="tecnologia" default-fetch="true" column="TECNOLOGIA" jdbc-type="VARCHAR"/>
+		<field-descriptor name="saldoDol" nullable="false" default-fetch="true" column="SALDO_DOL" jdbc-type="NUMERIC"/>
+		<field-descriptor name="telefonoC" default-fetch="true" column="TELEFONO_C" jdbc-type="VARCHAR"/>
 		<field-descriptor name="numLote" nullable="false" default-fetch="true" column="NUM_LOTE" jdbc-type="INTEGER"/>
 		<field-descriptor name="usrId" nullable="false" default-fetch="true" column="USR_ID" jdbc-type="INTEGER"/>
 		<reference-descriptor name="usrIdRef" class-ref="com.metropolitana.multipagos.AuthUser" auto-update="false" auto-delete="false" proxy="true">

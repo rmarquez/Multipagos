@@ -327,6 +327,96 @@ public class Util {
                 }
             }
        }
+     
+     public static String getMesIbw(String codCliente, Integer numAsignacion) throws Exception {
+     	PersistenceBroker broker = null;
+     	//System.out.println("++++++ Num Asignacion = " + numAsignacion);
+     	String cadena ="";
+         try {
+ 	        String mes1 ="";
+ 	        String mes2 ="";
+ 	        String mes3 ="";
+ 	        String mes4 ="";
+ 	        String mes5 ="";
+ 	        String mes6 ="";
+ 	        String mes7 ="";
+ 	        String mes8 ="";
+ 	        String mes9 ="";
+ 	        String mes10 ="";
+ 	        String mes11 ="";
+ 	        String mes12 ="";  	
+             for ( Iterator iter = InformesUtil.getMesesXCod(codCliente, numAsignacion).listIterator(); iter.hasNext(); ) {
+                 Object[] meses = (Object[]) iter.next();
+                 SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
+                 int numero = Integer.parseInt(dateFormat.format((Date)meses[0]));
+                 
+                 //int numero = Integer.parseInt((String)meses[0]);
+                     if(numero==1){
+                            mes1 ="Ene,";
+                     } else if (numero==2){
+                            mes2 ="Feb,";
+                     } else if (numero==3){
+                            mes3 ="Marz,";
+                     } else if (numero==4){
+                            mes4 ="Abr,";
+                     } else if (numero==5){
+                            mes5 ="May,";
+                     } else if (numero==6){
+                            mes6 ="Jun,";
+                     } else if (numero==7){
+                            mes7 ="Jul,";
+                     } else if (numero==8){
+                            mes8 ="Agos,";
+                     } else if (numero==9){
+                            mes9 ="Sept,";
+                     } else if (numero==10){
+                            mes10 ="Oct,";
+                     } else if (numero==11){
+                            mes11 ="Nov,";
+                     }else if (numero==12){
+                            mes12 ="Dic";
+                     }
+                  cadena=mes1+mes2+mes3+mes4+mes5+mes6+mes7+mes8+mes9+mes10+mes11+mes12+"...";
+                 }
+ 	        return cadena;
+     	} catch (Exception e) {
+                 throw e;
+         } finally {
+                 if (broker != null && !broker.isClosed()) {
+                         broker.close();
+                 }
+         }
+     }
+     
+     public static BigDecimal getMontoIbw(String contrato, Integer numLote) throws Exception {
+         PersistenceBroker broker = null;
+         try {
+            broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+            Criteria criterio = new Criteria();
+            if (contrato !=null) {
+                criterio.addEqualTo("codCliente", contrato);
+            }
+            criterio.addEqualTo("numLote", numLote);
+            ReportQueryByCriteria query = new ReportQueryByCriteria(PendientesIbw.class, criterio);
+            query.setAttributes(new String[]{"sum(saldo_dol)"});
+            Iterator iter = broker.getReportQueryIteratorByQuery(query);
+            BigDecimal saldo = BigDecimal.ZERO;
+            if (iter.hasNext()) {
+                Object[] item = (Object[])iter.next();
+                if (item[0] != null) {
+                    saldo = saldo.add((BigDecimal)item[0]);
+                }
+            }
+            return saldo;
+
+         } catch (Exception e) {
+             throw e;
+         } finally {
+             if (broker != null && !broker.isClosed()) {
+                 broker.close();
+             }
+         }
+    }
     
     private static final DecimalFormatSymbols dfs = new DecimalFormatSymbols();
     private static final DecimalFormat df = new DecimalFormat();

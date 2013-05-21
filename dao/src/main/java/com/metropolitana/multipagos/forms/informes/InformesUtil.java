@@ -14,6 +14,8 @@ import java.util.Date;
 import com.metropolitana.multipagos.ArqueoPagos;
 import com.metropolitana.multipagos.AsignacionClaro;
 import com.metropolitana.multipagos.PendientesClaro;
+import com.metropolitana.multipagos.PendientesIbw;
+
 import org.apache.ojb.broker.PersistenceBroker;
 import org.apache.ojb.broker.PersistenceBrokerFactory;
 import org.apache.ojb.broker.query.Criteria;
@@ -289,6 +291,41 @@ public class InformesUtil {
 		ReportQueryByCriteria query = new ReportQueryByCriteria(PendientesClaro.class, criterio);
 		query.setAttributes(new String[] { "mes", "anio" });
 		query.addGroupBy(new String[] { "mes", "anio" });
+		return query;
+	}
+	
+	public static List getMesesXCod(final String codCliente, final Integer numLote) throws Exception {
+		PersistenceBroker broker = null;
+		try {
+			
+			int numRepetidos = 0;
+			List<Object[]> lista = new ArrayList<Object[]>();
+			broker = PersistenceBrokerFactory.defaultPersistenceBroker();
+			for (Iterator iter = broker.getReportQueryIteratorByQuery(queryFechaXCod(codCliente, numLote)); iter.hasNext();) {
+				Object[] arqueo = (Object[]) iter.next();
+	            lista.add(arqueo);
+			}
+			return lista;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (broker != null && !broker.isClosed()) {
+				broker.close();
+			}
+		}
+	}
+	
+	private static ReportQueryByCriteria queryFechaXCod (String codCliente, Integer numLote) {
+		Criteria criterio = new Criteria();
+		if (codCliente != null) {
+			criterio.addEqualTo("codCliente", codCliente);
+		}
+		if (numLote != null) {
+			criterio.addEqualTo("numLote", numLote);
+		}
+		ReportQueryByCriteria query = new ReportQueryByCriteria(PendientesIbw.class, criterio);
+		query.setAttributes(new String[] { "fechaVence" });
+		query.addGroupBy(new String[] { "fechaVence" });
 		return query;
 	}
 	

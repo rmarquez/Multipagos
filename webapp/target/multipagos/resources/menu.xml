@@ -12,7 +12,9 @@
         <!-- Menu de Administracion -->
         <div dojoType="PopupMenu2" widgetId="avisoMenu">
 			<div dojoType="MenuItem2" caption="Enitel"
-				onClick="parent.window.location='/multipagos/avisoclaro/create'" />  
+				onClick="parent.window.location='/multipagos/avisoclaro/create'" />
+			<div dojoType="MenuItem2" caption="Ibw"
+				onClick="parent.window.location='/multipagos/avisoibw/create'" />   
 
         </div>
 

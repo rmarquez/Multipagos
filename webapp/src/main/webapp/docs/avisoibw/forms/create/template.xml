@@ -31,10 +31,9 @@
               
 				<p>* La extención del archivo debe ser <b>.xls</b></p>
 				<p>* El archivo debe ser renombrado a <b>ibw</b></p>	
-				<p>* El orden de las columnas debe ser contrato, suscriptor, nit,</p>
-				<p>	direccion, barrio, facturaInterna, anio, mes, saldo,</p>
-				<p>	departamento, localidad, telefono, servicio, movil 1,</p>
-				<p>	movil 2, fecha Instalacion, canal.</p>
+				<p>* El orden de las columnas debe ser nombre, apellido, </p>
+				<p>	departamento, municipio, barrio, direccion, codCliente, facturaIbw, </p>
+				<p>	fechaFactura, fechaVence, saldoDol, tecnologia, telefono.</p>
             
           </ft:form-template>
           

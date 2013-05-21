@@ -1,5 +1,5 @@
 //==============================================================================
-//===   auth_user.java                        Build:2679
+//===   auth_user.java                        Build:2681
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -285,6 +285,20 @@ public class AuthUser implements java.io.Serializable
    {
       pendientesClaro.setUsrIdRef(this);
       pendientesClaroList.add( pendientesClaro );
+   }
+
+   //---------------------------------------------------------------------------
+
+   private Collection pendientesIbwList = new ArrayList();
+
+   public Collection getPendientesIbwList() { return pendientesIbwList;}
+
+   public void setPendientesIbwList(Collection c) { this.pendientesIbwList = c;}
+
+   public void addPendientesIbw( PendientesIbw pendientesIbw )
+   {
+      pendientesIbw.setUsrIdRef(this);
+      pendientesIbwList.add( pendientesIbw );
    }
 }
 

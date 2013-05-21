@@ -101,6 +101,17 @@
 	    </fo:block>
 	</xsl:template>
 	
+	<xsl:template match="ibwlogos">
+	    <fo:block margin-top="0pt" margin-left="0pt">
+	      <fo:external-graphic width="100px" height="33px" src="{$baseUrl}/images/ibw-logo.jpg"/>
+	      <fo:external-graphic content-width="120pt" content-height="6pt" display-align="before" src="{$baseUrl}/images/separator2.gif"/>
+	      <fo:external-graphic content-width="120pt" content-height="6pt" display-align="before" src="{$baseUrl}/images/separator2.gif"/>
+	      <fo:external-graphic content-width="100pt" content-height="6pt" display-align="before" src="{$baseUrl}/images/separator2.gif"/>
+	      <fo:external-graphic width="100px" height="33px" src="{$baseUrl}/images/ibw-logo.jpg"/>
+	      <xsl:apply-templates/>
+	    </fo:block>
+	</xsl:template>
+	
 	<xsl:template match="vlogo">
 	    <fo:block margin-top="0pt" margin-left="435pt">
 	      <fo:external-graphic width="140pt" height="30pt" src="{$baseUrl}/images/vmultipagos.jpg"/>
