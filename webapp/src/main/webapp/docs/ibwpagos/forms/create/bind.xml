@@ -28,6 +28,8 @@
             <fb:value id="salgoPagar" path="salgoPagar"/>
             <fb:value id="fechaFactura" path="fechaFactura"/>
             <fb:value id="mes" path="mes"/>
+            <fb:value id="pagoCk" path="pagoCk"/>
+            <fb:value id="numeroCk" path="numeroCk"/>
         </fb:on-bind>
 
         <fb:on-delete-row>

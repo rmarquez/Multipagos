@@ -1,5 +1,5 @@
 //==============================================================================
-//===   detalle_ibw_pagos.java                        Build:2680
+//===   detalle_ibw_pagos.java                        Build:2683
 //==============================================================================
 
 package com.metropolitana.multipagos;
@@ -33,6 +33,8 @@ public class DetalleIbwPagos implements java.io.Serializable
    private BigDecimal salgoPagar;
    private Date       fechaFactura;
    private String     mes;
+   private Boolean    pagoCk;
+   private String     numeroCk;
 
    //---------------------------------------------------------------------------
 
@@ -167,6 +169,24 @@ public class DetalleIbwPagos implements java.io.Serializable
    public void setMes(String mes)
    {
       this.mes = mes;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public Boolean getPagoCk() { return pagoCk; }
+
+   public void setPagoCk(Boolean pagoCk)
+   {
+      this.pagoCk = pagoCk;
+   }
+
+   //---------------------------------------------------------------------------
+
+   public String getNumeroCk() { return numeroCk; }
+
+   public void setNumeroCk(String numeroCk)
+   {
+      this.numeroCk = numeroCk;
    }
 
    //---------------------------------------------------------------------------

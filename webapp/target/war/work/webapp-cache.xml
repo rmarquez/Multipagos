@@ -207,6 +207,11 @@
           <string>docs/informes/forms/arqueoxdia/flow.js</string>
           <string>docs/informes/forms/arqueoxdia/template.xml</string>
           <string>docs/informes/forms/arqueoxdia/definition.xml</string>
+          <string>docs/informes/forms/ibwbatch/flow.js</string>
+          <string>docs/informes/forms/ibwbatch/template.xml</string>
+          <string>docs/informes/forms/ibwbatch/definition.xml</string>
+          <string>docs/informes/forms/ibwbatch/results.xml</string>
+          <string>docs/informes/forms/ibwbatch/results.xls.xml</string>
           <string>docs/informes/forms/promesasavon/flow.js</string>
           <string>docs/informes/forms/promesasavon/template.xml</string>
           <string>docs/informes/forms/promesasavon/definition.xml</string>

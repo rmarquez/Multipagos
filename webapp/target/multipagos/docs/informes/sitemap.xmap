@@ -29,6 +29,7 @@
         <map:script src="forms/visitasdibw/flow.js"/>
         <map:script src="forms/consolidadoibw/flow.js"/>
         <map:script src="forms/detallepagosibw/flow.js"/>
+        <map:script src="forms/ibwbatch/flow.js"/>
     </map:flow>
 
     <map:pipelines>

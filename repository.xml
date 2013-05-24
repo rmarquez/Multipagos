@@ -1354,6 +1354,8 @@
 		<field-descriptor name="salgoPagar" default-fetch="true" column="SALGO_PAGAR" jdbc-type="NUMERIC"/>
 		<field-descriptor name="fechaFactura" default-fetch="true" column="FECHA_FACTURA" jdbc-type="DATE" conversion="org.apache.ojb.broker.accesslayer.conversions.JavaDate2SqlDateFieldConversion"/>
 		<field-descriptor name="mes" default-fetch="true" column="MES" jdbc-type="VARCHAR"/>
+		<field-descriptor name="pagoCk" nullable="false" default-fetch="true" column="PAGO_CK" jdbc-type="BIT"/>
+		<field-descriptor name="numeroCk" default-fetch="true" column="NUMERO_CK" jdbc-type="VARCHAR"/>
 		<reference-descriptor name="pagoIdRef" class-ref="com.metropolitana.multipagos.IbwPagos" auto-update="false" auto-delete="false" proxy="true">
 			<foreignkey field-ref="pagoId"/>
 		</reference-descriptor>

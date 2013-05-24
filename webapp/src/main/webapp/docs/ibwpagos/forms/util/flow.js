@@ -1,4 +1,5 @@
 importClass(Packages.java.lang.Integer);
+importClass(Packages.java.lang.Boolean);
 importClass(Packages.java.math.BigDecimal);
 importClass(Packages.com.metropolitana.multipagos.forms.Util);
 importClass(Packages.com.metropolitana.multipagos.forms.auth_user.Auth_userHandler);
@@ -167,16 +168,12 @@ function validarFechaPago(event) {
     }
 }
 
-function revertirPago(event) {
-	var handlerBean = new Packages.com.metropolitana.multipagos.forms.cartera.CarteraXDepartamentoHandler();
-	var detalle = event.source.parent.getChild("detalle");
-	for (var i = 0; i<detalle.size; i++) {
-	    var row = detalle.getRow(i);
-	    var marcar = row.getChild("marcar").getValue().booleanValue();
-	    
-	    if(marcar==true){
-	    	var carteraId = row.getChild("carteraId").getValue();
-	    	handlerBean.revertirPago(carteraId, auth_getUserID());
-	    }	    
-    }   
+function pagoConCK(event) {
+    var pago = event.source.value;
+    var numero = event.source.parent.getChild("numeroCk");
+    if (pago.booleanValue()== true) {
+        numero.setState(WidgetState.ACTIVE);        
+    } else {
+    	numero.setState(WidgetState.INVISIBLE);
+    }
 }

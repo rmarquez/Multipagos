@@ -27,6 +27,7 @@
     				  <table>
                           <thead>
                               <tr>
+                              	<th><ft:repeater-widget-label widget-id="pagoCk"/></th>
                               	<th><ft:repeater-widget-label widget-id="codigo"/></th>
                               	<th><ft:repeater-widget-label widget-id="cliente"/></th>
                               	<th><ft:repeater-widget-label widget-id="municipioId"/></th>
@@ -35,6 +36,7 @@
                               	<th><ft:repeater-widget-label widget-id="fechaFactura"/></th>
                               	<th><ft:repeater-widget-label widget-id="mes"/></th>
                               	<th><ft:repeater-widget-label widget-id="montoPago"/></th>
+                              	<th><ft:repeater-widget-label widget-id="numeroCk"/></th>
                               	<th><ft:repeater-widget-label widget-id="fechaPago"/></th>
                               	<th><ft:repeater-widget-label widget-id="recibo"/></th>                              	
                               	<th><ft:repeater-widget-label widget-id="colectorNumero"/></th>
@@ -46,6 +48,7 @@
                           <tbody>  
 								<ft:repeater-rows>
 									<tr>
+										<td><ft:widget id="pagoCk"/></td>
 										<td><ft:widget id="codigo"><fi:styling align="right" size="6"/></ft:widget></td>
 										<td><ft:widget id="cliente"/></td>
 										<td><ft:widget id="municipioId"/></td>
@@ -54,6 +57,7 @@
 										<td><ft:widget id="fechaFactura"><fi:styling align="right" size="4"/></ft:widget></td>
 										<td><ft:widget id="mes"><fi:styling align="right" size="2"/></ft:widget></td>
 										<td><ft:widget id="montoPago"><fi:styling align="right" size="6"/></ft:widget></td>
+										<td><ft:widget id="numeroCk"/></td>
 										<td><ft:widget id="fechaPago"/></td>
 										<td><ft:widget id="recibo"><fi:styling align="right" size="6"/></ft:widget></td>	
 										<td><ft:widget id="colectorNumero"><fi:styling align="right" size="3"/></ft:widget></td>

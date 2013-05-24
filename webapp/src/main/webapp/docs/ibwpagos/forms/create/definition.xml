@@ -75,6 +75,15 @@
 		<fd:repeater id="detalle" initial-size="1">
             <fd:widgets>
             	
+            	<fd:booleanfield id="pagoCk">
+		            <fd:label>Pago Ck:</fd:label>
+		            <fd:help>Indique si el pago fue realizado con cheque.</fd:help>
+		            <fd:on-value-changed>
+						<fd:javascript>
+							pagoConCK(event);
+						</fd:javascript>
+					</fd:on-value-changed>
+		        </fd:booleanfield>
             	
                 <fd:field id="codigo" state="output">
 					<fd:label>Codigo</fd:label>
@@ -151,6 +160,11 @@
 			            </fd:assert>
 		      		</fd:validation>
 		        </fd:field>
+		        
+		        <fd:field id="numeroCk" state="invisible">
+					<fd:label>Num Ck </fd:label>					
+					<fd:datatype base="string" />
+				</fd:field>	
 		        
 		        <fd:field id="salgoPagar" state="output">
 		            <fd:label>Saldo a pagar(U$):</fd:label>

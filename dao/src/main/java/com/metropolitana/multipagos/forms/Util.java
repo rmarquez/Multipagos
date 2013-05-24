@@ -854,5 +854,12 @@ public class Util {
 			BigDecimal descuento, BigDecimal plazo) {
 		return (saldo.subtract(descuento)).divide(plazo);
 	}
+	
+	public static BigDecimal calcularTasaCs(BigDecimal tasa, BigDecimal montoUs) {
+		BigDecimal monto = BigDecimal.ZERO;		
+		monto = tasa.multiply(montoUs).setScale(2, BigDecimal.ROUND_HALF_UP);
+		
+		return monto;
+	}
   
 }

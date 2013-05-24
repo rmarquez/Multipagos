@@ -164,6 +164,8 @@
                          onClick="parent.window.location='/multipagos/informes/consolidadoibw'"/>
                 <div dojoType="MenuItem2" caption="Detalle Pagos"
                          onClick="parent.window.location='/multipagos/informes/detallepagosibw'"/>
+                <div dojoType="MenuItem2" caption="Pagos Batch"
+                         onClick="parent.window.location='/multipagos/informes/ibwbatch'"/>
           </div>
         
         <!-- Menu Catalogo -->

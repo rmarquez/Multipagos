@@ -224,7 +224,7 @@ public class TasafijaHandler {
      * @throws Exception
      */
     public static BigDecimal getTasaFija(Date fecha) throws Exception {
-        TasaFija tasaFija = retrieve(fecha);
+    	TasaFija tasaFija = retrieve(fecha);
         if (tasaFija != null) {
             return tasaFija.getTasaCambioMes();
         }
