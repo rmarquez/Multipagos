@@ -92,29 +92,34 @@ public class ContVisitasIbw {
 				
 				detalle[4] =total;
 				Integer meta = 0;
-				if((Integer)detalle[0] == 1){
-					meta = Integer.valueOf(3100);
-				}
-				if((Integer)detalle[0] == 2){
-					meta = Integer.valueOf(350);
-				}
-				if((Integer)detalle[0] == 3){
-					meta = Integer.valueOf(300);
-				}
-				if((Integer)detalle[0] == 4){
-					meta = Integer.valueOf(70);
-				}
-				if((Integer)detalle[0] == 5){
-					meta = Integer.valueOf(490);
-				}
-				if((Integer)detalle[0] == 6){
-					meta = Integer.valueOf(70);
-				}
-				if((Integer)detalle[0] == 7){
-					meta = Integer.valueOf(70);
-				}
-				if((Integer)detalle[0] == 10){
-					meta = Integer.valueOf(70);
+				
+				if((Integer)detalle[0] != 1 || (Integer)detalle[0] != 18 || (Integer)detalle[0] != 19 ){
+				
+					//if((Integer)detalle[0] == 1){
+					//	meta = Integer.valueOf(3100);
+					//}
+					if((Integer)detalle[0] == 2){
+						meta = Integer.valueOf(350);
+					}
+					if((Integer)detalle[0] == 3){
+						meta = Integer.valueOf(300);
+					}
+					if((Integer)detalle[0] == 4){
+						meta = Integer.valueOf(70);
+					}
+					if((Integer)detalle[0] == 5){
+						meta = Integer.valueOf(490);
+					}
+					if((Integer)detalle[0] == 6){
+						meta = Integer.valueOf(70);
+					}
+					if((Integer)detalle[0] == 7){
+						meta = Integer.valueOf(70);
+					}
+					if((Integer)detalle[0] == 10){
+						meta = Integer.valueOf(70);
+					}
+				
 				}
 				Integer diferencia = (total - meta);
 				

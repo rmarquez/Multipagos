@@ -14,7 +14,7 @@ function searchform(form) {
 	var util = new Packages.com.metropolitana.multipagos.forms.Util();
 	
 	var bean = handler.getControlDiario();
-	var beanIbw = handler.getControlDiario();
+	var beanIbw = handlerIbw.getControlDiario();
 	
 	var usr = handler.getControlSupervisor();
 	var usrIbw = handlerIbw.getControlSupervisor();

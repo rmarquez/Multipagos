@@ -103,6 +103,7 @@
                 </thead>
                 <tbody>
                   <jx:forEach var="itemIbw" items="${beanIbw}" varStatus="status">
+                  <jx:if test="${(itemIbw[0]) != 1 || (itemIbw[0]) != 18 || (itemIbw[0]) != 19}">
                         <tr>
                            <td align="left">${itemIbw[1]}</td>
                            <td>${itemIbw[2]}</td>
@@ -116,7 +117,7 @@
                            		<td><diferenciap>${itemIbw[6]}</diferenciap></td>
                        		</jx:if>                        
                         </tr>
-                        <jx:if test="${(itemIbw[0]) == 1}">
+                        <jx:if test="${(itemIbw[0]) == 10}">
 		                        <tbody>
 					                  <jx:forEach var="itemIbw2" items="${usrIbw}" varStatus="status">
 					                        <tr>
@@ -138,8 +139,10 @@
 					                  </jx:forEach>
 					                </tbody>
 				                
-				           </jx:if>     
+				           </jx:if>   
+				           </jx:if>    
 	                  </jx:forEach>
+	                  
 	                </tbody>
                 
                 

@@ -89,7 +89,17 @@ public class UtilXls2PostgresIbw {
             query = "select * into tmp_excluidos from tmp_ibw where departamento='';";
             ejecutarQuery(connPostgres, query);
             
+            query = "INSERT INTO tmp_excluidos(tmp_id, nombre, apellido, departamento, municipio, barrio, direccion, telefono_c, celular, telefono_t, " +
+            		"cod_cliente, factura_ibw, serie, fecha_factura, fecha_vence, saldo_dol, total_saldo_dol, tecnologia, f_asignado)  " +
+            		"SELECT tmp_id, nombre, apellido, departamento, municipio, barrio, direccion, telefono_c, celular, telefono_t, cod_cliente, factura_ibw, " +
+            		"serie, fecha_factura, fecha_vence, saldo_dol, total_saldo_dol, tecnologia, f_asignado  " +
+            		" FROM tmp_ibw where factura_ibw in (select factura_ibw from cartera_ibw);";
+            ejecutarQuery(connPostgres, query);
+            
             query = "delete from tmp_ibw where departamento='';";
+            ejecutarQuery(connPostgres, query);
+            
+            query = "delete from tmp_ibw where factura_ibw in (select factura_ibw from cartera_ibw);";
             ejecutarQuery(connPostgres, query);
             
             query = "update tmp_ibw set departamento = 'MANAGUA' where departamento like '%MANAGUA%';";

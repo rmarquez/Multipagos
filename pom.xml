@@ -67,7 +67,7 @@
     <repository>
       <id>multipagos-repo</id>
       <name>Repositorio Maven en Multipagos.</name>
-      <url>http://72.167.33.13:8080/artifactory/multipagos-local</url>
+      <url>http://38.89.160.60:8080/artifactory/multipagos-local</url>
     </repository>
   </repositories>
   <pluginRepositories>
